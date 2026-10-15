@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 44" role="img" aria-label="Mon Devis Déménagement">
+  <!-- Marque : un carton vu de face, sa bande de scotch kraft, et la flèche
+       du déménagement qui en sort. Le carton reste lisible à 24 px. -->
+  <g>
+    <rect x="1.6" y="4.6" width="34.8" height="34.8" rx="10" fill="#0C3B2E"/>
+    <rect x="16.2" y="4.6" width="5.6" height="34.8" fill="#EADBC4" opacity=".85"/>
+    <path d="M11 26.5 19 18.5 27 26.5" fill="none" stroke="#fff" stroke-width="3.1"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M19 18.9V30" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/>
+  </g>
+  <text x="46" y="20.3" font-family="'Plus Jakarta Sans',system-ui,sans-serif"
+        font-size="14.5" font-weight="800" fill="#0C3B2E" letter-spacing="-.45">Mon Devis</text>
+  <text x="46" y="35.6" font-family="'Plus Jakarta Sans',system-ui,sans-serif"
+        font-size="14.5" font-weight="500" fill="#4C5551" letter-spacing="-.2">Déménagement</text>
+</svg>

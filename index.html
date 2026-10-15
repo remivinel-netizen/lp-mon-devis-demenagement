@@ -1,0 +1,1463 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Combien coûte votre déménagement ? Estimation gratuite en 1 minute — Mon Devis Déménagement</title>
+<meta name="description" content="Estimez le volume et le budget de votre déménagement en 1 minute, puis recevez jusqu'à 6 devis de déménageurs vérifiés. Gratuit, sans engagement.">
+<meta name="theme-color" content="#0C3B2E">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://mon-devis-demenagement.fr/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Mon Devis Déménagement">
+<meta property="og:title" content="Combien coûte votre déménagement ?">
+<meta property="og:description" content="Estimation du volume et du budget en 1 minute, puis jusqu'à 6 devis de déménageurs vérifiés. Gratuit, sans engagement.">
+
+<!-- Les deux polices du hero sont préchargées : elles portent le H1 et le
+     formulaire, soit tout ce qui est visible au premier écran. Le reste de la
+     page n'utilise aucune autre fonte. -->
+<link rel="preload" href="fonts/jakarta-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- GTM — décommenter et remplacer GTM-XXXXXXX avant mise en ligne.
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+
+<style>
+/* ──────────────────────────────────────────────────────────────────────────
+   CHARTE — Mon Devis Déménagement
+   Le secteur est entièrement bleu : officiel-demenagement, nextories et
+   demenagement24 utilisent tous les trois le même bleu corporate. On prend
+   donc le contre-pied avec un vert forêt profond + un kraft de carton, qui
+   dit le métier (le carton) au lieu de dire la catégorie (le bleu).
+   Les contrastes ci-dessous sont mesurés, pas estimés.
+   ────────────────────────────────────────────────────────────────────────── */
+:root{
+  /* Ancre de marque. 12,50 sur blanc et 11,70 sur sable : porte les titres
+     comme les grands aplats, et le blanc dessus tient à 12,50. */
+  --foret:#0C3B2E;  --foret-2:#14543F;
+  /* Teintes douces pour les blocs. Décoratives : aucun texte ne s'y mesure. */
+  --menthe:#D6EADF; --menthe-pale:#EBF5EF;
+  /* Le carton. --kraft sert de fond clair (l'encre y tient à 12,13),
+     --kraft-fonce reste décoratif : filets, bandes de scotch, séparateurs. */
+  --kraft:#EADBC4;  --kraft-fonce:#D9B98B;
+  --sable:#FBF7F0;  --white:#fff;
+  /* Signal d'action. --brique passe AA en texte normal (4,95 sur blanc,
+     4,64 sur sable) et porte le blanc à 4,95 : c'est la couleur des boutons.
+     --brique-fonce (7,10) prend le relais dès que la brique devient du petit
+     texte. --brique-vif tombe à 3,71 : décor et survol uniquement, jamais
+     de texte courant. */
+  --brique:#C4461E; --brique-fonce:#9E3415; --brique-vif:#E05A2B;
+  --ink:#1B201E; --ink-2:#4C5551; --ink-3:#6B746F;
+  --line:rgba(27,32,30,.10); --line-2:rgba(27,32,30,.17);
+  --err:#B3261E;
+  --r-lg:30px; --r-md:20px; --r-sm:13px;
+  --ease:cubic-bezier(.32,.72,0,1);
+  --shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 34px 70px -28px rgba(12,59,46,.46), 0 0 0 1px rgba(27,32,30,.05);
+  --shadow-sm:0 10px 26px -14px rgba(12,59,46,.38), 0 0 0 1px rgba(27,32,30,.06);
+  --font:'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --serif:'Instrument Serif', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --wrap:1200px;
+}
+
+@font-face{font-family:'Plus Jakarta Sans';src:url(fonts/jakarta-latin.woff2) format('woff2');font-weight:400 800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Plus Jakarta Sans';src:url(fonts/jakarta-latin-ext.woff2) format('woff2');font-weight:400 800;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Instrument Serif';src:url(fonts/instrument-italic-latin.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Serif';src:url(fonts/instrument-italic-latin-ext.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+body{margin:0;background:var(--sable);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+h1,h2,h3,h4{margin:0;line-height:1.1;letter-spacing:-.025em;font-weight:800}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.005em}
+.wrap{width:min(100% - 36px, var(--wrap));margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:where(a,button,input,select,summary,label.opt):focus-visible{outline:3px solid var(--brique-vif);outline-offset:2px;border-radius:8px}
+
+/* ── Boutons ─────────────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;
+  font-weight:700;font-size:16.5px;letter-spacing:-.012em;padding:17px 28px;border-radius:999px;
+  text-decoration:none;transition:transform .16s var(--ease),background .16s,box-shadow .16s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn--brique{background:var(--brique);color:#fff;box-shadow:0 12px 26px -12px rgba(196,70,30,.75)}
+.btn--brique:hover{background:var(--brique-fonce)}
+.btn--foret{background:var(--foret);color:#fff}
+.btn--foret:hover{background:var(--foret-2)}
+.btn--ghost{background:transparent;color:var(--foret);box-shadow:inset 0 0 0 2px var(--line-2)}
+.btn--ghost:hover{box-shadow:inset 0 0 0 2px var(--foret)}
+.btn--lg{padding:20px 34px;font-size:18px}
+.btn--full{width:100%}
+.ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ── En-tête ─────────────────────────────────────────────────────────────── */
+.hdr{position:relative;z-index:30;background:var(--sable);border-bottom:1px solid var(--line)}
+.hdr__in{display:flex;align-items:center;gap:20px;padding:13px 0;justify-content:space-between}
+.hdr__logo{display:flex;align-items:center;text-decoration:none}
+.hdr__logo img{width:188px;height:auto;display:block}
+.hdr__r{display:flex;align-items:center;gap:22px}
+.tel{display:flex;align-items:center;gap:10px;text-decoration:none}
+.tel__ico{width:40px;height:40px;border-radius:50%;background:var(--menthe);color:var(--foret);display:grid;place-items:center;flex:none}
+.tel__ico .ico{width:19px;height:19px}
+.tel b{display:block;font-size:16px;letter-spacing:-.015em;color:var(--foret)}
+.tel small{display:block;font-size:12.5px;color:var(--ink-3);line-height:1.3}
+@media (max-width:900px){.hdr__logo img{width:150px}.tel small{display:none}.hdr .btn{display:none}}
+@media (max-width:560px){.tel b{display:none}.hdr__in{padding:11px 0}}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.hero{position:relative;background:var(--foret);color:#fff;overflow:clip;padding:clamp(34px,5vw,62px) 0 clamp(46px,6vw,78px)}
+/* Fond : un dégradé profond, une bande de scotch kraft en diagonale et un
+   tracé d'itinéraire pointillé. Tout est en CSS/SVG — aucune image à charger
+   avant le premier rendu, le formulaire s'affiche donc immédiatement. */
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 8% 0%, #1A6B4F 0%, transparent 55%),
+             radial-gradient(90% 80% at 100% 100%, #0A3327 0%, transparent 60%)}
+.hero__tape{position:absolute;top:-70px;right:-130px;width:420px;height:150px;transform:rotate(-24deg);
+  background:repeating-linear-gradient(90deg,var(--kraft-fonce) 0 26px,#CDAB7A 26px 30px);opacity:.13;border-radius:4px}
+.hero__route{position:absolute;left:0;right:0;bottom:-6px;height:190px;opacity:.16;pointer-events:none}
+.hero__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(28px,4vw,58px);align-items:start}
+.hero__copy{padding-top:clamp(4px,2vw,26px)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--kraft);background:rgba(234,219,196,.12);
+  padding:8px 15px;border-radius:999px;margin-bottom:20px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--kraft-fonce);flex:none}
+h1{font-size:clamp(35px,5.4vw,60px);letter-spacing:-.035em}
+h1 .em{color:var(--kraft);font-size:1.07em;line-height:.95;display:inline-block}
+.hero__sub{margin-top:20px;font-size:clamp(16.5px,1.65vw,19.5px);line-height:1.55;color:rgba(255,255,255,.86);max-width:30em}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;padding:0;list-style:none}
+.chips li{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.17);padding:9px 15px;border-radius:999px}
+.chips .ico{width:15px;height:15px;color:var(--kraft);stroke-width:2.6}
+.hero__proof{margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);
+  display:grid;grid-template-columns:repeat(3,auto);gap:26px;justify-content:start}
+.hero__proof b{display:block;font-size:26px;letter-spacing:-.03em;line-height:1.1}
+.hero__proof span{display:block;font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.35;margin-top:3px}
+@media (max-width:1000px){
+  /* Sous 1000 px le formulaire passerait sous les arguments, soit ~1 200 px
+     plus bas : sur mobile il ne serait jamais vu. display:contents fait
+     remonter les enfants de .hero__copy au rang d'éléments de grille, ce qui
+     permet d'intercaler la carte entre l'accroche et les arguments. */
+  .hero__in{grid-template-columns:1fr;text-align:center;row-gap:0}
+  .hero__copy{display:contents}
+  .eyebrow{order:1}
+  h1{order:2}
+  .hero__sub{order:3;margin-inline:auto;margin-bottom:26px}
+  .quiz{order:4;text-align:left}
+  .chips{order:5;justify-content:center;margin-top:30px}
+  .hero__proof{order:6;justify-content:center;grid-template-columns:repeat(3,1fr);
+    max-width:480px;margin-inline:auto;text-align:center;gap:14px}
+}
+@media (max-width:560px){
+  .hero{padding-top:24px}
+  h1{font-size:clamp(31px,8.6vw,38px)}
+  .hero__sub{font-size:16px;margin-top:16px}
+  .eyebrow{margin-bottom:16px;font-size:12.5px;padding:7px 13px}
+  .hero__proof b{font-size:21px}
+  .hero__proof span{font-size:12px}
+}
+
+/* ── Carte formulaire ────────────────────────────────────────────────────── */
+.quiz{background:var(--white);color:var(--ink);border-radius:var(--r-lg);box-shadow:var(--shadow);
+  overflow:hidden;position:relative;scroll-margin-top:18px}
+.quiz__top{padding:21px 26px 0}
+.quiz__ttl{font-size:19px;letter-spacing:-.025em}
+.quiz__meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:5px}
+.quiz__meta p{font-size:13.5px;color:var(--ink-3)}
+.quiz__count{font-size:13px;font-weight:700;color:var(--foret);font-variant-numeric:tabular-nums;flex:none}
+.bar{height:5px;border-radius:999px;background:var(--menthe);overflow:hidden;margin-top:13px}
+.bar i{display:block;height:100%;width:0;background:var(--brique);border-radius:999px;transition:width .4s var(--ease)}
+.quiz__view{padding:22px 26px 26px}
+@media (max-width:560px){.quiz__top{padding:18px 18px 0}.quiz__view{padding:18px}}
+
+.step{display:none;border:0;padding:0;margin:0;min-width:0}
+.step.is-on{display:block;animation:in .34s var(--ease) both}
+@keyframes in{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.step__q{font-size:21px;font-weight:800;letter-spacing:-.028em;line-height:1.2;padding:0;display:block}
+.step__hint{font-size:14px;color:var(--ink-3);margin-top:7px;line-height:1.45}
+.opts{display:grid;gap:9px;margin-top:17px}
+.opts--2{grid-template-columns:1fr 1fr}
+@media (max-width:420px){.opts--2{grid-template-columns:1fr}}
+.opt{position:relative;display:flex;align-items:center;gap:13px;padding:13px 15px;border-radius:var(--r-sm);
+  background:var(--sable);box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;
+  transition:box-shadow .15s,background .15s,transform .15s var(--ease)}
+.opt:hover{background:var(--menthe-pale);box-shadow:inset 0 0 0 1.5px var(--foret)}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt__ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:none;background:var(--menthe);color:var(--foret)}
+.opt__ico .ico{width:20px;height:20px}
+.opt__txt{flex:1;font-weight:700;font-size:15.5px;letter-spacing:-.015em;line-height:1.25;min-width:0}
+.opt__txt small{display:block;font-weight:500;font-size:13px;color:var(--ink-3);margin-top:2px;letter-spacing:0}
+.opt__tick{width:22px;height:22px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 2px var(--line-2);display:grid;place-items:center}
+.opt__tick svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .15s}
+.opt input:checked ~ .opt__tick{background:var(--foret);box-shadow:none}
+.opt input:checked ~ .opt__tick svg{opacity:1}
+.opt:has(input:checked){background:var(--menthe-pale);box-shadow:inset 0 0 0 2px var(--foret)}
+.opt input:focus-visible ~ .opt__tick{outline:3px solid var(--brique-vif);outline-offset:2px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:17px}
+.grid2--cp{grid-template-columns:128px 1fr}
+@media (max-width:460px){.grid2,.grid2--cp{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-size:13px;font-weight:700;color:var(--ink-2);letter-spacing:-.005em}
+.field input,.field select{width:100%;padding:13px 14px;border-radius:var(--r-sm);border:1.5px solid var(--line-2);
+  background:var(--white);font:inherit;font-size:16px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field select:focus{outline:0;border-color:var(--foret);box-shadow:0 0 0 3px var(--menthe)}
+.field input[aria-invalid="true"],.field select[aria-invalid="true"]{border-color:var(--err);box-shadow:0 0 0 3px rgba(179,38,30,.13)}
+.field select{appearance:none;cursor:pointer;padding-right:40px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234C5551' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;background-size:17px}
+.tel-f{display:flex;align-items:stretch}
+.tel-f .cc{display:grid;place-items:center;padding:0 13px;border:1.5px solid var(--line-2);border-right:0;
+  border-radius:var(--r-sm) 0 0 var(--r-sm);background:var(--sable);font-weight:700;font-size:15px;color:var(--ink-2)}
+.tel-f input{border-radius:0 var(--r-sm) var(--r-sm) 0}
+.note{font-size:13px;margin-top:9px;color:var(--ink-3);line-height:1.45;min-height:1px}
+.note.bad{color:var(--err);font-weight:600}
+.note.ok{color:var(--foret);font-weight:600}
+.communes{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.communes:empty{margin:0}
+.cmn{border:1.5px solid var(--line-2);background:var(--white);border-radius:999px;padding:8px 14px;
+  font-size:14px;font-weight:600;cursor:pointer;transition:.14s}
+.cmn:hover{border-color:var(--foret);background:var(--menthe-pale)}
+.cmn[aria-pressed="true"]{background:var(--foret);border-color:var(--foret);color:#fff}
+.acts{display:flex;gap:10px;margin-top:19px}
+.acts .btn{flex:1}
+.consent{display:flex;gap:12px;align-items:flex-start;margin-top:17px;padding:14px;border-radius:var(--r-sm);
+  background:var(--sable);cursor:pointer}
+.consent p{font-size:12.6px;color:var(--ink-2);line-height:1.45}
+.sw{position:relative;flex:none;width:44px;height:26px;border-radius:999px;background:var(--line-2);transition:background .18s}
+.sw input{position:absolute;opacity:0;width:0;height:0}
+.sw span{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.26);transition:transform .2s var(--ease)}
+.sw:has(input:checked){background:var(--foret)}
+.sw:has(input:checked) span{transform:translateX(18px)}
+.sw:has(input:focus-visible){outline:3px solid var(--brique-vif);outline-offset:2px}
+.back{background:0;border:0;padding:6px 2px;margin-top:14px;cursor:pointer;color:var(--ink-3);
+  font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.back:hover{color:var(--foret)}
+.back .ico{width:15px;height:15px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.quiz__foot{padding:0 26px 22px;display:flex;align-items:center;gap:9px;font-size:12.4px;color:var(--ink-3)}
+.quiz__foot .ico{width:15px;height:15px;color:var(--foret);flex:none}
+@media (max-width:560px){.quiz__foot{padding:0 18px 18px}}
+
+/* Panneau d'estimation — l'argument qui fait finir le formulaire : le
+   visiteur voit son chiffre avant de donner ses coordonnées. */
+.est{margin-top:16px;border-radius:var(--r-md);background:var(--foret);color:#fff;padding:17px 19px;display:none}
+.est.is-on{display:block;animation:in .36s var(--ease) both}
+.est__h{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--kraft);display:flex;align-items:center;gap:7px}
+.est__h .ico{width:14px;height:14px;stroke-width:2.6}
+.est__row{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-top:9px}
+.est__v{font-size:28px;font-weight:800;letter-spacing:-.035em;font-variant-numeric:tabular-nums;line-height:1.05}
+.est__u{font-size:14px;color:rgba(255,255,255,.75);font-weight:600}
+.est__d{font-size:13px;color:rgba(255,255,255,.78);margin-top:8px;line-height:1.45;display:flex;align-items:flex-start;gap:7px}
+.est__d .ico{width:14px;height:14px;margin-top:3px;flex:none;color:var(--kraft)}
+
+/* ── Rubans et sections ──────────────────────────────────────────────────── */
+section{padding:clamp(54px,7vw,92px) 0}
+.sec-h{max-width:40ch;margin-bottom:clamp(30px,4vw,46px)}
+.sec-h.ctr{margin-inline:auto;text-align:center}
+.sec-h .kicker{display:block;font-size:13.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brique-fonce);margin-bottom:13px}
+.sec-h h2{font-size:clamp(28px,3.9vw,45px)}
+.sec-h h2 .em{color:var(--brique-fonce);font-size:1.06em}
+.sec-h p{margin-top:16px;font-size:17.5px;color:var(--ink-2);line-height:1.55}
+
+.band{background:var(--white);border-block:1px solid var(--line);padding:clamp(34px,4vw,48px) 0}
+.band__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,34px)}
+.band__i .ico{width:26px;height:26px;color:var(--foret);stroke-width:1.9}
+.band__i h3{font-size:16.5px;margin-top:12px;letter-spacing:-.022em}
+.band__i p{font-size:14.5px;color:var(--ink-2);margin-top:7px;line-height:1.5}
+@media (max-width:860px){.band__g{grid-template-columns:1fr 1fr;gap:26px}}
+@media (max-width:520px){.band__g{grid-template-columns:1fr}}
+
+/* Étapes */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);counter-reset:s}
+.stp{background:var(--white);border-radius:var(--r-md);padding:28px;box-shadow:var(--shadow-sm);position:relative;counter-increment:s}
+.stp::before{content:counter(s);position:absolute;top:-16px;left:28px;width:42px;height:42px;border-radius:50%;
+  background:var(--brique);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px;
+  box-shadow:0 10px 22px -10px rgba(196,70,30,.8)}
+.stp h3{font-size:19px;margin-top:17px;letter-spacing:-.025em}
+.stp p{font-size:15.5px;color:var(--ink-2);margin-top:9px;line-height:1.55}
+.stp .tag{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:700;color:var(--foret);
+  background:var(--menthe);padding:6px 12px;border-radius:999px}
+@media (max-width:860px){.steps{grid-template-columns:1fr;gap:28px}}
+
+/* Tableau des prix */
+.prix{background:var(--foret);color:#fff}
+.prix .sec-h h2 .em{color:var(--kraft)}
+.prix .sec-h p{color:rgba(255,255,255,.8)}
+.prix .sec-h .kicker{color:var(--kraft)}
+.tbl-w{overflow-x:auto;border-radius:var(--r-md);background:rgba(255,255,255,.055);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.13);-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:620px;font-variant-numeric:tabular-nums}
+thead th{text-align:left;font-size:12.6px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--kraft);padding:17px 18px;border-bottom:1px solid rgba(255,255,255,.17);white-space:nowrap}
+tbody td{padding:15px 18px;font-size:15.5px;border-bottom:1px solid rgba(255,255,255,.09)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:rgba(255,255,255,.045)}
+tbody th{text-align:left;padding:15px 18px;font-size:15.5px;font-weight:800;letter-spacing:-.015em;
+  border-bottom:1px solid rgba(255,255,255,.09);white-space:nowrap}
+tbody tr:last-child th{border-bottom:0}
+tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,255,.64);margin-top:2px}
+.tbl-note{font-size:13.5px;color:rgba(255,255,255,.66);margin-top:16px;line-height:1.5;max-width:70ch}
+.prix__cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.prix__cta .hint{font-size:14.5px;color:rgba(255,255,255,.76)}
+
+/* Facteurs de prix */
+.fact{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:34px}
+.fct{background:rgba(255,255,255,.06);border-radius:var(--r-sm);padding:17px 19px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.fct h4{font-size:15px;display:flex;align-items:center;gap:9px;letter-spacing:-.02em}
+.fct h4 .ico{width:17px;height:17px;color:var(--kraft);flex:none}
+.fct p{font-size:13.8px;color:rgba(255,255,255,.75);margin-top:7px;line-height:1.5}
+@media (max-width:860px){.fact{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.fact{grid-template-columns:1fr}}
+
+/* Formules */
+.forms{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);align-items:start}
+.frm{background:var(--white);border-radius:var(--r-md);padding:28px 26px;box-shadow:var(--shadow-sm);position:relative;height:100%}
+.frm--hi{box-shadow:0 0 0 2.5px var(--foret),var(--shadow-sm)}
+.frm__flag{position:absolute;top:-13px;left:26px;background:var(--foret);color:#fff;font-size:12px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+.frm h3{font-size:21px;letter-spacing:-.028em}
+.frm__p{font-size:14px;color:var(--ink-3);margin-top:6px}
+.frm__p b{color:var(--brique-fonce);font-size:17px;font-weight:800;letter-spacing:-.02em}
+.frm ul{list-style:none;padding:0;margin:19px 0 0;display:grid;gap:10px}
+.frm li{display:flex;gap:10px;font-size:14.8px;line-height:1.45;color:var(--ink-2)}
+.frm li .ico{width:17px;height:17px;flex:none;margin-top:3px;color:var(--foret);stroke-width:2.6}
+.frm li.no{color:var(--ink-3)}
+.frm li.no .ico{color:var(--ink-3);opacity:.6}
+@media (max-width:900px){.forms{grid-template-columns:1fr}.frm{height:auto}}
+
+/* Inclus */
+.incl{background:var(--kraft)}
+.incl__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,20px)}
+.inc{background:rgba(255,255,255,.62);border-radius:var(--r-md);padding:24px;box-shadow:inset 0 0 0 1px rgba(12,59,46,.09)}
+.inc .ico{width:25px;height:25px;color:var(--foret)}
+.inc h3{font-size:16px;margin-top:13px;letter-spacing:-.022em}
+.inc p{font-size:14.2px;color:var(--ink-2);margin-top:7px;line-height:1.5}
+@media (max-width:900px){.incl__g{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.incl__g{grid-template-columns:1fr}}
+
+/* Vérification des déménageurs */
+.verif{background:var(--white)}
+.verif__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:clamp(28px,4vw,62px);align-items:center}
+.vlist{list-style:none;padding:0;margin:0;display:grid;gap:3px}
+.vlist li{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.vlist li:last-child{border-bottom:0}
+.vlist .n{width:30px;height:30px;border-radius:9px;background:var(--menthe);color:var(--foret);display:grid;
+  place-items:center;font-size:13.5px;font-weight:800;flex:none}
+.vlist h3{font-size:16.5px;letter-spacing:-.022em}
+.vlist p{font-size:14.5px;color:var(--ink-2);margin-top:5px;line-height:1.5}
+@media (max-width:950px){.verif__in{grid-template-columns:1fr}}
+
+/* Avis */
+.avis__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+.avi{background:var(--white);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.stars{display:flex;gap:3px;color:var(--brique)}
+.stars .ico{width:17px;height:17px;fill:currentColor;stroke:none}
+.avi blockquote{margin:14px 0 0;font-size:15.5px;line-height:1.6;color:var(--ink);flex:1}
+.avi figcaption{margin-top:17px;padding-top:15px;border-top:1px solid var(--line);font-size:13.8px;color:var(--ink-3)}
+.avi figcaption b{display:block;color:var(--ink);font-size:14.8px;letter-spacing:-.015em}
+@media (max-width:900px){.avis__g{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{background:var(--white)}
+.faq__l{display:grid;gap:9px;max-width:860px;margin-inline:auto}
+details{background:var(--sable);border-radius:var(--r-sm);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+details[open]{box-shadow:inset 0 0 0 1.5px var(--foret);background:var(--menthe-pale)}
+summary{cursor:pointer;list-style:none;padding:19px 22px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary .ico{width:20px;height:20px;flex:none;color:var(--foret);transition:transform .22s var(--ease)}
+details[open] summary .ico{transform:rotate(45deg)}
+details .a{padding:0 22px 20px;font-size:15.5px;color:var(--ink-2);line-height:1.6;max-width:72ch}
+details .a p + p{margin-top:11px}
+
+/* CTA final */
+.final{background:var(--foret);color:#fff;text-align:center;position:relative;overflow:clip}
+.final::after{content:"";position:absolute;inset:auto -10% -60% -10%;height:340px;
+  background:radial-gradient(60% 100% at 50% 100%, rgba(234,219,196,.17), transparent 70%)}
+.final__in{position:relative;max-width:720px;margin-inline:auto}
+.final h2{font-size:clamp(28px,4vw,46px)}
+.final h2 .em{color:var(--kraft);font-size:1.06em}
+.final p{margin-top:17px;font-size:18px;color:rgba(255,255,255,.84);line-height:1.55}
+.final .btn{margin-top:30px}
+.final .mini{margin-top:17px;font-size:13.8px;color:rgba(255,255,255,.62)}
+
+/* Pied */
+.ftr{background:#07271E;color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14.3px}
+.ftr__g{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px}
+.ftr h4{color:#fff;font-size:14.5px;margin-bottom:14px;letter-spacing:-.015em}
+.ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.ftr a{text-decoration:none;transition:color .15s}
+.ftr a:hover{color:#fff;text-decoration:underline}
+.ftr__logo{width:180px;margin-bottom:15px}
+.ftr__legal{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);
+  display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;font-size:12.8px;color:rgba(255,255,255,.52)}
+@media (max-width:880px){.ftr__g{grid-template-columns:1fr 1fr;gap:28px}}
+@media (max-width:520px){.ftr__g{grid-template-columns:1fr}}
+
+/* Barre collante mobile */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+  background:rgba(251,247,240,.93);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  display:none;gap:11px;align-items:center;transform:translateY(110%);transition:transform .3s var(--ease)}
+.sticky.is-on{transform:none}
+.sticky .btn{flex:1}
+.sticky__tel{width:52px;height:52px;border-radius:50%;background:var(--menthe);color:var(--foret);
+  display:grid;place-items:center;flex:none;text-decoration:none}
+.sticky__tel .ico{width:21px;height:21px}
+@media (max-width:1000px){.sticky{display:flex}body{padding-bottom:84px}}
+</style>
+</head>
+<body>
+
+<!-- GTM noscript — décommenter avec le snippet du head.
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.5 6.5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.3 3.5h3l1.5 3.8-1.9 1.2a11 11 0 0 0 5.6 5.6l1.2-1.9 3.8 1.5v3a1.8 1.8 0 0 1-2 1.8A15.6 15.6 0 0 1 4.5 5.5a1.8 1.8 0 0 1 1.8-2Z"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7.6 12 3l9 4.6v8.8L12 21l-9-4.6Z"/><path d="M3 7.6 12 12m0 9v-9m9-4.4L12 12"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.4 12 4l8 6.4V20H4Z"/><path d="M9.6 20v-5.6h4.8V20"/></symbol>
+<symbol id="i-build" viewBox="0 0 24 24"><path d="M5 21V4.5A1.5 1.5 0 0 1 6.5 3h7A1.5 1.5 0 0 1 15 4.5V21"/><path d="M15 10h3.5A1.5 1.5 0 0 1 20 11.5V21M3 21h18M8.4 7h3M8.4 11h3M8.4 15h3"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10.4c0 5-7 11-7 11s-7-6-7-11a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10.2" r="2.6"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V4M5.5 4.8h11l-2.2 3.6 2.2 3.6h-11"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5.2" width="17" height="15.3" rx="2.4"/><path d="M3.5 10h17M8.4 3v4.2M15.6 3v4.2"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.2 2.5 4.8 13.4h6L10 21.5l8.6-11h-6.2Z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"/><path d="m16 16 4.2 4.2"/></symbol>
+<symbol id="i-euro" viewBox="0 0 24 24"><path d="M17.6 6.2a6.8 6.8 0 0 0-9.8 2.3 8 8 0 0 0 0 7 6.8 6.8 0 0 0 9.8 2.3M4.8 10.2h8M4.8 13.9h8"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8 4.8 5.8v6.1c0 4.3 3 7.6 7.2 9.3 4.2-1.7 7.2-5 7.2-9.3V5.8Z"/><path d="m8.9 12 2.2 2.2 4-4.3"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.6" y="10.3" width="14.8" height="10.2" rx="2.4"/><path d="M8.2 10.3V7.6a3.8 3.8 0 0 1 7.6 0v2.7"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.1 2"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V9.6M10 20V4.5M16 20v-7.4M21.4 20H2.6"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.3" cy="8.2" r="3.5"/><path d="M3 20a6.3 6.3 0 0 1 12.6 0M16.4 5.1a3.5 3.5 0 0 1 0 6.3M18 20a6.3 6.3 0 0 0-2-4.6"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.8H7a2 2 0 0 0-2 2v14.4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.8Z"/><path d="M14 2.8v5h5M8.6 13h6.8M8.6 16.6h4.4"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9Z"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.8 6.4h10.6v10.2H2.8zM13.4 9.8h3.9l2.9 3v3.8h-6.8z"/><circle cx="7" cy="18.6" r="1.9"/><circle cx="16.6" cy="18.6" r="1.9"/></symbol>
+<symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20.5h4.3v-4.3h4.3v-4.3h4.3V7.6H20V3.5"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.3M12 19.1v2.3M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.6 12h2.3M19.1 12h2.3M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></symbol>
+<symbol id="i-piano" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7.5 5v8M12 5v8M16.5 5v8M3 13h18"/></symbol>
+</defs></svg>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="#top" aria-label="Mon Devis Déménagement, accueil">
+      <img src="img/logo.svg" alt="Mon Devis Déménagement" width="188" height="33">
+    </a>
+    <div class="hdr__r">
+      <!-- ⚠ À VALIDER : numéro et horaires à remplacer par ceux du client. -->
+      <a class="tel" href="tel:+33180000000">
+        <span class="tel__ico"><svg class="ico"><use href="#i-phone"/></svg></span>
+        <span><b>01 80 00 00 00</b><small>Lundi — samedi, 9h à 19h</small></span>
+      </a>
+      <a class="btn btn--brique" href="#devis" data-cta="header">Estimer mon déménagement</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero__tape" aria-hidden="true"></div>
+  <svg class="hero__route" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-20 150 C 220 60, 420 170, 650 110 S 1080 30, 1460 120" fill="none"
+          stroke="#EADBC4" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap hero__in">
+
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="dot"></span>Comparateur de déménageurs</p>
+      <h1>Combien coûte <span class="em">votre déménagement&nbsp;?</span></h1>
+      <p class="hero__sub">
+        Cinq questions, une minute. Vous voyez tout de suite le volume à déplacer
+        et le budget à prévoir — puis vous recevez jusqu'à six devis de
+        déménageurs vérifiés près de chez vous.
+      </p>
+      <ul class="chips">
+        <li><svg class="ico"><use href="#i-check"/></svg>Gratuit et sans engagement</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Déménageurs vérifiés</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Estimation immédiate</li>
+      </ul>
+      <div class="hero__proof">
+        <div><b>6</b><span>devis maximum,<br>jamais plus</span></div>
+        <div><b>1 min</b><span>pour décrire<br>votre projet</span></div>
+        <div><b>24&nbsp;h</b><span>pour les premiers<br>retours</span></div>
+      </div>
+    </div>
+
+    <div class="quiz" id="devis">
+      <div class="quiz__top">
+        <h2 class="quiz__ttl">Votre estimation gratuite</h2>
+        <div class="quiz__meta">
+          <p>Aucune obligation de donner suite.</p>
+          <span class="quiz__count" id="q-count">1 / 6</span>
+        </div>
+        <div class="bar"><i id="q-bar"></i></div>
+      </div>
+
+      <!-- L'endpoint vit dans data-endpoint. Tant qu'il contient REMPLACER,
+           l'envoi est simulé et le payload s'affiche dans la console : la page
+           est donc testable telle quelle, sans fuiter de lead nulle part. -->
+      <form id="q-form" class="quiz__view" novalidate data-endpoint="REMPLACER_PAR_VOTRE_WEBHOOK">
+
+        <fieldset class="step is-on" data-step="logement">
+          <legend class="step__q">Quel logement déménagez-vous&nbsp;?</legend>
+          <p class="step__hint">C'est ce qui détermine le volume, donc le prix. Une estimation suffit.</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="logement" value="Studio ou T1" data-vol="12">
+              <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
+              <span class="opt__txt">Studio ou T1<small>environ 12 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="logement" value="2 pièces" data-vol="20">
+              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
+              <span class="opt__txt">2 pièces<small>environ 20 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="logement" value="3 pièces" data-vol="30">
+              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
+              <span class="opt__txt">3 pièces<small>environ 30 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="logement" value="4 pièces" data-vol="40">
+              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
+              <span class="opt__txt">4 pièces<small>environ 40 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="logement" value="5 pièces ou plus" data-vol="55">
+              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
+              <span class="opt__txt">5 pièces ou plus<small>environ 55 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="depart">
+          <legend class="step__q">D'où partez-vous&nbsp;?</legend>
+          <p class="step__hint">L'étage et l'ascenseur changent le temps de chargement — donc le devis.</p>
+          <div class="grid2 grid2--cp">
+            <div class="field">
+              <label for="f-cp1">Code postal</label>
+              <input id="f-cp1" name="cp_depart" type="text" inputmode="numeric" autocomplete="postal-code"
+                     maxlength="5" placeholder="69003" pattern="[0-9]{5}">
+            </div>
+            <div class="field">
+              <label for="f-et1">Étage</label>
+              <select id="f-et1" name="etage_depart">
+                <option value="Rez-de-chaussée">Rez-de-chaussée</option>
+                <option value="1er étage">1er étage</option>
+                <option value="2e étage">2e étage</option>
+                <option value="3e étage">3e étage</option>
+                <option value="4e étage">4e étage</option>
+                <option value="5e étage ou plus">5e étage ou plus</option>
+              </select>
+            </div>
+          </div>
+          <div class="communes" id="q-cmn1" role="group" aria-label="Choisissez votre commune de départ"></div>
+          <p class="note" id="n-cp1" aria-live="polite"></p>
+          <div class="field" style="margin-top:13px">
+            <label for="f-asc1">Ascenseur</label>
+            <select id="f-asc1" name="ascenseur_depart">
+              <option value="Sans objet">Sans objet (rez-de-chaussée ou maison)</option>
+              <option value="Oui">Oui, un ascenseur dessert l'étage</option>
+              <option value="Non">Non, uniquement les escaliers</option>
+            </select>
+          </div>
+          <div class="acts"><button type="button" class="btn btn--foret btn--full" data-next>Continuer</button></div>
+          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
+        </fieldset>
+
+        <fieldset class="step" data-step="arrivee">
+          <legend class="step__q">Et où allez-vous&nbsp;?</legend>
+          <p class="step__hint">On calcule la distance réelle entre les deux communes pour affiner le budget.</p>
+          <div class="grid2 grid2--cp">
+            <div class="field">
+              <label for="f-cp2">Code postal</label>
+              <input id="f-cp2" name="cp_arrivee" type="text" inputmode="numeric" autocomplete="postal-code"
+                     maxlength="5" placeholder="33000" pattern="[0-9]{5}">
+            </div>
+            <div class="field">
+              <label for="f-et2">Étage</label>
+              <select id="f-et2" name="etage_arrivee">
+                <option value="Rez-de-chaussée">Rez-de-chaussée</option>
+                <option value="1er étage">1er étage</option>
+                <option value="2e étage">2e étage</option>
+                <option value="3e étage">3e étage</option>
+                <option value="4e étage">4e étage</option>
+                <option value="5e étage ou plus">5e étage ou plus</option>
+                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+              </select>
+            </div>
+          </div>
+          <div class="communes" id="q-cmn2" role="group" aria-label="Choisissez votre commune d'arrivée"></div>
+          <p class="note" id="n-cp2" aria-live="polite"></p>
+          <div class="field" style="margin-top:13px">
+            <label for="f-asc2">Ascenseur</label>
+            <select id="f-asc2" name="ascenseur_arrivee">
+              <option value="Sans objet">Sans objet (rez-de-chaussée ou maison)</option>
+              <option value="Oui">Oui, un ascenseur dessert l'étage</option>
+              <option value="Non">Non, uniquement les escaliers</option>
+              <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+            </select>
+          </div>
+          <div class="acts"><button type="button" class="btn btn--foret btn--full" data-next>Continuer</button></div>
+          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
+        </fieldset>
+
+        <fieldset class="step" data-step="date">
+          <legend class="step__q">Quand déménagez-vous&nbsp;?</legend>
+          <p class="step__hint">De juin à septembre les camions se remplissent vite : s'y prendre tôt fait baisser les devis.</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="date_demenagement" value="Dès que possible" data-prio="chaud">
+              <span class="opt__ico"><svg class="ico"><use href="#i-bolt"/></svg></span>
+              <span class="opt__txt">Dès que possible</span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="date_demenagement" value="Dans le mois" data-prio="chaud">
+              <span class="opt__ico"><svg class="ico"><use href="#i-cal"/></svg></span>
+              <span class="opt__txt">Dans le mois qui vient</span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="date_demenagement" value="Dans 1 à 3 mois" data-prio="tiede">
+              <span class="opt__ico"><svg class="ico"><use href="#i-cal"/></svg></span>
+              <span class="opt__txt">Dans 1 à 3 mois</span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="date_demenagement" value="Dans plus de 3 mois" data-prio="froid">
+              <span class="opt__ico"><svg class="ico"><use href="#i-clock"/></svg></span>
+              <span class="opt__txt">Dans plus de 3 mois</span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="date_demenagement" value="Je me renseigne" data-prio="froid">
+              <span class="opt__ico"><svg class="ico"><use href="#i-search"/></svg></span>
+              <span class="opt__txt">Je me renseigne pour l'instant</span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+          </div>
+          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
+        </fieldset>
+
+        <fieldset class="step" data-step="formule">
+          <legend class="step__q">Qui emballe les cartons&nbsp;?</legend>
+          <p class="step__hint">C'est le deuxième levier sur le prix, après le volume. Vous pourrez changer d'avis.</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="formule" value="Économique" data-f="eco">
+              <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
+              <span class="opt__txt">Moi, entièrement<small>Formule économique — vous emballez, ils transportent</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="formule" value="Standard" data-f="std">
+              <span class="opt__ico"><svg class="ico"><use href="#i-users"/></svg></span>
+              <span class="opt__txt">Moi, sauf le fragile<small>Formule standard — ils emballent la vaisselle, démontent les meubles</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="formule" value="Clé en main" data-f="cle">
+              <span class="opt__ico"><svg class="ico"><use href="#i-truck"/></svg></span>
+              <span class="opt__txt">Eux, de A à Z<small>Formule clé en main — vous ne touchez pas un carton</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="formule" value="Je ne sais pas encore" data-f="std">
+              <span class="opt__ico"><svg class="ico"><use href="#i-search"/></svg></span>
+              <span class="opt__txt">Je ne sais pas encore<small>Les déménageurs vous chiffreront plusieurs options</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+          </div>
+          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
+        </fieldset>
+
+        <fieldset class="step" data-step="contact">
+          <legend class="step__q">À qui envoie-t-on les devis&nbsp;?</legend>
+          <p class="step__hint">Les déménageurs vous répondent directement. Pas de numéro surtaxé, pas de rappel automatique.</p>
+          <div class="grid2">
+            <div class="field"><label for="f-prenom">Prénom</label>
+              <input id="f-prenom" name="prenom" type="text" autocomplete="given-name" autocapitalize="words" placeholder="Camille"></div>
+            <div class="field"><label for="f-nom">Nom</label>
+              <input id="f-nom" name="nom" type="text" autocomplete="family-name" autocapitalize="words" placeholder="Martin"></div>
+          </div>
+          <div class="field" style="margin-top:11px"><label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email"
+                   autocapitalize="off" spellcheck="false" placeholder="camille.martin@email.fr"></div>
+          <div class="field" style="margin-top:11px"><label for="f-tel">Téléphone</label>
+            <div class="tel-f"><span class="cc">+33</span>
+              <input id="f-tel" name="telephone" type="tel" inputmode="tel" autocomplete="tel-national"
+                     placeholder="06 12 34 56 78" maxlength="14"></div></div>
+          <label class="consent">
+            <span class="sw"><input type="checkbox" id="f-consent" name="consentement"><span></span></span>
+            <p id="consent-txt">J'accepte d'être recontacté par Mon Devis Déménagement et par les déménageurs
+              partenaires sélectionnés pour établir mes devis. Mes données ne sont utilisées que pour cela.</p>
+          </label>
+          <p class="note" id="n-contact" aria-live="polite"></p>
+          <div class="acts"><button type="submit" class="btn btn--brique btn--full btn--lg" id="q-send">Recevoir mes devis gratuits</button></div>
+          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
+        </fieldset>
+
+        <input class="hp" type="text" name="site_web" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </form>
+
+      <div class="quiz__view" style="padding-top:0">
+        <div class="est" id="q-est" aria-live="polite">
+          <p class="est__h"><svg class="ico"><use href="#i-chart"/></svg>Votre estimation</p>
+          <div class="est__row">
+            <span class="est__v" id="est-prix">—</span>
+            <span class="est__u" id="est-vol"></span>
+          </div>
+          <p class="est__d"><svg class="ico"><use href="#i-pin"/></svg><span id="est-det"></span></p>
+        </div>
+      </div>
+
+      <p class="quiz__foot"><svg class="ico"><use href="#i-lock"/></svg>
+        Vos données servent uniquement à établir vos devis. Jamais revendues à des tiers.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap band__g">
+    <div class="band__i">
+      <svg class="ico"><use href="#i-doc"/></svg>
+      <h3>Six devis, pas davantage</h3>
+      <p>Un seul formulaire, jusqu'à six déménageurs qui chiffrent le même projet. Vous comparez à armes égales.</p>
+    </div>
+    <div class="band__i">
+      <svg class="ico"><use href="#i-shield"/></svg>
+      <h3>Des professionnels contrôlés</h3>
+      <p>SIRET actif, licence de transport intérieur et attestation d'assurance vérifiés avant l'entrée au réseau.</p>
+    </div>
+    <div class="band__i">
+      <svg class="ico"><use href="#i-euro"/></svg>
+      <h3>Le devis signé fait foi</h3>
+      <p>Une fois le devis accepté, le prix est ferme. Les suppléments du jour J n'ont rien à y faire.</p>
+    </div>
+    <div class="band__i">
+      <svg class="ico"><use href="#i-check"/></svg>
+      <h3>Gratuit, sans engagement</h3>
+      <p>Le service ne vous coûte rien et vous restez libre de ne donner suite à aucun des devis reçus.</p>
+    </div>
+  </div>
+</div>
+
+<section id="prix" class="prix">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="kicker">Les ordres de grandeur</span>
+      <h2>Ce que coûte un déménagement, <span class="em">sans langue de bois</span></h2>
+      <p>Les fourchettes ci-dessous correspondent à ce qui se pratique en France pour un déménageur
+         professionnel, formule standard. Votre devis dépendra du volume réel, de l'accès et de la saison.</p>
+    </div>
+
+    <div class="tbl-w">
+      <table>
+        <caption class="sr">Fourchettes de prix d'un déménagement par volume et par distance</caption>
+        <thead>
+          <tr>
+            <th scope="col">Logement</th>
+            <th scope="col">Volume</th>
+            <th scope="col">Local <span style="font-weight:500;text-transform:none;letter-spacing:0">(&lt; 50 km)</span></th>
+            <th scope="col">Régional <span style="font-weight:500;text-transform:none;letter-spacing:0">(50–300 km)</span></th>
+            <th scope="col">Longue distance <span style="font-weight:500;text-transform:none;letter-spacing:0">(&gt; 300 km)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Studio ou T1<small>une personne</small></th><td>≈ 12 m³</td><td>480 – 650 €</td><td>600 – 800 €</td><td>750 – 1 000 €</td></tr>
+          <tr><th scope="row">2 pièces<small>couple</small></th><td>≈ 20 m³</td><td>800 – 1 050 €</td><td>1 000 – 1 300 €</td><td>1 250 – 1 600 €</td></tr>
+          <tr><th scope="row">3 pièces<small>famille</small></th><td>≈ 30 m³</td><td>1 200 – 1 550 €</td><td>1 500 – 1 950 €</td><td>1 850 – 2 400 €</td></tr>
+          <tr><th scope="row">4 pièces<small>maison ou grand appartement</small></th><td>≈ 40 m³</td><td>1 600 – 2 100 €</td><td>2 000 – 2 550 €</td><td>2 500 – 3 200 €</td></tr>
+          <tr><th scope="row">5 pièces et plus<small>grande maison</small></th><td>≈ 55 m³</td><td>2 200 – 2 850 €</td><td>2 750 – 3 500 €</td><td>3 400 – 4 400 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">
+      Formule économique : comptez environ 20&nbsp;% de moins. Formule clé en main : environ 25&nbsp;% de plus.
+      Fourchettes indicatives à jour de 2026, hors monte-meuble, garde-meuble et objets hors normes.
+    </p>
+
+    <div class="fact">
+      <div class="fct"><h4><svg class="ico"><use href="#i-box"/></svg>Le volume</h4>
+        <p>Le premier facteur, et de loin. Un tri sérieux avant le déménagement fait baisser la facture plus sûrement que n'importe quelle négociation.</p></div>
+      <div class="fct"><h4><svg class="ico"><use href="#i-pin"/></svg>La distance</h4>
+        <p>Au-delà de 300 km, le déménageur facture aussi le retour du camion — sauf s'il groupe votre chargement avec un autre.</p></div>
+      <div class="fct"><h4><svg class="ico"><use href="#i-stairs"/></svg>L'étage et l'accès</h4>
+        <p>Un 4e sans ascenseur ou une rue où le camion ne peut pas stationner ajoute des heures de main-d'œuvre, parfois un monte-meuble.</p></div>
+      <div class="fct"><h4><svg class="ico"><use href="#i-sun"/></svg>La saison</h4>
+        <p>Juin à septembre, plus les fins de mois et les samedis : c'est la haute saison. Un mardi de novembre coûte sensiblement moins cher.</p></div>
+      <div class="fct"><h4><svg class="ico"><use href="#i-piano"/></svg>Les objets lourds</h4>
+        <p>Piano, coffre-fort, aquarium, œuvres d'art : à signaler dès le devis, ils demandent du matériel et une assurance spécifiques.</p></div>
+      <div class="fct"><h4><svg class="ico"><use href="#i-clock"/></svg>Le délai</h4>
+        <p>Un déménagement calé six semaines à l'avance se négocie. À dix jours, vous prenez ce qui reste disponible.</p></div>
+    </div>
+
+    <div class="prix__cta">
+      <a class="btn btn--brique btn--lg" href="#devis" data-cta="prix">Estimer mon déménagement
+        <svg class="ico"><use href="#i-arrow"/></svg></a>
+      <span class="hint">Une minute, et vous avez votre fourchette.</span>
+    </div>
+  </div>
+</section>
+
+<section id="etapes">
+  <div class="wrap">
+    <div class="sec-h ctr">
+      <span class="kicker">Comment ça marche</span>
+      <h2>Trois étapes, <span class="em">et c'est tout</span></h2>
+    </div>
+    <div class="steps">
+      <div class="stp">
+        <h3>Vous décrivez votre déménagement</h3>
+        <p>Cinq questions sur votre logement, vos adresses et vos dates. Vous obtenez immédiatement une
+           estimation de volume et de budget, avant même de laisser vos coordonnées.</p>
+        <span class="tag">≈ 1 minute</span>
+      </div>
+      <div class="stp">
+        <h3>Nous consultons les déménageurs</h3>
+        <p>Votre projet part aux professionnels vérifiés qui couvrent votre trajet et sont disponibles à
+           votre date. Six au maximum — nous ne diffusons pas votre demande au-delà.</p>
+        <span class="tag">Sous 24 à 48 h</span>
+      </div>
+      <div class="stp">
+        <h3>Vous comparez et vous décidez</h3>
+        <p>Les devis arrivent détaillés, ligne par ligne, sur la même base. Vous choisissez celui qui vous
+           convient — ou aucun, et le dossier s'arrête là.</p>
+        <span class="tag">Sans engagement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formules" style="background:var(--white);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-h ctr">
+      <span class="kicker">Les formules</span>
+      <h2>Vous payez le travail <span class="em">que vous ne faites pas</span></h2>
+      <p>Entre la formule économique et le clé en main, l'écart dépasse souvent 40&nbsp;% sur le même volume.
+         Savoir où vous vous situez évite de comparer des devis qui ne parlent pas de la même chose.</p>
+    </div>
+    <div class="forms">
+      <div class="frm">
+        <h3>Économique</h3>
+        <p class="frm__p">Le prix plancher — <b>vous faites les cartons</b></p>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>Transport et manutention</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Chargement et déchargement</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Assurance de base incluse</li>
+          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Emballage à votre charge</li>
+          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Démontage des meubles à votre charge</li>
+        </ul>
+      </div>
+      <div class="frm frm--hi">
+        <span class="frm__flag">La plus choisie</span>
+        <h3>Standard</h3>
+        <p class="frm__p">Le bon compromis — <b>ils gèrent le fragile</b></p>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>Tout l'économique, plus&nbsp;:</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Emballage de la vaisselle et du fragile</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Démontage et remontage des meubles</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Fourniture des cartons et protections</li>
+          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Déballage à l'arrivée à votre charge</li>
+        </ul>
+      </div>
+      <div class="frm">
+        <h3>Clé en main</h3>
+        <p class="frm__p">Zéro carton pour vous — <b>ils font tout</b></p>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>Tout le standard, plus&nbsp;:</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Emballage intégral, pièce par pièce</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Déballage et rangement à l'arrivée</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Évacuation des cartons vides</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Assurance renforcée possible</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="incl">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="kicker">Ce qui vous attend</span>
+      <h2>Les détails qui <span class="em">changent la journée</span></h2>
+    </div>
+    <div class="incl__g">
+      <div class="inc"><svg class="ico"><use href="#i-box"/></svg>
+        <h3>Les cartons livrés avant</h3>
+        <p>La plupart des déménageurs fournissent cartons, adhésif et papier bulle quelques jours avant. Demandez-le dans le devis.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-shield"/></svg>
+        <h3>Une assurance, deux niveaux</h3>
+        <p>La garantie contractuelle de base couvre une valeur plafonnée par objet. La garantie dommages étend la couverture — comparez les deux.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-doc"/></svg>
+        <h3>Le changement d'adresse</h3>
+        <p>Impôts, Sécurité sociale, CAF, énergie : le service public service-public.fr permet de prévenir plusieurs organismes d'un coup.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-euro"/></svg>
+        <h3>Les aides au déménagement</h3>
+        <p>Prime de déménagement de la CAF à partir de trois enfants, Mobili-Pass d'Action Logement pour une mobilité professionnelle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="verif">
+  <div class="wrap verif__in">
+    <div>
+      <div class="sec-h" style="margin-bottom:22px">
+        <span class="kicker">Notre sélection</span>
+        <h2>Pourquoi on refuse <span class="em">des déménageurs</span></h2>
+        <p>Un comparateur ne vaut que par la qualité de ceux qu'il compare. Voici ce qu'on vérifie
+           avant qu'une entreprise puisse recevoir votre demande.</p>
+      </div>
+      <a class="btn btn--foret" href="#devis" data-cta="verif">Lancer mon estimation
+        <svg class="ico"><use href="#i-arrow"/></svg></a>
+    </div>
+    <ul class="vlist">
+      <li><span class="n">1</span><div><h3>Une existence légale vérifiable</h3>
+        <p>SIRET actif et entreprise inscrite au registre des transporteurs. Les sociétés créées il y a trois semaines n'entrent pas.</p></div></li>
+      <li><span class="n">2</span><div><h3>La licence de transport intérieur</h3>
+        <p>Obligatoire pour déménager contre rémunération. C'est le document que les déménageurs improvisés n'ont jamais.</p></div></li>
+      <li><span class="n">3</span><div><h3>Une assurance à jour</h3>
+        <p>Responsabilité civile professionnelle et garantie des biens transportés, attestation en cours de validité à l'appui.</p></div></li>
+      <li><span class="n">4</span><div><h3>Des devis lisibles</h3>
+        <p>Volume, formule, main-d'œuvre et assurance détaillés séparément. Un devis à une seule ligne n'est pas comparable.</p></div></li>
+      <li><span class="n">5</span><div><h3>Un suivi des litiges</h3>
+        <p>Les retours clients remontent. Une entreprise qui accumule les incidents non traités sort du réseau.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     ⚠ PLACEHOLDER — ces trois avis sont des EXEMPLES de mise en forme.
+     Ils doivent être remplacés par de vrais avis clients (avec autorisation)
+     AVANT toute mise en ligne. Voir la section « À compléter » du README.
+     ════════════════════════════════════════════════════════════════════════ -->
+<section id="avis" style="background:var(--menthe-pale)">
+  <div class="wrap">
+    <div class="sec-h ctr">
+      <span class="kicker">Ils ont déménagé</span>
+      <h2>Ce qu'en disent <span class="em">les déménagés</span></h2>
+    </div>
+    <div class="avis__g" id="avis-g"></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-h ctr">
+      <span class="kicker">Questions fréquentes</span>
+      <h2>Ce qu'on nous demande <span class="em">le plus souvent</span></h2>
+    </div>
+    <div class="faq__l">
+
+      <details><summary>Le service est-il vraiment gratuit&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Oui, pour vous. Vous ne payez ni l'estimation, ni la mise en relation, ni les devis.
+          Notre rémunération vient des déménageurs du réseau, qui nous versent une commission lorsqu'un
+          devis aboutit. Cela ne change rien au prix qui vous est proposé&nbsp;: le déménageur chiffre votre
+          projet au tarif qu'il pratique.</p></div></details>
+
+      <details><summary>Combien de devis vais-je recevoir&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Six au maximum, souvent trois ou quatre selon votre trajet et votre date. Nous ne
+          diffusons jamais votre demande au-delà de ce nombre&nbsp;: recevoir quinze appels ne vous aide pas
+          à choisir.</p></div></details>
+
+      <details><summary>Quand faut-il s'y prendre&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Six à huit semaines avant la date, idéalement. En haute saison — de juin à
+          septembre, et les fins de mois toute l'année — les camions sont réservés bien plus tôt et les
+          prix montent.</p>
+          <p>Si votre déménagement est dans dix jours, ce n'est pas perdu pour autant&nbsp;: les déménageurs
+          ont des créneaux qui se libèrent, et un chargement groupé reste souvent possible.</p></div></details>
+
+      <details><summary>Mon devis peut-il augmenter le jour du déménagement&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Non, si le devis a été établi correctement. Un devis signé est un engagement
+          contractuel ferme. Les mauvaises surprises viennent presque toujours d'un volume sous-estimé au
+          départ&nbsp;: c'est pour cela qu'il vaut mieux surestimer légèrement que l'inverse, et signaler
+          dès le début les objets lourds et les contraintes d'accès.</p></div></details>
+
+      <details><summary>Comment vérifiez-vous les déménageurs&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Avant qu'une entreprise puisse recevoir une demande, nous contrôlons son SIRET,
+          son inscription au registre des transporteurs, sa licence de transport intérieur et son
+          attestation d'assurance en cours de validité. Les retours clients sont suivis ensuite, et une
+          entreprise qui accumule des litiges non traités sort du réseau.</p></div></details>
+
+      <details><summary>Que couvre l'assurance&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Deux niveaux coexistent. La <strong>garantie contractuelle</strong>, incluse,
+          indemnise selon un plafond par objet fixé au contrat — souvent modeste. La <strong>garantie
+          dommages</strong>, optionnelle, couvre la valeur réelle que vous déclarez.</p>
+          <p>Si vous déménagez des objets de valeur, faites établir une déclaration de valeur détaillée
+          et comparez ce poste d'un devis à l'autre&nbsp;: c'est là que les écarts se creusent.</p></div></details>
+
+      <details><summary>Et pour un piano, un coffre-fort ou une œuvre d'art&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>C'est possible, mais cela se prépare. Ces objets demandent du matériel spécifique
+          — parfois un monte-meuble — du personnel formé et une assurance adaptée. Signalez-les dès le
+          formulaire&nbsp;: les déménageurs qui ne les prennent pas en charge ne vous feront pas perdre
+          de temps.</p></div></details>
+
+      <details><summary>Existe-t-il des aides pour financer un déménagement&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Plusieurs dispositifs existent. La <strong>prime de déménagement de la CAF</strong>
+          s'adresse aux familles à partir de trois enfants, sous conditions. Le <strong>Mobili-Pass</strong>
+          et l'<strong>avance Loca-Pass</strong> d'Action Logement accompagnent les mobilités
+          professionnelles. Pôle emploi dispose également d'aides à la mobilité.</p>
+          <p>Ces aides se demandent auprès des organismes concernés, pas auprès de nous — mais gardez vos
+          factures de déménagement, elles sont presque toujours exigées.</p></div></details>
+
+      <details><summary>Que faites-vous de mes données&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Elles servent à établir vos devis, et à rien d'autre. Elles sont transmises aux
+          seuls déménageurs sélectionnés pour votre projet, et ne sont jamais revendues à des tiers.
+          Vous pouvez demander leur suppression à tout moment&nbsp;; la marche à suivre figure dans notre
+          <a href="confidentialite.html">politique de confidentialité</a>.</p></div></details>
+
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap final__in">
+    <h2>Votre déménagement, <span class="em">au juste prix</span></h2>
+    <p>Une minute pour décrire votre projet, et vous savez à quoi vous attendre —
+       avant même de parler à qui que ce soit.</p>
+    <a class="btn btn--brique btn--lg" href="#devis" data-cta="final">Estimer mon déménagement
+      <svg class="ico"><use href="#i-arrow"/></svg></a>
+    <p class="mini">Gratuit · Sans engagement · Six devis maximum</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__g">
+      <div>
+        <img class="ftr__logo" src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="180" height="32">
+        <p>Le comparateur qui vous aide à choisir votre déménageur en connaissance de cause&nbsp;:
+           une estimation honnête, des professionnels vérifiés, et aucune obligation.</p>
+      </div>
+      <div><h4>Le déménagement</h4><ul>
+        <li><a href="#prix">Prix d'un déménagement</a></li>
+        <li><a href="#formules">Les formules</a></li>
+        <li><a href="#etapes">Comment ça marche</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+      </ul></div>
+      <div><h4>Nous contacter</h4><ul>
+        <!-- ⚠ À VALIDER : coordonnées à remplacer. -->
+        <li><a href="tel:+33180000000">01 80 00 00 00</a></li>
+        <li>Lundi — samedi, 9h à 19h</li>
+        <li><a href="mailto:contact@mon-devis-demenagement.fr">contact@mon-devis-demenagement.fr</a></li>
+      </ul></div>
+      <div><h4>Informations</h4><ul>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Confidentialité &amp; cookies</a></li>
+        <li><a href="https://www.service-public.fr/particuliers/vosdroits/N19808" rel="noopener">Démarches officielles</a></li>
+      </ul></div>
+    </div>
+    <div class="ftr__legal">
+      <span>© <span id="annee">2026</span> Mon Devis Déménagement — tous droits réservés.</span>
+      <span>Mon Devis Déménagement est un service de mise en relation. Les prestations sont réalisées par des entreprises indépendantes.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <a class="sticky__tel" href="tel:+33180000000" aria-label="Appeler un conseiller"><svg class="ico"><use href="#i-phone"/></svg></a>
+  <a class="btn btn--brique" href="#devis" data-cta="sticky">Estimer mon déménagement</a>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var $ = function(s,c){return (c||document).querySelector(s)};
+var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+window.dataLayer = window.dataLayer || [];
+function push(o){ try{ window.dataLayer.push(o); }catch(e){} }
+
+$('#annee').textContent = new Date().getFullYear();
+
+/* ──────────────────────────────────────────────────────────────────────────
+   ⚠ PLACEHOLDER — avis d'exemple. À remplacer par de vrais avis clients,
+   avec l'accord des personnes citées, avant la mise en ligne.
+   ────────────────────────────────────────────────────────────────────────── */
+var AVIS = [
+  { t:"Exemple de témoignage client à remplacer. Décrivez ici, dans les mots du client, ce qui s'est bien passé : la clarté du devis, la ponctualité de l'équipe, l'absence de mauvaise surprise.",
+    n:"Prénom N.", d:"Trajet — Mois 2026", s:5 },
+  { t:"Deuxième exemple de témoignage. Les avis qui convertissent le mieux sont concrets : un chiffre, une difficulté surmontée, un détail précis valent mieux qu'un compliment général.",
+    n:"Prénom N.", d:"Trajet — Mois 2026", s:5 },
+  { t:"Troisième exemple de témoignage. Pensez à conserver la preuve du consentement de chaque client dont vous publiez l'avis, ainsi que la date réelle de la prestation.",
+    n:"Prénom N.", d:"Trajet — Mois 2026", s:4 }
+];
+$('#avis-g').innerHTML = AVIS.map(function(a){
+  var st=''; for(var i=0;i<5;i++) st += i<a.s ? '<svg class="ico"><use href="#i-star"/></svg>' : '';
+  return '<figure class="avi"><div class="stars" role="img" aria-label="'+a.s+' étoiles sur 5">'+st+'</div>'
+       + '<blockquote>« '+a.t+' »</blockquote>'
+       + '<figcaption><b>'+a.n+'</b>'+a.d+'</figcaption></figure>';
+}).join('');
+
+/* ── Paramètres publicitaires ────────────────────────────────────────────── */
+var TRACK = ['gclid','gbraid','wbraid','fbclid','msclkid',
+             'utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id'];
+var pubs = {};
+(function(){
+  var q = new URLSearchParams(location.search);
+  TRACK.forEach(function(k){
+    var v = q.get(k);
+    // Les identifiants de clic survivent à la navigation interne : une fois
+    // captés, ils restent en session pour être joints au lead.
+    if(v){ try{ sessionStorage.setItem('mdd_'+k, v); }catch(e){} }
+    else { try{ v = sessionStorage.getItem('mdd_'+k); }catch(e){} }
+    if(v) pubs[k] = v;
+  });
+})();
+
+/* ── Moteur d'estimation ─────────────────────────────────────────────────── */
+// Tarifs au m³, bornes basse et haute, par bande de distance et par formule.
+// Calés sur les fourchettes du marché français 2026 (33 à 90 €/m³ selon
+// distance et formule). Toute révision se fait ici, nulle part ailleurs.
+var TARIF = {
+  local:    { eco:[26,34], std:[33,43], cle:[41,54] },
+  regional: { eco:[33,43], std:[41,53], cle:[51,66] },
+  national: { eco:[41,54], std:[51,66], cle:[62,82] }
+};
+var PLANCHER = 390;   // en dessous, aucun professionnel ne se déplace
+
+var S = { vol:0, f:'std', d1:null, d2:null, km:null };
+
+function bande(km){
+  if(km === null) return 'local';
+  if(km < 50) return 'local';
+  if(km < 300) return 'regional';
+  return 'national';
+}
+function etageMaj(){
+  // Un étage sans ascenseur, c'est du temps de main-d'œuvre en plus.
+  var m = 1, et, asc;
+  [['#f-et1','#f-asc1'],['#f-et2','#f-asc2']].forEach(function(p){
+    et = $(p[0]).value; asc = $(p[1]).value;
+    if(asc !== 'Non') return;
+    var n = et.indexOf('5e') === 0 ? 5 : parseInt(et,10);
+    if(n > 0) m += Math.min(n,5) * 0.035;
+  });
+  return m;
+}
+function km(a,b){
+  if(!a || !b) return null;
+  var R=6371, p=Math.PI/180;
+  var dLat=(b.lat-a.lat)*p, dLon=(b.lon-a.lon)*p;
+  var la1=a.lat*p, la2=b.lat*p;
+  var h=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(la1)*Math.cos(la2)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  // Majoration routière : la distance à vol d'oiseau sous-estime le trajet
+  // réel d'environ 25 % en France.
+  return Math.round(2*R*Math.asin(Math.sqrt(h)) * 1.25);
+}
+function arrondi(n){ return Math.round(n/10)*10 }
+function eur(n){ return arrondi(n).toLocaleString('fr-FR') + ' €' }
+
+function estime(){
+  if(!S.vol) return null;
+  S.km = km(S.d1, S.d2);
+  var t = TARIF[bande(S.km)][S.f], maj = etageMaj();
+  var lo = Math.max(S.vol * t[0] * maj, PLANCHER);
+  var hi = Math.max(S.vol * t[1] * maj, PLANCHER * 1.3);
+  return { lo:lo, hi:hi };
+}
+var estVu = false;
+function majEst(){
+  var e = estime();
+  if(!e) return;
+  var box = $('#q-est');
+  $('#est-prix').textContent = eur(e.lo) + ' – ' + eur(e.hi);
+  $('#est-vol').textContent = '· environ ' + S.vol + ' m³';
+  var det = [];
+  if(S.d1 && S.d2 && S.km !== null){
+    det.push(S.d1.nom + ' → ' + S.d2.nom + ', environ ' + S.km + ' km');
+  } else if(S.d1){
+    det.push('Départ de ' + S.d1.nom + ' — indiquez l’arrivée pour affiner');
+  } else {
+    det.push('Fourchette indicative, à affiner avec vos adresses');
+  }
+  $('#est-det').textContent = det.join(' · ');
+  if(!box.classList.contains('is-on')){
+    box.classList.add('is-on');
+    if(!estVu){ estVu = true; push({event:'estimation_vue', volume_m3:S.vol}); }
+  }
+}
+
+/* ── Recherche de commune ────────────────────────────────────────────────── */
+// geo.api.gouv.fr renvoie le centre de chaque commune : on s'en sert pour
+// calculer une vraie distance, pas une approximation par département.
+function chercheCP(cp, zone, boxId, noteId, cb){
+  var box = $(boxId), note = $(noteId);
+  box.innerHTML = ''; note.className = 'note'; note.textContent = '';
+  if(!/^[0-9]{5}$/.test(cp)) return;
+  note.textContent = 'Recherche…';
+  fetch('https://geo.api.gouv.fr/communes?codePostal=' + cp
+        + '&fields=nom,centre,codeDepartement,population&format=json')
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(list){
+      if(!list || !list.length){
+        note.className = 'note bad';
+        note.textContent = 'Code postal inconnu. Vérifiez les cinq chiffres.';
+        return;
+      }
+      list.sort(function(a,b){ return (b.population||0) - (a.population||0); });
+      note.textContent = '';
+      if(list.length === 1){ choisir(list[0]); return; }
+      note.textContent = 'Plusieurs communes partagent ce code postal :';
+      box.innerHTML = list.slice(0,9).map(function(c,i){
+        return '<button type="button" class="cmn" data-i="'+i+'" aria-pressed="false">'+c.nom+'</button>';
+      }).join('');
+      $$('.cmn', box).forEach(function(b){
+        b.addEventListener('click', function(){
+          $$('.cmn', box).forEach(function(x){ x.setAttribute('aria-pressed','false') });
+          b.setAttribute('aria-pressed','true');
+          choisir(list[+b.dataset.i]);
+        });
+      });
+    })
+    .catch(function(){
+      // L'API peut être indisponible : on ne bloque pas le lead pour autant.
+      note.className = 'note';
+      note.textContent = '';
+      cb({ nom:'CP ' + cp, cp:cp, dep:cp.slice(0,2), lat:null, lon:null });
+    });
+
+  function choisir(c){
+    var co = (c.centre && c.centre.coordinates) || [null,null];
+    note.className = 'note ok';
+    note.textContent = c.nom + ' — retenu.';
+    cb({ nom:c.nom, cp:cp, dep:c.codeDepartement, lat:co[1], lon:co[0] });
+  }
+}
+function brancheCP(inputId, boxId, noteId, slot){
+  var t;
+  $(inputId).addEventListener('input', function(){
+    var v = this.value.replace(/\D/g,'').slice(0,5);
+    this.value = v; this.removeAttribute('aria-invalid');
+    S[slot] = null;
+    clearTimeout(t);
+    if(v.length === 5) t = setTimeout(function(){
+      chercheCP(v, slot, boxId, noteId, function(d){ S[slot] = d; majEst(); });
+    }, 220);
+    else { $(boxId).innerHTML=''; $(noteId).textContent=''; $(noteId).className='note'; }
+  });
+}
+brancheCP('#f-cp1','#q-cmn1','#n-cp1','d1');
+brancheCP('#f-cp2','#q-cmn2','#n-cp2','d2');
+$$('#f-et1,#f-asc1,#f-et2,#f-asc2').forEach(function(s){
+  s.addEventListener('change', majEst);
+});
+
+/* ── Navigation du formulaire ────────────────────────────────────────────── */
+var form = $('#q-form');
+var steps = $$('.step', form);
+var i = 0, demarre = false;
+
+function montre(n, sens){
+  steps[i].classList.remove('is-on');
+  i = n;
+  steps[i].classList.add('is-on');
+  $('#q-count').textContent = (i+1) + ' / ' + steps.length;
+  $('#q-bar').style.width = ((i) / (steps.length-1) * 100) + '%';
+  var lg = $('.step__q', steps[i]);
+  if(lg){ lg.setAttribute('tabindex','-1'); lg.focus({preventScroll:true}); }
+  // On ne ramène la carte dans le champ de vision que si elle en est sortie :
+  // sur desktop elle y est déjà, et un scroll inutile désoriente.
+  var r = $('#devis').getBoundingClientRect();
+  if(r.top < 0 || r.top > window.innerHeight * 0.45){
+    window.scrollTo({ top: window.scrollY + r.top - 16, behavior:'smooth' });
+  }
+  push({ event:'quiz_step', etape:i+1, etape_nom: steps[i].dataset.step });
+  if(sens === 'next' && i === steps.length-1){
+    push({ event:'quiz_contact_vu' });
+  }
+}
+function suivant(){ if(i < steps.length-1) montre(i+1,'next') }
+
+// Dernier choix validé par groupe. Sur un bouton radio, 'change' n'est émis
+// que si la sélection bouge vraiment — et il arrive APRÈS 'click'. On garde
+// donc nous-mêmes la trace du choix courant : c'est la seule façon de savoir,
+// au moment du clic, si un 'change' va suivre ou non.
+var choisi = {};
+steps.forEach(function(st){
+  $$('input[type=radio]', st).forEach(function(r){
+    r.addEventListener('change', function(){
+      choisi[r.name] = r.value;
+      if(!demarre){ demarre = true; push({event:'quiz_start'}); }
+      if(r.dataset.vol){ S.vol = +r.dataset.vol; }
+      if(r.dataset.f){ S.f = r.dataset.f; }
+      majEst();
+      // Petite pause : la coche doit être vue avant que l'écran ne change.
+      setTimeout(suivant, 270);
+    });
+    // Re-cliquer l'option déjà cochée n'émet aucun 'change'. Sans ce relais,
+    // revenir en arrière puis re-valider le même choix ne ferait rien et le
+    // visiteur resterait bloqué sur l'étape.
+    r.addEventListener('click', function(){
+      if(choisi[r.name] === r.value) setTimeout(suivant, 160);
+    });
+  });
+});
+$$('[data-next]', form).forEach(function(b){ b.addEventListener('click', valideEtSuivant) });
+$$('[data-back]', form).forEach(function(b){
+  b.addEventListener('click', function(){ if(i>0) montre(i-1,'back') });
+});
+
+function mauvais(sel, msg, noteId){
+  var el = $(sel);
+  el.setAttribute('aria-invalid','true');
+  var n = $(noteId); n.className = 'note bad'; n.textContent = msg;
+  el.focus();
+  return false;
+}
+function valideEtSuivant(){
+  var nom = steps[i].dataset.step;
+  if(nom === 'depart'){
+    if(!/^[0-9]{5}$/.test($('#f-cp1').value))
+      return mauvais('#f-cp1','Indiquez un code postal à cinq chiffres.','#n-cp1');
+  }
+  if(nom === 'arrivee'){
+    if(!/^[0-9]{5}$/.test($('#f-cp2').value))
+      return mauvais('#f-cp2','Indiquez un code postal à cinq chiffres.','#n-cp2');
+  }
+  suivant();
+}
+
+/* ── Validation du contact ───────────────────────────────────────────────── */
+function chiffres(v){ return (v||'').replace(/\D/g,'') }
+function telOk(v){
+  var d = chiffres(v);
+  if(d.length === 10) return /^0[1-9]/.test(d);
+  if(d.length === 9)  return /^[1-9]/.test(d);
+  return false;
+}
+function e164(v){
+  var d = chiffres(v);
+  if(d.length === 10) d = d.slice(1);
+  return '+33' + d;
+}
+$('#f-tel').addEventListener('input', function(){
+  var d = chiffres(this.value).slice(0,10);
+  this.value = d.replace(/(\d{2})(?=\d)/g, '$1 ').trim();
+  this.removeAttribute('aria-invalid');
+});
+$$('#f-prenom,#f-nom,#f-email').forEach(function(el){
+  el.addEventListener('input', function(){ el.removeAttribute('aria-invalid') });
+});
+
+/* ── Envoi ───────────────────────────────────────────────────────────────── */
+var envoi = false;
+form.addEventListener('submit', function(ev){
+  ev.preventDefault();
+  if(envoi) return;
+  var n = $('#n-contact'); n.className = 'note'; n.textContent = '';
+
+  if($('#f-hp').value) return;                       // piège à robots
+  if(!$('#f-prenom').value.trim()) return mauvais('#f-prenom','Votre prénom, pour que le déménageur sache à qui il écrit.','#n-contact');
+  if(!$('#f-nom').value.trim())    return mauvais('#f-nom','Votre nom est nécessaire pour établir le devis.','#n-contact');
+  if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test($('#f-email').value.trim()))
+    return mauvais('#f-email','Cet email ne semble pas valide.','#n-contact');
+  if(!telOk($('#f-tel').value))
+    return mauvais('#f-tel','Un numéro français à dix chiffres, pour que le déménageur puisse vous joindre.','#n-contact');
+  if(!$('#f-consent').checked){
+    n.className = 'note bad';
+    n.textContent = 'Nous avons besoin de votre accord pour transmettre votre demande.';
+    $('#f-consent').focus();
+    return;
+  }
+
+  var e = estime() || {lo:null,hi:null};
+  var prio = (function(){
+    var r = $('input[name=date_demenagement]:checked');
+    return r ? r.dataset.prio : 'froid';
+  })();
+  var val = function(s){ var r = $('input[name='+s+']:checked'); return r ? r.value : null };
+
+  var data = {
+    // Projet
+    logement: val('logement'),
+    volume_m3: S.vol || null,
+    cp_depart: $('#f-cp1').value,
+    commune_depart: S.d1 ? S.d1.nom : null,
+    departement_depart: S.d1 ? S.d1.dep : $('#f-cp1').value.slice(0,2),
+    etage_depart: $('#f-et1').value,
+    ascenseur_depart: $('#f-asc1').value,
+    cp_arrivee: $('#f-cp2').value,
+    commune_arrivee: S.d2 ? S.d2.nom : null,
+    departement_arrivee: S.d2 ? S.d2.dep : $('#f-cp2').value.slice(0,2),
+    etage_arrivee: $('#f-et2').value,
+    ascenseur_arrivee: $('#f-asc2').value,
+    distance_km: S.km,
+    date_demenagement: val('date_demenagement'),
+    formule: val('formule'),
+    estimation_min: e.lo ? arrondi(e.lo) : null,
+    estimation_max: e.hi ? arrondi(e.hi) : null,
+    priorite: prio,
+    // Contact
+    prenom: $('#f-prenom').value.trim(),
+    nom: $('#f-nom').value.trim(),
+    email: $('#f-email').value.trim().toLowerCase(),
+    telephone: $('#f-tel').value.trim(),
+    telephone_e164: e164($('#f-tel').value),
+    // Consentement
+    consentement: true,
+    consentement_texte: $('#consent-txt').textContent.replace(/\s+/g,' ').trim(),
+    consentement_horodatage: new Date().toISOString(),
+    // Contexte
+    date_envoi: new Date().toISOString(),
+    page_url: location.href,
+    referrer: document.referrer || null,
+    user_agent: navigator.userAgent
+  };
+  TRACK.forEach(function(k){ data[k] = pubs[k] || null });
+
+  envoi = true;
+  var btn = $('#q-send');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+
+  push({
+    event: 'generate_lead',
+    priorite: prio,
+    volume_m3: S.vol,
+    distance_km: S.km,
+    formule: data.formule,
+    valeur_estimee: data.estimation_min,
+    user_data: {
+      email: data.email,
+      phone_number: data.telephone_e164,
+      address: { first_name: data.prenom, last_name: data.nom, postal_code: data.cp_depart, country: 'FR' }
+    }
+  });
+
+  var url = form.dataset.endpoint || '';
+  var envoye = (!url || url.indexOf('REMPLACER') > -1)
+    ? Promise.resolve(console.info('[Mon Devis Déménagement] Endpoint non configuré — lead simulé :', data))
+    : fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+
+  envoye.catch(function(err){ console.warn('Envoi du lead en échec :', err) })
+        .then(function(){
+          try{ sessionStorage.setItem('mdd_lead', JSON.stringify({
+            prenom:data.prenom, min:data.estimation_min, max:data.estimation_max,
+            vol:data.volume_m3, km:data.distance_km,
+            de:data.commune_depart, vers:data.commune_arrivee
+          })); }catch(e){}
+          location.href = 'merci.html';
+        });
+});
+
+/* ── Barre collante ──────────────────────────────────────────────────────── */
+var sticky = $('#sticky'), devis = $('#devis');
+if('IntersectionObserver' in window){
+  // La barre n'apparaît que lorsque le formulaire est hors de l'écran :
+  // la montrer par-dessus le formulaire lui-même n'aurait aucun sens.
+  new IntersectionObserver(function(es){
+    sticky.classList.toggle('is-on', !es[0].isIntersecting);
+  }, {rootMargin:'-80px 0px 0px 0px'}).observe(devis);
+}
+
+/* ── Clics sur les appels à l'action ─────────────────────────────────────── */
+$$('[data-cta]').forEach(function(a){
+  a.addEventListener('click', function(){
+    push({ event:'cta_click', emplacement:a.dataset.cta });
+    // Le lien pointe vers #devis : on remet le focus sur la question en cours
+    // pour que le clavier et le lecteur d'écran suivent.
+    setTimeout(function(){
+      var lg = $('.step.is-on .step__q');
+      if(lg) lg.focus({preventScroll:true});
+    }, 420);
+  });
+});
+})();
+</script>
+</body>
+</html>
