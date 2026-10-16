@@ -294,11 +294,12 @@ h1 .em{color:var(--rose)}
 .consent{display:flex;gap:12px;align-items:flex-start;margin-top:17px;padding:14px;border-radius:var(--r-sm);
   background:var(--gris);cursor:pointer}
 .consent p{font-size:12.6px;color:var(--ink-2);line-height:1.45}
-.sw{position:relative;flex:none;width:44px;height:26px;border-radius:999px;background:var(--line-2);transition:background .18s}
+.sw{position:relative;flex:none;width:44px;height:26px;border-radius:999px;background:var(--line-2);
+  box-shadow:inset 0 0 0 1.5px var(--magenta);transition:background .18s,box-shadow .18s}
 .sw input{position:absolute;opacity:0;width:0;height:0}
 .sw span{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;
   box-shadow:0 1px 3px rgba(0,0,0,.26);transition:transform .2s var(--ease)}
-.sw:has(input:checked){background:var(--nuit)}
+.sw:has(input:checked){background:var(--nuit);box-shadow:inset 0 0 0 1.5px var(--rose)}
 .sw:has(input:checked) span{transform:translateX(18px)}
 .sw:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px}
 .back{background:0;border:0;padding:6px 2px;margin-top:14px;cursor:pointer;color:var(--ink-3);
@@ -411,8 +412,9 @@ section{padding:clamp(54px,7vw,92px) 0}
 .inc .ico{width:25px;height:25px;color:var(--nuit)}
 .inc h3{font-size:16px;margin-top:13px;letter-spacing:-.022em}
 .inc p{font-size:14.2px;color:var(--ink-2);margin-top:7px;line-height:1.5}
-@media (max-width:900px){.incl__g{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.incl__g{grid-template-columns:1fr}}
+.incl__g--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.incl__g,.incl__g--3{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.incl__g,.incl__g--3{grid-template-columns:1fr}}
 
 /* Avis */
 /* La note du profil est affichée telle quelle. Montrer des avis choisis sans
@@ -1338,6 +1340,30 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
+<section id="support" style="background:var(--white);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-h ctr rvl">
+      <h2>Un interlocuteur, <span class="em">du devis au Jour J</span></h2>
+      <p>Vous n'expliquez pas deux fois votre déménagement. Un conseiller suit votre dossier de bout
+         en bout, et vous avez de quoi le joindre directement.</p>
+    </div>
+    <div class="incl__g incl__g--3 rvl-g">
+      <div class="inc"><svg class="ico"><use href="#i-headset"/></svg>
+        <h3>Un conseiller dédié</h3>
+        <p>La même personne du premier appel jusqu'au Jour J. C'est elle qui supervise toute
+           l'organisation de votre déménagement.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-phone"/></svg>
+        <h3>Sa ligne directe et son e-mail</h3>
+        <p>Dès que votre dossier passe au service Planning, vous avez sa ligne directe et son
+           adresse e-mail. Plus de standard à repasser.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-truck"/></svg>
+        <h3>L'équipe qui se déplace</h3>
+        <p>Une fois la date fixée, vous recevez aussi les coordonnées des déménageurs qui viendront
+           le Jour J.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="cons">
   <div class="wrap">
     <div class="cons__in rvl">
@@ -1476,6 +1502,7 @@ details .a p + p{margin-top:11px}
         <li><a href="#formules">Les trois formules</a></li>
         <li><a href="#kilometres">Ne payer que l'aller</a></li>
         <li><a href="#etapes">Comment ça se passe</a></li>
+        <li><a href="#support">Votre conseiller dédié</a></li>
         <li><a href="#faq">Questions fréquentes</a></li>
       </ul></div>
       <div><h4>Cas particuliers</h4><ul>
