@@ -97,7 +97,7 @@ données, pas les nôtres. Les équivalents doivent venir du client.
 | `404.html`              | Page d'erreur.                                              |
 | `page.css`              | Styles communs aux pages secondaires uniquement.            |
 | `fonts/`                | Plus Jakarta Sans + Instrument Serif, auto-hébergées (OFL). |
-| `img/`                  | Logo (2 variantes) et favicon, en SVG.                      |
+| `img/`                  | Logo (2 variantes), favicon et photo du hero.               |
 
 `index.html` et `merci.html` embarquent leur CSS : ce sont les deux pages qui
 doivent s'afficher sans requête bloquante.
@@ -142,6 +142,22 @@ lisait « application mobile » plutôt que « déménageur ».
    même famille ardoise, 5,98.
 3. Aucun anneau de focus ne tient sur navy **et** sur blanc : le magenta foncé
    sert sur fond clair, une règle bascule sur l'ambre en section sombre.
+
+### Le logo
+
+Un camion de déménagement de profil : caisse et cabine en magenta, bande
+d'adhésif ambre, roues en encre — et en blanc sur fond sombre, sans quoi elles
+disparaîtraient dans le navy.
+
+Le favicon n'est pas le même dessin réduit. À 16 px, trois couleurs se
+mélangent : il passe donc à deux, avec une silhouette blanche d'un seul tenant
+sur aplat magenta et les roues **creusées dans le fond** plutôt que posées
+par-dessus. Vérifié à 64, 32 et 16 px.
+
+Trois autres pistes avaient été dessinées et écartées : un carton en
+perspective, un bloc monogramme « MD » (le plus proche de la référence, mais
+muet sur le métier) et un traitement purement typographique (sans symbole, donc
+sans favicon possible).
 
 ### Le hero
 

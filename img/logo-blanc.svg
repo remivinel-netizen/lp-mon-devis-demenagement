@@ -1,14 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 44" role="img" aria-label="Mon Devis Déménagement">
-  <!-- Variante sur fond sombre : le wordmark passe en blanc. -->
+  <!-- Variante sur fond sombre : le wordmark passe en blanc, et les roues
+       aussi — en navy elles disparaîtraient dans le fond. -->
   <g>
-    <rect x="1.6" y="3.4" width="37.2" height="37.2" rx="4" fill="#CE0054"/>
-    <rect x="17.2" y="3.4" width="6" height="37.2" fill="#F5A623"/>
-    <path d="M12 27 20.2 18.8 28.4 27" fill="none" stroke="#fff" stroke-width="3.2"
-          stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M20.2 19.2V31" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+    <rect x="2" y="12" width="23" height="19" rx="2" fill="#CE0054"/>
+    <rect x="2" y="17.9" width="23" height="3.6" fill="#F5A623"/>
+    <path d="M25 18.4h7.7l5.9 6V31H25z" fill="#CE0054"/>
+    <path d="M27.1 20.5h4.9l3.4 3.5h-8.3z" fill="#fff" opacity=".9"/>
+    <circle cx="10.6" cy="33.4" r="3.6" fill="#fff"/>
+    <circle cx="31.6" cy="33.4" r="3.6" fill="#fff"/>
   </g>
   <text x="48" y="20" font-family="'Roboto Slab',Georgia,serif"
         font-size="15" font-weight="700" fill="#ffffff">Mon Devis</text>
-  <text x="48" y="35.8" font-family="'Roboto',system-ui,sans-serif"
-        font-size="13.5" font-weight="400" fill="rgba(255,255,255,.8)" letter-spacing=".02">Déménagement</text>
+  <text x="48" y="35.6" font-family="'Roboto',system-ui,sans-serif"
+        font-size="13.5" font-weight="400" fill="rgba(255,255,255,.8)">Déménagement</text>
 </svg>
