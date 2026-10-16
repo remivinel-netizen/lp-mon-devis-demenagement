@@ -67,6 +67,23 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 .btn--nuit{background:var(--nuit);color:#fff}.btn--nuit:hover{background:var(--nuit-2)}
 .btn--ghost{background:transparent;color:var(--nuit);box-shadow:inset 0 0 0 2px var(--line)}
 .btn--ghost:hover{box-shadow:inset 0 0 0 2px var(--nuit)}
+/* Avis sur la page de confirmation : le visiteur vient d'engager sa demande,
+   c'est le moment où une preuve rassure le plus. Relevés sur Trustpilot. */
+.avis{margin-top:30px;background:#fff;color:var(--ink);border-radius:var(--r-lg);
+  box-shadow:var(--shadow);padding:clamp(22px,3vw,30px)}
+.avis__h{display:flex;align-items:center;gap:13px;padding-bottom:18px;margin-bottom:18px;
+  border-bottom:1px solid var(--line)}
+.avis__n{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.avis__n small{font-size:14px;font-weight:400;color:var(--ink-3)}
+.avis__m{font-size:13.5px;color:var(--ink-2);line-height:1.4}
+.avis__m a{color:var(--magenta)}
+.avis__l{display:grid;gap:18px}
+.avi{display:grid;gap:8px}
+.avi .stars{display:flex;gap:3px;color:var(--magenta)}
+.avi .stars svg{width:15px;height:15px;fill:currentColor}
+.avi blockquote{margin:0;font-size:15px;line-height:1.55}
+.avi figcaption{font-size:13px;color:var(--ink-3)}
+.avi figcaption b{color:var(--ink);font-size:13.8px}
 .ftr{padding:22px 0 30px;font-size:13px;color:rgba(255,255,255,.52);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 .ftr a{text-decoration:none}.ftr a:hover{text-decoration:underline;color:#fff}
 </style>
@@ -112,6 +129,18 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
       <a class="btn btn--ghost" href="index.html#faq">Lire les questions fréquentes</a>
     </div>
   </div>
+
+  <section class="avis" aria-label="Avis clients">
+    <div class="avis__h">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+        <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9Z"/></symbol>
+      </defs></svg>
+      <span class="avis__n">4,3<small>/5</small></span>
+      <span class="avis__m">sur <strong>202 avis</strong> —
+        <a href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">Trustpilot</a></span>
+    </div>
+    <div class="avis__l" id="avis-l"></div>
+  </section>
 </div></main>
 
 <footer class="ftr"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;width:min(100% - 36px,720px)">
@@ -122,6 +151,20 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 <script>
 (function(){
   document.getElementById('annee').textContent = new Date().getFullYear();
+
+  // Mêmes avis que la page d'accueil, à tenir à jour ensemble.
+  var AVIS = [
+    { t:"Très bonne expérience avec MatchMove ! Un service professionnel et à l'écoute, qui facilite les démarches pour organiser son déménagement.",
+      n:"Karim Karimovic", d:"8 octobre 2026", s:5 },
+    { t:"Personnel très réactif et agréable, capable de répondre à l'urgence dans la demi-heure.",
+      n:"Loïc Rousseau", d:"10 septembre 2026", s:5 }
+  ];
+  document.getElementById('avis-l').innerHTML = AVIS.map(function(a){
+    var st=''; for(var i=0;i<a.s;i++) st += '<svg viewBox="0 0 24 24"><use href="#i-star"/></svg>';
+    return '<figure class="avi"><div class="stars" role="img" aria-label="'+a.s+' étoiles sur 5">'+st+'</div>'
+         + '<blockquote>« '+a.t+' »</blockquote>'
+         + '<figcaption><b>'+a.n+'</b> · '+a.d+'</figcaption></figure>';
+  }).join('');
   // Le récapitulatif vient du formulaire, via sessionStorage : il n'y a ni
   // paramètre d'URL ni donnée personnelle en clair dans la barre d'adresse.
   var d = null;

@@ -122,13 +122,7 @@ button{font:inherit;color:inherit}
 .btn::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.26) 50%,transparent 70%);
   transform:translateX(-120%);transition:transform .6s var(--ease)}
-.btn:hover::after{transform:translateX(120%)}
-.btn--cta:hover,.btn--nuit:hover{transform:translateY(-2px);
-  box-shadow:0 10px 24px -10px rgba(206,0,84,.55)}
-.btn--nuit:hover{box-shadow:0 10px 24px -10px rgba(34,46,58,.5)}
-/* La flèche avance d'un cran : c'est le détail qui donne envie de cliquer. */
 .btn .ico{transition:transform .22s var(--ease)}
-.btn:hover .ico{transform:translateX(4px)}
 /* Action principale : leur magenta, blanc dessus (5,60). */
 .btn--cta{background:var(--magenta);color:#fff}
 .btn--cta:hover{background:var(--magenta-2)}
@@ -349,35 +343,6 @@ section{padding:clamp(54px,7vw,92px) 0}
   background:var(--rose-pale);padding:6px 12px;border-radius:var(--r-sm)}
 @media (max-width:860px){.steps{grid-template-columns:1fr;gap:28px}}
 
-/* Tableau des prix */
-.prix{background:var(--nuit);color:#fff}
-.prix .sec-h h2 .em{color:var(--rose)}
-.prix .sec-h p{color:rgba(255,255,255,.8)}
-.tbl-w{overflow-x:auto;border-radius:var(--r-md);background:rgba(255,255,255,.055);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.13);-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;min-width:620px;font-variant-numeric:tabular-nums}
-thead th{text-align:left;font-size:12.6px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
-  color:var(--rose);padding:17px 18px;border-bottom:1px solid rgba(255,255,255,.17);white-space:nowrap}
-tbody td{padding:15px 18px;font-size:15.5px;border-bottom:1px solid rgba(255,255,255,.09)}
-tbody tr:last-child td{border-bottom:0}
-tbody tr:hover{background:rgba(255,255,255,.045)}
-tbody th{text-align:left;padding:15px 18px;font-size:15.5px;font-weight:700;letter-spacing:-.015em;
-  border-bottom:1px solid rgba(255,255,255,.09);white-space:nowrap}
-tbody tr:last-child th{border-bottom:0}
-tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,255,.64);margin-top:2px}
-.tbl-note{font-size:13.5px;color:rgba(255,255,255,.66);margin-top:16px;line-height:1.5;max-width:70ch}
-.prix__cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.prix__cta .hint{font-size:14.5px;color:rgba(255,255,255,.76)}
-
-/* Facteurs de prix */
-.fact{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:34px}
-.fct{background:rgba(255,255,255,.06);border-radius:var(--r-sm);padding:17px 19px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
-.fct h4{font-size:15px;display:flex;align-items:center;gap:9px;letter-spacing:-.02em}
-.fct h4 .ico{width:17px;height:17px;color:var(--rose);flex:none}
-.fct p{font-size:13.8px;color:rgba(255,255,255,.75);margin-top:7px;line-height:1.5}
-@media (max-width:860px){.fact{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.fact{grid-template-columns:1fr}}
-
 /* Formules */
 .forms{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);align-items:start}
 .frm{background:var(--white);border-radius:var(--r-md);padding:28px 26px;box-shadow:var(--shadow-sm);position:relative;height:100%}
@@ -405,6 +370,18 @@ tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,2
 @media (max-width:520px){.incl__g{grid-template-columns:1fr}}
 
 /* Avis */
+/* La note du profil est affichée telle quelle. Montrer des avis choisis sans
+   donner la note réelle reviendrait à maquiller le résultat. */
+.tp{display:inline-flex;align-items:center;gap:13px;margin-top:18px;padding:11px 18px;
+  background:var(--white);border-radius:var(--r-sm);box-shadow:0 0 0 1px var(--line)}
+.tp__note{font-size:26px;font-weight:700;letter-spacing:-.03em;color:var(--nuit);
+  font-variant-numeric:tabular-nums;line-height:1}
+.tp__note small{font-size:14px;font-weight:400;color:var(--ink-3)}
+.tp__txt{font-size:14px;color:var(--ink-2);text-align:left;line-height:1.4}
+.tp__txt strong{color:var(--nuit)}
+.sec-h.ctr .tp{margin-inline:auto}
+@media (max-width:520px){.tp{flex-direction:column;gap:6px;text-align:center}.tp__txt{text-align:center}}
+
 .avis__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
 .avi{background:var(--white);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
 .stars{display:flex;gap:3px;color:var(--magenta)}
@@ -475,7 +452,7 @@ details .a p + p{margin-top:11px}
 .cas__g{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
 .cs{display:flex;gap:14px;background:var(--white);border-radius:var(--r-sm);padding:19px;
   box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .16s,transform .16s var(--ease)}
-.cs:hover{box-shadow:inset 0 0 0 1.5px var(--nuit);transform:translateY(-2px)}
+
 .cs .ico{width:23px;height:23px;color:var(--nuit);flex:none;margin-top:2px}
 .cs h3{font-size:15.5px;letter-spacing:-.022em}
 .cs p{font-size:13.8px;color:var(--ink-2);margin-top:5px;line-height:1.5}
@@ -557,14 +534,83 @@ details .a p + p{margin-top:11px}
 .ftr__g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:30px}
 .ftr h4{color:#fff;font-size:14.5px;margin-bottom:14px;letter-spacing:-.015em}
 .ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
-.ftr a{text-decoration:none;transition:color .15s}
-.ftr a:hover{color:#fff;text-decoration:underline}
+.ftr a{text-decoration:none;transition:color .18s}
 .ftr__logo{width:250px;margin-bottom:16px}
 .ftr__legal{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);
   display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;font-size:12.8px;color:rgba(255,255,255,.52)}
 @media (max-width:1050px){.ftr__g{grid-template-columns:1fr 1fr 1fr;gap:28px}}
 @media (max-width:760px){.ftr__g{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.ftr__g{grid-template-columns:1fr}}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   SURVOL
+   Réservé aux appareils qui ont un vrai curseur. Sur écran tactile, :hover
+   reste « collé » après un appui : l'élément garderait son état survolé
+   jusqu'au tap suivant. Un seul geste pour toutes les cartes — elles montent
+   de 3 px et leur filet prend l'accent — pour que la page ait une grammaire
+   et pas une collection d'effets.
+   ────────────────────────────────────────────────────────────────────────── */
+@media (hover:hover) and (pointer:fine){
+  /* Boutons */
+  .btn:hover::after{transform:translateX(120%)}
+  .btn--cta:hover,.btn--nuit:hover{transform:translateY(-2px)}
+  .btn--cta:hover{box-shadow:0 10px 24px -10px rgba(206,0,84,.55)}
+  .btn--nuit:hover{box-shadow:0 10px 24px -10px rgba(34,46,58,.5)}
+  .btn:hover .ico{transform:translateX(4px)}
+
+  /* Cartes */
+  .frm,.stp,.inc,.avi,.cs{transition:transform .22s var(--ease),box-shadow .22s}
+  .frm:hover,.stp:hover,.avi:hover,.inc:hover{transform:translateY(-3px)}
+  .frm:hover{box-shadow:0 0 0 1.5px var(--magenta),0 16px 32px -18px rgba(34,46,58,.45)}
+  .frm--hi:hover{box-shadow:0 0 0 2.5px var(--magenta),0 16px 32px -18px rgba(34,46,58,.45)}
+  .stp:hover,.avi:hover{box-shadow:0 16px 32px -18px rgba(34,46,58,.45),0 0 0 1px rgba(34,46,58,.09)}
+  .inc:hover{box-shadow:inset 0 0 0 1.5px var(--magenta)}
+  .cs:hover{box-shadow:inset 0 0 0 1.5px var(--magenta);transform:translateY(-3px)}
+  /* Le badge d'étape prend un cran d'avance sur sa carte. */
+  .stp::before{transition:transform .22s var(--ease)}
+  .stp:hover::before{transform:scale(1.09)}
+  /* Les icônes des cartes avancent et prennent l'accent. */
+  .inc .ico,.cs .ico{transition:transform .22s var(--ease),color .18s}
+  .inc:hover .ico,.cs:hover .ico{transform:translateX(3px);color:var(--magenta)}
+
+  /* Options du formulaire : la pastille pivote légèrement. C'est le seul
+     endroit où le visiteur doit cliquer, autant que ça réagisse. */
+  .opt__ico{transition:transform .2s var(--ease)}
+  .opt:hover .opt__ico{transform:scale(1.07) rotate(-4deg)}
+
+  /* FAQ */
+  summary{transition:background .16s}
+  summary:hover{background:var(--rose-brume)}
+  summary:hover .ico{color:var(--magenta)}
+
+  /* En-tête : le rond du téléphone se remplit. */
+  .tel__ico{transition:background .2s,color .2s,transform .2s var(--ease)}
+  .tel:hover .tel__ico{background:var(--magenta);color:#fff;transform:scale(1.07)}
+  .hdr__logo img{transition:transform .25s var(--ease)}
+  .hdr__logo:hover img{transform:scale(1.02)}
+
+  /* Pied de page : le soulignement pousse depuis la gauche au lieu
+     d'apparaître d'un bloc. */
+  .ftr a{background-image:linear-gradient(currentColor,currentColor);
+    background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;
+    transition:background-size .28s var(--ease),color .18s}
+  .ftr a:hover{background-size:100% 1px;color:#fff}
+
+  .sticky__tel{transition:transform .2s var(--ease),background .2s,color .2s}
+  .sticky__tel:hover{transform:scale(1.07);background:var(--magenta);color:#fff}
+}
+
+/* Neutralisation du mouvement. Ce bloc vient APRÈS celui du survol, et non
+   avant : à spécificité égale c'est le dernier déclaré qui l'emporte, et
+   placé plus haut il se faisait écraser — les déplacements s'appliquaient
+   malgré le réglage système. */
+@media (prefers-reduced-motion:reduce){
+  .btn:hover,.btn:hover .ico,.btn:hover::after,
+  .frm:hover,.stp:hover,.stp:hover::before,.avi:hover,.inc:hover,.inc:hover .ico,
+  .cs:hover,.cs:hover .ico,.opt:hover .opt__ico,.tel:hover .tel__ico,
+  .hdr__logo:hover img,.sticky__tel:hover{transform:none}
+  .ftr a:hover{background-size:0 1px;text-decoration:underline}
+}
 
 /* Barre collante mobile */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
@@ -831,7 +877,7 @@ details .a p + p{margin-top:11px}
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
             <label class="opt"><input type="radio" name="formule" value="Luxe" data-f="luxe">
               <span class="opt__ico"><svg class="ico"><use href="#i-truck"/></svg></span>
-              <span class="opt__txt">Eux, de A à Z<small>Formule Luxe — cartons fournis, déballage compris</small></span>
+              <span class="opt__txt">Nous, de A à Z<small>Formule Luxe — cartons fournis, déballage compris</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
             <label class="opt"><input type="radio" name="formule" value="Je ne sais pas encore" data-f="std">
               <span class="opt__ico"><svg class="ico"><use href="#i-search"/></svg></span>
@@ -881,8 +927,6 @@ details .a p + p{margin-top:11px}
         </div>
       </div>
 
-      <p class="quiz__foot"><svg class="ico"><use href="#i-lock"/></svg>
-        Vos données servent uniquement à établir votre devis. Jamais revendues à des tiers.</p>
     </div>
 
   </div>
@@ -1129,6 +1173,10 @@ details .a p + p{margin-top:11px}
   <div class="wrap">
     <div class="sec-h ctr rvl">
       <h2>Ce qu'en disent <span class="em">les déménagés</span></h2>
+      <p class="tp"><span class="tp__note">4,3<small>/5</small></span>
+        <span class="tp__txt">sur <strong>202 avis</strong> —
+          <a href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">voir tous les avis
+          sur Trustpilot</a></span></p>
     </div>
     <div class="avis__g rvl-g" id="avis-g"></div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="avis">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Gratuit, et sans engagement.</span></div>
@@ -1255,17 +1303,16 @@ function push(o){ try{ window.dataLayer.push(o); }catch(e){} }
 
 $('#annee').textContent = new Date().getFullYear();
 
-/* ──────────────────────────────────────────────────────────────────────────
-   ⚠ PLACEHOLDER — avis d'exemple. À remplacer par de vrais avis clients,
-   avec l'accord des personnes citées, avant la mise en ligne.
-   ────────────────────────────────────────────────────────────────────────── */
+/* Avis relevés sur la page Trustpilot de MatchMove, cités tels que publiés —
+   orthographe d'origine comprise. Les mettre à jour en même temps que la note
+   et le nombre d'avis affichés dans l'en-tête de section. */
 var AVIS = [
-  { t:"Exemple de témoignage client à remplacer. Décrivez ici, dans les mots du client, ce qui s'est bien passé : la clarté du devis, la ponctualité de l'équipe, l'absence de mauvaise surprise.",
-    n:"Prénom N.", d:"Trajet — Mois 2026", s:5 },
-  { t:"Deuxième exemple de témoignage. Les avis qui convertissent le mieux sont concrets : un chiffre, une difficulté surmontée, un détail précis valent mieux qu'un compliment général.",
-    n:"Prénom N.", d:"Trajet — Mois 2026", s:5 },
-  { t:"Troisième exemple de témoignage. Pensez à conserver la preuve du consentement de chaque client dont vous publiez l'avis, ainsi que la date réelle de la prestation.",
-    n:"Prénom N.", d:"Trajet — Mois 2026", s:4 }
+  { t:"Très bonne expérience avec MatchMove ! Un service professionnel et à l'écoute, qui facilite les démarches pour organiser son déménagement. Je suis satisfait et recommande sans hésitation. Merci à toute l'équipe !",
+    n:"Karim Karimovic", d:"Trustpilot — 8 octobre 2026", s:5 },
+  { t:"Personnel très réactif et agréable, capable de répondre à l'urgence dans la demi-heure.",
+    n:"Loïc Rousseau", d:"Trustpilot — 10 septembre 2026", s:5 },
+  { t:"Le travail a eu lieu le matin de bonne heure. L'emplacement est resté propre. Le personnel a été très aimable.",
+    n:"KLUSIAK", d:"Trustpilot — 10 août 2026", s:5 }
 ];
 $('#avis-g').innerHTML = AVIS.map(function(a){
   var st=''; for(var i=0;i<5;i++) st += i<a.s ? '<svg class="ico"><use href="#i-star"/></svg>' : '';

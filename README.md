@@ -287,6 +287,21 @@ Les identifiants de clic (`gclid`, `gbraid`, `wbraid`, `fbclid`, `msclkid`) et
 les `utm_*` sont captés à l'arrivée et conservés en `sessionStorage` : ils
 survivent à la navigation interne et sont joints au lead.
 
+## Les avis
+
+Relevés sur la [page Trustpilot de MatchMove](https://fr.trustpilot.com/review/matchmove.fr),
+cités tels que publiés. Trois sur la page d'accueil, deux sur `/merci` — c'est
+le moment où le visiteur vient d'engager sa demande, donc celui où une preuve
+pèse le plus.
+
+**La note du profil est affichée telle quelle** (4,3/5 sur 202 avis), et non la
+moyenne des avis montrés. Sélectionner des avis positifs sans donner la note
+réelle reviendrait à maquiller le résultat — et le profil Trustpilot est public,
+donc vérifiable en un clic.
+
+> Note et nombre d'avis sont figés dans le HTML : ils ne se mettent pas à jour
+> tout seuls. À rafraîchir en même temps que les citations.
+
 ## Animations
 
 Deux propriétés seulement — `opacity` et `transform` — donc tout reste sur le
@@ -334,13 +349,13 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [ ] **La procédure de sélection des déménageurs** : la section qui la décrivait
       a été retirée (inventée). Si le réseau vérifie réellement SIRET, licence de
       transport et assurance, c'est un argument fort à réécrire sur pièces.
-- [ ] **Les avis clients.** Les trois témoignages du tableau `AVIS`
-      (`index.html`) sont des **exemples de mise en forme**, explicitement
-      marqués comme tels. Les remplacer par de vrais avis, avec l'accord écrit
-      des personnes citées et la date réelle de la prestation.
-- [ ] **Le téléphone et les horaires** — `01 80 00 00 00` et
-      « lundi–samedi 9h–19h » apparaissent dans l'en-tête, le pied de page et la
-      barre mobile. Trois occurrences, plus le `tel:` de chacune.
+- [x] ~~Téléphone et horaires~~ — renseignés depuis matchmove.fr
+      (04 51 42 04 47, lundi-samedi 8h-18h).
+- [x] ~~Avis clients~~ — avis réels relevés sur Trustpilot, avec la note du
+      profil (4,3/5 sur 202 avis). **À rafraîchir périodiquement** : la note et
+      le nombre d'avis sont figés dans le HTML, ils ne se mettent pas à jour
+      seuls. Ils vivent dans le tableau `AVIS` d'`index.html` et de
+      `merci.html`, plus l'en-tête de la section avis.
 - [ ] **Les mentions légales** — tous les champs entre crochets, plus le
       médiateur de la consommation (obligatoire, art. L.616-1).
 - [ ] **La politique de confidentialité** — responsable de traitement, durées de
