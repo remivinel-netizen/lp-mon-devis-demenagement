@@ -513,6 +513,11 @@ details .a p + p{margin-top:11px}
    sur mon-bilan-solaire. Le visiteur n'a jamais à remonter chercher le
    formulaire : il en trouve l'entrée au bout de chaque bloc. */
 .sec-cta{margin-top:clamp(28px,3.6vw,44px);text-align:center}
+/* Dans la section « kilomètres », l'appel à l'action vit dans la colonne de
+   gauche : il s'y aligne à gauche. Mais seulement tant qu'il y a deux
+   colonnes — en dessous, la section se centre comme les autres. */
+@media (min-width:951px){ .sec-cta--g{text-align:left} }
+.cons__cta{margin-top:14px;font-size:13.5px;padding:15px 24px}
 .sec-cta .hint{display:block;margin-top:12px;font-size:14px;color:var(--ink-3)}
 .prix .sec-cta .hint,.km .sec-cta .hint{color:rgba(255,255,255,.7)}
 
@@ -994,7 +999,7 @@ details .a p + p{margin-top:11px}
         <li><svg class="ico"><use href="#i-check"/></svg>L'écart se creuse au-delà de 100 km</li>
         <li><svg class="ico"><use href="#i-check"/></svg>Des tournées optimisées partout en France</li>
       </ul>
-      <div class="sec-cta" style="text-align:left">
+      <div class="sec-cta sec-cta--g">
         <a class="btn btn--cta btn--lg" href="#devis" data-cta="kilometres">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
@@ -1181,8 +1186,7 @@ details .a p + p{margin-top:11px}
       <div class="cons__n">
         <a href="tel:+33451420447">04 51 42 04 47</a>
         <span>Lundi — samedi, de 8h à 18h</span>
-        <a class="btn btn--cta" href="#devis" data-cta="conseiller"
-           style="margin-top:14px;font-size:15px;padding:13px 22px">Obtenir mon devis</a>
+        <a class="btn btn--cta cons__cta" href="#devis" data-cta="conseiller">Obtenir mon devis</a>
       </div>
     </div>
   </div>

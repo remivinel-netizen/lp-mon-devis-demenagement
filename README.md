@@ -323,6 +323,12 @@ Le formulaire reste **au-dessus de la ligne de flottaison** à toutes les
 largeurs testées (première option entre 591 et 693 px), ses champs font 55 px
 de haut et 16 px de corps — pas de zoom automatique sur iOS.
 
+**Aucun alignement en dur dans le HTML.** Un `style="text-align:left"` ne peut
+pas être surchargé par une requête média : l'appel à l'action de la section
+« kilomètres » restait collé à gauche une fois la section passée en une
+colonne. Il est désormais porté par `.sec-cta--g`, qui n'aligne à gauche
+qu'au-dessus de 951 px — le seuil de la section elle-même.
+
 > `page.css` est appelée avec `?v=2`. Sans build qui hache les noms de
 > fichiers, **il faut incrémenter ce numéro à chaque modification du CSS**,
 > sinon les visiteurs déjà venus gardent l'ancienne feuille. C'est exactement
