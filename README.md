@@ -222,6 +222,12 @@ chargé par un autre client. Et elle dit ce que le conseiller **cherche à
 obtenir** sur les mille déménageurs du réseau, sans le garantir sur chaque
 trajet. Le schéma, lui, est inchangé dans sa démonstration.
 
+Le titre annonce le **service** — « On cherche le camion qui passe déjà par
+votre route » — et non le problème subi. Un titre qui ouvre sur ce que le
+visiteur paie en trop le met en défense avant d'avoir lu la solution&nbsp;; le
+retour à vide reste expliqué dans le paragraphe qui suit, à sa place de
+mécanisme.
+
 Si MatchMove garantit contractuellement l'aller seul, la formulation ferme peut
 revenir partout&nbsp;: un commentaire dans `index.html` indique où.
 
