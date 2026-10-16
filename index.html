@@ -413,14 +413,33 @@ details .a p + p{margin-top:11px}
 .km__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(30px,4vw,64px);align-items:center}
 .km__fig{background:var(--nuit);border-radius:var(--r-md);padding:clamp(22px,3vw,30px);color:#fff}
 .km__fig h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--rose);margin-bottom:20px}
-.trajet{display:grid;gap:15px}
-.trj{display:flex;align-items:center;gap:13px;font-size:14.5px}
-.trj__b{flex:1;height:34px;border-radius:8px;display:flex;align-items:center;padding:0 12px;
-  font-weight:700;font-size:13px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden}
-.trj__b--plein{background:var(--rose);color:var(--nuit)}
-.trj__b--vide{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.22)}
-.trj__l{width:84px;flex:none;font-size:12.5px;color:rgba(255,255,255,.66);font-weight:600}
+.trajet{display:grid;gap:22px}
+/* Une ligne = un scénario. C'est la LONGUEUR de la barre qui porte
+   l'argument : le déménageur isolé facture deux fois la route, nous une
+   seule. Le rose ne marque plus que le bon scénario — dans la version
+   précédente il colorait ce qui vous est facturé dans les deux cas, donc
+   l'œil ne distinguait pas le problème de la solution. */
+.trj__t{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
+.trj__l{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  font-stretch:88%;color:rgba(255,255,255,.62)}
+.trj__k{font-size:13px;font-weight:700;color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;white-space:nowrap}
+/* Aucun espacement entre segments : l'argument repose sur un rapport de 2
+   pour 1, un écart de 3 px le ramenait à 1,91 et désalignait les deux
+   segments « aller », qui représentent pourtant la même distance. */
+.trj__piste{display:flex;height:30px}
+.seg{width:50%;flex:none;display:flex;align-items:center;padding:0 11px;font-size:12px;
+  font-weight:700;white-space:nowrap;overflow:hidden;letter-spacing:.01em}
+.seg--aller{background:rgba(255,255,255,.17);color:#fff}
+/* Le trajet à vide est hachuré : il se lit comme du poids mort, pas comme
+   une prestation. */
+.seg--vide{color:rgba(255,255,255,.5);box-shadow:inset 1.5px 0 0 rgba(255,255,255,.45), inset -1.5px 0 0 rgba(255,255,255,.18), inset 0 1.5px 0 rgba(255,255,255,.18), inset 0 -1.5px 0 rgba(255,255,255,.18);
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 6px,transparent 6px 12px)}
+.trj--nous .trj__l,.trj--nous .trj__k{color:var(--rose)}
+.trj--nous .seg--aller{background:var(--rose);color:var(--nuit)}
+@media (max-width:620px){
+  .seg{font-size:11px;padding:0 8px}
+  .trj__k{font-size:12px}
+}
 .km__fig p{font-size:13.8px;color:rgba(255,255,255,.76);margin-top:19px;padding-top:17px;
   border-top:1px solid rgba(255,255,255,.17);line-height:1.5}
 .km__fig p b{color:var(--rose)}
@@ -867,19 +886,26 @@ details .a p + p{margin-top:11px}
       </div>
     </div>
     <div class="km__fig">
-      <h3>Lyon → Lille, 25 m³</h3>
+      <h3>Lyon → Lille · 690 km de route</h3>
       <div class="trajet">
-        <div class="trj"><span class="trj__l">Déménageur<br>isolé</span>
-          <span class="trj__b trj__b--plein">Aller chargé · facturé</span></div>
-        <div class="trj"><span class="trj__l"></span>
-          <span class="trj__b trj__b--plein">Retour à vide · facturé aussi</span></div>
-        <div class="trj" style="margin-top:9px"><span class="trj__l">Avec nous</span>
-          <span class="trj__b trj__b--plein">Aller chargé · facturé</span></div>
-        <div class="trj"><span class="trj__l"></span>
-          <span class="trj__b trj__b--vide">Retour chargé par un autre client</span></div>
+        <div class="trj">
+          <div class="trj__t"><span class="trj__l">Déménageur isolé</span>
+            <span class="trj__k">1 380 km facturés</span></div>
+          <div class="trj__piste">
+            <span class="seg seg--aller">Aller chargé</span>
+            <span class="seg seg--vide">Retour à vide</span>
+          </div>
+        </div>
+        <div class="trj trj--nous">
+          <div class="trj__t"><span class="trj__l">Avec nous</span>
+            <span class="trj__k">690 km facturés</span></div>
+          <div class="trj__piste">
+            <span class="seg seg--aller">Aller chargé</span>
+          </div>
+        </div>
       </div>
-      <p>Même camion, même équipe, même prestation. <b>Seul le nombre de trajets
-         facturés change.</b></p>
+      <p>Même camion, même équipe, même prestation. <b>Seule la distance facturée
+         change</b> — parce que le retour est chargé par un autre client.</p>
     </div>
   </div>
 </section>

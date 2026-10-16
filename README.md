@@ -183,6 +183,18 @@ voisins auraient fini par diverger.
 Le favicon n'a pas de texte, il reste donc un fichier autonome sans traitement
 particulier.
 
+### Le schéma des « kilomètres aller »
+
+Deux barres dont la **longueur** porte l'argument : le déménageur isolé facture
+deux fois la route, nous une seule. Le rapport est **exactement 2 pour 1**, par
+largeurs explicites de 50 % — avec `flex:1` il tombait à 1,91, l'élément vide ne
+portant pas le même rembourrage que le segment.
+
+Le rose ne marque plus que le bon scénario. Dans la version précédente il
+colorait ce qui vous est facturé **dans les deux cas**, si bien que l'œil ne
+distinguait pas le problème de la solution — et rien ne montrait l'économie. Le
+trajet à vide est désormais hachuré&nbsp;: il se lit comme du poids mort.
+
 ### Le hero
 
 Photo générée pour le projet (`img/hero-1600.jpg`, 110 Ko ; `hero-900.jpg`,
