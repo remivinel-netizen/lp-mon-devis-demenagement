@@ -189,7 +189,7 @@ h1 .em{color:var(--rose)}
 .chips li{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:400}
 .chips .ico{width:16px;height:16px;color:var(--rose);stroke-width:3}
 .hero__proof{margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);
-  display:grid;grid-template-columns:repeat(4,auto);gap:clamp(18px,2.2vw,30px);justify-content:start}
+  display:grid;grid-template-columns:repeat(3,auto);gap:26px;justify-content:start}
 .hero__proof b{display:block;font-size:26px;letter-spacing:-.03em;line-height:1.1}
 .hero__proof span{display:block;font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.35;margin-top:3px}
 @media (max-width:1000px){
@@ -208,8 +208,8 @@ h1 .em{color:var(--rose)}
   .hero__sub{order:3;margin-inline:auto;margin-bottom:26px}
   .quiz{order:4;text-align:left}
   .chips{order:5;justify-content:center;margin-top:30px}
-  .hero__proof{order:6;justify-content:center;grid-template-columns:repeat(2,1fr);
-    max-width:420px;margin-inline:auto;text-align:center;gap:18px 14px}
+  .hero__proof{order:6;justify-content:center;grid-template-columns:repeat(3,1fr);
+    max-width:480px;margin-inline:auto;text-align:center;gap:14px}
 }
 @media (max-width:560px){
   .hero{padding-top:24px}
@@ -463,34 +463,18 @@ details .a p + p{margin-top:11px}
 .km__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(30px,4vw,64px);align-items:center}
 .km__fig{background:var(--nuit);border-radius:var(--r-md);padding:clamp(22px,3vw,30px);color:#fff}
 .km__fig h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--rose);margin-bottom:20px}
-.trajet{display:grid;gap:22px}
-/* Une ligne = un scénario. C'est la LONGUEUR de la barre qui porte
-   l'argument : le déménageur isolé facture deux fois la route, nous une
-   seule. Le rose ne marque plus que le bon scénario — dans la version
-   précédente il colorait ce qui vous est facturé dans les deux cas, donc
-   l'œil ne distinguait pas le problème de la solution. */
-.trj__t{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
-.trj__l{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  font-stretch:88%;color:rgba(255,255,255,.62)}
-.trj__k{font-size:13px;font-weight:700;color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;white-space:nowrap}
-/* Aucun espacement entre segments : l'argument repose sur un rapport de 2
-   pour 1, un écart de 3 px le ramenait à 1,91 et désalignait les deux
-   segments « aller », qui représentent pourtant la même distance. */
-.trj__piste{display:flex;height:30px}
-.seg{width:50%;flex:none;display:flex;align-items:center;padding:0 11px;font-size:12px;
-  font-weight:700;white-space:nowrap;overflow:hidden;letter-spacing:.01em}
-.seg--aller{background:rgba(255,255,255,.17);color:#fff}
-/* Le trajet à vide est hachuré : il se lit comme du poids mort, pas comme
-   une prestation. */
-.seg--vide{color:rgba(255,255,255,.5);box-shadow:inset 1.5px 0 0 rgba(255,255,255,.45), inset -1.5px 0 0 rgba(255,255,255,.18), inset 0 1.5px 0 rgba(255,255,255,.18), inset 0 -1.5px 0 rgba(255,255,255,.18);
-  background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 6px,transparent 6px 12px)}
-.trj--nous .trj__l,.trj--nous .trj__k{color:var(--rose)}
-.trj--nous .seg--aller{background:var(--rose);color:var(--nuit)}
-@media (max-width:620px){
-  .seg{font-size:12px;padding:0 8px}
-  .trj__k{font-size:12.5px}
-  .trj__l{font-size:12px;letter-spacing:.06em}
-}
+.duo__t{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:9px;
+  font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-stretch:88%}
+.duo__a{color:var(--rose)}
+.duo__b{color:rgba(255,255,255,.55);text-align:right}
+/* La piste porte le fond « retour à vide » sur toute sa longueur : l'étiquette
+   de droite ne bouge donc jamais, même pendant que le rose se déploie. */
+.duo{position:relative;height:46px;border-radius:6px;overflow:hidden;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,.09) 0 6px,rgba(255,255,255,.03) 6px 12px)}
+.duo__s{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding:0 13px;
+  font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden}
+.duo__s--oui{left:0;width:50%;background:var(--rose);color:var(--nuit)}
+.duo__s--non{left:50%;right:0;color:rgba(255,255,255,.55)}
 .km__fig p{font-size:13.8px;color:rgba(255,255,255,.76);margin-top:19px;padding-top:17px;
   border-top:1px solid rgba(255,255,255,.17);line-height:1.5}
 .km__fig p b{color:var(--rose)}
@@ -553,15 +537,16 @@ details .a p + p{margin-top:11px}
   transition:opacity .4s var(--ease) var(--d),transform .5s var(--ease) var(--d)}
 .js-anim .carte__wrap.vu .pin{opacity:1;transform:none}
 
-/* Les barres du schéma se déploient : la longueur étant l'argument, la voir
-   se construire vaut mieux que la découvrir figée. */
-.js-anim .seg{transform:scaleX(0);transform-origin:left;
-  transition:transform .85s var(--ease)}
-.js-anim .trajet.vu .seg{transform:scaleX(1)}
-.js-anim .trajet.vu .trj--nous .seg{transition-delay:.3s}
+/* La moitié facturée se déploie sur la piste : la longueur étant l'argument,
+   la voir se construire vaut mieux que la découvrir figée. C'est la largeur
+   qui bouge, pas une mise à l'échelle — le texte à l'intérieur resterait
+   déformé pendant toute la transition. */
+.js-anim .duo__s--oui{width:0;transition:width .85s var(--ease)}
+.js-anim .trajet.vu .duo__s--oui{width:50%}
 
 @media (prefers-reduced-motion:reduce){
-  .js-anim .rvl,.js-anim .rvl-g > *,.js-anim .seg,.js-anim .pin{opacity:1;transform:none;transition:none}
+  .js-anim .rvl,.js-anim .rvl-g > *,.js-anim .pin{opacity:1;transform:none;transition:none}
+  .js-anim .duo__s--oui{width:50%;transition:none}
   .btn::after{display:none}
 }
 
@@ -793,9 +778,7 @@ details .a p + p{margin-top:11px}
       <p class="eyebrow"><span class="dot"></span>Déménageurs professionnels partout en France</p>
       <h1>Déménagez <span class="em">l'esprit léger</span></h1>
       <p class="hero__sub">
-        Décrivez votre déménagement en une minute et recevez votre devis en une
-        heure. Plus de mille déménageurs partenaires, et vos démarches — eau, gaz,
-        électricité, internet, assurance — prises en charge.
+        Décrivez votre déménagement en une minute et recevez votre devis en une heure.
       </p>
       <!-- Les trois arguments ci-dessous viennent de l'offre réelle publiée sur
            matchmove.fr : devis en 1 heure, transfert des contrats inclus sur
@@ -813,7 +796,6 @@ details .a p + p{margin-top:11px}
       </ul>
       <div class="hero__proof">
         <div><b>4,3/5</b><span>sur 202 avis<br>Trustpilot</span></div>
-        <div><b>1 000+</b><span>déménageurs<br>partenaires</span></div>
         <div><b>1 h</b><span>pour recevoir<br>votre devis</span></div>
         <div><b>97 %</b><span>de clients<br>satisfaits</span></div>
       </div>
@@ -978,8 +960,8 @@ details .a p + p{margin-top:11px}
   <div class="wrap band__g rvl-g">
     <div class="band__i">
       <svg class="ico"><use href="#i-route"/></svg>
-      <h3>Ne payez que l'aller</h3>
-      <p>Nos camions ne rentrent jamais à vide. Le trajet retour ne vous est pas facturé.</p>
+      <h3>Le retour à vide en moins</h3>
+      <p>Votre conseiller cherche un camion déjà sur votre trajet, dont le retour est chargé.</p>
     </div>
     <div class="band__i">
       <svg class="ico"><use href="#i-heart"/></svg>
@@ -1143,48 +1125,46 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<!-- L'argument de prix le plus fort du secteur, et le plus mal expliqué :
-     on prend le temps de le rendre compréhensible.
-     ⚠ À VALIDER : suppose un réseau national capable d'optimiser ses tournées
-     et de ne pas facturer le retour. Aucun pourcentage d'économie n'est
-     annoncé ici — il faudrait pouvoir l'étayer. -->
+<!-- Le levier de prix le plus fort du secteur, et le plus mal expliqué.
+     Cette section décrivait auparavant une GARANTIE : « vous ne payez que les
+     kilomètres aller ». Elle venait telle quelle d'officiel-demenagement.com
+     et n'est étayée nulle part sur matchmove.fr — promettre un mode de
+     facturation qu'on ne contrôle pas expose à la pratique commerciale
+     trompeuse. Elle décrit désormais le MÉCANISME, et ce que le conseiller
+     cherche à obtenir, ce qui reste vrai quel que soit le déménageur retenu.
+     Si MatchMove garantit contractuellement l'aller seul, c'est le moment de
+     le dire et de remettre la formulation ferme partout. -->
 <section id="kilometres" class="km">
   <div class="wrap km__in">
     <div>
       <div class="sec-h rvl" style="margin-bottom:24px">
-        <h2>Vous ne payez que <span class="em">les kilomètres aller</span></h2>
-        <p>Un déménageur qui monte seul à Lille doit redescendre à vide. Il vous facture
-           les deux trajets. Nos camions roulent sur des tournées déjà prévues&nbsp;: le
-           retour est chargé par un autre client. Vous ne payez que l'aller.</p>
+        <h2>Le retour à vide, <span class="em">c'est vous qui le payez</span></h2>
+        <p>Un déménageur qui monte seul à Lille doit redescendre à vide, et vous facture
+           les deux trajets. Avec mille déménageurs partenaires, votre conseiller cherche
+           celui dont le camion passe déjà par votre route&nbsp;: son retour est chargé par
+           un autre client, et l'aller seul vous est facturé.</p>
       </div>
       <ul class="chips" style="margin-top:0">
-        <li><svg class="ico"><use href="#i-check"/></svg>Des tournées optimisées partout en France</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Mille déménageurs, donc des camions sur toutes les routes</li>
       </ul>
       <div class="sec-cta sec-cta--g">
         <a class="btn btn--cta btn--lg" href="#devis" data-cta="kilometres">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
     <div class="km__fig rvl">
-      <h3>Lyon → Lille · 690 km de route</h3>
+      <h3>Lyon → Lille · 1 380 km aller-retour</h3>
       <div class="trajet">
-        <div class="trj">
-          <div class="trj__t"><span class="trj__l">Déménageur isolé</span>
-            <span class="trj__k">1 380 km facturés</span></div>
-          <div class="trj__piste">
-            <span class="seg seg--aller">Aller chargé</span>
-            <span class="seg seg--vide">Retour à vide</span>
-          </div>
+        <div class="duo__t">
+          <span class="duo__a">Camion déjà sur la route&nbsp;: 690 km</span>
+          <span class="duo__b">Camion dédié&nbsp;: 1 380 km</span>
         </div>
-        <div class="trj trj--nous">
-          <div class="trj__t"><span class="trj__l">Avec nous</span>
-            <span class="trj__k">690 km facturés</span></div>
-          <div class="trj__piste">
-            <span class="seg seg--aller">Aller chargé</span>
-          </div>
+        <div class="duo">
+          <span class="duo__s duo__s--oui">L'aller</span>
+          <span class="duo__s duo__s--non">Le retour à vide</span>
         </div>
       </div>
-      <p>Même camion, même équipe, même prestation. <b>Seule la distance facturée
-         change</b> — parce que le retour est chargé par un autre client.</p>
+      <p>Un camion qui monte seul doit redescendre à vide, et vous facture les deux trajets.
+         <b>Votre conseiller cherche celui dont le retour est déjà chargé.</b></p>
     </div>
   </div>
 </section>
@@ -1293,8 +1273,8 @@ details .a p + p{margin-top:11px}
            Compris même en formule Éco.</p></div>
       <div class="inc"><svg class="ico"><use href="#i-truck"/></svg>
         <h3>Chargement et livraison</h3>
-        <p>Le camion, l'équipe, l'acheminement et la livraison à l'arrivée. Et vous ne payez que
-           les kilomètres aller.</p></div>
+        <p>Le camion, l'équipe, l'acheminement et la livraison à l'arrivée. Et le trajet cherché
+           au plus court pour vous.</p></div>
       <div class="inc"><svg class="ico"><use href="#i-cal"/></svg>
         <h3>Le droit de changer d'avis</h3>
         <p>Modification ou annulation gratuite jusqu'à deux semaines avant la date retenue. Un
@@ -1365,6 +1345,50 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
+<!-- Engagement qualité. Tout ce qui est affirmé ici relève du droit français
+     applicable à TOUTE entreprise de déménagement, vérifié sur
+     service-public.gouv.fr (particuliers, fiche F33997) et sur
+     ecologie.gouv.fr (accès à la profession de transporteur de marchandises).
+     Rien n'est présenté comme un engagement propre à MATCHMOVE, parce que
+     matchmove.fr ne publie ni assureur, ni montant de couverture, ni critère
+     de sélection de ses partenaires.
+     ⚠ Dès que ces trois éléments seront connus, c'est ici qu'ils viennent —
+     et c'est là que se joue l'écart avec les concurrents, dont aucun ne
+     publie d'engagement d'assurance. -->
+<section id="qualite" style="background:var(--gris)">
+  <div class="wrap">
+    <div class="sec-h ctr rvl">
+      <h2>Un métier réglementé, <span class="em">des droits qui vous protègent</span></h2>
+      <p>Tout le monde peut se dire déménageur&nbsp;; la loi, elle, exige des titres précis et
+         vous donne des recours. Voici ce que vous êtes en droit d'attendre, quel que soit le
+         déménageur retenu.</p>
+    </div>
+    <div class="incl__g rvl-g">
+      <div class="inc"><svg class="ico"><use href="#i-route"/></svg>
+        <h3>Une licence de transport</h3>
+        <p>Le déménagement relève du transport routier. L'entreprise doit être inscrite au
+           registre national des entreprises et au registre des transporteurs et des loueurs,
+           et détenir la licence qui en découle.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-shield"/></svg>
+        <h3>Une assurance obligatoire</h3>
+        <p>Le professionnel doit avoir souscrit une responsabilité civile professionnelle. La
+           déclaration de valeur, elle, sert à déclarer à l'assurance le montant de votre
+           mobilier&nbsp;: remplissez-la sérieusement.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-euro"/></svg>
+        <h3>Un devis détaillé</h3>
+        <p>Il doit faire apparaître le prix de la main-d'œuvre, celui de la traction par tranche
+           de volume avec un terme fixe et un terme kilométrique, les montants hors taxes et
+           toutes taxes comprises, et les conditions générales.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-cal"/></svg>
+        <h3>Dix jours pour réclamer</h3>
+        <p>En cas de casse ou de perte, inscrivez des réserves précises sur le bulletin de
+           livraison avant de le signer, puis confirmez sous dix jours par lettre recommandée
+           avec accusé de réception.</p></div>
+    </div>
+    <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="qualite">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Votre conseiller répond à ces questions.</span></div>
+  </div>
+</section>
+
 <section class="cons">
   <div class="wrap">
     <div class="cons__in rvl">
@@ -1409,9 +1433,9 @@ details .a p + p{margin-top:11px}
         <div class="a"><p>Gratuit, sans engagement, et établi <strong>en une heure</strong>. L'estimation en ligne et l'appel du conseiller ne vous coûtent rien non plus.</p>
           <p>Vous ne payez qu'au moment où vous validez un devis par un acompte — et vous pouvez encore modifier ou annuler gratuitement jusqu'à deux semaines avant la date retenue.</p></div></details>
 
-      <details><summary>Que veut dire « ne payer que les kilomètres aller »&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+      <details><summary>Pourquoi parle-t-on de «&nbsp;retour à vide&nbsp;»&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Un déménageur qui fait Lyon-Lille doit ramener son camion. S'il revient à vide, ce trajet est dans votre facture&nbsp;: vous payez la route deux fois.</p>
-          <p>Nos camions roulent sur des tournées déjà prévues. Le retour est chargé par un autre client, et vous ne payez que l'aller.</p></div></details>
+          <p>Un camion mobilisé pour vous seul doit rentrer à son point de départ, et ce retour vous est facturé même s'il roule à vide. Un camion qui passait déjà par votre trajet, lui, repart chargé par un autre client&nbsp;: seul l'aller vous est facturé. C'est ce que votre conseiller cherche à obtenir sur les mille déménageurs du réseau — sans pouvoir le garantir sur chaque trajet.</p></div></details>
 
       <details><summary>Les cartons sont-ils fournis&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>En formule <strong>Luxe</strong>, oui&nbsp;: cartons et adhésif fournis, et déballage complet à l'arrivée.</p>
@@ -1501,9 +1525,10 @@ details .a p + p{margin-top:11px}
       </div>
       <div><h4>Le déménagement</h4><ul>
         <li><a href="#formules">Les trois formules</a></li>
-        <li><a href="#kilometres">Ne payer que l'aller</a></li>
+        <li><a href="#kilometres">Le retour à vide</a></li>
         <li><a href="#etapes">Comment ça se passe</a></li>
         <li><a href="#support">Votre conseiller dédié</a></li>
+        <li><a href="#qualite">Vos droits, vos recours</a></li>
         <li><a href="#faq">Questions fréquentes</a></li>
       </ul></div>
       <div><h4>Cas particuliers</h4><ul>

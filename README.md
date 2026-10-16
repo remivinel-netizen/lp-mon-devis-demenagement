@@ -20,9 +20,11 @@ promesse de sérénité plutôt qu'une mise en concurrence, des services compris
 plutôt qu'une comparaison de devis, et un conseiller identifié plutôt qu'une
 plateforme. Concrètement, quatre arguments structurent la page :
 
-1. **« Vous ne payez que les kilomètres aller »** — l'argument de prix le plus
-   fort du secteur, et le plus mal expliqué. Il a sa propre section, avec un
-   schéma, parce qu'il ne se comprend pas en une ligne.
+1. **Le retour à vide** — le levier de prix le plus fort du secteur, et le plus
+   mal expliqué. Il a sa propre section, avec un schéma, parce qu'il ne se
+   comprend pas en une ligne. Formulé comme un **mécanisme** et comme ce que le
+   conseiller cherche à obtenir, non comme une garantie de facturation — voir
+   plus bas.
 2. **« Tout compris »** — cartons livrés, assurance du mobilier, changement
    d'adresse, compris dans les trois formules.
 3. **Un conseiller, pas un robot** — la même personne du devis au jour J,
@@ -183,17 +185,68 @@ voisins auraient fini par diverger.
 Le favicon n'a pas de texte, il reste donc un fichier autonome sans traitement
 particulier.
 
-### Le schéma des « kilomètres aller »
+### Le schéma du retour à vide
 
-Deux barres dont la **longueur** porte l'argument : le déménageur isolé facture
-deux fois la route, nous une seule. Le rapport est **exactement 2 pour 1**, par
-largeurs explicites de 50 % — avec `flex:1` il tombait à 1,91, l'élément vide ne
-portant pas le même rembourrage que le segment.
+**Une seule barre, coupée en deux.** La piste entière vaut l'aller-retour, soit
+1 380 km&nbsp;; l'incrustation rose vaut ce qui est facturé quand le camion
+passait déjà par là. Le rapport est **exactement 2 pour 1**, mesuré à 0,500.
 
-Le rose ne marque plus que le bon scénario. Dans la version précédente il
-colorait ce qui vous est facturé **dans les deux cas**, si bien que l'œil ne
-distinguait pas le problème de la solution — et rien ne montrait l'économie. Le
-trajet à vide est désormais hachuré&nbsp;: il se lit comme du poids mort.
+La version précédente empilait deux barres et faisait lire **huit zones de
+texte** avant que l'argument n'arrive&nbsp;: un titre, deux libellés de ligne,
+deux kilométrages, deux étiquettes dans les barres, un paragraphe. Elle
+demandait aussi de décoder « aller chargé » et « retour à vide » — deux notions
+de transport — pour comprendre qu'on paie la route deux fois. On en est à
+quatre zones, et le rapport se voit sans compter.
+
+Le fond hachuré porte désormais la piste entière, et non plus un segment&nbsp;:
+l'étiquette de droite ne bouge donc jamais pendant que le rose se déploie.
+C'est la **largeur** qui est animée, pas une mise à l'échelle — un `scaleX`
+déformait le texte à l'intérieur pendant toute la transition.
+
+### Pourquoi « le retour à vide » et non « vous ne payez que l'aller »
+
+La page portait, en huit endroits, la promesse **« Vous ne payez que les
+kilomètres aller »**. Elle venait telle quelle d'officiel-demenagement.com.
+Elle n'est étayée **nulle part** sur matchmove.fr&nbsp;: ni groupage, ni mode
+de facturation, ni tournées.
+
+C'est une promesse de **prix**. Un client qui la lit, puis reçoit un devis
+facturant l'aller-retour, a un grief fondé — et l'écart entre la promesse et la
+facture relève de la pratique commerciale trompeuse. Le risque n'est pas
+éditorial, il est juridique, et il porte sur le client final.
+
+La section décrit donc le **mécanisme**, qui est vrai quel que soit le
+déménageur&nbsp;: un camion mobilisé pour une seule famille doit rentrer, et ce
+retour est facturé même à vide&nbsp;; un camion qui passait déjà par là repart
+chargé par un autre client. Et elle dit ce que le conseiller **cherche à
+obtenir** sur les mille déménageurs du réseau, sans le garantir sur chaque
+trajet. Le schéma, lui, est inchangé dans sa démonstration.
+
+Si MatchMove garantit contractuellement l'aller seul, la formulation ferme peut
+revenir partout&nbsp;: un commentaire dans `index.html` indique où.
+
+### Ce que la section « qualité » affirme, et d'où ça vient
+
+Tout ce qu'affirme la section `#qualite` relève du **droit français applicable à
+toute entreprise de déménagement**, et non d'un engagement propre à MatchMove —
+inscription au registre national des entreprises et au registre des
+transporteurs et des loueurs, licence de transport, responsabilité civile
+professionnelle, mentions obligatoires du devis, déclaration de valeur, et le
+délai de **dix jours** pour confirmer des réserves par lettre recommandée avec
+accusé de réception.
+
+Vérifié sur [service-public.gouv.fr](https://www.service-public.gouv.fr/particuliers/vosdroits/F33997)
+et sur [ecologie.gouv.fr](https://www.ecologie.gouv.fr/politiques-publiques/acces-exercice-profession-transporteur-marchandises).
+
+C'est un choix de différenciation autant que de prudence&nbsp;: l'audit de
+`lesartisansdemenageurs.fr` et `demenagement24.com` montre qu'**aucun des deux
+ne publie d'engagement d'assurance, de montant de couverture, ni de voie de
+recours**. Expliquer les droits du client là où les concurrents se taisent
+coûte zéro promesse et construit la préférence.
+
+Dès que matchmove.fr fournit un assureur, un montant de couverture et des
+critères de sélection des partenaires, c'est dans cette section qu'ils
+viennent — et l'écart devient difficile à rattraper.
 
 ### La carte de France
 
@@ -440,8 +493,9 @@ la page entière, et chaque élément cesse d'être observé dès qu'il est appa
 
 - **Apparition au défilement** des en-têtes de section et des grilles, les
   enfants en cascade (70 ms d'écart).
-- **Les barres du schéma** se déploient depuis la gauche&nbsp;: la longueur
+- **La moitié facturée du schéma** se déploie sur la piste&nbsp;: la longueur
   étant l'argument, la voir se construire vaut mieux que la découvrir figée.
+  Sans JavaScript, la barre est d'emblée à sa largeur finale.
 - **Compteurs** sur les deux chiffres du bandeau de preuve, avec décélération.
 - **Boutons**&nbsp;: élévation de 2 px, flèche qui avance de 4 px, et un reflet
   oblique qui traverse le bouton en 0,6 s.
@@ -462,14 +516,14 @@ coûte plus cher qu'une page sans animation&nbsp;:
 
 Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en ligne.
 
-- [ ] **Les quatre promesses commerciales.** Cartons offerts, assurance du
-      mobilier comprise, changement d'adresse pris en charge, et « vous ne payez
-      que les kilomètres aller ». Elles sont reprises du modèle de l'Officiel du
-      Déménagement et **structurent toute la page** — hero, bandeau, section
-      dédiée, formules, services offerts, FAQ, page `/merci`. Elles n'ont de
-      valeur que si le réseau les honore réellement. Un bloc `⚠ À VALIDER` les
-      signale dans `index.html`. **Soit on les confirme, soit on les retire
-      partout à la fois** — une promesse à moitié tenue coûte plus cher qu'une
+- [ ] **Les promesses commerciales.** Cartons offerts, assurance du
+      mobilier comprise, changement d'adresse pris en charge. Elles sont reprises
+      du modèle de l'Officiel du Déménagement et **structurent toute la page** —
+      hero, bandeau, section dédiée, formules, services offerts, FAQ, page
+      `/merci`. Elles n'ont de valeur que si le réseau les honore réellement. Un
+      bloc `⚠ À VALIDER` les signale dans `index.html`. **Soit on les confirme,
+      soit on les retire partout à la fois** — une promesse à moitié tenue coûte
+      plus cher qu'une
       promesse absente.
 - [ ] **Le plafond de la garantie dommage** : la FAQ renvoie au conseiller plutôt
       que d'annoncer un montant. À fournir si vous voulez le publier.
