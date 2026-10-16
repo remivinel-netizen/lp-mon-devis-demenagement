@@ -231,14 +231,30 @@ mécanisme.
 Si MatchMove garantit contractuellement l'aller seul, la formulation ferme peut
 revenir partout&nbsp;: un commentaire dans `index.html` indique où.
 
-### Ce que le bloc « Ce que la loi vous garantit » affirme, et d'où ça vient
+### Ce que le bloc « Ce que Mon Devis Déménagement vous garantit » affirme
 
 Il vit dans la section « Du premier carton au dernier meuble », et non dans une
 section à part : c'est le même sujet — ce que recouvre vraiment une prestation —
 et la page y gagne une section de moins. L'ancre `#qualite` est portée par le
 panneau, les liens de pied de page continuent donc de fonctionner.
 
-Le bloc est volontairement **court** — 73 mots, quatre lignes — et formulé du
+**La ligne à ne pas franchir.** Le bloc a d'abord été titré « Ce que la loi
+vous garantit », puis mis au nom de la marque. La nuance n'est pas cosmétique.
+
+Ce que la marque garantit, c'est la **nature des partenaires** — des entreprises
+de déménagement professionnelles — et c'est le modèle même du service&nbsp;: un
+réseau de déménageurs, pas de particuliers. Les quatre points en découlent par
+la loi, et sont donc vrais sans rien avoir à vérifier.
+
+Ce qui n'est **pas** écrit, et ne doit pas l'être tant que ce n'est pas établi :
+que nous vérifions nous-mêmes la licence, l'inscription au registre ou
+l'attestation d'assurance de chaque partenaire. Ce serait un engagement de
+moyens précis, contrôlable, et opposable en cas de litige — or matchmove.fr ne
+publie aucun critère de sélection. C'est la différence entre « nos partenaires
+sont des professionnels, donc la loi les oblige à X » et « nous vérifions X »,
+et seule la seconde formule demande une preuve que nous n'avons pas.
+
+Le bloc est volontairement **court** — 85 mots, quatre lignes — et formulé du
 point de vue de ce que le client obtient, non de ce que la loi impose. « Un
 transporteur agréé », « Vos biens assurés », « Un devis transparent », « Dix
 jours de recours » : ce sont quatre acquis, pas quatre contraintes. La version
