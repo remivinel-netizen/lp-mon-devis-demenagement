@@ -231,12 +231,19 @@ mécanisme.
 Si MatchMove garantit contractuellement l'aller seul, la formulation ferme peut
 revenir partout&nbsp;: un commentaire dans `index.html` indique où.
 
-### Ce que le bloc « métier réglementé » affirme, et d'où ça vient
+### Ce que le bloc « Ce que la loi vous garantit » affirme, et d'où ça vient
 
 Il vit dans la section « Du premier carton au dernier meuble », et non dans une
 section à part : c'est le même sujet — ce que recouvre vraiment une prestation —
 et la page y gagne une section de moins. L'ancre `#qualite` est portée par le
 panneau, les liens de pied de page continuent donc de fonctionner.
+
+Le bloc est volontairement **court** — 73 mots, quatre lignes — et formulé du
+point de vue de ce que le client obtient, non de ce que la loi impose. « Un
+transporteur agréé », « Vos biens assurés », « Un devis transparent », « Dix
+jours de recours » : ce sont quatre acquis, pas quatre contraintes. La version
+précédente détaillait chaque obligation sur trois lignes et pesait 160 mots
+dans une page qui vend un service, pas un cours de droit des transports.
 
 Tout ce qu'il affirme relève du **droit français applicable à
 toute entreprise de déménagement**, et non d'un engagement propre à MatchMove —
@@ -263,7 +270,7 @@ viennent — et l'écart devient difficile à rattraper.
 
 Quatre sections se suivaient avec la même grille — « Inclus dans les trois
 formules », « Votre déménagement n'est pas standard », « Un interlocuteur » et
-« Un métier réglementé » — soit **dix-sept cartes consécutives** au même
+« Ce que la loi vous garantit » — soit **dix-sept cartes consécutives** au même
 gabarit : icône nue de 25 px, titre, paragraphe. À l'échelle de la page cela
 formait un mur que l'œil cesse de lire.
 
