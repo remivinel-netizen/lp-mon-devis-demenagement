@@ -269,6 +269,13 @@ h1 .em{color:var(--rose)}
 .field select{appearance:none;cursor:pointer;padding-right:40px;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234C5551' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 13px center;background-size:17px}
+/* Safari iOS donne aux champs date une hauteur intrinsèque plus faible que
+   celle des autres champs et les aligne en haut : on la force pour que la
+   ligne garde la même assise que les codes postaux au-dessus. */
+.field input[type=date]{min-height:51px;appearance:none;-webkit-appearance:none;display:block}
+.field input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+.field input[type=date]::-webkit-calendar-picker-indicator{opacity:.55;cursor:pointer}
+.field input[type=date]:hover::-webkit-calendar-picker-indicator{opacity:1}
 .tel-f{display:flex;align-items:stretch}
 .tel-f .cc{display:grid;place-items:center;padding:0 13px;border:1.5px solid var(--line-2);border-right:0;
   border-radius:var(--r-sm) 0 0 var(--r-sm);background:var(--gris);font-weight:700;font-size:15px;color:var(--ink-2)}
@@ -649,9 +656,14 @@ details .a p + p{margin-top:11px}
   .opt__ico{transition:transform .2s var(--ease)}
   .opt:hover .opt__ico{transform:scale(1.07) rotate(-4deg)}
 
-  /* FAQ */
+  /* FAQ. Le survol empruntait le rose de l'état ouvert : une question
+     simplement survolée se lisait comme une question dépliée, et une question
+     déjà ouverte ne réagissait plus du tout. Chaque état fonce désormais dans
+     sa propre teinte. Contrastes mesurés avec --ink #333 : 10,7:1 sur le gris
+     fermé, 10,0:1 sur le rose ouvert. */
   summary{transition:background .16s}
-  summary:hover{background:var(--rose-brume)}
+  summary:hover{background:var(--gris-2)}
+  details[open] summary:hover{background:var(--rose-pale)}
   summary:hover .ico{color:var(--magenta)}
 
   /* En-tête : le rond du téléphone se remplit. */
@@ -733,26 +745,17 @@ details .a p + p{margin-top:11px}
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.4 12 4l8 6.4V20H4Z"/><path d="M9.6 20v-5.6h4.8V20"/></symbol>
 <symbol id="i-build" viewBox="0 0 24 24"><path d="M5 21V4.5A1.5 1.5 0 0 1 6.5 3h7A1.5 1.5 0 0 1 15 4.5V21"/><path d="M15 10h3.5A1.5 1.5 0 0 1 20 11.5V21M3 21h18M8.4 7h3M8.4 11h3M8.4 15h3"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10.4c0 5-7 11-7 11s-7-6-7-11a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10.2" r="2.6"/></symbol>
-<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V4M5.5 4.8h11l-2.2 3.6 2.2 3.6h-11"/></symbol>
 <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5.2" width="17" height="15.3" rx="2.4"/><path d="M3.5 10h17M8.4 3v4.2M15.6 3v4.2"/></symbol>
-<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.2 2.5 4.8 13.4h6L10 21.5l8.6-11h-6.2Z"/></symbol>
-<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"/><path d="m16 16 4.2 4.2"/></symbol>
 <symbol id="i-euro" viewBox="0 0 24 24"><path d="M17.6 6.2a6.8 6.8 0 0 0-9.8 2.3 8 8 0 0 0 0 7 6.8 6.8 0 0 0 9.8 2.3M4.8 10.2h8M4.8 13.9h8"/></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8 4.8 5.8v6.1c0 4.3 3 7.6 7.2 9.3 4.2-1.7 7.2-5 7.2-9.3V5.8Z"/><path d="m8.9 12 2.2 2.2 4-4.3"/></symbol>
 <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.6" y="10.3" width="14.8" height="10.2" rx="2.4"/><path d="M8.2 10.3V7.6a3.8 3.8 0 0 1 7.6 0v2.7"/></symbol>
-<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.1 2"/></symbol>
-<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V9.6M10 20V4.5M16 20v-7.4M21.4 20H2.6"/></symbol>
 <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.3" cy="8.2" r="3.5"/><path d="M3 20a6.3 6.3 0 0 1 12.6 0M16.4 5.1a3.5 3.5 0 0 1 0 6.3M18 20a6.3 6.3 0 0 0-2-4.6"/></symbol>
-<symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.8H7a2 2 0 0 0-2 2v14.4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.8Z"/><path d="M14 2.8v5h5M8.6 13h6.8M8.6 16.6h4.4"/></symbol>
 <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9Z"/></symbol>
 <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.8 6.4h10.6v10.2H2.8zM13.4 9.8h3.9l2.9 3v3.8h-6.8z"/><circle cx="7" cy="18.6" r="1.9"/><circle cx="16.6" cy="18.6" r="1.9"/></symbol>
-<symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20.5h4.3v-4.3h4.3v-4.3h4.3V7.6H20V3.5"/></symbol>
-<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.3M12 19.1v2.3M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.6 12h2.3M19.1 12h2.3M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></symbol>
 <symbol id="i-piano" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7.5 5v8M12 5v8M16.5 5v8M3 13h18"/></symbol>
 <symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.3" cy="16.8" r="3.3"/><circle cx="18.7" cy="16.8" r="3.3"/><path d="M5.3 16.8h5l4-7h-2.6M14.3 9.8h3.1l1.3 7M9.4 9.8h4.9"/></symbol>
 <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2a14 14 0 0 1 0 17.6 14 14 0 0 1 0-17.6"/></symbol>
 <symbol id="i-island" viewBox="0 0 24 24"><path d="M3 19.6c1.6 0 1.6 1 3.2 1s1.6-1 3.2-1 1.6 1 3.2 1 1.6-1 3.2-1 1.6 1 3.2 1"/><path d="M12 16.4V8.6M12 8.6c-2.6-2-5.4-1.2-6.6.4M12 8.6c2.6-2 5.4-1.2 6.6.4M12 8.6c-1-2.8.4-4.8 2-5.6"/></symbol>
-<symbol id="i-case" viewBox="0 0 24 24"><rect x="2.8" y="7.4" width="18.4" height="12.4" rx="2.3"/><path d="M8.4 7.4V5.6a1.8 1.8 0 0 1 1.8-1.8h3.6a1.8 1.8 0 0 1 1.8 1.8v1.8M2.8 13h18.4"/></symbol>
 <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="6.2" r="2.6"/><circle cx="18" cy="17.8" r="2.6"/><path d="M8.6 6.2h5.2a3.4 3.4 0 0 1 0 6.8h-3.6a3.4 3.4 0 0 0 0 6.8h4.2" stroke-dasharray="2.6 2.4"/></symbol>
 <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4.4 15.4v-3a7.6 7.6 0 0 1 15.2 0v3"/><rect x="2.6" y="13.8" width="4" height="6.2" rx="2"/><rect x="17.4" y="13.8" width="4" height="6.2" rx="2"/><path d="M19.6 20a3.4 3.4 0 0 1-3.4 2.2h-2.4"/></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.3"/><path d="m3.4 6.6 8.6 6 8.6-6"/></symbol>
@@ -818,7 +821,7 @@ details .a p + p{margin-top:11px}
         <h2 class="quiz__ttl">Votre devis gratuit en 1 heure</h2>
         <div class="quiz__meta">
           <p>Une minute pour le demander, sans engagement.</p>
-          <span class="quiz__count" id="q-count">1 / 6</span>
+          <span class="quiz__count" id="q-count">1 / 5</span>
         </div>
         <div class="bar"><i id="q-bar"></i></div>
       </div>
@@ -828,159 +831,103 @@ details .a p + p{margin-top:11px}
            est donc testable telle quelle, sans fuiter de lead nulle part. -->
       <form id="q-form" class="quiz__view" novalidate data-endpoint="REMPLACER_PAR_VOTRE_WEBHOOK">
 
-        <fieldset class="step is-on" data-step="logement">
-          <legend class="step__q">Quel logement déménagez-vous&nbsp;?</legend>
-          <p class="step__hint">C'est ce qui détermine le volume à déplacer. Une estimation suffit, votre conseiller l'affinera.</p>
-          <div class="opts">
-            <label class="opt"><input type="radio" name="logement" value="Studio ou T1" data-vol="12">
-              <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
-              <span class="opt__txt">Studio ou T1<small>environ 12 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="logement" value="2 pièces" data-vol="20">
-              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
-              <span class="opt__txt">2 pièces<small>environ 20 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="logement" value="3 pièces" data-vol="30">
-              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
-              <span class="opt__txt">3 pièces<small>environ 30 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="logement" value="4 pièces" data-vol="40">
-              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
-              <span class="opt__txt">4 pièces<small>environ 40 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="logement" value="5 pièces ou plus" data-vol="55">
-              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
-              <span class="opt__txt">5 pièces ou plus<small>environ 55 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+        <fieldset class="step is-on" data-step="depart">
+          <legend class="step__q">Votre adresse de départ</legend>
+          <p class="step__hint">Le code postal suffit à reconnaître votre commune et à calculer le trajet.</p>
+          <div class="field">
+            <label for="f-ad1">Adresse</label>
+            <input id="f-ad1" name="adresse_depart" type="text" autocomplete="address-line1"
+                   autocapitalize="words" placeholder="12 rue de la République">
           </div>
-        </fieldset>
-
-        <fieldset class="step" data-step="depart">
-          <legend class="step__q">D'où partez-vous&nbsp;?</legend>
-          <p class="step__hint">L'étage et l'ascenseur changent le temps de chargement — donc le devis.</p>
-          <div class="grid2 grid2--cp">
+          <div class="grid2 grid2--cp" style="margin-top:11px">
             <div class="field">
               <label for="f-cp1">Code postal</label>
               <input id="f-cp1" name="cp_depart" type="text" inputmode="numeric" autocomplete="postal-code"
                      maxlength="5" placeholder="69003" pattern="[0-9]{5}">
             </div>
             <div class="field">
-              <label for="f-et1">Étage</label>
-              <select id="f-et1" name="etage_depart">
-                <option value="Rez-de-chaussée">Rez-de-chaussée</option>
-                <option value="1er étage">1er étage</option>
-                <option value="2e étage">2e étage</option>
-                <option value="3e étage">3e étage</option>
-                <option value="4e étage">4e étage</option>
-                <option value="5e étage ou plus">5e étage ou plus</option>
-              </select>
+              <label for="f-vl1">Ville</label>
+              <input id="f-vl1" name="ville_depart" type="text" autocomplete="address-level2"
+                     autocapitalize="words" placeholder="Lyon">
             </div>
           </div>
           <div class="communes" id="q-cmn1" role="group" aria-label="Choisissez votre commune de départ"></div>
           <p class="note" id="n-cp1" aria-live="polite"></p>
-          <div class="field" style="margin-top:13px">
-            <label for="f-asc1">Ascenseur</label>
-            <select id="f-asc1" name="ascenseur_depart">
-              <option value="Sans objet">Sans objet (rez-de-chaussée ou maison)</option>
-              <option value="Oui">Oui, un ascenseur dessert l'étage</option>
-              <option value="Non">Non, uniquement les escaliers</option>
-            </select>
-          </div>
           <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
-          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
         <fieldset class="step" data-step="arrivee">
-          <legend class="step__q">Et où allez-vous&nbsp;?</legend>
+          <legend class="step__q">Votre adresse d'arrivée</legend>
           <p class="step__hint">On calcule la distance réelle entre les deux communes, celle que le camion parcourra.</p>
-          <div class="grid2 grid2--cp">
+          <div class="field">
+            <label for="f-ad2">Adresse</label>
+            <input id="f-ad2" name="adresse_arrivee" type="text" autocomplete="off"
+                   autocapitalize="words" placeholder="8 cours de l'Intendance">
+          </div>
+          <div class="grid2 grid2--cp" style="margin-top:11px">
             <div class="field">
               <label for="f-cp2">Code postal</label>
-              <input id="f-cp2" name="cp_arrivee" type="text" inputmode="numeric" autocomplete="postal-code"
+              <input id="f-cp2" name="cp_arrivee" type="text" inputmode="numeric" autocomplete="off"
                      maxlength="5" placeholder="33000" pattern="[0-9]{5}">
             </div>
             <div class="field">
-              <label for="f-et2">Étage</label>
-              <select id="f-et2" name="etage_arrivee">
-                <option value="Rez-de-chaussée">Rez-de-chaussée</option>
-                <option value="1er étage">1er étage</option>
-                <option value="2e étage">2e étage</option>
-                <option value="3e étage">3e étage</option>
-                <option value="4e étage">4e étage</option>
-                <option value="5e étage ou plus">5e étage ou plus</option>
-                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
-              </select>
+              <label for="f-vl2">Ville</label>
+              <input id="f-vl2" name="ville_arrivee" type="text" autocomplete="off"
+                     autocapitalize="words" placeholder="Bordeaux">
             </div>
           </div>
           <div class="communes" id="q-cmn2" role="group" aria-label="Choisissez votre commune d'arrivée"></div>
           <p class="note" id="n-cp2" aria-live="polite"></p>
-          <div class="field" style="margin-top:13px">
-            <label for="f-asc2">Ascenseur</label>
-            <select id="f-asc2" name="ascenseur_arrivee">
-              <option value="Sans objet">Sans objet (rez-de-chaussée ou maison)</option>
-              <option value="Oui">Oui, un ascenseur dessert l'étage</option>
-              <option value="Non">Non, uniquement les escaliers</option>
-              <option value="Je ne sais pas encore">Je ne sais pas encore</option>
-            </select>
-          </div>
           <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
-        <fieldset class="step" data-step="date">
-          <legend class="step__q">Quand déménagez-vous&nbsp;?</legend>
-          <p class="step__hint">De juin à septembre les camions se remplissent vite : s'y prendre tôt fait baisser les devis.</p>
-          <div class="opts">
-            <label class="opt"><input type="radio" name="date_demenagement" value="Dès que possible" data-prio="chaud">
-              <span class="opt__ico"><svg class="ico"><use href="#i-bolt"/></svg></span>
-              <span class="opt__txt">Dès que possible</span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="date_demenagement" value="Dans le mois" data-prio="chaud">
-              <span class="opt__ico"><svg class="ico"><use href="#i-cal"/></svg></span>
-              <span class="opt__txt">Dans le mois qui vient</span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="date_demenagement" value="Dans 1 à 3 mois" data-prio="tiede">
-              <span class="opt__ico"><svg class="ico"><use href="#i-cal"/></svg></span>
-              <span class="opt__txt">Dans 1 à 3 mois</span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="date_demenagement" value="Dans plus de 3 mois" data-prio="froid">
-              <span class="opt__ico"><svg class="ico"><use href="#i-clock"/></svg></span>
-              <span class="opt__txt">Dans plus de 3 mois</span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="date_demenagement" value="Je me renseigne" data-prio="froid">
-              <span class="opt__ico"><svg class="ico"><use href="#i-search"/></svg></span>
-              <span class="opt__txt">Je me renseigne pour l'instant</span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+        <fieldset class="step" data-step="date_demenagement">
+          <legend class="step__q">Votre date de déménagement idéale</legend>
+          <p class="step__hint">De juin à septembre les camions se remplissent vite&nbsp;: s'y prendre tôt fait baisser les devis. Une date approximative convient.</p>
+          <div class="field">
+            <label for="f-date">Jour du déménagement</label>
+            <input id="f-date" name="date_demenagement" type="date" autocomplete="off">
           </div>
+          <p class="note" id="n-date" aria-live="polite"></p>
+          <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
-        <fieldset class="step" data-step="formule">
-          <legend class="step__q">Qui emballe les cartons&nbsp;?</legend>
-          <p class="step__hint">C'est le deuxième levier sur le devis, après le volume. Vous pourrez changer d'avis.</p>
+        <fieldset class="step" data-step="surface">
+          <legend class="step__q">La surface de votre logement actuel</legend>
+          <p class="step__hint">C'est ce qui détermine le volume à déplacer. Une estimation suffit, votre conseiller l'affinera.</p>
           <div class="opts">
-            <label class="opt"><input type="radio" name="formule" value="Éco" data-f="eco">
+            <label class="opt"><input type="radio" name="surface" value="Moins de 30 m²" data-vol="10">
               <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
-              <span class="opt__txt">Moi, entièrement<small>Formule Éco — ils protègent, chargent et transportent</small></span>
+              <span class="opt__txt">Moins de 30 m²<small>environ 10 m³</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="formule" value="Standard" data-f="std">
-              <span class="opt__ico"><svg class="ico"><use href="#i-users"/></svg></span>
-              <span class="opt__txt">Moi, sauf le fragile<small>Formule Standard — ils emballent le fragile et démontent les meubles</small></span>
+            <label class="opt"><input type="radio" name="surface" value="30 à 50 m²" data-vol="18">
+              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
+              <span class="opt__txt">30 à 50 m²<small>environ 18 m³</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="formule" value="Luxe" data-f="luxe">
+            <label class="opt"><input type="radio" name="surface" value="50 à 80 m²" data-vol="28">
+              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
+              <span class="opt__txt">50 à 80 m²<small>environ 28 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="surface" value="80 à 120 m²" data-vol="40">
+              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
+              <span class="opt__txt">80 à 120 m²<small>environ 40 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="surface" value="120 à 180 m²" data-vol="58">
+              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
+              <span class="opt__txt">120 à 180 m²<small>environ 58 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="surface" value="Plus de 180 m²" data-vol="80">
               <span class="opt__ico"><svg class="ico"><use href="#i-truck"/></svg></span>
-              <span class="opt__txt">Nous, de A à Z<small>Formule Luxe — cartons fournis, déballage compris</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="formule" value="Je ne sais pas encore" data-f="std">
-              <span class="opt__ico"><svg class="ico"><use href="#i-search"/></svg></span>
-              <span class="opt__txt">Je ne sais pas encore<small>Votre conseiller vous chiffrera plusieurs options</small></span>
+              <span class="opt__txt">Plus de 180 m²<small>environ 80 m³</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
           </div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
         <fieldset class="step" data-step="contact">
-          <legend class="step__q">À qui envoie-t-on votre devis&nbsp;?</legend>
+          <legend class="step__q">Vos coordonnées</legend>
           <p class="step__hint">Un conseiller vous rappelle pour confirmer le volume et les accès, puis vous adresse votre devis détaillé.</p>
           <div class="grid2">
             <div class="field"><label for="f-prenom">Prénom</label>
@@ -988,13 +935,13 @@ details .a p + p{margin-top:11px}
             <div class="field"><label for="f-nom">Nom</label>
               <input id="f-nom" name="nom" type="text" autocomplete="family-name" autocapitalize="words" placeholder="Martin"></div>
           </div>
-          <div class="field" style="margin-top:11px"><label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email"
-                   autocapitalize="off" spellcheck="false" placeholder="camille.martin@email.fr"></div>
-          <div class="field" style="margin-top:11px"><label for="f-tel">Téléphone</label>
+          <div class="field" style="margin-top:11px"><label for="f-tel">Numéro de téléphone</label>
             <div class="tel-f"><span class="cc">+33</span>
               <input id="f-tel" name="telephone" type="tel" inputmode="tel" autocomplete="tel-national"
                      placeholder="06 12 34 56 78" maxlength="14"></div></div>
+          <div class="field" style="margin-top:11px"><label for="f-email">E-mail</label>
+            <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email"
+                   autocapitalize="off" spellcheck="false" placeholder="camille.martin@email.fr"></div>
           <label class="consent">
             <span class="sw"><input type="checkbox" id="f-consent" name="consentement"><span></span></span>
             <p id="consent-txt">J'accepte d'être recontacté par Mon Devis Déménagement et par les déménageurs
@@ -1013,7 +960,7 @@ details .a p + p{margin-top:11px}
           <p class="est__h"><svg class="ico"><use href="#i-box"/></svg>Votre projet</p>
           <div class="est__row">
             <span class="est__v" id="est-vol">—</span>
-            <span class="est__u">à déplacer</span>
+            <span class="est__u" id="est-u">à déplacer</span>
           </div>
           <p class="est__d"><svg class="ico"><use href="#i-pin"/></svg><span id="est-det"></span></p>
         </div>
@@ -1054,9 +1001,8 @@ details .a p + p{margin-top:11px}
     <div>
       <div class="sec-h rvl" style="margin-bottom:0">
         <h2>Un réseau <span class="em">sur toute la France</span></h2>
-        <p>Plus de mille déménageurs partenaires, dans les treize régions
-           métropolitaines. Où que vous partiez, où que vous arriviez, le trajet
-           est couvert — y compris la Corse et l'outre-mer.</p>
+        <p>Plus de mille déménageurs partenaires en France. Où que vous partiez,
+           où que vous arriviez, le trajet est couvert.</p>
       </div>
       <div class="carte__st rvl">
         <div><b>1 000+</b><span>déménageurs<br>partenaires</span></div>
@@ -1209,7 +1155,6 @@ details .a p + p{margin-top:11px}
            retour est chargé par un autre client. Vous ne payez que l'aller.</p>
       </div>
       <ul class="chips" style="margin-top:0">
-        <li><svg class="ico"><use href="#i-check"/></svg>L'écart se creuse au-delà de 100 km</li>
         <li><svg class="ico"><use href="#i-check"/></svg>Des tournées optimisées partout en France</li>
       </ul>
       <div class="sec-cta sec-cta--g">
@@ -1253,8 +1198,7 @@ details .a p + p{margin-top:11px}
         <div class="stp__c">
           <h3>Vous trouvez votre déménageur</h3>
           <p>Décrivez votre logement et votre trajet en une minute. Un conseiller vous rappelle pour
-             confirmer le volume et les accès, puis vous envoie votre devis. Vous le validez par un
-             acompte, ou vous arrêtez là.</p>
+             confirmer le volume et les accès, puis vous envoie votre devis.</p>
           <span class="tag">Devis gratuit</span>
         </div>
       </div>
@@ -1263,8 +1207,7 @@ details .a p + p{margin-top:11px}
         <div class="stp__c">
           <h3>Vous préparez sans y penser</h3>
           <p>Nous transférons vos contrats — eau, gaz, électricité, internet, assurance — et demandons
-             l'autorisation de stationnement si la rue l'exige. Vous, vous n'avez qu'à trier ce qui
-             part et ce qui reste.</p>
+             l'autorisation de stationnement si la rue l'exige.</p>
           <span class="tag">Démarches incluses</span>
         </div>
       </div>
@@ -1285,7 +1228,7 @@ details .a p + p{margin-top:11px}
 <section id="formules" style="background:var(--white);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-h ctr rvl">
-      <h2>Vous payez le travail <span class="em">que vous ne faites pas</span></h2>
+      <h2>Vous déléguez <span class="em">autant que vous voulez</span></h2>
       <p>Ce qui change d'une formule à l'autre, c'est le travail que vous gardez. Ce qui ne change
          pas&nbsp;: la protection du mobilier, le transport, et le transfert de vos contrats — compris
          dans les trois.</p>
@@ -1370,14 +1313,14 @@ details .a p + p{margin-top:11px}
         <h3>Piano et objets lourds</h3>
         <p>Piano droit ou à queue, coffre-fort, aquarium, œuvre d'art&nbsp;: matériel spécifique,
            parfois un monte-meuble, et une assurance adaptée.</p></div></div>
-      <div class="cs"><svg class="ico"><use href="#i-case"/></svg><div>
-        <h3>Petit déménagement</h3>
-        <p>Studio, chambre étudiante ou quelques meubles&nbsp;: le groupage rend ces petits volumes
-           bien moins chers qu'un camion dédié.</p></div></div>
+      <div class="cs"><svg class="ico"><use href="#i-lock"/></svg><div>
+        <h3>Garde-meuble</h3>
+        <p>Quand la sortie et l'entrée ne se touchent pas&nbsp;: stockage sur un réseau de plus de
+           350 sites, chiffré avec le reste du devis.</p></div></div>
       <div class="cs"><svg class="ico"><use href="#i-moto"/></svg><div>
         <h3>Moto, scooter, véhicule</h3>
-        <p>Un deux-roues se transporte avec le reste du mobilier, arrimé et couvert, plutôt que
-           confié à un convoyeur séparé.</p></div></div>
+        <p>Arrimé et couvert, il part dans le camion avec le reste de votre mobilier — sans
+           convoyeur séparé ni second déplacement.</p></div></div>
       <div class="cs"><svg class="ico"><use href="#i-globe"/></svg><div>
         <h3>Déménagement international</h3>
         <p>Europe ou grand export&nbsp;: formalités douanières, inventaire valorisé et choix entre
@@ -1537,7 +1480,7 @@ details .a p + p{margin-top:11px}
       </ul></div>
       <div><h4>Cas particuliers</h4><ul>
         <li><a href="#cas">Piano et objets lourds</a></li>
-        <li><a href="#cas">Petit déménagement</a></li>
+        <li><a href="#cas">Garde-meuble</a></li>
         <li><a href="#cas">Déménagement international</a></li>
         <li><a href="#cas">Outre-mer</a></li>
         <li><a href="#cas">Mutation professionnelle</a></li>
@@ -1633,7 +1576,7 @@ var pubs = {};
 // sur le volume réel. La page se contente de restituer au visiteur ce qu'elle
 // a compris de son projet — volume et trajet — ce qui suffit à lui donner
 // envie d'aller au bout du formulaire.
-var S = { vol:0, f:'std', d1:null, d2:null, km:null };
+var S = { vol:0, d1:null, d2:null, km:null, date:null };
 
 function km(a,b){
   if(!a || !b) return null;
@@ -1646,38 +1589,59 @@ function km(a,b){
   return Math.round(2*R*Math.asin(Math.sqrt(h)) * 1.25);
 }
 var estVu = false;
+// Le trajet est connu dès la deuxième étape, le volume seulement à la
+// quatrième : le récapitulatif montre ce qui est déjà su plutôt que d'attendre
+// d'avoir tout. Il reste masqué tant qu'il n'a aucun chiffre à donner.
 function majEst(){
-  if(!S.vol) return;
   S.km = km(S.d1, S.d2);
-  var box = $('#q-est');
-  $('#est-vol').textContent = 'Environ ' + S.vol + ' m³';
-  var det = [];
-  if(S.d1 && S.d2 && S.km !== null){
+  var tete, unite = '', det = [];
+
+  var trajet = null;
+  if(S.d1 && S.d2){
     // Un déménagement dans la même commune afficherait « environ 0 km », ce qui
     // fait douter du calcul au lieu de le confirmer.
-    if(S.d1.nom === S.d2.nom){
-      det.push('Déménagement au sein de ' + S.d1.nom);
-    } else if(S.km < 5){
-      det.push(S.d1.nom + ' → ' + S.d2.nom + ', trajet de quelques kilomètres');
-    } else {
-      det.push(S.d1.nom + ' → ' + S.d2.nom + ', environ ' + S.km + ' km');
-    }
-  } else if(S.d1){
-    det.push('Départ de ' + S.d1.nom + ' — indiquez l’arrivée');
-  } else {
-    det.push('Volume indicatif, confirmé par votre conseiller');
+    if(S.d1.nom === S.d2.nom) trajet = 'Déménagement au sein de ' + S.d1.nom;
+    else if(S.km !== null && S.km < 5) trajet = S.d1.nom + ' → ' + S.d2.nom + ', trajet de quelques kilomètres';
+    else if(S.km !== null) trajet = S.d1.nom + ' → ' + S.d2.nom + ', environ ' + S.km + ' km';
+    else trajet = S.d1.nom + ' → ' + S.d2.nom;
   }
+
+  if(S.vol){
+    tete = 'Environ ' + S.vol + ' m³';
+    unite = 'à déplacer';
+    if(trajet) det.push(trajet);
+    else if(S.d1) det.push('Départ de ' + S.d1.nom);
+    else det.push('Volume indicatif, confirmé par votre conseiller');
+  } else if(S.d1 && S.d2 && S.km !== null && S.km >= 5 && S.d1.nom !== S.d2.nom){
+    // Un nom de commune en corps 28 déborderait : c'est le kilométrage qui
+    // tient la ligne de titre, le trajet passe en détail.
+    tete = S.km + ' km';
+    unite = 'de trajet';
+    det.push(S.d1.nom + ' → ' + S.d2.nom);
+  } else if(trajet){
+    tete = 'Sur place';
+    det.push(trajet);
+  } else {
+    return;
+  }
+  if(!S.vol) det.push('volume estimé à l’étape suivante');
+  if(S.dateTxt) det.push(S.dateTxt);
+
+  $('#est-vol').textContent = tete;
+  $('#est-u').textContent = unite;
+  $('#est-u').hidden = !unite;
   $('#est-det').textContent = det.join(' · ');
+  var box = $('#q-est');
   if(!box.classList.contains('is-on')){
     box.classList.add('is-on');
-    if(!estVu){ estVu = true; push({event:'recap_projet_vu', volume_m3:S.vol}); }
+    if(!estVu){ estVu = true; push({event:'recap_projet_vu', volume_m3:S.vol || null}); }
   }
 }
 
 /* ── Recherche de commune ────────────────────────────────────────────────── */
 // geo.api.gouv.fr renvoie le centre de chaque commune : on s'en sert pour
 // calculer une vraie distance, pas une approximation par département.
-function chercheCP(cp, zone, boxId, noteId, cb){
+function chercheCP(cp, villeId, boxId, noteId, cb){
   var box = $(boxId), note = $(noteId);
   box.innerHTML = ''; note.className = 'note'; note.textContent = '';
   if(!/^[0-9]{5}$/.test(cp)) return;
@@ -1717,10 +1681,13 @@ function chercheCP(cp, zone, boxId, noteId, cb){
     var co = (c.centre && c.centre.coordinates) || [null,null];
     note.className = 'note ok';
     note.textContent = c.nom + ' — retenu.';
+    // Le nom officiel de la commune fait autorité sur ce qui a pu être tapé :
+    // il vient du code postal lui-même et évite les fautes de frappe.
+    var v = $(villeId); if(v) v.value = c.nom;
     cb({ nom:c.nom, cp:cp, dep:c.codeDepartement, lat:co[1], lon:co[0] });
   }
 }
-function brancheCP(inputId, boxId, noteId, slot){
+function brancheCP(inputId, villeId, boxId, noteId, slot){
   var t;
   $(inputId).addEventListener('input', function(){
     var v = this.value.replace(/\D/g,'').slice(0,5);
@@ -1728,15 +1695,39 @@ function brancheCP(inputId, boxId, noteId, slot){
     S[slot] = null;
     clearTimeout(t);
     if(v.length === 5) t = setTimeout(function(){
-      chercheCP(v, slot, boxId, noteId, function(d){ S[slot] = d; majEst(); });
+      chercheCP(v, villeId, boxId, noteId, function(d){ S[slot] = d; majEst(); });
     }, 220);
     else { $(boxId).innerHTML=''; $(noteId).textContent=''; $(noteId).className='note'; }
   });
 }
-brancheCP('#f-cp1','#q-cmn1','#n-cp1','d1');
-brancheCP('#f-cp2','#q-cmn2','#n-cp2','d2');
-$$('#f-et1,#f-asc1,#f-et2,#f-asc2').forEach(function(s){
-  s.addEventListener('change', majEst);
+brancheCP('#f-cp1','#f-vl1','#q-cmn1','#n-cp1','d1');
+brancheCP('#f-cp2','#f-vl2','#q-cmn2','#n-cp2','d2');
+
+/* ── Date du déménagement ────────────────────────────────────────────────── */
+// La date remplace les tranches d'urgence : la priorité commerciale se déduit
+// désormais du nombre de jours qui nous en sépare.
+var dateMin = new Date(); dateMin.setHours(0,0,0,0);
+$('#f-date').min = dateMin.toISOString().slice(0,10);
+function litDate(){
+  var v = $('#f-date').value;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){ S.date = null; S.dateTxt = null; return null; }
+  var d = new Date(v + 'T00:00:00');
+  if(isNaN(d)) { S.date = null; S.dateTxt = null; return null; }
+  S.date = v;
+  S.dateTxt = d.toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'});
+  return Math.round((d - dateMin) / 86400000);
+}
+function priorite(){
+  var j = litDate();
+  if(j === null) return 'froid';
+  if(j <= 45) return 'chaud';
+  if(j <= 120) return 'tiede';
+  return 'froid';
+}
+$('#f-date').addEventListener('change', function(){
+  this.removeAttribute('aria-invalid');
+  $('#n-date').className = 'note'; $('#n-date').textContent = '';
+  litDate(); majEst();
 });
 
 /* ── Navigation du formulaire ────────────────────────────────────────────── */
@@ -1776,7 +1767,6 @@ steps.forEach(function(st){
       choisi[r.name] = r.value;
       if(!demarre){ demarre = true; push({event:'quiz_start'}); }
       if(r.dataset.vol){ S.vol = +r.dataset.vol; }
-      if(r.dataset.f){ S.f = r.dataset.f; }
       majEst();
       // Petite pause : la coche doit être vue avant que l'écran ne change.
       setTimeout(suivant, 270);
@@ -1810,6 +1800,14 @@ function valideEtSuivant(){
   if(nom === 'arrivee'){
     if(!/^[0-9]{5}$/.test($('#f-cp2').value))
       return mauvais('#f-cp2','Indiquez un code postal à cinq chiffres.','#n-cp2');
+  }
+  if(nom === 'date_demenagement'){
+    if(litDate() === null)
+      return mauvais('#f-date','Indiquez la date envisagée, même approximative.','#n-date');
+    // Une date déjà passée est presque toujours une faute de saisie sur
+    // l'année : la signaler vaut mieux que de transmettre un lead inexploitable.
+    if(litDate() < 0)
+      return mauvais('#f-date','Cette date est déjà passée. Vérifiez l’année.','#n-date');
   }
   suivant();
 }
@@ -1857,29 +1855,29 @@ form.addEventListener('submit', function(ev){
     return;
   }
 
-  var prio = (function(){
-    var r = $('input[name=date_demenagement]:checked');
-    return r ? r.dataset.prio : 'froid';
-  })();
+  var prio = priorite();
   var val = function(s){ var r = $('input[name='+s+']:checked'); return r ? r.value : null };
 
   var data = {
-    // Projet
-    logement: val('logement'),
-    volume_m3: S.vol || null,
+    // Départ
+    adresse_depart: $('#f-ad1').value.trim() || null,
     cp_depart: $('#f-cp1').value,
+    ville_depart: $('#f-vl1').value.trim() || null,
     commune_depart: S.d1 ? S.d1.nom : null,
     departement_depart: S.d1 ? S.d1.dep : $('#f-cp1').value.slice(0,2),
-    etage_depart: $('#f-et1').value,
-    ascenseur_depart: $('#f-asc1').value,
+    // Arrivée
+    adresse_arrivee: $('#f-ad2').value.trim() || null,
     cp_arrivee: $('#f-cp2').value,
+    ville_arrivee: $('#f-vl2').value.trim() || null,
     commune_arrivee: S.d2 ? S.d2.nom : null,
     departement_arrivee: S.d2 ? S.d2.dep : $('#f-cp2').value.slice(0,2),
-    etage_arrivee: $('#f-et2').value,
-    ascenseur_arrivee: $('#f-asc2').value,
     distance_km: S.km,
-    date_demenagement: val('date_demenagement'),
-    formule: val('formule'),
+    // Projet
+    date_demenagement: S.date,
+    date_demenagement_texte: S.dateTxt,
+    jours_avant_demenagement: litDate(),
+    surface: val('surface'),
+    volume_m3: S.vol || null,
     priorite: prio,
     // Contact
     prenom: $('#f-prenom').value.trim(),
@@ -1909,7 +1907,7 @@ form.addEventListener('submit', function(ev){
     priorite: prio,
     volume_m3: S.vol,
     distance_km: S.km,
-    formule: data.formule,
+    surface: data.surface,
     user_data: {
       email: data.email,
       phone_number: data.telephone_e164,
@@ -1926,8 +1924,9 @@ form.addEventListener('submit', function(ev){
         .then(function(){
           try{ sessionStorage.setItem('mdd_lead', JSON.stringify({
             prenom:data.prenom, vol:data.volume_m3, km:data.distance_km,
-            de:data.commune_depart, vers:data.commune_arrivee,
-            formule:data.formule
+            de:data.commune_depart || data.ville_depart,
+            vers:data.commune_arrivee || data.ville_arrivee,
+            date:data.date_demenagement_texte
           })); }catch(e){}
           location.href = 'merci.html';
         });

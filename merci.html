@@ -181,7 +181,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
       det.push(d.de === d.vers ? 'Au sein de ' + d.de : d.de + ' → ' + d.vers);
     }
     if(d.km) det.push(d.km + ' km');
-    if(d.formule && d.formule !== 'Je ne sais pas encore') det.push('formule ' + d.formule.toLowerCase());
+    if(d.date) det.push('le ' + d.date);
     document.getElementById('r-det').textContent = det.join(' · ');
     document.getElementById('recap').classList.add('is-on');
   }

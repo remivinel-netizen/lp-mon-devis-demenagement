@@ -275,14 +275,45 @@ aucun texte clair ne repose sur la photo : c'est là qu'on la laisse se voir.
 
 ## Le formulaire
 
-Six étapes, dans cet ordre :
+Cinq étapes, dans cet ordre :
 
-1. **Logement** — studio à 5 pièces, avec le volume indicatif affiché
-2. **Départ** — code postal, étage, ascenseur
-3. **Arrivée** — idem
-4. **Date** — de « dès que possible » à « je me renseigne » (sert au scoring)
-5. **Formule** — qui emballe les cartons
-6. **Contact** — prénom, nom, email, téléphone, consentement
+1. **Adresse de départ** — adresse, code postal, ville
+2. **Adresse d'arrivée** — idem
+3. **Date de déménagement** — jour précis
+4. **Surface du logement actuel** — six tranches, de « moins de 30 m² » à
+   « plus de 180 m² », avec le volume indicatif affiché
+5. **Coordonnées** — prénom, nom, téléphone, e-mail, consentement
+
+Ce découpage **reprend celui d'officiel-demenagement.com**, dont le formulaire
+est un Typeform à cinq écrans : mêmes questions, même ordre, mêmes intitulés.
+Trois qualifications que nous posions auparavant ont disparu avec lui —
+**étage**, **ascenseur** et **formule souhaitée**. C'est le parti pris de leur
+modèle : un formulaire court, et un conseiller qui complète au téléphone. La FAQ
+et la première étape de « Comment ça se passe » annoncent d'ailleurs cet appel.
+
+Nous gardons deux choses qu'ils n'ont pas. La **ville est renseignée
+automatiquement** par le code postal, à partir du nom officiel de la commune :
+une saisie de moins, et plus de faute de frappe sur la commune. Et la date
+passe par un **champ date natif** plutôt que trois champs jour / mois / année,
+ce qui vaut surtout sur mobile.
+
+La **surface remplace le nombre de pièces** pour estimer le volume, selon la
+table ci-dessous. Les deux donnent un ordre de grandeur, pas une mesure — c'est
+le conseiller qui confirme.
+
+| Surface | Volume affiché |
+|---|---|
+| Moins de 30 m² | 10 m³ |
+| 30 à 50 m² | 18 m³ |
+| 50 à 80 m² | 28 m³ |
+| 80 à 120 m² | 40 m³ |
+| 120 à 180 m² | 58 m³ |
+| Plus de 180 m² | 80 m³ |
+
+La **priorité commerciale** ne vient plus d'une tranche d'urgence choisie par le
+visiteur mais du nombre de jours qui séparent de la date saisie :
+`chaud` à 45 jours ou moins, `tiede` jusqu'à 120, `froid` au-delà. Une date
+déjà passée est refusée à l'étape — c'est presque toujours une faute d'année.
 
 Les étapes à boutons radio avancent toutes seules. Les codes postaux sont
 résolus via [geo.api.gouv.fr](https://geo.api.gouv.fr) : on récupère le **centre
@@ -298,7 +329,10 @@ Mesuré : Lyon → Bordeaux donne 544 km (réel ≈ 550), Paris → Lyon 491 km
 de tarifs. C'est le conseiller qui chiffre, sur le volume réel.
 
 Le formulaire conserve en revanche son panneau de retour : il affiche le
-**volume** et le **trajet** (« Environ 30 m³ — Lyon → Bordeaux, 544 km »). Il
+**volume** et le **trajet** (« Environ 28 m³ — Lyon → Bordeaux, 544 km »).
+Comme le volume n'arrive plus qu'à la quatrième étape, le panneau s'ouvre dès
+que le trajet est connu, en affichant alors le kilométrage (« 544 km — de
+trajet »). Il
 remplit la même fonction qu'une estimation chiffrée — donner au visiteur le
 sentiment d'être compris, et une raison d'aller au bout — sans engager un
 montant que personne ne pourra tenir.
@@ -322,10 +356,11 @@ Pour l'activer, remplacer par l'URL du webhook (Make, n8n, CRM…) :
 <form id="q-form" data-endpoint="https://hook.eu1.make.com/VOTRE_WEBHOOK">
 ```
 
-Le payload JSON (39 champs) contient le projet (logement, volume, communes,
-distance, étages, date, formule), la priorité (`chaud` / `tiede` / `froid` selon
-l'échéance), le contact, la preuve de consentement horodatée, et tous les
-identifiants publicitaires captés. **Aucun champ de prix.**
+Le payload JSON contient le projet (adresses, codes postaux, villes saisies et
+communes reconnues, distance, date, surface, volume), la priorité
+(`chaud` / `tiede` / `froid` selon l'échéance), le contact, la preuve de
+consentement horodatée, et tous les identifiants publicitaires captés.
+**Aucun champ de prix.**
 
 > ⚠️ Un `data-endpoint` est **public** : n'y mettez qu'une URL de webhook sans
 > secret. Si l'endpoint doit être authentifié, passez par un petit proxy
@@ -377,9 +412,14 @@ Ce que l'audit a trouvé et corrigé :
 | Liens du pied de page à 16 px de haut | Pas de rembourrage vertical |
 | Libellés du schéma à 11,5 px | Règle résiduelle de l'ancien schéma, `width:64px` comprise |
 
-Le formulaire reste **au-dessus de la ligne de flottaison** à toutes les
-largeurs testées (première option entre 591 et 693 px), ses champs font 55 px
-de haut et 16 px de corps — pas de zoom automatique sur iOS.
+La carte du formulaire reste **au-dessus de la ligne de flottaison** à toutes
+les largeurs testées : son haut se situe entre 400 et 440 px, la première
+question entre 501 px (412 de large) et 558 px (320 de large). Le premier champ
+tombe entre 599 et 657 px, donc sous la ligne sur un écran de 568 px de haut —
+c'est le prix de l'étape « adresse de départ », qui ouvre sur un champ de texte
+là où l'ancienne première étape ouvrait sur des boutons radio. Les champs font
+55 px de haut et 16 px de corps — pas de zoom automatique sur iOS. Débordement
+horizontal mesuré à 0 px de 320 à 412.
 
 **Aucun alignement en dur dans le HTML.** Un `style="text-align:left"` ne peut
 pas être surchargé par une requête média : l'appel à l'action de la section
