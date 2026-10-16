@@ -127,14 +127,27 @@ nouvel accent.
 | `--gris`       | `#F4F5F9` | Fond de page                             | —                    |
 | `--ink`        | `#333333` | Texte courant                            | 12,63 / blanc        |
 
-**Typographie :** **Roboto Slab** en titres (graisse **400**, comme eux — pas
-du 700, qui donnait un ton « start-up ») et **Roboto** en texte. Auto-hébergées
-depuis `fonts/`, licence Apache 2.0.
+**Typographie : Archivo**, une seule famille pour toute la page. Son **axe de
+largeur** fait la hiérarchie à la place d'un second caractère — titres élargis
+à **112 %**, sur-titres resserrés à **88 %** avec un interlettrage de 0,18 em.
+Graisse 700 partout, tracking serré (−0,035 em) sur les titres.
 
-**Formes :** rayons de **12 px** sur les boutons, **8 px** sur les champs et
-pastilles, **4 px** sur les grandes cartes — relevés chez eux. La version
-précédente utilisait des pastilles à 999 px et des cartes à 30 px, ce qui
-lisait « application mobile » plutôt que « déménageur ».
+Le fichier est réduit aux plages réellement utilisées (wght 400-700, wdth
+85-115) par instanciation partielle&nbsp;: **72,6 Ko** au lieu de 88, soit le
+poids des deux fichiers Roboto qu'il remplace. Le français tient entièrement
+dans le subset `latin` (é, è, à, ç sont sous U+00FF), donc `latin-ext` ne se
+charge jamais ici.
+
+> Les versions précédentes utilisaient Roboto Slab + Roboto, par mimétisme avec
+> la référence. Roboto est la police système d'Android&nbsp;: c'est le degré
+> zéro de la personnalisation, et ça se voyait. Deux autres pistes avaient été
+> comparées en contexte — **Fraunces + Instrument Sans** (serif à caractère) et
+> **Bricolage Grotesque + Inter** (grotesque contemporain).
+
+**Formes :** boutons à **angles droits**, en capitales avec interlettrage —
+8 px sur les champs et pastilles, 4 px sur les grandes cartes. Le bouton à coins
+arrondis et graisse moyenne lisait « gabarit »&nbsp;; l'angle vif et les
+capitales lui donnent une intention.
 
 ### Trois écarts volontaires, mesure à l'appui
 
