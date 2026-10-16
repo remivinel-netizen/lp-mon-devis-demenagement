@@ -287,6 +287,32 @@ Les identifiants de clic (`gclid`, `gbraid`, `wbraid`, `fbclid`, `msclkid`) et
 les `utm_*` sont captés à l'arrivée et conservés en `sessionStorage` : ils
 survivent à la navigation interne et sont joints au lead.
 
+## Animations
+
+Deux propriétés seulement — `opacity` et `transform` — donc tout reste sur le
+compositeur, sans recalcul de mise en page. Un seul `IntersectionObserver` pour
+la page entière, et chaque élément cesse d'être observé dès qu'il est apparu.
+
+- **Apparition au défilement** des en-têtes de section et des grilles, les
+  enfants en cascade (70 ms d'écart).
+- **Les barres du schéma** se déploient depuis la gauche&nbsp;: la longueur
+  étant l'argument, la voir se construire vaut mieux que la découvrir figée.
+- **Compteurs** sur les deux chiffres du bandeau de preuve, avec décélération.
+- **Boutons**&nbsp;: élévation de 2 px, flèche qui avance de 4 px, et un reflet
+  oblique qui traverse le bouton en 0,6 s.
+
+**Trois garde-fous**, parce qu'une animation ratée sur une page de conversion
+coûte plus cher qu'une page sans animation&nbsp;:
+
+1. La classe `js-anim` n'est posée **que par le script**. Sans JavaScript, rien
+   n'est masqué.
+2. Ce qui est **déjà à l'écran au chargement** est révélé immédiatement, sans
+   passer par l'observateur.
+3. Si l'observateur n'a **rien émis au bout de six secondes**, `js-anim` est
+   retirée et tout redevient visible. Testé.
+
+`prefers-reduced-motion: reduce` désactive l'ensemble, reflet compris.
+
 ## À compléter avant la mise en ligne
 
 Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en ligne.

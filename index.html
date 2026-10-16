@@ -114,13 +114,25 @@ button{font:inherit;color:inherit}
   font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;
   padding:19px 34px;border-radius:0;font-stretch:100%;
   text-decoration:none;transition:transform .16s var(--ease),background .16s,box-shadow .16s;white-space:nowrap}
-.btn:active{transform:translateY(1px)}
+.btn:active{transform:translateY(1px) scale(.99)}
+/* Le balayage : un reflet oblique qui traverse le bouton au survol. Un seul
+   pseudo-élément, animé en transform — rien qui déclenche un recalcul de mise
+   en page. */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.26) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .6s var(--ease)}
+.btn:hover::after{transform:translateX(120%)}
+.btn--cta:hover,.btn--nuit:hover{transform:translateY(-2px);
+  box-shadow:0 10px 24px -10px rgba(206,0,84,.55)}
+.btn--nuit:hover{box-shadow:0 10px 24px -10px rgba(34,46,58,.5)}
+/* La flèche avance d'un cran : c'est le détail qui donne envie de cliquer. */
+.btn .ico{transition:transform .22s var(--ease)}
+.btn:hover .ico{transform:translateX(4px)}
 /* Action principale : leur magenta, blanc dessus (5,60). */
 .btn--cta{background:var(--magenta);color:#fff}
 .btn--cta:hover{background:var(--magenta-2)}
 /* Action secondaire : le vert pomme ne porte que l'encre navy (2,04 en blanc). */
-.btn--rose{background:var(--rose);color:var(--nuit)}
-.btn--rose:hover{background:var(--rose-2)}
 .btn--nuit{background:var(--nuit);color:#fff}
 .btn--nuit:hover{background:var(--nuit-2)}
 .btn--ghost{background:transparent;color:var(--nuit);box-shadow:inset 0 0 0 2px var(--line-2)}
@@ -313,7 +325,6 @@ h1 .em{color:var(--rose)}
 section{padding:clamp(54px,7vw,92px) 0}
 .sec-h{max-width:40ch;margin-bottom:clamp(30px,4vw,46px)}
 .sec-h.ctr{margin-inline:auto;text-align:center}
-.sec-h .kicker{display:block;font-size:11.5px;font-weight:700;letter-spacing:.18em;font-stretch:88%;text-transform:uppercase;color:var(--magenta);margin-bottom:15px}
 .sec-h h2{font-size:clamp(28px,3.9vw,45px)}
 .sec-h h2 .em{color:var(--magenta)}
 .sec-h p{margin-top:16px;font-size:17.5px;color:var(--ink-2);line-height:1.55}
@@ -342,7 +353,6 @@ section{padding:clamp(54px,7vw,92px) 0}
 .prix{background:var(--nuit);color:#fff}
 .prix .sec-h h2 .em{color:var(--rose)}
 .prix .sec-h p{color:rgba(255,255,255,.8)}
-.prix .sec-h .kicker{color:var(--rose)}
 .tbl-w{overflow-x:auto;border-radius:var(--r-md);background:rgba(255,255,255,.055);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.13);-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;min-width:620px;font-variant-numeric:tabular-nums}
@@ -483,13 +493,45 @@ details .a p + p{margin-top:11px}
 .cons__t h2{font-size:clamp(21px,2.6vw,29px)}
 .cons__t p{font-size:16px;color:var(--ink-2);margin-top:9px;line-height:1.55}
 .cons__n{text-align:center;flex:none}
-.cons__n a{display:block;font-size:clamp(21px,2.4vw,27px);font-weight:700;letter-spacing:-.03em;
-  color:var(--nuit);text-decoration:none;font-variant-numeric:tabular-nums}
-.cons__n a:hover{color:var(--magenta-2)}
+/* Ce bloc contient le numéro ET un bouton. Sans restreindre le sélecteur au
+   lien téléphonique, sa couleur d'encre écrasait le blanc du bouton par
+   spécificité : texte navy sur fond magenta, illisible. */
+.cons__n a[href^="tel:"]{display:block;font-size:clamp(21px,2.4vw,27px);font-weight:700;
+  letter-spacing:-.03em;color:var(--nuit);text-decoration:none;font-variant-numeric:tabular-nums}
+.cons__n a[href^="tel:"]:hover{color:var(--magenta-2)}
 .cons__n span{display:block;font-size:13.2px;color:var(--ink-3);margin-top:4px}
 @media (max-width:880px){
   .cons__in{grid-template-columns:1fr;text-align:center;justify-items:center}
   .cons__t p{margin-inline:auto}
+}
+
+/* Apparition au défilement. Deux propriétés seulement — opacity et transform —
+   donc tout reste sur le compositeur, sans recalcul de mise en page. L'état
+   initial n'est posé que si le script a pris la main (classe sur <html>) :
+   sans JavaScript, le contenu reste visible. */
+.js-anim .rvl{opacity:0;transform:translateY(22px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js-anim .rvl.vu{opacity:1;transform:none}
+/* Les enfants d'une grille arrivent en cascade. */
+.js-anim .rvl-g > *{opacity:0;transform:translateY(20px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.js-anim .rvl-g.vu > *{opacity:1;transform:none}
+.js-anim .rvl-g.vu > *:nth-child(2){transition-delay:.07s}
+.js-anim .rvl-g.vu > *:nth-child(3){transition-delay:.14s}
+.js-anim .rvl-g.vu > *:nth-child(4){transition-delay:.21s}
+.js-anim .rvl-g.vu > *:nth-child(5){transition-delay:.28s}
+.js-anim .rvl-g.vu > *:nth-child(6){transition-delay:.35s}
+
+/* Les barres du schéma se déploient : la longueur étant l'argument, la voir
+   se construire vaut mieux que la découvrir figée. */
+.js-anim .seg{transform:scaleX(0);transform-origin:left;
+  transition:transform .85s var(--ease)}
+.js-anim .trajet.vu .seg{transform:scaleX(1)}
+.js-anim .trajet.vu .trj--nous .seg{transition-delay:.3s}
+
+@media (prefers-reduced-motion:reduce){
+  .js-anim .rvl,.js-anim .rvl-g > *,.js-anim .seg{opacity:1;transform:none;transition:none}
+  .btn::after{display:none}
 }
 
 /* Un appel à l'action ferme chaque section, toujours le même libellé, comme
@@ -624,7 +666,7 @@ details .a p + p{margin-top:11px}
       <ul class="chips">
         <li><svg class="ico"><use href="#i-check"/></svg>Devis gratuit en 1 heure</li>
         <li><svg class="ico"><use href="#i-check"/></svg>Démarches administratives incluses</li>
-        <li><svg class="ico"><use href="#i-check"/></svg>Annulation gratuite jusqu'à J-14</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Modification ou annulation gratuite</li>
       </ul>
       <div class="hero__proof">
         <div><b>1 h</b><span>pour recevoir<br>votre devis</span></div>
@@ -821,7 +863,7 @@ details .a p + p{margin-top:11px}
               partenaires sélectionnés pour établir mon devis. Mes données ne sont utilisées que pour cela.</p>
           </label>
           <p class="note" id="n-contact" aria-live="polite"></p>
-          <div class="acts"><button type="submit" class="btn btn--rose btn--full btn--lg" id="q-send">Recevoir mon devis gratuit</button></div>
+          <div class="acts"><button type="submit" class="btn btn--cta btn--full btn--lg" id="q-send">Recevoir mon devis gratuit</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
@@ -847,7 +889,7 @@ details .a p + p{margin-top:11px}
 </section>
 
 <div class="band">
-  <div class="wrap band__g">
+  <div class="wrap band__g rvl-g">
     <div class="band__i">
       <svg class="ico"><use href="#i-route"/></svg>
       <h3>Ne payez que l'aller</h3>
@@ -879,8 +921,7 @@ details .a p + p{margin-top:11px}
 <section id="kilometres" class="km">
   <div class="wrap km__in">
     <div>
-      <div class="sec-h" style="margin-bottom:24px">
-        <span class="kicker">Pourquoi c'est moins cher</span>
+      <div class="sec-h rvl" style="margin-bottom:24px">
         <h2>Vous ne payez que <span class="em">les kilomètres aller</span></h2>
         <p>Un déménageur qui monte seul à Lille doit redescendre à vide. Il vous facture
            les deux trajets. Nos camions roulent sur des tournées déjà prévues&nbsp;: le
@@ -894,7 +935,7 @@ details .a p + p{margin-top:11px}
         <a class="btn btn--cta btn--lg" href="#devis" data-cta="kilometres">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
-    <div class="km__fig">
+    <div class="km__fig rvl">
       <h3>Lyon → Lille · 690 km de route</h3>
       <div class="trajet">
         <div class="trj">
@@ -921,12 +962,11 @@ details .a p + p{margin-top:11px}
 
 <section id="etapes">
   <div class="wrap">
-    <div class="sec-h ctr">
-      <span class="kicker">Comment ça se passe</span>
+    <div class="sec-h ctr rvl">
       <h2>Trouver, préparer, <span class="em">ne plus y penser</span></h2>
       <p>Trois étapes. Entre les deux, vous n'avez rien à gérer.</p>
     </div>
-    <div class="steps">
+    <div class="steps rvl-g">
       <div class="stp">
         <h3>Vous trouvez votre déménageur</h3>
         <p>Décrivez votre logement et votre trajet en une minute. Un conseiller vous rappelle pour
@@ -945,7 +985,7 @@ details .a p + p{margin-top:11px}
         <h3>Nous anticipons les démarches</h3>
         <p>Le jour J, l'équipe protège, charge, achemine et livre. Et si la date bouge, vous pouvez
            encore modifier ou annuler sans frais jusqu'à deux semaines avant.</p>
-        <span class="tag">Annulation libre à J-14</span>
+        <span class="tag">Modification gratuite</span>
       </div>
     </div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="etapes">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Une minute, sans engagement.</span></div>
@@ -954,14 +994,13 @@ details .a p + p{margin-top:11px}
 
 <section id="formules" style="background:var(--white);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-h ctr">
-      <span class="kicker">Les trois formules</span>
+    <div class="sec-h ctr rvl">
       <h2>Vous payez le travail <span class="em">que vous ne faites pas</span></h2>
       <p>Ce qui change d'une formule à l'autre, c'est le travail que vous gardez. Ce qui ne change
          pas&nbsp;: la protection du mobilier, le transport, et le transfert de vos contrats — compris
          dans les trois.</p>
     </div>
-    <div class="forms">
+    <div class="forms rvl-g">
       <div class="frm">
         <h3>Éco</h3>
         <p class="frm__p">Le prix plancher — <b>vous emballez tout</b></p>
@@ -1003,12 +1042,11 @@ details .a p + p{margin-top:11px}
 
 <section class="incl">
   <div class="wrap">
-    <div class="sec-h">
-      <span class="kicker">Ce qui est compris partout</span>
+    <div class="sec-h rvl">
       <h2>Inclus dans les trois formules, <span class="em">sans supplément</span></h2>
       <p>Quelle que soit la formule retenue, ces quatre postes figurent au devis.</p>
     </div>
-    <div class="incl__g">
+    <div class="incl__g rvl-g">
       <div class="inc"><svg class="ico"><use href="#i-mail"/></svg>
         <h3>Le transfert de vos contrats</h3>
         <p>Eau, gaz, électricité, internet et assurance&nbsp;: les démarches sont faites pour vous,
@@ -1032,13 +1070,12 @@ details .a p + p{margin-top:11px}
 
 <section id="cas" style="background:var(--gris)">
   <div class="wrap">
-    <div class="sec-h ctr">
-      <span class="kicker">Les cas particuliers</span>
+    <div class="sec-h ctr rvl">
       <h2>Votre déménagement <span class="em">n'est pas standard&nbsp;?</span></h2>
       <p>Signalez-le dès le formulaire&nbsp;: seuls les déménageurs réellement équipés
          pour votre cas seront consultés.</p>
     </div>
-    <div class="cas__g">
+    <div class="cas__g rvl-g">
       <div class="cs"><svg class="ico"><use href="#i-piano"/></svg><div>
         <h3>Piano et objets lourds</h3>
         <p>Piano droit ou à queue, coffre-fort, aquarium, œuvre d'art&nbsp;: matériel spécifique,
@@ -1070,7 +1107,7 @@ details .a p + p{margin-top:11px}
 
 <section class="cons">
   <div class="wrap">
-    <div class="cons__in">
+    <div class="cons__in rvl">
       <span class="cons__av"><svg class="ico"><use href="#i-headset"/></svg></span>
       <div class="cons__t">
         <h2>Une question&nbsp;? Un conseiller vous répond.</h2>
@@ -1090,22 +1127,20 @@ details .a p + p{margin-top:11px}
 
 <section id="avis" style="background:var(--rose-brume)">
   <div class="wrap">
-    <div class="sec-h ctr">
-      <span class="kicker">Ils ont déménagé</span>
+    <div class="sec-h ctr rvl">
       <h2>Ce qu'en disent <span class="em">les déménagés</span></h2>
     </div>
-    <div class="avis__g" id="avis-g"></div>
+    <div class="avis__g rvl-g" id="avis-g"></div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="avis">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Gratuit, et sans engagement.</span></div>
   </div>
 </section>
 
 <section class="faq" id="faq">
   <div class="wrap">
-    <div class="sec-h ctr">
-      <span class="kicker">Questions fréquentes</span>
+    <div class="sec-h ctr rvl">
       <h2>Ce qu'on nous demande <span class="em">le plus souvent</span></h2>
     </div>
-    <div class="faq__l">
+    <div class="faq__l rvl-g">
 
       <details><summary>Le devis est-il gratuit, et sous quel délai&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Gratuit, sans engagement, et établi <strong>en une heure</strong>. L'estimation en ligne et l'appel du conseiller ne vous coûtent rien non plus.</p>
@@ -1158,7 +1193,7 @@ details .a p + p{margin-top:11px}
        Et vous gardez la main jusqu'à deux semaines avant le jour J.</p>
     <a class="btn btn--cta btn--lg" href="#devis" data-cta="final">Obtenir mon devis
       <svg class="ico"><use href="#i-arrow"/></svg></a>
-    <p class="mini">Gratuit · Sans engagement · Annulation libre jusqu'à J-14</p>
+    <p class="mini">Gratuit · Sans engagement · Devis en 1 heure</p>
   </div>
 </section>
 
@@ -1189,7 +1224,7 @@ details .a p + p{margin-top:11px}
         <!-- ⚠ À VALIDER : coordonnées à remplacer. -->
         <li><a href="tel:+33451420447">04 51 42 04 47</a></li>
         <li>Lundi — samedi, 8h à 18h</li>
-        <li><a href="mailto:contact@mon-devis-demenagement.fr">contact@mon-devis-demenagement.fr</a></li>
+        <li><a href="mailto:contact@matchmove.fr">contact@matchmove.fr</a></li>
       </ul></div>
       <div><h4>Informations</h4><ul>
         <li><a href="mentions-legales.html">Mentions légales</a></li>
@@ -1199,7 +1234,7 @@ details .a p + p{margin-top:11px}
     </div>
     <div class="ftr__legal">
       <span>© <span id="annee">2026</span> Mon Devis Déménagement — tous droits réservés.</span>
-      <span>Mon Devis Déménagement est un service de mise en relation. Les prestations sont réalisées par des entreprises indépendantes.</span>
+      <span>Service édité par MATCHMOVE (SAS). Les prestations sont réalisées par des entreprises de déménagement indépendantes.</span>
     </div>
   </div>
 </footer>
@@ -1559,6 +1594,72 @@ form.addEventListener('submit', function(ev){
           location.href = 'merci.html';
         });
 });
+
+/* ── Apparitions au défilement ───────────────────────────────────────────── */
+// Un seul observateur pour toute la page, et chaque élément est oublié dès
+// qu'il est apparu : rien ne tourne en continu pendant le scroll.
+(function(){
+  var doux = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(doux || !('IntersectionObserver' in window)) return;
+  // La classe n'est posée qu'ici : sans script, aucun contenu n'est masqué.
+  document.documentElement.classList.add('js-anim');
+  var cibles = $$('.rvl, .rvl-g, .trajet');
+  var aFonctionne = false;
+  var obs = new IntersectionObserver(function(entrees){
+    aFonctionne = true;
+    entrees.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('vu');
+      obs.unobserve(e.target);
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:.12});
+
+  // Premier garde-fou : ce qui est déjà à l'écran au chargement est révélé
+  // tout de suite, sans passer par l'observateur. Le haut de page ne peut
+  // donc jamais rester masqué, quoi qu'il arrive ensuite.
+  cibles.forEach(function(c){
+    if(c.getBoundingClientRect().top < window.innerHeight) c.classList.add('vu');
+    else obs.observe(c);
+  });
+
+  // Second garde-fou : si l'observateur n'a jamais rien émis au bout de six
+  // secondes, on retire la classe qui masque — mieux vaut perdre l'animation
+  // que laisser du contenu invisible sur une page qui doit convertir.
+  setTimeout(function(){
+    if(!aFonctionne) document.documentElement.classList.remove('js-anim');
+  }, 6000);
+})();
+
+/* ── Compteurs du hero ───────────────────────────────────────────────────── */
+// Les deux chiffres du bandeau de preuve montent une fois, à l'arrivée en vue.
+(function(){
+  var doux = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(doux || !('IntersectionObserver' in window)) return;
+  var bs = $$('.hero__proof b').filter(function(b){ return /[0-9]/.test(b.textContent) });
+  var obs = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      obs.unobserve(e.target);
+      var el = e.target, fin = el.textContent;
+      var m = fin.match(/^([^0-9]*)([0-9\s ]+)(.*)$/);
+      if(!m) return;
+      var cible = parseInt(m[2].replace(/\D/g,''), 10);
+      if(!cible || cible > 100000) return;
+      var t0 = null, duree = 900;
+      function pas(t){
+        if(t0 === null) t0 = t;
+        var p = Math.min((t - t0) / duree, 1);
+        // Décélération : le chiffre arrive sans à-coup.
+        var v = Math.round(cible * (1 - Math.pow(1 - p, 3)));
+        el.textContent = m[1] + v.toLocaleString('fr-FR') + m[3];
+        if(p < 1) requestAnimationFrame(pas);
+        else el.textContent = fin;
+      }
+      requestAnimationFrame(pas);
+    });
+  }, {threshold:.6});
+  bs.forEach(function(b){ obs.observe(b) });
+})();
 
 /* ── Barre collante ──────────────────────────────────────────────────────── */
 var sticky = $('#sticky'), devis = $('#devis');
