@@ -524,13 +524,17 @@ details .a p + p{margin-top:11px}
 @media (max-width:950px){.km__in{grid-template-columns:1fr}}
 
 /* Cas particuliers */
-.cas__g{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.cs{display:flex;gap:14px;background:var(--white);border-radius:var(--r-sm);padding:19px;
-  box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .16s,transform .16s var(--ease)}
+.cas__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3.2vw,40px) clamp(20px,3vw,40px)}
+/* Ces six entrées ne sont pas six arguments : c'est une liste où le visiteur
+   cherche SON cas. Encadrées comme des cartes, et placées juste après les
+   quatre de « Inclus », elles donnaient à la page une dixième boîte blanche.
+   Plus de cadre, une pastille de 62 px et un alignement centré : la section
+   cesse de ressembler aux autres. */
+.cs{text-align:center}
 
-.cs .med{width:40px;height:40px;margin-top:1px}
-.cs .med .ico{width:19px;height:19px}
-.cs h3{font-size:15.5px;letter-spacing:-.022em}
+.cs .med{width:62px;height:62px;margin:0 auto 14px}
+.cs .med .ico{width:28px;height:28px;stroke-width:1.75}
+.cs h3{font-size:16.5px;letter-spacing:-.022em}
 .cs p{font-size:13.8px;color:var(--ink-2);margin-top:5px;line-height:1.5}
 @media (max-width:900px){.cas__g{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.cas__g{grid-template-columns:1fr}}
@@ -668,19 +672,21 @@ details .a p + p{margin-top:11px}
   .carte__reg path:hover{fill:var(--magenta)}
 
   /* Cartes */
-  .frm,.stp,.inc,.avi,.cs{transition:transform .22s var(--ease),box-shadow .22s}
+  .frm,.stp,.inc,.avi{transition:transform .22s var(--ease),box-shadow .22s}
+  /* Sans cadre, c'est la pastille qui réagit, pas la carte. */
+  .cs .med{transition:transform .22s var(--ease),background .18s}
+  .cs:hover .med{transform:scale(1.07)}
   .frm:hover,.stp:hover,.avi:hover,.inc:hover{transform:translateY(-3px)}
   .frm:hover{box-shadow:0 0 0 1.5px var(--magenta),0 16px 32px -18px rgba(34,46,58,.45)}
   .frm--hi:hover{box-shadow:0 0 0 2.5px var(--magenta),0 16px 32px -18px rgba(34,46,58,.45)}
   .stp:hover,.avi:hover{box-shadow:0 16px 32px -18px rgba(34,46,58,.45),0 0 0 1px rgba(34,46,58,.09)}
   .inc:hover{box-shadow:inset 0 0 0 1.5px var(--magenta)}
-  .cs:hover{box-shadow:inset 0 0 0 1.5px var(--magenta);transform:translateY(-3px)}
   /* Le badge d'étape prend un cran d'avance sur sa carte. */
   .stp::before{transition:transform .22s var(--ease)}
   .stp:hover::before{transform:scale(1.09)}
   /* Les icônes des cartes avancent et prennent l'accent. */
-  .inc .ico,.cs .ico{transition:transform .22s var(--ease),color .18s}
-  .inc:hover .ico,.cs:hover .ico{transform:translateX(3px);color:var(--magenta)}
+  .inc .ico{transition:transform .22s var(--ease),color .18s}
+  .inc:hover .ico{transform:translateX(3px);color:var(--magenta)}
 
   /* Options du formulaire : la pastille pivote légèrement. C'est le seul
      endroit où le visiteur doit cliquer, autant que ça réagisse. */
@@ -721,7 +727,7 @@ details .a p + p{margin-top:11px}
 @media (prefers-reduced-motion:reduce){
   .btn:hover,.btn:hover .ico,.btn:hover::after,
   .frm:hover,.stp:hover,.stp:hover::before,.avi:hover,.inc:hover,.inc:hover .ico,
-  .cs:hover,.cs:hover .ico,.opt:hover .opt__ico,.tel:hover .tel__ico,
+  .cs:hover .med,.opt:hover .opt__ico,.tel:hover .tel__ico,
   .hdr__logo:hover img,.sticky__tel:hover{transform:none}
   .ftr a:hover{background-size:0 1px;text-decoration:underline}
 }
@@ -1340,30 +1346,24 @@ details .a p + p{margin-top:11px}
          réellement équipés pour votre cas seront consultés.</p>
     </div>
     <div class="cas__g rvl-g">
-      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-piano"/></svg></span><div>
+      <div class="cs"><span class="med med--rose"><svg class="ico"><use href="#i-piano"/></svg></span>
         <h3>Piano et objets lourds</h3>
-        <p>Piano droit ou à queue, coffre-fort, aquarium, œuvre d'art&nbsp;: matériel spécifique,
-           parfois un monte-meuble, et une assurance adaptée.</p></div></div>
-      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-lock"/></svg></span><div>
+        <p>Matériel spécifique, monte-meuble si besoin, assurance adaptée.</p></div>
+      <div class="cs"><span class="med med--rose"><svg class="ico"><use href="#i-lock"/></svg></span>
         <h3>Garde-meuble</h3>
-        <p>Quand la sortie et l'entrée ne se touchent pas&nbsp;: stockage sur un réseau de plus de
-           350 sites, chiffré avec le reste du devis.</p></div></div>
-      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-moto"/></svg></span><div>
+        <p>Plus de 350 sites, chiffrés avec le reste du devis.</p></div>
+      <div class="cs"><span class="med med--rose"><svg class="ico"><use href="#i-moto"/></svg></span>
         <h3>Moto, scooter, véhicule</h3>
-        <p>Arrimé et couvert, il part dans le camion avec le reste de votre mobilier — sans
-           convoyeur séparé ni second déplacement.</p></div></div>
-      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-globe"/></svg></span><div>
+        <p>Arrimé et couvert, il part avec le reste de votre mobilier.</p></div>
+      <div class="cs"><span class="med med--rose"><svg class="ico"><use href="#i-globe"/></svg></span>
         <h3>Déménagement international</h3>
-        <p>Europe ou grand export&nbsp;: formalités douanières, inventaire valorisé et choix entre
-           groupage maritime et camion dédié.</p></div></div>
-      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-island"/></svg></span><div>
+        <p>Douanes, inventaire valorisé, groupage ou camion dédié.</p></div>
+      <div class="cs"><span class="med med--rose"><svg class="ico"><use href="#i-island"/></svg></span>
         <h3>Outre-mer</h3>
-        <p>Antilles, Guyane, Réunion, Mayotte, Polynésie&nbsp;: transport maritime en conteneur,
-           avec des délais à anticiper largement.</p></div></div>
-      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-users"/></svg></span><div>
+        <p>Conteneur maritime, avec des délais à anticiper largement.</p></div>
+      <div class="cs"><span class="med med--rose"><svg class="ico"><use href="#i-users"/></svg></span>
         <h3>Mutation professionnelle</h3>
-        <p>Déménagement pris en charge par l'employeur&nbsp;: facturation directe à l'entreprise et
-           justificatifs pour le Mobili-Pass.</p></div></div>
+        <p>Facturation directe à l'employeur, justificatifs Mobili-Pass.</p></div>
     </div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="cas">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Votre conseiller vous rappelle pour en parler.</span></div>
   </div>

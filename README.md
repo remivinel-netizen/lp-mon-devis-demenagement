@@ -300,6 +300,23 @@ Les fonds de section alternent désormais blanc, gris, blanc, gris foncé, nuit,
 rose. « Inclus » et « Cas particuliers » se suivaient auparavant sur deux gris
 séparés d'un demi-pour-cent de luminance — la transition ne se voyait pas.
 
+### Les cas particuliers : une liste, pas six arguments
+
+Les six cas — piano, garde-meuble, deux-roues, international, outre-mer,
+mutation — étaient six cartes encadrées en trois colonnes, juste après les
+quatre de « Inclus ». Dixième boîte blanche d'affilée.
+
+Or ce n'est pas une liste d'arguments&nbsp;: le visiteur n'y lit pas tout, il y
+cherche **son** cas. Le cadre est donc tombé, la pastille est passée de 40 à
+**62 px**, l'alignement est centré et les textes ont été raccourcis d'un tiers.
+La section ne ressemble plus à aucune autre de la page.
+
+Conséquence sur le survol&nbsp;: sans cadre, l'ombre intérieure magenta n'avait
+plus rien à souligner, et le décalage vertical faisait flotter un bloc sans
+contour. C'est désormais **la pastille** qui réagit, d'un agrandissement de 7 %.
+La règle est bien déclarée avant le bloc `prefers-reduced-motion`, qui la
+neutralise — l'ordre de cascade a déjà coûté un bug sur cette page.
+
 ### La carte de France
 
 Un **SVG**, pas une image : net à toutes les tailles, aux couleurs de la charte,
