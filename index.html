@@ -53,12 +53,12 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   /* Accent sur fond sombre. Le magenta lui-même n'y tient pas (2,47 sur le
      navy) : c'est donc sa version claire qui prend le relais, à 6,04. Même
      famille chromatique, aucune troisième teinte dans la charte. */
-  --rose:#FF84B0;
+  --rose:#FF7389;
   /* Décoratif seulement : bande du logo, tracés, filets. */
-  --rose-2:#F06DA0;
+  --rose-2:#F0576E;
   /* Teintes claires pour les pastilles et les fonds de bloc : l'encre navy y
-     tient à 10,85 et 12,64. */
-  --rose-pale:#FBDCE7; --rose-brume:#FDF2F6;
+     tient à 10,90. */
+  --rose-pale:#FCDDE1; --rose-brume:#FDF3F4;
   /* Leurs gris d'interface. */
   --gris:#F4F5F9; --gris-2:#EBECEF; --white:#fff;
   /* Encre. --ink-3 est le plus clair qui reste lisible en petit texte
@@ -166,7 +166,7 @@ button{font:inherit;color:inherit}
 .hero__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(28px,4vw,58px);align-items:start}
 .hero__copy{padding-top:clamp(4px,2vw,26px)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--rose);background:rgba(255,132,176,.15);
+  text-transform:uppercase;color:var(--rose);background:rgba(255,115,137,.15);
   padding:8px 14px;border-radius:var(--r-sm);margin-bottom:20px}
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--rose-2);flex:none}
 h1{font-size:clamp(35px,5.4vw,60px);letter-spacing:-.035em}
@@ -473,7 +473,7 @@ details .a p + p{margin-top:11px}
 /* CTA final */
 .final{background:var(--nuit);color:#fff;text-align:center;position:relative;overflow:clip}
 .final::after{content:"";position:absolute;inset:auto -10% -60% -10%;height:340px;
-  background:radial-gradient(60% 100% at 50% 100%, rgba(255,132,176,.20), transparent 70%)}
+  background:radial-gradient(60% 100% at 50% 100%, rgba(255,115,137,.20), transparent 70%)}
 .final__in{position:relative;max-width:720px;margin-inline:auto}
 .final h2{font-size:clamp(28px,4vw,46px)}
 .final h2 .em{color:var(--rose)}
@@ -571,7 +571,7 @@ details .a p + p{margin-top:11px}
 <section class="hero">
   <svg class="hero__route" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
     <path d="M-20 150 C 220 60, 420 170, 650 110 S 1080 30, 1460 120" fill="none"
-          stroke="#FF84B0" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
+          stroke="#FF7389" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
   </svg>
   <div class="wrap hero__in">
 

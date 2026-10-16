@@ -119,9 +119,9 @@ nouvel accent.
 | `--magenta-2`  | `#A3003F` | Survol, anneau de focus                  | 7,99 / blanc         |
 | `--nuit`       | `#222E3A` | Ancre : hero, sections sombres, titres   | 13,82 / blanc        |
 | `--nuit-3`     | `#19232C` | Pied de page                             | blanc à 15,93 dessus |
-| `--rose`       | `#FF84B0` | **Accent sur fond sombre** uniquement     | 6,04 sur `--nuit`    |
-| `--rose-2`     | `#F06DA0` | Décor : bande du logo, survols           | —                    |
-| `--rose-pale`  | `#FBDCE7` | Pastilles d'icônes, étiquettes           | navy à 10,85 dessus  |
+| `--rose`       | `#FF7389` | **Accent sur fond sombre** uniquement     | 5,31 sur `--nuit`    |
+| `--rose-2`     | `#F0576E` | Décor : survols, filets                  | —                    |
+| `--rose-pale`  | `#FCDDE1` | Pastilles d'icônes, étiquettes           | navy à 10,90 dessus  |
 | `--gris`       | `#F4F5F9` | Fond de page                             | —                    |
 | `--ink`        | `#333333` | Texte courant                            | 12,63 / blanc        |
 
@@ -147,19 +147,27 @@ lisait « application mobile » plutôt que « déménageur ».
 
 ### Le logo
 
-Un camion de déménagement de profil : caisse et cabine en magenta, bande
-d'adhésif blanche, roues en encre — et en blanc sur fond sombre, sans quoi
-elles disparaîtraient dans le navy.
+Camion plein, **flèche de progression en réserve** dans la caisse, trois
+lignes de vitesse. Le concept a été exploré par génération d'image (Higgsfield,
+4 variantes), puis **entièrement redessiné en vectoriel** : les sorties
+génératives convergeaient toutes vers ce concept mais avec des épaisseurs
+irrégulières, une pointe de flèche déformée et des roues inégales — sans parler
+de l'absence de transparence et d'échelle.
 
-Le favicon n'est pas le même dessin réduit. À 16 px, trois couleurs se
-mélangent : il passe donc à deux, avec une silhouette blanche d'un seul tenant
-sur aplat magenta et les roues **creusées dans le fond** plutôt que posées
-par-dessus. Vérifié à 64, 32 et 16 px.
+Le redessin impose une grille : épaisseur constante de 2,6 pour les lignes de
+vitesse, pointe de flèche d'équerre, roues strictement identiques.
 
-Trois autres pistes avaient été dessinées et écartées : un carton en
-perspective, un bloc monogramme « MD » (le plus proche de la référence, mais
-muet sur le métier) et un traitement purement typographique (sans symbole, donc
-sans favicon possible).
+**Une seule planche pour les deux fonds.** Les roues sont magenta à moyeu
+blanc, ce qui tient aussi bien sur blanc que sur navy : seul le wordmark change
+de couleur, donc un seul dessin à maintenir.
+
+Le favicon n'est pas ce dessin réduit. À 16 px les lignes de vitesse tombent
+sous le pixel et la flèche en réserve se referme : il garde la silhouette et la
+flèche, élargies, sur aplat magenta. Vérifié à 64, 32 et 16 px.
+
+Pistes écartées en chemin : un carton en perspective, un bloc monogramme « MD »
+(le plus proche de la référence mais muet sur le métier) et un traitement
+purement typographique (sans symbole, donc sans favicon possible).
 
 ### Le hero
 
