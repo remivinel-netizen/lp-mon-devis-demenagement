@@ -1369,7 +1369,15 @@ function majEst(){
   $('#est-vol').textContent = '· environ ' + S.vol + ' m³';
   var det = [];
   if(S.d1 && S.d2 && S.km !== null){
-    det.push(S.d1.nom + ' → ' + S.d2.nom + ', environ ' + S.km + ' km');
+    // Un déménagement dans la même commune afficherait « environ 0 km », ce qui
+    // fait douter du calcul au lieu de le confirmer.
+    if(S.d1.nom === S.d2.nom){
+      det.push('Déménagement au sein de ' + S.d1.nom);
+    } else if(S.km < 5){
+      det.push(S.d1.nom + ' → ' + S.d2.nom + ', trajet de quelques kilomètres');
+    } else {
+      det.push(S.d1.nom + ' → ' + S.d2.nom + ', environ ' + S.km + ' km');
+    }
   } else if(S.d1){
     det.push('Départ de ' + S.d1.nom + ' — indiquez l’arrivée pour affiner');
   } else {
