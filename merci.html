@@ -79,7 +79,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 <main><div class="wrap">
   <div class="tick"><svg viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.5 6.5"/></svg></div>
   <h1>C'est parti, <span class="em">votre demande est transmise.</span></h1>
-  <p class="lead" id="lead">Nous consultons les déménageurs qui couvrent votre trajet et sont disponibles à votre date.</p>
+  <p class="lead" id="lead">Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis ferme.</p>
 
   <div class="card">
     <div class="recap" id="recap">
@@ -92,12 +92,12 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
     <ol>
       <li><div><b>Vous recevez un email de confirmation</b>
         <span>Il récapitule votre demande. S'il n'arrive pas, pensez à regarder dans les indésirables.</span></div></li>
-      <li><div><b>Les déménageurs vous contactent sous 24 à 48 h</b>
-        <span>Six au maximum. Certains vous appelleront pour préciser le volume avant de chiffrer.</span></div></li>
-      <li><div><b>Vous comparez les devis reçus</b>
-        <span>Même volume, même formule, même date : c'est la seule façon de comparer ce qui est comparable.</span></div></li>
-      <li><div><b>Vous choisissez — ou pas</b>
-        <span>Aucun devis ne vous engage. Si aucun ne convient, le dossier s'arrête là, sans frais.</span></div></li>
+      <li><div><b>Votre conseiller vous rappelle sous 24 h</b>
+        <span>Pour confirmer le volume, l'accès et la date. C'est lui qui suivra votre dossier jusqu'au bout.</span></div></li>
+      <li><div><b>Vous recevez un devis ferme</b>
+        <span>Détaillé ligne par ligne, cartons, assurance et changement d'adresse compris. Une fois signé, le prix ne bouge plus.</span></div></li>
+      <li><div><b>Vos cartons arrivent, et vous n'y pensez plus</b>
+        <span>Livrés sous 24 à 48 h après validation. Les démarches administratives sont lancées en parallèle.</span></div></li>
     </ol>
 
     <p class="tip"><b>En attendant&nbsp;:</b> faites le tour des pièces et notez ce qui part à la benne, à la
@@ -105,7 +105,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
       final — c'est le levier le plus efficace à votre disposition.</p>
 
     <div class="acts">
-      <a class="btn btn--foret" href="index.html#prix">Revoir les ordres de grandeur</a>
+      <a class="btn btn--foret" href="index.html#formules">Revoir les trois formules</a>
       <a class="btn btn--ghost" href="index.html#faq">Lire les questions fréquentes</a>
     </div>
   </div>
@@ -126,7 +126,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
   if(!d) return;
   if(d.prenom){
     document.getElementById('lead').textContent =
-      'Merci ' + d.prenom + '. Nous consultons les déménageurs qui couvrent votre trajet et sont disponibles à votre date.';
+      'Merci ' + d.prenom + '. Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis ferme.';
   }
   if(d.min && d.max){
     var f = function(n){ return Number(n).toLocaleString('fr-FR') + ' €' };

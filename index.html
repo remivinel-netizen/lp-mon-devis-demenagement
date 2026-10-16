@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Combien coûte votre déménagement ? Estimation gratuite en 1 minute — Mon Devis Déménagement</title>
-<meta name="description" content="Estimez le volume et le budget de votre déménagement en 1 minute, puis recevez jusqu'à 6 devis de déménageurs vérifiés. Gratuit, sans engagement.">
+<title>Déménagement : devis gratuit en 1 minute, cartons et assurance compris — Mon Devis Déménagement</title>
+<meta name="description" content="Estimez le budget de votre déménagement en 1 minute. Déménageurs professionnels partout en France, cartons livrés, assurance et changement d'adresse compris. Ne payez que les kilomètres aller.">
 <meta name="theme-color" content="#0C3B2E">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://mon-devis-demenagement.fr/">
@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Mon Devis Déménagement">
-<meta property="og:title" content="Combien coûte votre déménagement ?">
-<meta property="og:description" content="Estimation du volume et du budget en 1 minute, puis jusqu'à 6 devis de déménageurs vérifiés. Gratuit, sans engagement.">
+<meta property="og:title" content="Déménagez l'esprit léger">
+<meta property="og:description" content="Votre budget en 1 minute, puis un devis ferme. Cartons livrés, assurance et changement d'adresse compris. Vous ne payez que les kilomètres aller.">
 
 <!-- Les deux polices du hero sont préchargées : elles portent le H1 et le
      formulaire, soit tout ce qui est visible au premier écran. Le reste de la
@@ -379,6 +379,62 @@ details[open] summary .ico{transform:rotate(45deg)}
 details .a{padding:0 22px 20px;font-size:15.5px;color:var(--ink-2);line-height:1.6;max-width:72ch}
 details .a p + p{margin-top:11px}
 
+/* « Kilomètres aller » — l'argument de prix, expliqué */
+.km{background:var(--white);border-block:1px solid var(--line)}
+.km__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(30px,4vw,64px);align-items:center}
+.km__fig{background:var(--foret);border-radius:var(--r-md);padding:clamp(22px,3vw,30px);color:#fff}
+.km__fig h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--kraft);margin-bottom:20px}
+.trajet{display:grid;gap:15px}
+.trj{display:flex;align-items:center;gap:13px;font-size:14.5px}
+.trj__b{flex:1;height:34px;border-radius:8px;display:flex;align-items:center;padding:0 12px;
+  font-weight:700;font-size:13px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden}
+.trj__b--plein{background:var(--kraft);color:var(--foret)}
+.trj__b--vide{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.22)}
+.trj__l{width:84px;flex:none;font-size:12.5px;color:rgba(255,255,255,.66);font-weight:600}
+.km__fig p{font-size:13.8px;color:rgba(255,255,255,.76);margin-top:19px;padding-top:17px;
+  border-top:1px solid rgba(255,255,255,.17);line-height:1.5}
+.km__fig p b{color:var(--kraft)}
+@media (max-width:950px){.km__in{grid-template-columns:1fr}}
+/* Les libellés des trajets sont en nowrap pour rester lisibles d'un coup
+   d'œil sur large écran. Sous ~620 px la chaîne la plus longue dépasse la
+   colonne et élargissait tout le bloc : on la laisse passer à la ligne. */
+@media (max-width:620px){
+  .trj__b{white-space:normal;height:auto;min-height:34px;padding:7px 11px;line-height:1.25;font-size:12.5px}
+  .trj__l{width:64px;font-size:11.5px}
+}
+
+/* Cas particuliers */
+.cas__g{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.cs{display:flex;gap:14px;background:var(--white);border-radius:var(--r-sm);padding:19px;
+  box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .16s,transform .16s var(--ease)}
+.cs:hover{box-shadow:inset 0 0 0 1.5px var(--foret);transform:translateY(-2px)}
+.cs .ico{width:23px;height:23px;color:var(--foret);flex:none;margin-top:2px}
+.cs h3{font-size:15.5px;letter-spacing:-.022em}
+.cs p{font-size:13.8px;color:var(--ink-2);margin-top:5px;line-height:1.5}
+@media (max-width:900px){.cas__g{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cas__g{grid-template-columns:1fr}}
+
+/* Le conseiller */
+.cons{background:var(--menthe-pale)}
+.cons__in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(20px,3vw,38px);
+  align-items:center;background:var(--white);border-radius:var(--r-lg);
+  padding:clamp(24px,3.4vw,38px);box-shadow:var(--shadow-sm)}
+.cons__av{width:76px;height:76px;border-radius:50%;background:var(--foret);color:var(--kraft);
+  display:grid;place-items:center;flex:none}
+.cons__av .ico{width:34px;height:34px;stroke-width:1.7}
+.cons__t h2{font-size:clamp(21px,2.6vw,29px)}
+.cons__t p{font-size:16px;color:var(--ink-2);margin-top:9px;line-height:1.55}
+.cons__n{text-align:center;flex:none}
+.cons__n a{display:block;font-size:clamp(21px,2.4vw,27px);font-weight:800;letter-spacing:-.03em;
+  color:var(--foret);text-decoration:none;font-variant-numeric:tabular-nums}
+.cons__n a:hover{color:var(--brique-fonce)}
+.cons__n span{display:block;font-size:13.2px;color:var(--ink-3);margin-top:4px}
+@media (max-width:880px){
+  .cons__in{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .cons__t p{margin-inline:auto}
+}
+
 /* CTA final */
 .final{background:var(--foret);color:#fff;text-align:center;position:relative;overflow:clip}
 .final::after{content:"";position:absolute;inset:auto -10% -60% -10%;height:340px;
@@ -392,7 +448,7 @@ details .a p + p{margin-top:11px}
 
 /* Pied */
 .ftr{background:#07271E;color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14.3px}
-.ftr__g{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px}
+.ftr__g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:30px}
 .ftr h4{color:#fff;font-size:14.5px;margin-bottom:14px;letter-spacing:-.015em}
 .ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .ftr a{text-decoration:none;transition:color .15s}
@@ -400,7 +456,8 @@ details .a p + p{margin-top:11px}
 .ftr__logo{width:180px;margin-bottom:15px}
 .ftr__legal{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);
   display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;font-size:12.8px;color:rgba(255,255,255,.52)}
-@media (max-width:880px){.ftr__g{grid-template-columns:1fr 1fr;gap:28px}}
+@media (max-width:1050px){.ftr__g{grid-template-columns:1fr 1fr 1fr;gap:28px}}
+@media (max-width:760px){.ftr__g{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.ftr__g{grid-template-columns:1fr}}
 
 /* Barre collante mobile */
@@ -448,6 +505,14 @@ details .a p + p{margin-top:11px}
 <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20.5h4.3v-4.3h4.3v-4.3h4.3V7.6H20V3.5"/></symbol>
 <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.3M12 19.1v2.3M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.6 12h2.3M19.1 12h2.3M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></symbol>
 <symbol id="i-piano" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7.5 5v8M12 5v8M16.5 5v8M3 13h18"/></symbol>
+<symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.3" cy="16.8" r="3.3"/><circle cx="18.7" cy="16.8" r="3.3"/><path d="M5.3 16.8h5l4-7h-2.6M14.3 9.8h3.1l1.3 7M9.4 9.8h4.9"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2a14 14 0 0 1 0 17.6 14 14 0 0 1 0-17.6"/></symbol>
+<symbol id="i-island" viewBox="0 0 24 24"><path d="M3 19.6c1.6 0 1.6 1 3.2 1s1.6-1 3.2-1 1.6 1 3.2 1 1.6-1 3.2-1 1.6 1 3.2 1"/><path d="M12 16.4V8.6M12 8.6c-2.6-2-5.4-1.2-6.6.4M12 8.6c2.6-2 5.4-1.2 6.6.4M12 8.6c-1-2.8.4-4.8 2-5.6"/></symbol>
+<symbol id="i-case" viewBox="0 0 24 24"><rect x="2.8" y="7.4" width="18.4" height="12.4" rx="2.3"/><path d="M8.4 7.4V5.6a1.8 1.8 0 0 1 1.8-1.8h3.6a1.8 1.8 0 0 1 1.8 1.8v1.8M2.8 13h18.4"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="6.2" r="2.6"/><circle cx="18" cy="17.8" r="2.6"/><path d="M8.6 6.2h5.2a3.4 3.4 0 0 1 0 6.8h-3.6a3.4 3.4 0 0 0 0 6.8h4.2" stroke-dasharray="2.6 2.4"/></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4.4 15.4v-3a7.6 7.6 0 0 1 15.2 0v3"/><rect x="2.6" y="13.8" width="4" height="6.2" rx="2"/><rect x="17.4" y="13.8" width="4" height="6.2" rx="2"/><path d="M19.6 20a3.4 3.4 0 0 1-3.4 2.2h-2.4"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.3"/><path d="m3.4 6.6 8.6 6 8.6-6"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.4S3.6 15 3.6 9.4a4.6 4.6 0 0 1 8.4-2.6 4.6 4.6 0 0 1 8.4 2.6c0 5.6-8.4 11-8.4 11Z"/></symbol>
 </defs></svg>
 
 <header class="hdr">
@@ -459,9 +524,9 @@ details .a p + p{margin-top:11px}
       <!-- ⚠ À VALIDER : numéro et horaires à remplacer par ceux du client. -->
       <a class="tel" href="tel:+33180000000">
         <span class="tel__ico"><svg class="ico"><use href="#i-phone"/></svg></span>
-        <span><b>01 80 00 00 00</b><small>Lundi — samedi, 9h à 19h</small></span>
+        <span><b>01 80 00 00 00</b><small>Votre conseiller, lundi — samedi 9h-19h</small></span>
       </a>
-      <a class="btn btn--brique" href="#devis" data-cta="header">Estimer mon déménagement</a>
+      <a class="btn btn--brique" href="#devis" data-cta="header">Mon devis gratuit</a>
     </div>
   </div>
 </header>
@@ -477,30 +542,39 @@ details .a p + p{margin-top:11px}
   <div class="wrap hero__in">
 
     <div class="hero__copy">
-      <p class="eyebrow"><span class="dot"></span>Comparateur de déménageurs</p>
-      <h1>Combien coûte <span class="em">votre déménagement&nbsp;?</span></h1>
+      <p class="eyebrow"><span class="dot"></span>Déménageurs professionnels partout en France</p>
+      <h1>Déménagez <span class="em">l'esprit léger</span></h1>
       <p class="hero__sub">
-        Cinq questions, une minute. Vous voyez tout de suite le volume à déplacer
-        et le budget à prévoir — puis vous recevez jusqu'à six devis de
-        déménageurs vérifiés près de chez vous.
+        Dites-nous en une minute ce que vous déménagez&nbsp;: vous découvrez
+        aussitôt le volume et le budget à prévoir, et un conseiller vous rappelle
+        avec un devis ferme. Cartons, assurance et changement d'adresse compris.
       </p>
+      <!-- ══════════════════════════════════════════════════════════════════
+           ⚠ À VALIDER — PROMESSES COMMERCIALES
+           Les trois arguments ci-dessous (cartons offerts, assurance incluse,
+           changement d'adresse pris en charge) sont repris du modèle de
+           l'Officiel du Déménagement et structurent TOUTE la page : hero,
+           bandeau, formules, services offerts, FAQ, page /merci.
+           Ils n'ont de valeur que si le réseau les honore réellement.
+           À confirmer avant mise en ligne, ou à retirer partout à la fois.
+           ══════════════════════════════════════════════════════════════════ -->
       <ul class="chips">
-        <li><svg class="ico"><use href="#i-check"/></svg>Gratuit et sans engagement</li>
-        <li><svg class="ico"><use href="#i-check"/></svg>Déménageurs vérifiés</li>
-        <li><svg class="ico"><use href="#i-check"/></svg>Estimation immédiate</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Cartons livrés gratuitement</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Assurance incluse</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Changement d'adresse pris en charge</li>
       </ul>
       <div class="hero__proof">
-        <div><b>6</b><span>devis maximum,<br>jamais plus</span></div>
-        <div><b>1 min</b><span>pour décrire<br>votre projet</span></div>
-        <div><b>24&nbsp;h</b><span>pour les premiers<br>retours</span></div>
+        <div><b>3</b><span>formules, de l'économique<br>au tout compris</span></div>
+        <div><b>1 min</b><span>pour connaître<br>votre budget</span></div>
+        <div><b>24&nbsp;h</b><span>pour être rappelé<br>par un conseiller</span></div>
       </div>
     </div>
 
     <div class="quiz" id="devis">
       <div class="quiz__top">
-        <h2 class="quiz__ttl">Votre estimation gratuite</h2>
+        <h2 class="quiz__ttl">Combien coûte votre déménagement&nbsp;?</h2>
         <div class="quiz__meta">
-          <p>Aucune obligation de donner suite.</p>
+          <p>Estimation gratuite, sans engagement.</p>
           <span class="quiz__count" id="q-count">1 / 6</span>
         </div>
         <div class="bar"><i id="q-bar"></i></div>
@@ -644,27 +718,27 @@ details .a p + p{margin-top:11px}
           <div class="opts">
             <label class="opt"><input type="radio" name="formule" value="Économique" data-f="eco">
               <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
-              <span class="opt__txt">Moi, entièrement<small>Formule économique — vous emballez, ils transportent</small></span>
+              <span class="opt__txt">Moi, entièrement<small>Formule économique — ils protègent, chargent et transportent</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
             <label class="opt"><input type="radio" name="formule" value="Standard" data-f="std">
               <span class="opt__ico"><svg class="ico"><use href="#i-users"/></svg></span>
-              <span class="opt__txt">Moi, sauf le fragile<small>Formule standard — ils emballent la vaisselle, démontent les meubles</small></span>
+              <span class="opt__txt">Moi, sauf le fragile<small>Formule standard — ils emballent la vaisselle et démontent les meubles</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="formule" value="Clé en main" data-f="cle">
+            <label class="opt"><input type="radio" name="formule" value="Luxe" data-f="luxe">
               <span class="opt__ico"><svg class="ico"><use href="#i-truck"/></svg></span>
-              <span class="opt__txt">Eux, de A à Z<small>Formule clé en main — vous ne touchez pas un carton</small></span>
+              <span class="opt__txt">Eux, de A à Z<small>Formule luxe — vous ne touchez pas un carton</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
             <label class="opt"><input type="radio" name="formule" value="Je ne sais pas encore" data-f="std">
               <span class="opt__ico"><svg class="ico"><use href="#i-search"/></svg></span>
-              <span class="opt__txt">Je ne sais pas encore<small>Les déménageurs vous chiffreront plusieurs options</small></span>
+              <span class="opt__txt">Je ne sais pas encore<small>Votre conseiller vous chiffrera plusieurs options</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
           </div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
         <fieldset class="step" data-step="contact">
-          <legend class="step__q">À qui envoie-t-on les devis&nbsp;?</legend>
-          <p class="step__hint">Les déménageurs vous répondent directement. Pas de numéro surtaxé, pas de rappel automatique.</p>
+          <legend class="step__q">À qui envoie-t-on votre devis&nbsp;?</legend>
+          <p class="step__hint">Un conseiller vous rappelle pour confirmer le volume, puis vous recevez un devis ferme. Pas de numéro surtaxé, pas de robot.</p>
           <div class="grid2">
             <div class="field"><label for="f-prenom">Prénom</label>
               <input id="f-prenom" name="prenom" type="text" autocomplete="given-name" autocapitalize="words" placeholder="Camille"></div>
@@ -681,10 +755,10 @@ details .a p + p{margin-top:11px}
           <label class="consent">
             <span class="sw"><input type="checkbox" id="f-consent" name="consentement"><span></span></span>
             <p id="consent-txt">J'accepte d'être recontacté par Mon Devis Déménagement et par les déménageurs
-              partenaires sélectionnés pour établir mes devis. Mes données ne sont utilisées que pour cela.</p>
+              partenaires sélectionnés pour établir mon devis. Mes données ne sont utilisées que pour cela.</p>
           </label>
           <p class="note" id="n-contact" aria-live="polite"></p>
-          <div class="acts"><button type="submit" class="btn btn--brique btn--full btn--lg" id="q-send">Recevoir mes devis gratuits</button></div>
+          <div class="acts"><button type="submit" class="btn btn--brique btn--full btn--lg" id="q-send">Recevoir mon devis gratuit</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
@@ -703,7 +777,7 @@ details .a p + p{margin-top:11px}
       </div>
 
       <p class="quiz__foot"><svg class="ico"><use href="#i-lock"/></svg>
-        Vos données servent uniquement à établir vos devis. Jamais revendues à des tiers.</p>
+        Vos données servent uniquement à établir votre devis. Jamais revendues à des tiers.</p>
     </div>
 
   </div>
@@ -712,35 +786,75 @@ details .a p + p{margin-top:11px}
 <div class="band">
   <div class="wrap band__g">
     <div class="band__i">
-      <svg class="ico"><use href="#i-doc"/></svg>
-      <h3>Six devis, pas davantage</h3>
-      <p>Un seul formulaire, jusqu'à six déménageurs qui chiffrent le même projet. Vous comparez à armes égales.</p>
+      <svg class="ico"><use href="#i-route"/></svg>
+      <h3>Ne payez que l'aller</h3>
+      <p>Nos camions ne rentrent jamais à vide&nbsp;: le trajet retour ne vous est pas facturé. C'est là que se joue l'essentiel de l'écart de prix.</p>
     </div>
     <div class="band__i">
-      <svg class="ico"><use href="#i-shield"/></svg>
-      <h3>Des professionnels contrôlés</h3>
-      <p>SIRET actif, licence de transport intérieur et attestation d'assurance vérifiés avant l'entrée au réseau.</p>
+      <svg class="ico"><use href="#i-heart"/></svg>
+      <h3>Tout compris, vraiment</h3>
+      <p>Cartons livrés chez vous, assurance du mobilier et changement d'adresse&nbsp;: inclus dans les trois formules, sans supplément.</p>
+    </div>
+    <div class="band__i">
+      <svg class="ico"><use href="#i-headset"/></svg>
+      <h3>Un conseiller, pas un robot</h3>
+      <p>La même personne vous suit du devis au jour J. Joignable du lundi au samedi, de 9h à 19h.</p>
     </div>
     <div class="band__i">
       <svg class="ico"><use href="#i-euro"/></svg>
       <h3>Le devis signé fait foi</h3>
-      <p>Une fois le devis accepté, le prix est ferme. Les suppléments du jour J n'ont rien à y faire.</p>
-    </div>
-    <div class="band__i">
-      <svg class="ico"><use href="#i-check"/></svg>
-      <h3>Gratuit, sans engagement</h3>
-      <p>Le service ne vous coûte rien et vous restez libre de ne donner suite à aucun des devis reçus.</p>
+      <p>Une fois accepté, le prix est ferme. Les suppléments découverts le matin du déménagement n'ont rien à y faire.</p>
     </div>
   </div>
 </div>
+
+<!-- L'argument de prix le plus fort du secteur, et le plus mal expliqué :
+     on prend le temps de le rendre compréhensible.
+     ⚠ À VALIDER : suppose un réseau national capable d'optimiser les tournées.
+     Le chiffre de 38 % vient du marché, pas de nos propres données. -->
+<section id="kilometres" class="km">
+  <div class="wrap km__in">
+    <div>
+      <div class="sec-h" style="margin-bottom:24px">
+        <span class="kicker">Pourquoi c'est moins cher</span>
+        <h2>Vous ne payez que <span class="em">les kilomètres aller</span></h2>
+        <p>Un déménageur qui monte seul à Lille et redescend à vide vous facture les
+           deux trajets — il n'a pas le choix. En faisant circuler nos camions sur des
+           tournées déjà planifiées, le retour est payé par un autre client. Pas par vous.</p>
+      </div>
+      <ul class="chips" style="margin-top:0">
+        <li style="background:var(--menthe);border-color:transparent;color:var(--foret)">
+          <svg class="ico" style="color:var(--foret)"><use href="#i-check"/></svg>Jusqu'à 38&nbsp;% d'écart sur un long trajet</li>
+        <li style="background:var(--menthe);border-color:transparent;color:var(--foret)">
+          <svg class="ico" style="color:var(--foret)"><use href="#i-check"/></svg>Sans partage de camion imposé</li>
+      </ul>
+    </div>
+    <div class="km__fig">
+      <h3>Lyon → Lille, 25 m³</h3>
+      <div class="trajet">
+        <div class="trj"><span class="trj__l">Déménageur<br>isolé</span>
+          <span class="trj__b trj__b--plein">Aller chargé · facturé</span></div>
+        <div class="trj"><span class="trj__l"></span>
+          <span class="trj__b trj__b--plein">Retour à vide · facturé aussi</span></div>
+        <div class="trj" style="margin-top:9px"><span class="trj__l">Avec nous</span>
+          <span class="trj__b trj__b--plein">Aller chargé · facturé</span></div>
+        <div class="trj"><span class="trj__l"></span>
+          <span class="trj__b trj__b--vide">Retour chargé par un autre client</span></div>
+      </div>
+      <p>Sur ce trajet, la différence représente <b>plusieurs centaines d'euros</b> —
+         pour exactement la même prestation et le même camion.</p>
+    </div>
+  </div>
+</section>
 
 <section id="prix" class="prix">
   <div class="wrap">
     <div class="sec-h">
       <span class="kicker">Les ordres de grandeur</span>
-      <h2>Ce que coûte un déménagement, <span class="em">sans langue de bois</span></h2>
-      <p>Les fourchettes ci-dessous correspondent à ce qui se pratique en France pour un déménageur
-         professionnel, formule standard. Votre devis dépendra du volume réel, de l'accès et de la saison.</p>
+      <h2>Ce que coûte un déménagement, <span class="em">annoncé d'avance</span></h2>
+      <p>Personne n'aime demander un devis à l'aveugle. Voici donc les fourchettes réellement
+         pratiquées en France par un déménageur professionnel, en formule standard — avant même
+         que vous ayez laissé le moindre numéro de téléphone.</p>
     </div>
 
     <div class="tbl-w">
@@ -765,7 +879,8 @@ details .a p + p{margin-top:11px}
       </table>
     </div>
     <p class="tbl-note">
-      Formule économique : comptez environ 20&nbsp;% de moins. Formule clé en main : environ 25&nbsp;% de plus.
+      Formule économique&nbsp;: comptez environ 20&nbsp;% de moins. Formule luxe&nbsp;: environ 25&nbsp;% de plus.
+      Cartons, assurance du mobilier et changement d'adresse sont compris dans les trois cas.
       Fourchettes indicatives à jour de 2026, hors monte-meuble, garde-meuble et objets hors normes.
     </p>
 
@@ -773,7 +888,7 @@ details .a p + p{margin-top:11px}
       <div class="fct"><h4><svg class="ico"><use href="#i-box"/></svg>Le volume</h4>
         <p>Le premier facteur, et de loin. Un tri sérieux avant le déménagement fait baisser la facture plus sûrement que n'importe quelle négociation.</p></div>
       <div class="fct"><h4><svg class="ico"><use href="#i-pin"/></svg>La distance</h4>
-        <p>Au-delà de 300 km, le déménageur facture aussi le retour du camion — sauf s'il groupe votre chargement avec un autre.</p></div>
+        <p>Au-delà de 300 km, un déménageur isolé facture aussi le retour de son camion. C'est précisément ce que le groupage des tournées vous évite.</p></div>
       <div class="fct"><h4><svg class="ico"><use href="#i-stairs"/></svg>L'étage et l'accès</h4>
         <p>Un 4e sans ascenseur ou une rue où le camion ne peut pas stationner ajoute des heures de main-d'œuvre, parfois un monte-meuble.</p></div>
       <div class="fct"><h4><svg class="ico"><use href="#i-sun"/></svg>La saison</h4>
@@ -795,27 +910,32 @@ details .a p + p{margin-top:11px}
 <section id="etapes">
   <div class="wrap">
     <div class="sec-h ctr">
-      <span class="kicker">Comment ça marche</span>
-      <h2>Trois étapes, <span class="em">et c'est tout</span></h2>
+      <span class="kicker">Comment ça se passe</span>
+      <h2>Trouver, préparer, <span class="em">puis ne plus y penser</span></h2>
+      <p>Un déménagement rate rarement le jour J. Il rate trois semaines avant, quand personne
+         n'a prévenu les impôts et que les cartons ne sont pas arrivés.</p>
     </div>
     <div class="steps">
       <div class="stp">
-        <h3>Vous décrivez votre déménagement</h3>
-        <p>Cinq questions sur votre logement, vos adresses et vos dates. Vous obtenez immédiatement une
-           estimation de volume et de budget, avant même de laisser vos coordonnées.</p>
-        <span class="tag">≈ 1 minute</span>
+        <h3>Vous trouvez votre déménageur</h3>
+        <p>Une minute pour décrire le logement et le trajet, et vous voyez votre budget. Un conseiller
+           vous rappelle pour confirmer le volume, puis vous adresse un devis ferme. Vous le validez
+           par un acompte, ou vous n'y donnez pas suite.</p>
+        <span class="tag">Devis sous 24 h</span>
       </div>
       <div class="stp">
-        <h3>Nous consultons les déménageurs</h3>
-        <p>Votre projet part aux professionnels vérifiés qui couvrent votre trajet et sont disponibles à
-           votre date. Six au maximum — nous ne diffusons pas votre demande au-delà.</p>
-        <span class="tag">Sous 24 à 48 h</span>
+        <h3>Vous préparez sans y penser</h3>
+        <p>Vos cartons et votre adhésif arrivent chez vous sous 24 à 48 h. Vous recevez les fiches
+           pratiques&nbsp;: dans quel ordre emballer, comment protéger la vaisselle, que faire des
+           enfants et des animaux le jour J.</p>
+        <span class="tag">Cartons offerts</span>
       </div>
       <div class="stp">
-        <h3>Vous comparez et vous décidez</h3>
-        <p>Les devis arrivent détaillés, ligne par ligne, sur la même base. Vous choisissez celui qui vous
-           convient — ou aucun, et le dossier s'arrête là.</p>
-        <span class="tag">Sans engagement</span>
+        <h3>Nous anticipons les démarches</h3>
+        <p>Changement d'adresse auprès des organismes publics et de vos fournisseurs, réexpédition du
+           courrier, compteurs&nbsp;: la partie fastidieuse est prise en charge ou guidée, avec les
+           délais à respecter.</p>
+        <span class="tag">Formalités incluses</span>
       </div>
     </div>
   </div>
@@ -824,20 +944,21 @@ details .a p + p{margin-top:11px}
 <section id="formules" style="background:var(--white);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-h ctr">
-      <span class="kicker">Les formules</span>
+      <span class="kicker">Les trois formules</span>
       <h2>Vous payez le travail <span class="em">que vous ne faites pas</span></h2>
-      <p>Entre la formule économique et le clé en main, l'écart dépasse souvent 40&nbsp;% sur le même volume.
-         Savoir où vous vous situez évite de comparer des devis qui ne parlent pas de la même chose.</p>
+      <p>D'une formule à l'autre, l'écart dépasse souvent 40&nbsp;% sur le même volume. Ce qui ne change
+         jamais&nbsp;: les cartons livrés chez vous, l'assurance du mobilier et le changement d'adresse,
+         compris dans les trois.</p>
     </div>
     <div class="forms">
       <div class="frm">
         <h3>Économique</h3>
         <p class="frm__p">Le prix plancher — <b>vous faites les cartons</b></p>
         <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Transport et manutention</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Chargement et déchargement</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Assurance de base incluse</li>
-          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Emballage à votre charge</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Protection des meubles et mise sous housses</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Chargement, transport, déchargement</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Cartons, assurance et changement d'adresse</li>
+          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Emballage et déballage à votre charge</li>
           <li class="no"><svg class="ico"><use href="#i-x"/></svg>Démontage des meubles à votre charge</li>
         </ul>
       </div>
@@ -847,21 +968,21 @@ details .a p + p{margin-top:11px}
         <p class="frm__p">Le bon compromis — <b>ils gèrent le fragile</b></p>
         <ul>
           <li><svg class="ico"><use href="#i-check"/></svg>Tout l'économique, plus&nbsp;:</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Emballage de la vaisselle et du fragile</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Emballage de la vaisselle et des objets fragiles</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Démontage et remontage des meubles</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Fourniture des cartons et protections</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Débranchement de l'électroménager</li>
           <li class="no"><svg class="ico"><use href="#i-x"/></svg>Déballage à l'arrivée à votre charge</li>
         </ul>
       </div>
       <div class="frm">
-        <h3>Clé en main</h3>
-        <p class="frm__p">Zéro carton pour vous — <b>ils font tout</b></p>
+        <h3>Luxe</h3>
+        <p class="frm__p">Vous ne touchez rien — <b>ils font tout</b></p>
         <ul>
           <li><svg class="ico"><use href="#i-check"/></svg>Tout le standard, plus&nbsp;:</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Emballage intégral, pièce par pièce</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Déballage et rangement à l'arrivée</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Évacuation des cartons vides</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Assurance renforcée possible</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Déclaration de valeur détaillée</li>
         </ul>
       </div>
     </div>
@@ -870,23 +991,68 @@ details .a p + p{margin-top:11px}
 
 <section class="incl">
   <div class="wrap">
+    <!-- ⚠ À VALIDER : les quatre services et leurs conditions (délai de 24-48 h,
+         étendue de la garantie dommage, périmètre du changement d'adresse). -->
     <div class="sec-h">
-      <span class="kicker">Ce qui vous attend</span>
-      <h2>Les détails qui <span class="em">changent la journée</span></h2>
+      <span class="kicker">Les services offerts</span>
+      <h2>Compris dans le devis, <span class="em">pas en supplément</span></h2>
+      <p>Ce que les déménageurs facturent habituellement en option est déjà dans le prix —
+         sur les trois formules, sans condition de volume.</p>
     </div>
     <div class="incl__g">
       <div class="inc"><svg class="ico"><use href="#i-box"/></svg>
-        <h3>Les cartons livrés avant</h3>
-        <p>La plupart des déménageurs fournissent cartons, adhésif et papier bulle quelques jours avant. Demandez-le dans le devis.</p></div>
+        <h3>Vos cartons livrés chez vous</h3>
+        <p>Cartons et adhésif en quantité adaptée à votre volume, livrés sous 24 à 48&nbsp;h après
+           validation du devis. Vous n'avancez rien et vous ne rendez rien.</p></div>
       <div class="inc"><svg class="ico"><use href="#i-shield"/></svg>
-        <h3>Une assurance, deux niveaux</h3>
-        <p>La garantie contractuelle de base couvre une valeur plafonnée par objet. La garantie dommages étend la couverture — comparez les deux.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-doc"/></svg>
+        <h3>L'assurance du mobilier</h3>
+        <p>Votre mobilier est couvert en garantie dommage pendant toute la prestation. Les déménageurs
+           la facturent presque toujours à part&nbsp;: ici elle est comprise.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-mail"/></svg>
         <h3>Le changement d'adresse</h3>
-        <p>Impôts, Sécurité sociale, CAF, énergie : le service public service-public.fr permet de prévenir plusieurs organismes d'un coup.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-euro"/></svg>
-        <h3>Les aides au déménagement</h3>
-        <p>Prime de déménagement de la CAF à partir de trois enfants, Mobili-Pass d'Action Logement pour une mobilité professionnelle.</p></div>
+        <p>Impôts, Sécurité sociale, CAF, énergie, banque, opérateur&nbsp;: nous prévenons les
+           organismes à votre place. Il vous reste la réexpédition du courrier à La Poste.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-doc"/></svg>
+        <h3>Les fiches pratiques</h3>
+        <p>Le rétroplanning des huit semaines qui précèdent, l'ordre dans lequel emballer, et la
+           liste des démarches avec leurs délais. Court, et réellement utile.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cas" style="background:var(--sable)">
+  <div class="wrap">
+    <div class="sec-h ctr">
+      <span class="kicker">Les cas particuliers</span>
+      <h2>Votre déménagement <span class="em">n'est pas standard&nbsp;?</span></h2>
+      <p>Signalez-le dès le formulaire&nbsp;: seuls les déménageurs réellement équipés
+         pour votre cas seront consultés.</p>
+    </div>
+    <div class="cas__g">
+      <div class="cs"><svg class="ico"><use href="#i-piano"/></svg><div>
+        <h3>Piano et objets lourds</h3>
+        <p>Piano droit ou à queue, coffre-fort, aquarium, œuvre d'art&nbsp;: matériel spécifique,
+           parfois un monte-meuble, et une assurance adaptée.</p></div></div>
+      <div class="cs"><svg class="ico"><use href="#i-case"/></svg><div>
+        <h3>Petit déménagement</h3>
+        <p>Studio, chambre étudiante ou quelques meubles&nbsp;: le groupage rend ces petits volumes
+           bien moins chers qu'un camion dédié.</p></div></div>
+      <div class="cs"><svg class="ico"><use href="#i-moto"/></svg><div>
+        <h3>Moto, scooter, véhicule</h3>
+        <p>Un deux-roues se transporte avec le reste du mobilier, arrimé et couvert, plutôt que
+           confié à un convoyeur séparé.</p></div></div>
+      <div class="cs"><svg class="ico"><use href="#i-globe"/></svg><div>
+        <h3>Déménagement international</h3>
+        <p>Europe ou grand export&nbsp;: formalités douanières, inventaire valorisé et choix entre
+           groupage maritime et camion dédié.</p></div></div>
+      <div class="cs"><svg class="ico"><use href="#i-island"/></svg><div>
+        <h3>Outre-mer</h3>
+        <p>Antilles, Guyane, Réunion, Mayotte, Polynésie&nbsp;: transport maritime en conteneur,
+           avec des délais à anticiper largement.</p></div></div>
+      <div class="cs"><svg class="ico"><use href="#i-users"/></svg><div>
+        <h3>Mutation professionnelle</h3>
+        <p>Déménagement pris en charge par l'employeur&nbsp;: facturation directe à l'entreprise et
+           justificatifs pour le Mobili-Pass.</p></div></div>
     </div>
   </div>
 </section>
@@ -895,12 +1061,12 @@ details .a p + p{margin-top:11px}
   <div class="wrap verif__in">
     <div>
       <div class="sec-h" style="margin-bottom:22px">
-        <span class="kicker">Notre sélection</span>
-        <h2>Pourquoi on refuse <span class="em">des déménageurs</span></h2>
-        <p>Un comparateur ne vaut que par la qualité de ceux qu'il compare. Voici ce qu'on vérifie
-           avant qu'une entreprise puisse recevoir votre demande.</p>
+        <span class="kicker">Des professionnels, pas des improvisés</span>
+        <h2>Ce qu'on vérifie <span class="em">avant de vous les confier</span></h2>
+        <p>Vous confiez à des inconnus tout ce que vous possédez. La moindre des choses est de
+           s'assurer qu'ils existent vraiment, qu'ils sont assurés, et qu'ils savent faire.</p>
       </div>
-      <a class="btn btn--foret" href="#devis" data-cta="verif">Lancer mon estimation
+      <a class="btn btn--foret" href="#devis" data-cta="verif">Obtenir mon devis
         <svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <ul class="vlist">
@@ -911,9 +1077,9 @@ details .a p + p{margin-top:11px}
       <li><span class="n">3</span><div><h3>Une assurance à jour</h3>
         <p>Responsabilité civile professionnelle et garantie des biens transportés, attestation en cours de validité à l'appui.</p></div></li>
       <li><span class="n">4</span><div><h3>Des devis lisibles</h3>
-        <p>Volume, formule, main-d'œuvre et assurance détaillés séparément. Un devis à une seule ligne n'est pas comparable.</p></div></li>
+        <p>Volume, formule, main-d'œuvre et assurance détaillés séparément. Un devis à une seule ligne ne veut rien dire et ne protège personne.</p></div></li>
       <li><span class="n">5</span><div><h3>Un suivi des litiges</h3>
-        <p>Les retours clients remontent. Une entreprise qui accumule les incidents non traités sort du réseau.</p></div></li>
+        <p>Les retours clients remontent, y compris les mauvais. Une entreprise qui accumule les incidents non traités sort du réseau.</p></div></li>
     </ul>
   </div>
 </section>
@@ -923,6 +1089,24 @@ details .a p + p{margin-top:11px}
      Ils doivent être remplacés par de vrais avis clients (avec autorisation)
      AVANT toute mise en ligne. Voir la section « À compléter » du README.
      ════════════════════════════════════════════════════════════════════════ -->
+<section class="cons">
+  <div class="wrap">
+    <div class="cons__in">
+      <span class="cons__av"><svg class="ico"><use href="#i-headset"/></svg></span>
+      <div class="cons__t">
+        <h2>Une question&nbsp;? Un conseiller vous répond.</h2>
+        <p>Pas un centre d'appels&nbsp;: la même personne suit votre dossier du premier devis
+           jusqu'au camion qui repart. Appelez, ou faites-vous rappeler en remplissant le formulaire.</p>
+      </div>
+      <!-- ⚠ À VALIDER : numéro et horaires. -->
+      <div class="cons__n">
+        <a href="tel:+33180000000">01 80 00 00 00</a>
+        <span>Lundi — samedi, 9h à 19h<br>Appel non surtaxé</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="avis" style="background:var(--menthe-pale)">
   <div class="wrap">
     <div class="sec-h ctr">
@@ -941,16 +1125,24 @@ details .a p + p{margin-top:11px}
     </div>
     <div class="faq__l">
 
-      <details><summary>Le service est-il vraiment gratuit&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Oui, pour vous. Vous ne payez ni l'estimation, ni la mise en relation, ni les devis.
-          Notre rémunération vient des déménageurs du réseau, qui nous versent une commission lorsqu'un
-          devis aboutit. Cela ne change rien au prix qui vous est proposé&nbsp;: le déménageur chiffre votre
-          projet au tarif qu'il pratique.</p></div></details>
+      <details><summary>L'estimation et le devis sont-ils vraiment gratuits&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Oui. L'estimation en ligne, l'appel du conseiller et le devis ne vous coûtent rien,
+          et ne vous engagent à rien. Vous ne payez qu'à partir du moment où vous validez un devis par un
+          acompte — avant cela, vous pouvez vous arrêter à n'importe quelle étape.</p></div></details>
 
-      <details><summary>Combien de devis vais-je recevoir&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Six au maximum, souvent trois ou quatre selon votre trajet et votre date. Nous ne
-          diffusons jamais votre demande au-delà de ce nombre&nbsp;: recevoir quinze appels ne vous aide pas
-          à choisir.</p></div></details>
+      <details><summary>Que veut dire « ne payer que les kilomètres aller »&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Un déménageur qui fait Lyon-Lille pour vous doit ramener son camion. S'il ne
+          transporte rien au retour, ce trajet à vide est dans votre facture&nbsp;: vous payez deux fois
+          la route.</p>
+          <p>En faisant circuler les camions sur des tournées déjà planifiées, le retour est chargé par un
+          autre client. Vous ne réglez que l'aller. C'est là que se joue l'essentiel de l'écart de prix sur
+          les trajets de plus de 100 km — et cela ne veut pas dire partager votre camion&nbsp;: votre
+          chargement reste le vôtre.</p></div></details>
+
+      <details><summary>Les cartons sont-ils vraiment offerts&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Oui, cartons et adhésif, en quantité adaptée à votre volume, livrés chez vous sous
+          24 à 48&nbsp;h après validation du devis. Vous n'avancez aucun frais et vous n'avez rien à
+          rapporter. Les cartons vides sont évacués par l'équipe en formule luxe.</p></div></details>
 
       <details><summary>Quand faut-il s'y prendre&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Six à huit semaines avant la date, idéalement. En haute saison — de juin à
@@ -971,18 +1163,28 @@ details .a p + p{margin-top:11px}
           attestation d'assurance en cours de validité. Les retours clients sont suivis ensuite, et une
           entreprise qui accumule des litiges non traités sort du réseau.</p></div></details>
 
-      <details><summary>Que couvre l'assurance&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Deux niveaux coexistent. La <strong>garantie contractuelle</strong>, incluse,
-          indemnise selon un plafond par objet fixé au contrat — souvent modeste. La <strong>garantie
-          dommages</strong>, optionnelle, couvre la valeur réelle que vous déclarez.</p>
-          <p>Si vous déménagez des objets de valeur, faites établir une déclaration de valeur détaillée
-          et comparez ce poste d'un devis à l'autre&nbsp;: c'est là que les écarts se creusent.</p></div></details>
+      <details><summary>Que couvre l'assurance comprise dans le devis&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Votre mobilier est couvert en garantie dommage pendant toute la prestation, du
+          chargement au remontage. C'est une garantie que les déménageurs facturent presque toujours en
+          supplément&nbsp;; elle est ici comprise dans les trois formules.</p>
+          <p>Si vous transportez des objets de grande valeur, faites établir une <strong>déclaration de
+          valeur</strong> détaillée&nbsp;: c'est elle qui fixe le montant réellement indemnisable, objet
+          par objet. Votre conseiller vous indique le plafond applicable à votre dossier.</p></div></details>
 
-      <details><summary>Et pour un piano, un coffre-fort ou une œuvre d'art&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>C'est possible, mais cela se prépare. Ces objets demandent du matériel spécifique
-          — parfois un monte-meuble — du personnel formé et une assurance adaptée. Signalez-les dès le
-          formulaire&nbsp;: les déménageurs qui ne les prennent pas en charge ne vous feront pas perdre
-          de temps.</p></div></details>
+      <details><summary>Qui prévient les impôts, la CAF, mon fournisseur d'énergie&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Nous, pour l'essentiel. Le changement d'adresse auprès des organismes publics et
+          de vos principaux fournisseurs est compris dans la prestation&nbsp;: impôts, Sécurité sociale,
+          CAF, énergie, banque, opérateur télécom.</p>
+          <p>Reste à votre main la <strong>réexpédition du courrier</strong>, qui se souscrit directement
+          auprès de La Poste, et la résiliation de vos contrats propres au logement quitté. Les fiches
+          pratiques détaillent l'ordre et les délais.</p></div></details>
+
+      <details><summary>Quand faut-il réserver pour payer moins cher&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Hors haute saison, et tôt. De juin à septembre, auxquels s'ajoutent les fins de
+          mois et les samedis toute l'année, la demande dépasse le nombre de camions disponibles et les
+          prix montent nettement.</p>
+          <p>À volume et trajet identiques, un mardi de novembre réservé six semaines à l'avance se situe
+          très en dessous d'un samedi de fin juin réservé dans l'urgence.</p></div></details>
 
       <details><summary>Existe-t-il des aides pour financer un déménagement&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Plusieurs dispositifs existent. La <strong>prime de déménagement de la CAF</strong>
@@ -993,7 +1195,7 @@ details .a p + p{margin-top:11px}
           factures de déménagement, elles sont presque toujours exigées.</p></div></details>
 
       <details><summary>Que faites-vous de mes données&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Elles servent à établir vos devis, et à rien d'autre. Elles sont transmises aux
+        <div class="a"><p>Elles servent à établir votre devis, et à rien d'autre. Elles sont transmises aux
           seuls déménageurs sélectionnés pour votre projet, et ne sont jamais revendues à des tiers.
           Vous pouvez demander leur suppression à tout moment&nbsp;; la marche à suivre figure dans notre
           <a href="confidentialite.html">politique de confidentialité</a>.</p></div></details>
@@ -1004,12 +1206,12 @@ details .a p + p{margin-top:11px}
 
 <section class="final">
   <div class="wrap final__in">
-    <h2>Votre déménagement, <span class="em">au juste prix</span></h2>
-    <p>Une minute pour décrire votre projet, et vous savez à quoi vous attendre —
-       avant même de parler à qui que ce soit.</p>
-    <a class="btn btn--brique btn--lg" href="#devis" data-cta="final">Estimer mon déménagement
+    <h2>Il est temps de <span class="em">ne plus y penser</span></h2>
+    <p>Une minute pour décrire votre projet, et vous savez à quoi vous attendre.
+       Le reste — les cartons, l'assurance, les démarches — c'est notre affaire.</p>
+    <a class="btn btn--brique btn--lg" href="#devis" data-cta="final">Obtenir mon devis gratuit
       <svg class="ico"><use href="#i-arrow"/></svg></a>
-    <p class="mini">Gratuit · Sans engagement · Six devis maximum</p>
+    <p class="mini">Gratuit · Sans engagement · Cartons et assurance compris</p>
   </div>
 </section>
 
@@ -1020,14 +1222,22 @@ details .a p + p{margin-top:11px}
     <div class="ftr__g">
       <div>
         <img class="ftr__logo" src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="180" height="32">
-        <p>Le comparateur qui vous aide à choisir votre déménageur en connaissance de cause&nbsp;:
-           une estimation honnête, des professionnels vérifiés, et aucune obligation.</p>
+        <p>Des déménageurs professionnels partout en France, un conseiller qui suit votre dossier,
+           et les cartons, l'assurance et le changement d'adresse compris dans le devis.</p>
       </div>
       <div><h4>Le déménagement</h4><ul>
         <li><a href="#prix">Prix d'un déménagement</a></li>
-        <li><a href="#formules">Les formules</a></li>
-        <li><a href="#etapes">Comment ça marche</a></li>
+        <li><a href="#formules">Les trois formules</a></li>
+        <li><a href="#kilometres">Ne payer que l'aller</a></li>
+        <li><a href="#etapes">Comment ça se passe</a></li>
         <li><a href="#faq">Questions fréquentes</a></li>
+      </ul></div>
+      <div><h4>Cas particuliers</h4><ul>
+        <li><a href="#cas">Piano et objets lourds</a></li>
+        <li><a href="#cas">Petit déménagement</a></li>
+        <li><a href="#cas">Déménagement international</a></li>
+        <li><a href="#cas">Outre-mer</a></li>
+        <li><a href="#cas">Mutation professionnelle</a></li>
       </ul></div>
       <div><h4>Nous contacter</h4><ul>
         <!-- ⚠ À VALIDER : coordonnées à remplacer. -->
@@ -1104,9 +1314,9 @@ var pubs = {};
 // Calés sur les fourchettes du marché français 2026 (33 à 90 €/m³ selon
 // distance et formule). Toute révision se fait ici, nulle part ailleurs.
 var TARIF = {
-  local:    { eco:[26,34], std:[33,43], cle:[41,54] },
-  regional: { eco:[33,43], std:[41,53], cle:[51,66] },
-  national: { eco:[41,54], std:[51,66], cle:[62,82] }
+  local:    { eco:[26,34], std:[33,43], luxe:[41,54] },
+  regional: { eco:[33,43], std:[41,53], luxe:[51,66] },
+  national: { eco:[41,54], std:[51,66], luxe:[62,82] }
 };
 var PLANCHER = 390;   // en dessous, aucun professionnel ne se déplace
 
@@ -1342,12 +1552,12 @@ form.addEventListener('submit', function(ev){
   var n = $('#n-contact'); n.className = 'note'; n.textContent = '';
 
   if($('#f-hp').value) return;                       // piège à robots
-  if(!$('#f-prenom').value.trim()) return mauvais('#f-prenom','Votre prénom, pour que le déménageur sache à qui il écrit.','#n-contact');
+  if(!$('#f-prenom').value.trim()) return mauvais('#f-prenom','Votre prénom, pour que votre conseiller sache à qui il s\'adresse.','#n-contact');
   if(!$('#f-nom').value.trim())    return mauvais('#f-nom','Votre nom est nécessaire pour établir le devis.','#n-contact');
   if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test($('#f-email').value.trim()))
     return mauvais('#f-email','Cet email ne semble pas valide.','#n-contact');
   if(!telOk($('#f-tel').value))
-    return mauvais('#f-tel','Un numéro français à dix chiffres, pour que le déménageur puisse vous joindre.','#n-contact');
+    return mauvais('#f-tel','Un numéro français à dix chiffres, pour que votre conseiller puisse vous joindre.','#n-contact');
   if(!$('#f-consent').checked){
     n.className = 'note bad';
     n.textContent = 'Nous avons besoin de votre accord pour transmettre votre demande.';

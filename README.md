@@ -7,12 +7,32 @@ Google Ads. Site statique sans build, déployé sur GitHub Pages.
 
 ## L'idée
 
-Le marché est saturé de comparateurs qui demandent vos coordonnées *avant* de
-vous apprendre quoi que ce soit. Ici c'est l'inverse : le visiteur obtient son
-volume et sa fourchette de prix **pendant** qu'il répond, et ne laisse ses
-coordonnées qu'à la dernière étape, une fois le chiffre sous les yeux.
+Deux partis pris, l'un sur la mécanique, l'autre sur le discours.
 
-C'est le seul vrai levier de conversion de la page — tout le reste en découle.
+**La mécanique.** Le marché demande vos coordonnées *avant* de vous apprendre
+quoi que ce soit. Ici c'est l'inverse : le visiteur obtient son volume et sa
+fourchette de prix **pendant** qu'il répond, et ne laisse ses coordonnées qu'à
+la dernière étape, le chiffre sous les yeux.
+
+**Le discours.** Il reprend le registre de
+[l'Officiel du Déménagement](https://www.officiel-demenagement.com/) : une
+promesse de sérénité plutôt qu'une mise en concurrence, des services compris
+plutôt qu'une comparaison de devis, et un conseiller identifié plutôt qu'une
+plateforme. Concrètement, quatre arguments structurent la page :
+
+1. **« Vous ne payez que les kilomètres aller »** — l'argument de prix le plus
+   fort du secteur, et le plus mal expliqué. Il a sa propre section, avec un
+   schéma, parce qu'il ne se comprend pas en une ligne.
+2. **« Tout compris »** — cartons livrés, assurance du mobilier, changement
+   d'adresse, compris dans les trois formules.
+3. **Un conseiller, pas un robot** — la même personne du devis au jour J,
+   avec ses horaires affichés.
+4. **Les formalités prises en charge** — la partie fastidieuse (impôts, CAF,
+   énergie, compteurs) est traitée ou guidée.
+
+Les formules reprennent la nomenclature du marché — **Économique / Standard /
+Luxe** — avec le partage des tâches détaillé formule par formule, puisque c'est
+là que les devis deviennent incomparables.
 
 ## Fichiers
 
@@ -124,6 +144,17 @@ survivent à la navigation interne et sont joints au lead.
 
 Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en ligne.
 
+- [ ] **Les quatre promesses commerciales.** Cartons offerts, assurance du
+      mobilier comprise, changement d'adresse pris en charge, et « vous ne payez
+      que les kilomètres aller ». Elles sont reprises du modèle de l'Officiel du
+      Déménagement et **structurent toute la page** — hero, bandeau, section
+      dédiée, formules, services offerts, FAQ, page `/merci`. Elles n'ont de
+      valeur que si le réseau les honore réellement. Un bloc `⚠ À VALIDER` les
+      signale dans `index.html`. **Soit on les confirme, soit on les retire
+      partout à la fois** — une promesse à moitié tenue coûte plus cher qu'une
+      promesse absente.
+- [ ] **Le chiffre de 38 %** et le plafond de la garantie dommage : repris des
+      ordres de grandeur du marché, à remplacer par vos propres chiffres.
 - [ ] **Les avis clients.** Les trois témoignages du tableau `AVIS`
       (`index.html`) sont des **exemples de mise en forme**, explicitement
       marqués comme tels. Les remplacer par de vrais avis, avec l'accord écrit
