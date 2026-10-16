@@ -104,9 +104,12 @@ doivent s'afficher sans requête bloquante.
 
 ## Charte graphique
 
-Relevée au pixel sur
-[officiel-demenagement.com](https://www.officiel-demenagement.com/) — couleurs,
-polices, rayons et graisses lus dans leurs styles calculés, pas approximés.
+Structure relevée au pixel sur
+[officiel-demenagement.com](https://www.officiel-demenagement.com/) — polices,
+rayons et graisses lus dans leurs styles calculés, pas approximés. L'accent
+secondaire s'en écarte volontairement : leur vert pomme est remplacé par un
+**ambre**, accordé aux tons carton et bois de la photo du hero, et qui complète
+le magenta au lieu de lui disputer l'attention.
 
 | Jeton          | Valeur    | Emploi                                   | Contraste            |
 | -------------- | --------- | ---------------------------------------- | -------------------- |
@@ -114,8 +117,9 @@ polices, rayons et graisses lus dans leurs styles calculés, pas approximés.
 | `--magenta-2`  | `#A3003F` | Survol, anneau de focus                  | 7,99 / blanc         |
 | `--nuit`       | `#222E3A` | Ancre : hero, sections sombres, titres   | 13,82 / blanc        |
 | `--nuit-3`     | `#19232C` | Pied de page                             | blanc à 15,93 dessus |
-| `--vert`       | `#8DC63F` | Accent secondaire, encre navy dessus     | 6,76 avec `--nuit`   |
-| `--vert-fonce` | `#466C22` | Le vert en petit texte                   | 6,13 / blanc         |
+| `--ambre`      | `#F5A623` | **Accent secondaire**, encre navy dessus | 6,82 sur `--nuit`    |
+| `--ambre-fonce`| `#8A5A00` | L'ambre en petit texte sur fond clair    | 5,93 / blanc         |
+| `--ambre-pale` | `#FBE8C4` | Pastilles d'icônes, fonds de bloc        | navy à 11,48 dessus  |
 | `--gris`       | `#F4F5F9` | Fond de page                             | —                    |
 | `--ink`        | `#333333` | Texte courant                            | 12,63 / blanc        |
 
@@ -130,13 +134,14 @@ lisait « application mobile » plutôt que « déménageur ».
 
 ### Trois écarts volontaires, mesure à l'appui
 
-1. Leur site pose du **blanc sur le vert pomme** : 2,04, illisible. Ici le vert
-   pomme ne porte que l'encre navy (6,76), et l'action principale passe sur
-   leur magenta, qui tient le blanc à 5,60.
+1. Leur site pose du **blanc sur le vert pomme** : 2,04, illisible. L'action
+   principale passe donc sur leur magenta, qui tient le blanc à 5,60, et
+   l'accent secondaire devient l'ambre — qui ne porte lui non plus que
+   l'encre navy.
 2. Leur **gris de texte `#8F929B`** plafonne à 3,11. Remplacé par `#5B6472`,
    même famille ardoise, 5,98.
 3. Aucun anneau de focus ne tient sur navy **et** sur blanc : le magenta foncé
-   sert sur fond clair, une règle bascule sur le vert pomme en section sombre.
+   sert sur fond clair, une règle bascule sur l'ambre en section sombre.
 
 ### Le hero
 

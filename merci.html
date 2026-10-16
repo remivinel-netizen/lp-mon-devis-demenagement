@@ -20,8 +20,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
 <style>
 :root{--nuit:#222E3A;--nuit-2:#2C3845;--nuit-3:#19232C;
-  --vert:#8DC63F;--vert-fonce:#466C22;--vert-2:#77AC47;
-  --vert-pale:#E3F0CC;--vert-brume:#F1F8E6;
+  --ambre:#F5A623;--ambre-fonce:#8A5A00;--ambre-2:#D18A12;
+  --ambre-pale:#FBE8C4;--ambre-brume:#FEF6E8;
   --gris:#F4F5F9;--gris-2:#EBECEF;--white:#fff;
   --ink:#333333;--ink-2:#4A5260;--ink-3:#5B6472;
   --line:rgba(34,46,58,.11);--r-lg:4px;--r-md:12px;--r-sm:8px;
@@ -36,7 +36,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 @font-face{font-family:'Roboto Slab';src:url(fonts/slab-latin-ext.woff2) format('woff2');font-weight:300 700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--nuit);color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-.em{color:var(--vert)}
+.em{color:var(--ambre)}
 .wrap{width:min(100% - 36px,720px);margin-inline:auto}
 h1{margin:0;font-family:var(--slab);font-size:clamp(29px,4.4vw,44px);line-height:1.2;letter-spacing:-.005em;font-weight:400}
 h2{margin:0;font-family:var(--slab);font-weight:400;letter-spacing:-.005em}
@@ -45,7 +45,7 @@ a{color:inherit}
 .hdr{padding:20px 0}
 .hdr img{width:212px;height:auto;display:block}
 main{flex:1;display:flex;align-items:center;padding:clamp(24px,5vw,56px) 0 clamp(44px,7vw,80px)}
-.tick{width:66px;height:66px;border-radius:50%;background:var(--vert);display:grid;place-items:center;margin-bottom:26px}
+.tick{width:66px;height:66px;border-radius:50%;background:var(--ambre);display:grid;place-items:center;margin-bottom:26px}
 .tick svg{width:32px;height:32px;fill:none;stroke:var(--nuit);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
 .lead{margin-top:18px;font-size:clamp(17px,2vw,19.5px);color:rgba(255,255,255,.86);line-height:1.55}
 .card{margin-top:30px;background:#fff;color:var(--ink);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:clamp(22px,3vw,30px)}
@@ -57,7 +57,7 @@ main{flex:1;display:flex;align-items:center;padding:clamp(24px,5vw,56px) 0 clamp
 .card h2.t{font-size:20px;letter-spacing:-.028em}
 ol{list-style:none;counter-reset:n;padding:0;margin:18px 0 0;display:grid;gap:15px}
 ol li{counter-increment:n;display:flex;gap:14px;align-items:flex-start}
-ol li::before{content:counter(n);flex:none;width:29px;height:29px;border-radius:var(--r-sm);background:var(--vert-pale);
+ol li::before{content:counter(n);flex:none;width:29px;height:29px;border-radius:var(--r-sm);background:var(--ambre-pale);
   color:var(--nuit);display:grid;place-items:center;font-size:13.5px;font-weight:700}
 ol b{display:block;font-size:15.5px;letter-spacing:-.018em}
 ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-height:1.5}
