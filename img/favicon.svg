@@ -2,7 +2,7 @@
   <rect width="40" height="40" rx="5" fill="#CE0054"/>
   <!-- Silhouette d'un seul tenant : caisse + cabine. -->
   <path d="M5.4 12.6h15.2v5.6h5.6l5.4 5.4v4.6H5.4z" fill="#fff"/>
-  <rect x="5.4" y="16.4" width="15.2" height="3.4" fill="#F5A623"/>
+  <rect x="5.4" y="16.4" width="15.2" height="3.4" fill="#CE0054"/>
   <!-- Roues creusées dans le fond : deux encoches, pas une troisième couleur. -->
   <circle cx="11.6" cy="28.8" r="3.9" fill="#CE0054"/>
   <circle cx="26.4" cy="28.8" r="3.9" fill="#CE0054"/>

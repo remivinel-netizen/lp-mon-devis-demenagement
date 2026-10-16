@@ -106,10 +106,12 @@ doivent s'afficher sans requête bloquante.
 
 Structure relevée au pixel sur
 [officiel-demenagement.com](https://www.officiel-demenagement.com/) — polices,
-rayons et graisses lus dans leurs styles calculés, pas approximés. L'accent
-secondaire s'en écarte volontairement : leur vert pomme est remplacé par un
-**ambre**, accordé aux tons carton et bois de la photo du hero, et qui complète
-le magenta au lieu de lui disputer l'attention.
+rayons et graisses lus dans leurs styles calculés, pas approximés.
+
+La charte tient en **deux teintes et des gris** : le navy et le magenta. Pas de
+troisième couleur. Sur fond sombre, où le magenta ne tient pas (2,47 sur le
+navy), c'est sa version claire qui prend le relais — même famille, pas un
+nouvel accent.
 
 | Jeton          | Valeur    | Emploi                                   | Contraste            |
 | -------------- | --------- | ---------------------------------------- | -------------------- |
@@ -117,9 +119,9 @@ le magenta au lieu de lui disputer l'attention.
 | `--magenta-2`  | `#A3003F` | Survol, anneau de focus                  | 7,99 / blanc         |
 | `--nuit`       | `#222E3A` | Ancre : hero, sections sombres, titres   | 13,82 / blanc        |
 | `--nuit-3`     | `#19232C` | Pied de page                             | blanc à 15,93 dessus |
-| `--ambre`      | `#F5A623` | **Accent secondaire**, encre navy dessus | 6,82 sur `--nuit`    |
-| `--ambre-fonce`| `#8A5A00` | L'ambre en petit texte sur fond clair    | 5,93 / blanc         |
-| `--ambre-pale` | `#FBE8C4` | Pastilles d'icônes, fonds de bloc        | navy à 11,48 dessus  |
+| `--rose`       | `#FF84B0` | **Accent sur fond sombre** uniquement     | 6,04 sur `--nuit`    |
+| `--rose-2`     | `#F06DA0` | Décor : bande du logo, survols           | —                    |
+| `--rose-pale`  | `#FBDCE7` | Pastilles d'icônes, étiquettes           | navy à 10,85 dessus  |
 | `--gris`       | `#F4F5F9` | Fond de page                             | —                    |
 | `--ink`        | `#333333` | Texte courant                            | 12,63 / blanc        |
 
@@ -135,19 +137,19 @@ lisait « application mobile » plutôt que « déménageur ».
 ### Trois écarts volontaires, mesure à l'appui
 
 1. Leur site pose du **blanc sur le vert pomme** : 2,04, illisible. L'action
-   principale passe donc sur leur magenta, qui tient le blanc à 5,60, et
-   l'accent secondaire devient l'ambre — qui ne porte lui non plus que
-   l'encre navy.
+   principale passe donc sur leur magenta, qui tient le blanc à 5,60, et leur
+   vert disparaît de la charte — remplacé non par une autre couleur mais par
+   la version claire du magenta, là où le magenta lui-même ne tient pas.
 2. Leur **gris de texte `#8F929B`** plafonne à 3,11. Remplacé par `#5B6472`,
    même famille ardoise, 5,98.
 3. Aucun anneau de focus ne tient sur navy **et** sur blanc : le magenta foncé
-   sert sur fond clair, une règle bascule sur l'ambre en section sombre.
+   sert sur fond clair, une règle bascule sur le rose clair en section sombre.
 
 ### Le logo
 
 Un camion de déménagement de profil : caisse et cabine en magenta, bande
-d'adhésif ambre, roues en encre — et en blanc sur fond sombre, sans quoi elles
-disparaîtraient dans le navy.
+d'adhésif blanche, roues en encre — et en blanc sur fond sombre, sans quoi
+elles disparaîtraient dans le navy.
 
 Le favicon n'est pas le même dessin réduit. À 16 px, trois couleurs se
 mélangent : il passe donc à deux, avec une silhouette blanche d'un seul tenant
