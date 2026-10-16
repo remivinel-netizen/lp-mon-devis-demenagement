@@ -81,7 +81,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 <main><div class="wrap">
   <div class="tick"><svg viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.5 6.5"/></svg></div>
   <h1>C'est parti, <span class="em">votre demande est transmise.</span></h1>
-  <p class="lead" id="lead">Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis ferme.</p>
+  <p class="lead" id="lead">Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis.</p>
 
   <div class="card">
     <div class="recap" id="recap">
@@ -94,10 +94,10 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
     <ol>
       <li><div><b>Vous recevez un email de confirmation</b>
         <span>Il récapitule votre demande. S'il n'arrive pas, pensez à regarder dans les indésirables.</span></div></li>
-      <li><div><b>Votre conseiller vous rappelle sous 24 h</b>
-        <span>Pour confirmer le volume, l'accès et la date. C'est lui qui suivra votre dossier jusqu'au bout.</span></div></li>
-      <li><div><b>Vous recevez un devis ferme</b>
-        <span>Détaillé ligne par ligne, cartons, assurance et changement d'adresse compris. Une fois signé, le prix ne bouge plus.</span></div></li>
+      <li><div><b>Un conseiller vous rappelle</b>
+        <span>Pour confirmer le volume, les accès et la date — les trois éléments qui déterminent le devis.</span></div></li>
+      <li><div><b>Vous recevez votre devis</b>
+        <span>Détaillé, cartons, assurance et changement d'adresse compris. Vous le validez par un acompte, ou vous n'y donnez pas suite.</span></div></li>
       <li><div><b>Vos cartons arrivent, et vous n'y pensez plus</b>
         <span>Livrés sous 24 à 48 h après validation. Les démarches administratives sont lancées en parallèle.</span></div></li>
     </ol>
@@ -128,7 +128,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
   if(!d) return;
   if(d.prenom){
     document.getElementById('lead').textContent =
-      'Merci ' + d.prenom + '. Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis ferme.';
+      'Merci ' + d.prenom + '. Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis.';
   }
   if(d.vol){
     document.getElementById('r-vol').textContent = 'Environ ' + d.vol + ' m³ à déplacer';

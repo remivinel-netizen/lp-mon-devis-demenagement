@@ -34,6 +34,34 @@ Les formules reprennent la nomenclature du marché — **Économique / Standard 
 Luxe** — avec le partage des tâches détaillé formule par formule, puisque c'est
 là que les devis deviennent incomparables.
 
+### Règle de rédaction : rien d'inventé
+
+Chaque affirmation de la page doit être **étayée par la page de référence** ou
+par un fait public vérifiable. Ce qui n'a pas de source a été retiré, même
+quand c'était vendeur :
+
+| Retiré                                   | Pourquoi                                               |
+| ---------------------------------------- | ------------------------------------------------------ |
+| « Rappel sous 24 h », « devis sous 24 h » | Aucun délai de ce type n'est documenté                 |
+| Les 5 critères de vérification            | Procédure de contrôle entièrement inventée             |
+| « La même personne du devis au jour J »   | Continuité du suivi non documentée                     |
+| « Sans partage de camion imposé »         | Contredit le principe même du groupage                 |
+| « Appel non surtaxé »                     | Non vérifié                                            |
+| « Évacuation des cartons vides »          | Absent de la formule luxe de référence                 |
+| « Jusqu'à 38 % d'économie »               | Chiffre du marché, pas une donnée à nous               |
+| Tous les montants en euros                | Demande explicite : aucune estimation de prix          |
+
+Les horaires sont alignés sur ceux de la référence (lundi-samedi, 9h-18h) et
+restent des **placeholders** à confirmer, comme le numéro de téléphone.
+
+Ce qui reste est étayé : les kilomètres aller, les cartons sous 24 à 48 h,
+l'assurance et le changement d'adresse compris, les trois formules et leur
+partage des tâches, les cas particuliers, la validation par acompte.
+
+**Les chiffres de la référence n'ont pas été recopiés** — ni les 80 000 € de
+garantie, ni les 300 enseignes partenaires, ni leur ancienneté : ce sont leurs
+données, pas les nôtres. Les équivalents doivent venir du client.
+
 ## Fichiers
 
 | Fichier                 | Rôle                                                      |
@@ -174,7 +202,13 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
       partout à la fois** — une promesse à moitié tenue coûte plus cher qu'une
       promesse absente.
 - [ ] **Le plafond de la garantie dommage** : la FAQ renvoie au conseiller plutôt
-      que d'annoncer un montant. À trancher si vous voulez le publier.
+      que d'annoncer un montant. À fournir si vous voulez le publier.
+- [ ] **Le délai de rappel et de devis** : volontairement absent faute de source.
+      Si vous vous engagez sur un délai, il est très vendeur — redonnez-le et il
+      retrouvera sa place dans le hero, les étapes et `/merci`.
+- [ ] **La procédure de sélection des déménageurs** : la section qui la décrivait
+      a été retirée (inventée). Si le réseau vérifie réellement SIRET, licence de
+      transport et assurance, c'est un argument fort à réécrire sur pièces.
 - [ ] **Les avis clients.** Les trois témoignages du tableau `AVIS`
       (`index.html`) sont des **exemples de mise en forme**, explicitement
       marqués comme tels. Les remplacer par de vrais avis, avec l'accord écrit

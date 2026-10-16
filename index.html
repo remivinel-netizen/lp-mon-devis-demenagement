@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Déménagement : devis gratuit en 1 minute, cartons et assurance compris — Mon Devis Déménagement</title>
-<meta name="description" content="Estimez le budget de votre déménagement en 1 minute. Déménageurs professionnels partout en France, cartons livrés, assurance et changement d'adresse compris. Ne payez que les kilomètres aller.">
+<meta name="description" content="Décrivez votre déménagement en 1 minute et recevez votre devis. Déménageurs professionnels partout en France, cartons livrés, assurance et changement d'adresse compris. Ne payez que les kilomètres aller.">
 <meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://mon-devis-demenagement.fr/">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Mon Devis Déménagement">
 <meta property="og:title" content="Déménagez l'esprit léger">
-<meta property="og:description" content="Votre budget en 1 minute, puis un devis ferme. Cartons livrés, assurance et changement d'adresse compris. Vous ne payez que les kilomètres aller.">
+<meta property="og:description" content="Décrivez votre déménagement en 1 minute, un conseiller établit votre devis. Cartons livrés, assurance et changement d'adresse compris. Vous ne payez que les kilomètres aller.">
 
 <!-- Les deux polices du hero sont préchargées : elles portent le H1 et le
      formulaire, soit tout ce qui est visible au premier écran. Le reste de la
@@ -359,18 +359,6 @@ tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,2
 @media (max-width:900px){.incl__g{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.incl__g{grid-template-columns:1fr}}
 
-/* Vérification des déménageurs */
-.verif{background:var(--white)}
-.verif__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:clamp(28px,4vw,62px);align-items:center}
-.vlist{list-style:none;padding:0;margin:0;display:grid;gap:3px}
-.vlist li{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
-.vlist li:last-child{border-bottom:0}
-.vlist .n{width:30px;height:30px;border-radius:9px;background:var(--vert-pale);color:var(--nuit);display:grid;
-  place-items:center;font-size:13.5px;font-weight:800;flex:none}
-.vlist h3{font-size:16.5px;letter-spacing:-.022em}
-.vlist p{font-size:14.5px;color:var(--ink-2);margin-top:5px;line-height:1.5}
-@media (max-width:950px){.verif__in{grid-template-columns:1fr}}
-
 /* Avis */
 .avis__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
 .avi{background:var(--white);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
@@ -539,7 +527,7 @@ details .a p + p{margin-top:11px}
       <!-- ⚠ À VALIDER : numéro et horaires à remplacer par ceux du client. -->
       <a class="tel" href="tel:+33180000000">
         <span class="tel__ico"><svg class="ico"><use href="#i-phone"/></svg></span>
-        <span><b>01 80 00 00 00</b><small>Votre conseiller, lundi — samedi 9h-19h</small></span>
+        <span><b>01 80 00 00 00</b><small>Votre conseiller, lundi — samedi 9h-18h</small></span>
       </a>
       <a class="btn btn--vert" href="#devis" data-cta="header">Mon devis gratuit</a>
     </div>
@@ -561,8 +549,8 @@ details .a p + p{margin-top:11px}
       <h1>Déménagez <span class="em">l'esprit léger</span></h1>
       <p class="hero__sub">
         Dites-nous en une minute ce que vous déménagez&nbsp;: un conseiller vous
-        rappelle sous 24&nbsp;h avec un devis ferme, établi sur votre volume réel.
-        Cartons, assurance et changement d'adresse compris.
+        rappelle pour établir votre devis, sur votre volume réel. Cartons,
+        assurance et changement d'adresse compris.
       </p>
       <!-- ══════════════════════════════════════════════════════════════════
            ⚠ À VALIDER — PROMESSES COMMERCIALES
@@ -581,7 +569,7 @@ details .a p + p{margin-top:11px}
       <div class="hero__proof">
         <div><b>3</b><span>formules, de l'économique<br>au tout compris</span></div>
         <div><b>1 min</b><span>pour décrire<br>votre projet</span></div>
-        <div><b>24&nbsp;h</b><span>pour être rappelé<br>par un conseiller</span></div>
+        <div><b>France</b><span>entière, grâce au<br>réseau de partenaires</span></div>
       </div>
     </div>
 
@@ -753,7 +741,7 @@ details .a p + p{margin-top:11px}
 
         <fieldset class="step" data-step="contact">
           <legend class="step__q">À qui envoie-t-on votre devis&nbsp;?</legend>
-          <p class="step__hint">Un conseiller vous rappelle pour confirmer le volume, puis vous recevez un devis ferme. Pas de numéro surtaxé, pas de robot.</p>
+          <p class="step__hint">Un conseiller vous rappelle pour confirmer le volume et les accès, puis vous adresse votre devis détaillé.</p>
           <div class="grid2">
             <div class="field"><label for="f-prenom">Prénom</label>
               <input id="f-prenom" name="prenom" type="text" autocomplete="given-name" autocapitalize="words" placeholder="Camille"></div>
@@ -812,8 +800,8 @@ details .a p + p{margin-top:11px}
     </div>
     <div class="band__i">
       <svg class="ico"><use href="#i-headset"/></svg>
-      <h3>Un conseiller, pas un robot</h3>
-      <p>La même personne vous suit du devis au jour J. Joignable du lundi au samedi, de 9h à 19h.</p>
+      <h3>Un conseiller à votre écoute</h3>
+      <p>Quelqu'un répond à vos questions et prépare votre devis, du lundi au samedi. Pas un formulaire sans retour.</p>
     </div>
     <div class="band__i">
       <svg class="ico"><use href="#i-euro"/></svg>
@@ -825,8 +813,9 @@ details .a p + p{margin-top:11px}
 
 <!-- L'argument de prix le plus fort du secteur, et le plus mal expliqué :
      on prend le temps de le rendre compréhensible.
-     ⚠ À VALIDER : suppose un réseau national capable d'optimiser les tournées.
-     Le chiffre de 38 % vient du marché, pas de nos propres données. -->
+     ⚠ À VALIDER : suppose un réseau national capable d'optimiser ses tournées
+     et de ne pas facturer le retour. Aucun pourcentage d'économie n'est
+     annoncé ici — il faudrait pouvoir l'étayer. -->
 <section id="kilometres" class="km">
   <div class="wrap km__in">
     <div>
@@ -839,7 +828,7 @@ details .a p + p{margin-top:11px}
       </div>
       <ul class="chips" style="margin-top:0">
         <li><svg class="ico"><use href="#i-check"/></svg>L'écart se creuse au-delà de 100 km</li>
-        <li><svg class="ico"><use href="#i-check"/></svg>Sans partage de camion imposé</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Des tournées optimisées sur toute la France</li>
       </ul>
     </div>
     <div class="km__fig">
@@ -873,9 +862,9 @@ details .a p + p{margin-top:11px}
       <div class="stp">
         <h3>Vous trouvez votre déménageur</h3>
         <p>Une minute pour décrire le logement et le trajet. Un conseiller vous rappelle pour confirmer
-           le volume et les accès, puis vous adresse un devis ferme et détaillé. Vous le validez par un
-           acompte, ou vous n'y donnez pas suite.</p>
-        <span class="tag">Devis sous 24 h</span>
+           le volume et les accès, puis vous adresse un devis détaillé. Vous le validez par un acompte,
+           ou vous n'y donnez pas suite.</p>
+        <span class="tag">Devis gratuit</span>
       </div>
       <div class="stp">
         <h3>Vous préparez sans y penser</h3>
@@ -935,7 +924,6 @@ details .a p + p{margin-top:11px}
           <li><svg class="ico"><use href="#i-check"/></svg>Tout le standard, plus&nbsp;:</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Emballage intégral, pièce par pièce</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Déballage et rangement à l'arrivée</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Évacuation des cartons vides</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Déclaration de valeur détaillée</li>
         </ul>
       </div>
@@ -1011,51 +999,21 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section class="verif">
-  <div class="wrap verif__in">
-    <div>
-      <div class="sec-h" style="margin-bottom:22px">
-        <span class="kicker">Des professionnels, pas des improvisés</span>
-        <h2>Ce qu'on vérifie <span class="em">avant de vous les confier</span></h2>
-        <p>Vous confiez à des inconnus tout ce que vous possédez. La moindre des choses est de
-           s'assurer qu'ils existent vraiment, qu'ils sont assurés, et qu'ils savent faire.</p>
-      </div>
-      <a class="btn btn--nuit" href="#devis" data-cta="verif">Obtenir mon devis
-        <svg class="ico"><use href="#i-arrow"/></svg></a>
-    </div>
-    <ul class="vlist">
-      <li><span class="n">1</span><div><h3>Une existence légale vérifiable</h3>
-        <p>SIRET actif et entreprise inscrite au registre des transporteurs. Les sociétés créées il y a trois semaines n'entrent pas.</p></div></li>
-      <li><span class="n">2</span><div><h3>La licence de transport intérieur</h3>
-        <p>Obligatoire pour déménager contre rémunération. C'est le document que les déménageurs improvisés n'ont jamais.</p></div></li>
-      <li><span class="n">3</span><div><h3>Une assurance à jour</h3>
-        <p>Responsabilité civile professionnelle et garantie des biens transportés, attestation en cours de validité à l'appui.</p></div></li>
-      <li><span class="n">4</span><div><h3>Des devis lisibles</h3>
-        <p>Volume, formule, main-d'œuvre et assurance détaillés séparément. Un devis à une seule ligne ne veut rien dire et ne protège personne.</p></div></li>
-      <li><span class="n">5</span><div><h3>Un suivi des litiges</h3>
-        <p>Les retours clients remontent, y compris les mauvais. Une entreprise qui accumule les incidents non traités sort du réseau.</p></div></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════
-     ⚠ PLACEHOLDER — ces trois avis sont des EXEMPLES de mise en forme.
-     Ils doivent être remplacés par de vrais avis clients (avec autorisation)
-     AVANT toute mise en ligne. Voir la section « À compléter » du README.
-     ════════════════════════════════════════════════════════════════════════ -->
 <section class="cons">
   <div class="wrap">
     <div class="cons__in">
       <span class="cons__av"><svg class="ico"><use href="#i-headset"/></svg></span>
       <div class="cons__t">
         <h2>Une question&nbsp;? Un conseiller vous répond.</h2>
-        <p>Pas un centre d'appels&nbsp;: la même personne suit votre dossier du premier devis
-           jusqu'au camion qui repart. Appelez, ou faites-vous rappeler en remplissant le formulaire.</p>
+        <p>Un conseiller répond à vos questions sur le volume, les accès, les formalités — et prépare
+           votre devis. Appelez-le, ou faites-vous rappeler en remplissant le formulaire.</p>
       </div>
       <!-- ⚠ À VALIDER : numéro et horaires. -->
       <div class="cons__n">
         <a href="tel:+33180000000">01 80 00 00 00</a>
-        <span>Lundi — samedi, 9h à 19h<br>Appel non surtaxé</span>
+        <span>Lundi — samedi, de 9h à 18h</span>
+        <a class="btn btn--vert" href="#devis" data-cta="conseiller"
+           style="margin-top:14px;font-size:15px;padding:13px 22px">Être rappelé</a>
       </div>
     </div>
   </div>
@@ -1090,13 +1048,12 @@ details .a p + p{margin-top:11px}
           la route.</p>
           <p>En faisant circuler les camions sur des tournées déjà planifiées, le retour est chargé par un
           autre client. Vous ne réglez que l'aller. C'est là que se joue l'essentiel de l'écart de prix sur
-          les trajets de plus de 100 km — et cela ne veut pas dire partager votre camion&nbsp;: votre
-          chargement reste le vôtre.</p></div></details>
+          les trajets de plus de 100 km.</p></div></details>
 
       <details><summary>Les cartons sont-ils vraiment offerts&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Oui, cartons et adhésif, en quantité adaptée à votre volume, livrés chez vous sous
           24 à 48&nbsp;h après validation du devis. Vous n'avancez aucun frais et vous n'avez rien à
-          rapporter. Les cartons vides sont évacués par l'équipe en formule luxe.</p></div></details>
+          rapporter.</p></div></details>
 
       <details><summary>Quand faut-il s'y prendre&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Six à huit semaines avant la date, idéalement. En haute saison — de juin à
@@ -1110,12 +1067,6 @@ details .a p + p{margin-top:11px}
           contractuel ferme. Les mauvaises surprises viennent presque toujours d'un volume sous-estimé au
           départ&nbsp;: c'est pour cela qu'il vaut mieux surestimer légèrement que l'inverse, et signaler
           dès le début les objets lourds et les contraintes d'accès.</p></div></details>
-
-      <details><summary>Comment vérifiez-vous les déménageurs&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Avant qu'une entreprise puisse recevoir une demande, nous contrôlons son SIRET,
-          son inscription au registre des transporteurs, sa licence de transport intérieur et son
-          attestation d'assurance en cours de validité. Les retours clients sont suivis ensuite, et une
-          entreprise qui accumule des litiges non traités sort du réseau.</p></div></details>
 
       <details><summary>Que couvre l'assurance comprise dans le devis&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Votre mobilier est couvert en garantie dommage pendant toute la prestation, du
@@ -1195,7 +1146,7 @@ details .a p + p{margin-top:11px}
       <div><h4>Nous contacter</h4><ul>
         <!-- ⚠ À VALIDER : coordonnées à remplacer. -->
         <li><a href="tel:+33180000000">01 80 00 00 00</a></li>
-        <li>Lundi — samedi, 9h à 19h</li>
+        <li>Lundi — samedi, 9h à 18h</li>
         <li><a href="mailto:contact@mon-devis-demenagement.fr">contact@mon-devis-demenagement.fr</a></li>
       </ul></div>
       <div><h4>Informations</h4><ul>
