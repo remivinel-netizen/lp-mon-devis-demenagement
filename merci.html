@@ -20,7 +20,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
 <style>
 :root{--nuit:#222E3A;--nuit-2:#2C3845;--nuit-3:#19232C;
-  --rose:#FF7389;--rose-2:#F0576E;
+  --rose:#FF6F80;--rose-2:#F0576E;
   --rose-pale:#FCDDE1;--rose-brume:#FDF3F4;
   --gris:#F4F5F9;--gris-2:#EBECEF;--white:#fff;
   --ink:#333333;--ink-2:#4A5260;--ink-3:#5B6472;
@@ -43,7 +43,7 @@ h2{margin:0;font-family:var(--slab);font-weight:400;letter-spacing:-.005em}
 p{margin:0}
 a{color:inherit}
 .hdr{padding:20px 0}
-.hdr img{width:212px;height:auto;display:block}
+.hdr img{width:230px;height:auto;display:block}
 main{flex:1;display:flex;align-items:center;padding:clamp(24px,5vw,56px) 0 clamp(44px,7vw,80px)}
 .tick{width:66px;height:66px;border-radius:50%;background:var(--rose);display:grid;place-items:center;margin-bottom:26px}
 .tick svg{width:32px;height:32px;fill:none;stroke:var(--nuit);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
@@ -78,14 +78,14 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 
 <header class="hdr"><div class="wrap">
   <a href="index.html" aria-label="Mon Devis Déménagement, accueil">
-    <img src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="212" height="37">
+    <img src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="230" height="43">
   </a>
 </div></header>
 
 <main><div class="wrap">
   <div class="tick"><svg viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.5 6.5"/></svg></div>
   <h1>C'est parti, <span class="em">votre demande est transmise.</span></h1>
-  <p class="lead" id="lead">Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis.</p>
+  <p class="lead" id="lead">Un conseiller prend votre dossier en main et vous adresse votre devis sous une heure.</p>
 
   <div class="card">
     <div class="recap" id="recap">
@@ -100,10 +100,10 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
         <span>Il récapitule votre demande. S'il n'arrive pas, pensez à regarder dans les indésirables.</span></div></li>
       <li><div><b>Un conseiller vous rappelle</b>
         <span>Pour confirmer le volume, les accès et la date — les trois éléments qui déterminent le devis.</span></div></li>
-      <li><div><b>Vous recevez votre devis</b>
-        <span>Détaillé, cartons, assurance et changement d'adresse compris. Vous le validez par un acompte, ou vous n'y donnez pas suite.</span></div></li>
-      <li><div><b>Vos cartons arrivent, et vous n'y pensez plus</b>
-        <span>Livrés sous 24 à 48 h après validation. Les démarches administratives sont lancées en parallèle.</span></div></li>
+      <li><div><b>Vous recevez votre devis sous une heure</b>
+        <span>Détaillé poste par poste. Vous le validez par un acompte, ou vous n'y donnez pas suite.</span></div></li>
+      <li><div><b>Vos démarches sont lancées</b>
+        <span>Eau, gaz, électricité, internet, assurance : le transfert est pris en charge. Et vous gardez la main — modification ou annulation gratuite jusqu'à deux semaines avant.</span></div></li>
     </ol>
 
     <p class="tip"><b>En attendant&nbsp;:</b> faites le tour des pièces et notez ce qui part à la benne, à la
@@ -132,7 +132,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
   if(!d) return;
   if(d.prenom){
     document.getElementById('lead').textContent =
-      'Merci ' + d.prenom + '. Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis.';
+      'Merci ' + d.prenom + '. Un conseiller prend votre dossier en main et vous adresse votre devis sous une heure.';
   }
   if(d.vol){
     document.getElementById('r-vol').textContent = 'Environ ' + d.vol + ' m³ à déplacer';

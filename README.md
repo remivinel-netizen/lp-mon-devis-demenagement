@@ -58,33 +58,35 @@ formulaire.
 Plus l'en-tête et la barre collante mobile, soit **dix entrées** vers le même
 formulaire. Changer le libellé se fait donc en dix endroits — ou nulle part.
 
-### Règle de rédaction : rien d'inventé
+### D'où vient le contenu
 
-Chaque affirmation de la page doit être **étayée par la page de référence** ou
-par un fait public vérifiable. Ce qui n'a pas de source a été retiré, même
-quand c'était vendeur :
+Deux sources, deux statuts.
 
-| Retiré                                   | Pourquoi                                               |
-| ---------------------------------------- | ------------------------------------------------------ |
-| « Rappel sous 24 h », « devis sous 24 h » | Aucun délai de ce type n'est documenté                 |
-| Les 5 critères de vérification            | Procédure de contrôle entièrement inventée             |
-| « La même personne du devis au jour J »   | Continuité du suivi non documentée                     |
-| « Sans partage de camion imposé »         | Contredit le principe même du groupage                 |
-| « Appel non surtaxé »                     | Non vérifié                                            |
-| « Évacuation des cartons vides »          | Absent de la formule luxe de référence                 |
-| « Jusqu'à 38 % d'économie »               | Chiffre du marché, pas une donnée à nous               |
-| Tous les montants en euros                | Demande explicite : aucune estimation de prix          |
+**[matchmove.fr](https://matchmove.fr/formules-demenagement/) — l'offre réelle.**
+C'est de là que viennent les faits : les trois formules **Éco / Standard / Luxe**
+et leur partage des tâches poste par poste, le **devis en 1 heure**, les **97 %
+de clients satisfaits**, les **1 000+ déménageurs partenaires**, l'**annulation
+gratuite jusqu'à deux semaines** avant, le transfert des contrats (eau, gaz,
+électricité, internet, assurance), le garde-meuble sur 350+ sites, le téléphone
+et les horaires.
 
-Les horaires sont alignés sur ceux de la référence (lundi-samedi, 9h-18h) et
-restent des **placeholders** à confirmer, comme le numéro de téléphone.
+**[officiel-demenagement.com](https://www.officiel-demenagement.com/) — le
+registre.** Structure du discours, vocabulaire de réassurance, l'argument des
+« kilomètres aller », la grammaire visuelle. Aucun de leurs chiffres n'est
+repris : ni les 80 000 € de garantie, ni les 300 enseignes partenaires, ni leur
+ancienneté — ce sont leurs données.
 
-Ce qui reste est étayé : les kilomètres aller, les cartons sous 24 à 48 h,
-l'assurance et le changement d'adresse compris, les trois formules et leur
-partage des tâches, les cas particuliers, la validation par acompte.
+### Un piège à ne pas refaire
 
-**Les chiffres de la référence n'ont pas été recopiés** — ni les 80 000 € de
-garantie, ni les 300 enseignes partenaires, ni leur ancienneté : ce sont leurs
-données, pas les nôtres. Les équivalents doivent venir du client.
+**Les cartons ne sont pas inclus dans les trois formules.** Ils sont en
+**option** en Éco et Standard, et **fournis en Luxe** seulement. Une version
+antérieure de cette page les annonçait partout, par analogie avec le modèle
+d'Officiel du Déménagement — c'était faux. Un commentaire le rappelle dans
+`index.html`, au-dessus du hero.
+
+Ce qui est vraiment inclus partout : le transfert des contrats, la protection
+du mobilier (housses, bulle, housses matelas), le chargement et la livraison,
+et le droit de modifier ou d'annuler.
 
 ## Fichiers
 
@@ -147,27 +149,26 @@ lisait « application mobile » plutôt que « déménageur ».
 
 ### Le logo
 
-Camion plein, **flèche de progression en réserve** dans la caisse, trois
-lignes de vitesse. Le concept a été exploré par génération d'image (Higgsfield,
-4 variantes), puis **entièrement redessiné en vectoriel** : les sorties
-génératives convergeaient toutes vers ce concept mais avec des épaisseurs
-irrégulières, une pointe de flèche déformée et des roues inégales — sans parler
-de l'absence de transparence et d'échelle.
+Fourni par le client (archive `logo-1e`) : trois cartons arrondis en décalé —
+accent, encre et gris — suivis du lockup « MON DEVIS » / « Déménagement » en
+Roboto Slab 600 et 800.
 
-Le redessin impose une grille : épaisseur constante de 2,6 pour les lignes de
-vitesse, pointe de flèche d'équerre, roues strictement identiques.
+Les fichiers livrés ont été **remis en état de production** :
 
-**Une seule planche pour les deux fonds.** Les roues sont magenta à moyeu
-blanc, ce qui tient aussi bien sur blanc que sur navy : seul le wordmark change
-de couleur, donc un seul dessin à maintenir.
+- **La police est embarquée.** Les SVG d'origine n'avaient aucun `font-family`.
+  Chargé via `<img>`, un SVG n'a pas accès aux polices de la page : le texte
+  serait retombé sur une serif système. Roboto Slab est donc sous-ensemblée aux
+  seuls glyphes du logo (4,3 Ko contre 34 Ko) et intégrée en base64 — les
+  fichiers sont autonomes et rendent partout à l'identique.
+- **Le texte a une couleur.** Aucun `fill` n'était défini : sur la variante
+  sombre, le texte serait resté noir, donc invisible sur le navy.
+- **7,7 Ko de métadonnées C2PA retirés** de chaque fichier.
 
-Le favicon n'est pas ce dessin réduit. À 16 px les lignes de vitesse tombent
-sous le pixel et la flèche en réserve se referme : il garde la silhouette et la
-flèche, élargies, sur aplat magenta. Vérifié à 64, 32 et 16 px.
+L'accent du logo, `#FF6F80`, est devenu l'accent de toute la page : deux rouges
+voisins auraient fini par diverger.
 
-Pistes écartées en chemin : un carton en perspective, un bloc monogramme « MD »
-(le plus proche de la référence mais muet sur le métier) et un traitement
-purement typographique (sans symbole, donc sans favicon possible).
+Le favicon n'a pas de texte, il reste donc un fichier autonome sans traitement
+particulier.
 
 ### Le hero
 

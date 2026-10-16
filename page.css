@@ -3,7 +3,7 @@
    doivent s'afficher sans aucune requête bloquante. */
 :root{
   --nuit:#222E3A; --nuit-2:#2C3845; --nuit-3:#19232C;
-  --rose:#FF7389; --rose-2:#F0576E;
+  --rose:#FF6F80; --rose-2:#F0576E;
   --rose-pale:#FCDDE1; --rose-brume:#FDF3F4;
   --gris:#F4F5F9; --gris-2:#EBECEF; --white:#fff;
   --rouge:#A52539;
@@ -31,7 +31,7 @@ p,ul,ol{margin:0}
 .hdr :focus-visible,.hero :focus-visible,.ftr :focus-visible{outline-color:var(--rose)}
 
 .hdr{background:var(--nuit);padding:20px 0}
-.hdr img{width:212px;height:auto;display:block}
+.hdr img{width:230px;height:auto;display:block}
 .hero{background:var(--nuit);color:#fff;padding:8px 0 clamp(36px,5vw,56px)}
 .hero h1{font-size:clamp(28px,4.4vw,42px)}
 .hero h1 .em{color:var(--rose)}

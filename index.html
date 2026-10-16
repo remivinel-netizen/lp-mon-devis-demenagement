@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Déménagement : devis gratuit en 1 minute, cartons et assurance compris — Mon Devis Déménagement</title>
-<meta name="description" content="Décrivez votre déménagement en 1 minute et recevez votre devis. Déménageurs professionnels partout en France, cartons livrés, assurance et changement d'adresse compris. Ne payez que les kilomètres aller.">
+<title>Déménagement : votre devis gratuit en 1 heure — Mon Devis Déménagement</title>
+<meta name="description" content="Décrivez votre déménagement en 1 minute, recevez votre devis en 1 heure. Plus de 1 000 déménageurs partenaires, démarches administratives incluses, annulation gratuite jusqu'à 2 semaines avant.">
 <meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://mon-devis-demenagement.fr/">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Mon Devis Déménagement">
 <meta property="og:title" content="Déménagez l'esprit léger">
-<meta property="og:description" content="Décrivez votre déménagement en 1 minute, un conseiller établit votre devis. Cartons livrés, assurance et changement d'adresse compris. Vous ne payez que les kilomètres aller.">
+<meta property="og:description" content="Votre devis en 1 heure. Plus de 1 000 déménageurs partenaires, démarches administratives incluses, annulation gratuite jusqu'à 2 semaines avant le jour J.">
 
 <!-- Les deux polices du hero sont préchargées : elles portent le H1 et le
      formulaire, soit tout ce qui est visible au premier écran. Le reste de la
@@ -53,7 +53,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   /* Accent sur fond sombre. Le magenta lui-même n'y tient pas (2,47 sur le
      navy) : c'est donc sa version claire qui prend le relais, à 6,04. Même
      famille chromatique, aucune troisième teinte dans la charte. */
-  --rose:#FF7389;
+  --rose:#FF6F80;
   /* Décoratif seulement : bande du logo, tracés, filets. */
   --rose-2:#F0576E;
   /* Teintes claires pour les pastilles et les fonds de bloc : l'encre navy y
@@ -132,14 +132,14 @@ button{font:inherit;color:inherit}
 .hdr{position:relative;z-index:30;background:var(--gris);border-bottom:1px solid var(--line)}
 .hdr__in{display:flex;align-items:center;gap:20px;padding:13px 0;justify-content:space-between}
 .hdr__logo{display:flex;align-items:center;text-decoration:none}
-.hdr__logo img{width:236px;height:auto;display:block}
+.hdr__logo img{width:240px;height:auto;display:block}
 .hdr__r{display:flex;align-items:center;gap:22px}
 .tel{display:flex;align-items:center;gap:10px;text-decoration:none}
 .tel__ico{width:40px;height:40px;border-radius:50%;background:var(--rose-pale);color:var(--nuit);display:grid;place-items:center;flex:none}
 .tel__ico .ico{width:19px;height:19px}
 .tel b{display:block;font-size:16px;letter-spacing:-.015em;color:var(--nuit)}
 .tel small{display:block;font-size:12.5px;color:var(--ink-3);line-height:1.3}
-@media (max-width:900px){.hdr__logo img{width:190px}.tel small{display:none}.hdr .btn{display:none}}
+@media (max-width:900px){.hdr__logo img{width:196px}.tel small{display:none}.hdr .btn{display:none}}
 @media (max-width:560px){.tel b{display:none}.hdr__in{padding:11px 0}}
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
@@ -166,7 +166,7 @@ button{font:inherit;color:inherit}
 .hero__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(28px,4vw,58px);align-items:start}
 .hero__copy{padding-top:clamp(4px,2vw,26px)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--rose);background:rgba(255,115,137,.15);
+  text-transform:uppercase;color:var(--rose);background:rgba(255,111,128,.15);
   padding:8px 14px;border-radius:var(--r-sm);margin-bottom:20px}
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--rose-2);flex:none}
 h1{font-size:clamp(35px,5.4vw,60px);letter-spacing:-.035em}
@@ -473,7 +473,7 @@ details .a p + p{margin-top:11px}
 /* CTA final */
 .final{background:var(--nuit);color:#fff;text-align:center;position:relative;overflow:clip}
 .final::after{content:"";position:absolute;inset:auto -10% -60% -10%;height:340px;
-  background:radial-gradient(60% 100% at 50% 100%, rgba(255,115,137,.20), transparent 70%)}
+  background:radial-gradient(60% 100% at 50% 100%, rgba(255,111,128,.20), transparent 70%)}
 .final__in{position:relative;max-width:720px;margin-inline:auto}
 .final h2{font-size:clamp(28px,4vw,46px)}
 .final h2 .em{color:var(--rose)}
@@ -488,7 +488,7 @@ details .a p + p{margin-top:11px}
 .ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .ftr a{text-decoration:none;transition:color .15s}
 .ftr a:hover{color:#fff;text-decoration:underline}
-.ftr__logo{width:212px;margin-bottom:16px}
+.ftr__logo{width:230px;margin-bottom:16px}
 .ftr__legal{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);
   display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;font-size:12.8px;color:rgba(255,255,255,.52)}
 @media (max-width:1050px){.ftr__g{grid-template-columns:1fr 1fr 1fr;gap:28px}}
@@ -553,13 +553,13 @@ details .a p + p{margin-top:11px}
 <header class="hdr">
   <div class="wrap hdr__in">
     <a class="hdr__logo" href="#top" aria-label="Mon Devis Déménagement, accueil">
-      <img src="img/logo.svg" alt="Mon Devis Déménagement" width="236" height="41">
+      <img src="img/logo.svg" alt="Mon Devis Déménagement" width="240" height="45">
     </a>
     <div class="hdr__r">
       <!-- ⚠ À VALIDER : numéro et horaires à remplacer par ceux du client. -->
-      <a class="tel" href="tel:+33180000000">
+      <a class="tel" href="tel:+33451420447">
         <span class="tel__ico"><svg class="ico"><use href="#i-phone"/></svg></span>
-        <span><b>01 80 00 00 00</b><small>Votre conseiller, lundi — samedi 9h-18h</small></span>
+        <span><b>04 51 42 04 47</b><small>Votre conseiller, lundi — samedi 8h-18h</small></span>
       </a>
       <a class="btn btn--cta" href="#devis" data-cta="header">Obtenir mon devis</a>
     </div>
@@ -571,7 +571,7 @@ details .a p + p{margin-top:11px}
 <section class="hero">
   <svg class="hero__route" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
     <path d="M-20 150 C 220 60, 420 170, 650 110 S 1080 30, 1460 120" fill="none"
-          stroke="#FF7389" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
+          stroke="#FF6F80" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
   </svg>
   <div class="wrap hero__in">
 
@@ -579,36 +579,36 @@ details .a p + p{margin-top:11px}
       <p class="eyebrow"><span class="dot"></span>Déménageurs professionnels partout en France</p>
       <h1>Déménagez <span class="em">l'esprit léger</span></h1>
       <p class="hero__sub">
-        Décrivez votre déménagement en une minute. Un conseiller vous rappelle
-        et établit votre devis. Les cartons, l'assurance et le changement
-        d'adresse sont compris.
+        Décrivez votre déménagement en une minute et recevez votre devis en une
+        heure. Plus de mille déménageurs partenaires, et vos démarches — eau, gaz,
+        électricité, internet, assurance — prises en charge.
       </p>
-      <!-- ══════════════════════════════════════════════════════════════════
-           ⚠ À VALIDER — PROMESSES COMMERCIALES
-           Les trois arguments ci-dessous (cartons offerts, assurance incluse,
-           changement d'adresse pris en charge) sont repris du modèle de
-           l'Officiel du Déménagement et structurent TOUTE la page : hero,
-           bandeau, formules, services offerts, FAQ, page /merci.
-           Ils n'ont de valeur que si le réseau les honore réellement.
-           À confirmer avant mise en ligne, ou à retirer partout à la fois.
-           ══════════════════════════════════════════════════════════════════ -->
+      <!-- Les trois arguments ci-dessous viennent de l'offre réelle publiée sur
+           matchmove.fr : devis en 1 heure, transfert des contrats inclus sur
+           les trois formules, modification ou annulation gratuite jusqu'à deux
+           semaines avant. Ils structurent toute la page — hero, bandeau,
+           formules, services, FAQ, /merci : les modifier ici suppose de les
+           modifier partout.
+           À noter : les cartons ne sont PAS inclus partout. Option en Éco et
+           Standard, fournis en Luxe seulement. Ne pas les remonter en
+           promesse générale. -->
       <ul class="chips">
-        <li><svg class="ico"><use href="#i-check"/></svg>Cartons livrés gratuitement</li>
-        <li><svg class="ico"><use href="#i-check"/></svg>Assurance incluse</li>
-        <li><svg class="ico"><use href="#i-check"/></svg>Changement d'adresse pris en charge</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Devis gratuit en 1 heure</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Démarches administratives incluses</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Annulation gratuite jusqu'à J-14</li>
       </ul>
       <div class="hero__proof">
-        <div><b>3</b><span>formules, de l'économique<br>au tout compris</span></div>
-        <div><b>1 min</b><span>pour décrire<br>votre projet</span></div>
-        <div><b>France</b><span>entière, grâce au<br>réseau de partenaires</span></div>
+        <div><b>1 h</b><span>pour recevoir<br>votre devis</span></div>
+        <div><b>97 %</b><span>de clients<br>satisfaits</span></div>
+        <div><b>1 000+</b><span>déménageurs<br>partenaires</span></div>
       </div>
     </div>
 
     <div class="quiz" id="devis">
       <div class="quiz__top">
-        <h2 class="quiz__ttl">Votre devis gratuit en 1 minute</h2>
+        <h2 class="quiz__ttl">Votre devis gratuit en 1 heure</h2>
         <div class="quiz__meta">
-          <p>Sans engagement, et sans mauvaise surprise.</p>
+          <p>Une minute pour le demander, sans engagement.</p>
           <span class="quiz__count" id="q-count">1 / 6</span>
         </div>
         <div class="bar"><i id="q-bar"></i></div>
@@ -750,17 +750,17 @@ details .a p + p{margin-top:11px}
           <legend class="step__q">Qui emballe les cartons&nbsp;?</legend>
           <p class="step__hint">C'est le deuxième levier sur le devis, après le volume. Vous pourrez changer d'avis.</p>
           <div class="opts">
-            <label class="opt"><input type="radio" name="formule" value="Économique" data-f="eco">
+            <label class="opt"><input type="radio" name="formule" value="Éco" data-f="eco">
               <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
-              <span class="opt__txt">Moi, entièrement<small>Formule économique — ils protègent, chargent et transportent</small></span>
+              <span class="opt__txt">Moi, entièrement<small>Formule Éco — ils protègent, chargent et transportent</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
             <label class="opt"><input type="radio" name="formule" value="Standard" data-f="std">
               <span class="opt__ico"><svg class="ico"><use href="#i-users"/></svg></span>
-              <span class="opt__txt">Moi, sauf le fragile<small>Formule standard — ils emballent la vaisselle et démontent les meubles</small></span>
+              <span class="opt__txt">Moi, sauf le fragile<small>Formule Standard — ils emballent le fragile et démontent les meubles</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
             <label class="opt"><input type="radio" name="formule" value="Luxe" data-f="luxe">
               <span class="opt__ico"><svg class="ico"><use href="#i-truck"/></svg></span>
-              <span class="opt__txt">Eux, de A à Z<small>Formule luxe — vous ne touchez pas un carton</small></span>
+              <span class="opt__txt">Eux, de A à Z<small>Formule Luxe — cartons fournis, déballage compris</small></span>
               <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
             <label class="opt"><input type="radio" name="formule" value="Je ne sais pas encore" data-f="std">
               <span class="opt__ico"><svg class="ico"><use href="#i-search"/></svg></span>
@@ -826,8 +826,8 @@ details .a p + p{margin-top:11px}
     </div>
     <div class="band__i">
       <svg class="ico"><use href="#i-heart"/></svg>
-      <h3>Tout est compris</h3>
-      <p>Cartons, assurance du mobilier et changement d'adresse sont inclus dans les trois formules.</p>
+      <h3>Vos démarches en moins</h3>
+      <p>Eau, gaz, électricité, internet, assurance&nbsp;: nous les transférons, sur les trois formules.</p>
     </div>
     <div class="band__i">
       <svg class="ico"><use href="#i-headset"/></svg>
@@ -836,8 +836,8 @@ details .a p + p{margin-top:11px}
     </div>
     <div class="band__i">
       <svg class="ico"><use href="#i-euro"/></svg>
-      <h3>Le devis signé fait foi</h3>
-      <p>Une fois le devis accepté, le prix ne change plus.</p>
+      <h3>Vous pouvez changer d'avis</h3>
+      <p>Modification ou annulation gratuite jusqu'à deux semaines avant la date retenue.</p>
     </div>
   </div>
 </div>
@@ -900,16 +900,16 @@ details .a p + p{margin-top:11px}
       </div>
       <div class="stp">
         <h3>Vous préparez sans y penser</h3>
-        <p>Vos cartons et votre adhésif arrivent chez vous sous 24 à 48&nbsp;h. Vous recevez aussi
-           nos fiches pratiques&nbsp;: dans quel ordre emballer, comment protéger la vaisselle, que
-           faire des enfants et des animaux le jour J.</p>
-        <span class="tag">Cartons offerts</span>
+        <p>Nous transférons vos contrats — eau, gaz, électricité, internet, assurance — et demandons
+           l'autorisation de stationnement si la rue l'exige. Vous, vous n'avez qu'à trier ce qui
+           part et ce qui reste.</p>
+        <span class="tag">Démarches incluses</span>
       </div>
       <div class="stp">
         <h3>Nous anticipons les démarches</h3>
-        <p>Nous prévenons les organismes de votre changement d'adresse. Impôts, CAF, énergie,
-           banque&nbsp;: la partie fastidieuse est prise en charge.</p>
-        <span class="tag">Formalités incluses</span>
+        <p>Le jour J, l'équipe protège, charge, achemine et livre. Et si la date bouge, vous pouvez
+           encore modifier ou annuler sans frais jusqu'à deux semaines avant.</p>
+        <span class="tag">Annulation libre à J-14</span>
       </div>
     </div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="etapes">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Une minute, sans engagement.</span></div>
@@ -922,18 +922,19 @@ details .a p + p{margin-top:11px}
       <span class="kicker">Les trois formules</span>
       <h2>Vous payez le travail <span class="em">que vous ne faites pas</span></h2>
       <p>Ce qui change d'une formule à l'autre, c'est le travail que vous gardez. Ce qui ne change
-         pas&nbsp;: les cartons, l'assurance et le changement d'adresse, compris dans les trois.</p>
+         pas&nbsp;: la protection du mobilier, le transport, et le transfert de vos contrats — compris
+         dans les trois.</p>
     </div>
     <div class="forms">
       <div class="frm">
-        <h3>Économique</h3>
-        <p class="frm__p">Le prix plancher — <b>vous faites les cartons</b></p>
+        <h3>Éco</h3>
+        <p class="frm__p">Le prix plancher — <b>vous emballez tout</b></p>
         <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Protection des meubles et mise sous housses</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Chargement, transport, déchargement</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Cartons, assurance et changement d'adresse</li>
-          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Emballage et déballage à votre charge</li>
-          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Démontage des meubles à votre charge</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Protection du mobilier, housses matelas et literie</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Chargement, acheminement, livraison</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Transfert de vos contrats</li>
+          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Emballage, démontage et remontage en option</li>
+          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Cartons et adhésif en option</li>
         </ul>
       </div>
       <div class="frm frm--hi">
@@ -941,21 +942,22 @@ details .a p + p{margin-top:11px}
         <h3>Standard</h3>
         <p class="frm__p">Le bon compromis — <b>ils gèrent le fragile</b></p>
         <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Tout l'économique, plus&nbsp;:</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Emballage de la vaisselle et des objets fragiles</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Démontage et remontage des meubles</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Débranchement de l'électroménager</li>
-          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Déballage à l'arrivée à votre charge</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Tout l'Éco, plus&nbsp;:</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Emballage des objets fragiles</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Démontage <em>et</em> remontage des meubles</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Penderie pour les vêtements sur cintres</li>
+          <li class="no"><svg class="ico"><use href="#i-x"/></svg>Linge plié, livres et déballage en option</li>
         </ul>
       </div>
       <div class="frm">
         <h3>Luxe</h3>
         <p class="frm__p">Vous ne touchez rien — <b>ils font tout</b></p>
         <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Tout le standard, plus&nbsp;:</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Emballage intégral, pièce par pièce</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Déballage et rangement à l'arrivée</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Déclaration de valeur détaillée</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Tout le Standard, plus&nbsp;:</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Emballage du non fragile — linge plié, livres</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Déballage complet à l'arrivée</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Cartons et adhésif fournis</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Autorisation de stationnement demandée</li>
         </ul>
       </div>
     </div>
@@ -965,29 +967,28 @@ details .a p + p{margin-top:11px}
 
 <section class="incl">
   <div class="wrap">
-    <!-- ⚠ À VALIDER : les quatre services et leurs conditions (délai de 24-48 h,
-         étendue de la garantie dommage, périmètre du changement d'adresse). -->
     <div class="sec-h">
-      <span class="kicker">Les services offerts</span>
-      <h2>Compris dans le devis, <span class="em">pas en supplément</span></h2>
-      <p>Ce que les déménageurs facturent en option est déjà dans le prix, sur les trois formules.</p>
+      <span class="kicker">Ce qui est compris partout</span>
+      <h2>Inclus dans les trois formules, <span class="em">sans supplément</span></h2>
+      <p>Quelle que soit la formule retenue, ces quatre postes figurent au devis.</p>
     </div>
     <div class="incl__g">
-      <div class="inc"><svg class="ico"><use href="#i-box"/></svg>
-        <h3>Vos cartons livrés chez vous</h3>
-        <p>Cartons et adhésif livrés chez vous sous 24 à 48&nbsp;h, en quantité adaptée à votre
-           volume. Vous n'avancez rien et vous ne rendez rien.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-shield"/></svg>
-        <h3>L'assurance du mobilier</h3>
-        <p>Votre mobilier est couvert pendant toute la prestation. Les déménageurs facturent presque
-           toujours cette garantie à part.</p></div>
       <div class="inc"><svg class="ico"><use href="#i-mail"/></svg>
-        <h3>Le changement d'adresse</h3>
-        <p>Impôts, Sécurité sociale, CAF, énergie, banque, opérateur&nbsp;: nous les prévenons à
-           votre place. Il vous reste la réexpédition du courrier à La Poste.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-doc"/></svg>
-        <h3>Les fiches pratiques</h3>
-        <p>Dans quel ordre emballer, quelles démarches faire et à quel moment.</p></div>
+        <h3>Le transfert de vos contrats</h3>
+        <p>Eau, gaz, électricité, internet et assurance&nbsp;: les démarches sont faites pour vous,
+           sur les trois formules. C'est la corvée dont personne ne veut.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-shield"/></svg>
+        <h3>La protection du mobilier</h3>
+        <p>Housses et papier bulle sur les meubles, housses dédiées pour les matelas et la literie.
+           Compris même en formule Éco.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-truck"/></svg>
+        <h3>Chargement et livraison</h3>
+        <p>Le camion, l'équipe, l'acheminement et la livraison à l'arrivée. Et vous ne payez que
+           les kilomètres aller.</p></div>
+      <div class="inc"><svg class="ico"><use href="#i-cal"/></svg>
+        <h3>Le droit de changer d'avis</h3>
+        <p>Modification ou annulation gratuite jusqu'à deux semaines avant la date retenue. Un
+           déménagement se décale souvent&nbsp;: autant que ce soit prévu.</p></div>
     </div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="services">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Tout est compris dans le devis.</span></div>
   </div>
@@ -1042,8 +1043,8 @@ details .a p + p{margin-top:11px}
       </div>
       <!-- ⚠ À VALIDER : numéro et horaires. -->
       <div class="cons__n">
-        <a href="tel:+33180000000">01 80 00 00 00</a>
-        <span>Lundi — samedi, de 9h à 18h</span>
+        <a href="tel:+33451420447">04 51 42 04 47</a>
+        <span>Lundi — samedi, de 8h à 18h</span>
         <a class="btn btn--cta" href="#devis" data-cta="conseiller"
            style="margin-top:14px;font-size:15px;padding:13px 22px">Obtenir mon devis</a>
       </div>
@@ -1070,15 +1071,17 @@ details .a p + p{margin-top:11px}
     </div>
     <div class="faq__l">
 
-      <details><summary>L'estimation et le devis sont-ils gratuits&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Oui. L'estimation en ligne, l'appel du conseiller et le devis sont gratuits et sans engagement. Vous ne payez qu'au moment où vous validez un devis par un acompte.</p></div></details>
+      <details><summary>Le devis est-il gratuit, et sous quel délai&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Gratuit, sans engagement, et établi <strong>en une heure</strong>. L'estimation en ligne et l'appel du conseiller ne vous coûtent rien non plus.</p>
+          <p>Vous ne payez qu'au moment où vous validez un devis par un acompte — et vous pouvez encore modifier ou annuler gratuitement jusqu'à deux semaines avant la date retenue.</p></div></details>
 
       <details><summary>Que veut dire « ne payer que les kilomètres aller »&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Un déménageur qui fait Lyon-Lille doit ramener son camion. S'il revient à vide, ce trajet est dans votre facture&nbsp;: vous payez la route deux fois.</p>
           <p>Nos camions roulent sur des tournées déjà prévues. Le retour est chargé par un autre client, et vous ne payez que l'aller.</p></div></details>
 
-      <details><summary>Les cartons sont-ils vraiment offerts&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Oui. Cartons et adhésif sont livrés chez vous sous 24 à 48&nbsp;h après validation du devis, en quantité adaptée à votre volume. Vous n'avancez rien.</p></div></details>
+      <details><summary>Les cartons sont-ils fournis&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>En formule <strong>Luxe</strong>, oui&nbsp;: cartons et adhésif fournis, et déballage complet à l'arrivée.</p>
+          <p>En formules <strong>Éco</strong> et <strong>Standard</strong>, c'est une option à ajouter au devis. Dites-le à votre conseiller&nbsp;: elle revient souvent moins cher que de les acheter soi-même, et ils arrivent avant le jour J.</p></div></details>
 
       <details><summary>Quand faut-il s'y prendre&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Six à huit semaines avant, et hors haute saison si vous le pouvez. De juin à septembre, plus les fins de mois et les samedis, les camions partent tôt et les prix montent.</p>
@@ -1092,9 +1095,13 @@ details .a p + p{margin-top:11px}
         <div class="a"><p>Votre mobilier est couvert en garantie dommage pendant toute la prestation, du chargement au remontage.</p>
           <p>Pour des objets de valeur, faites établir une <strong>déclaration de valeur</strong>&nbsp;: c'est elle qui fixe le montant indemnisable. Votre conseiller vous indique le plafond applicable à votre dossier.</p></div></details>
 
-      <details><summary>Qui prévient les impôts, la CAF, mon fournisseur d'énergie&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
-        <div class="a"><p>Nous, pour l'essentiel&nbsp;: impôts, Sécurité sociale, CAF, énergie, banque, opérateur télécom.</p>
-          <p>Il vous reste la réexpédition du courrier, à souscrire auprès de La Poste, et la résiliation des contrats liés au logement que vous quittez.</p></div></details>
+      <details><summary>Qui s'occupe du transfert de mes contrats&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>Nous, et sur les trois formules&nbsp;: <strong>eau, gaz, électricité, internet et assurance</strong>. Ces démarches figurent au devis, elles ne sont pas une option.</p>
+          <p>Restent à votre main les organismes qui exigent une déclaration personnelle — impôts, Sécurité sociale, CAF — ainsi que la réexpédition du courrier, à souscrire auprès de La Poste.</p></div></details>
+
+      <details><summary>Et si je dois entreposer mes meubles entre deux dates&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
+        <div class="a"><p>C'est fréquent quand la date de sortie et celle d'entrée ne se touchent pas. Le garde-meuble se chiffre avec le reste du devis, sur un réseau de plus de 350 sites en France.</p>
+          <p>Signalez-le au conseiller&nbsp;: le volume à entreposer et la durée font le montant, et mieux vaut le prévoir au devis que le découvrir en route.</p></div></details>
 
       <details><summary>Existe-t-il des aides pour financer un déménagement&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Oui. La <strong>prime de déménagement de la CAF</strong> à partir de trois enfants, sous conditions. Le <strong>Mobili-Pass</strong> et l'avance <strong>Loca-Pass</strong> d'Action Logement pour une mobilité professionnelle.</p>
@@ -1111,11 +1118,11 @@ details .a p + p{margin-top:11px}
 <section class="final">
   <div class="wrap final__in">
     <h2>Il est temps de <span class="em">ne plus y penser</span></h2>
-    <p>Décrivez votre projet en une minute. Les cartons, l'assurance et les démarches,
-       c'est notre affaire.</p>
+    <p>Décrivez votre projet en une minute, recevez votre devis en une heure.
+       Et vous gardez la main jusqu'à deux semaines avant le jour J.</p>
     <a class="btn btn--cta btn--lg" href="#devis" data-cta="final">Obtenir mon devis
       <svg class="ico"><use href="#i-arrow"/></svg></a>
-    <p class="mini">Gratuit · Sans engagement · Cartons et assurance compris</p>
+    <p class="mini">Gratuit · Sans engagement · Annulation libre jusqu'à J-14</p>
   </div>
 </section>
 
@@ -1125,9 +1132,9 @@ details .a p + p{margin-top:11px}
   <div class="wrap">
     <div class="ftr__g">
       <div>
-        <img class="ftr__logo" src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="212" height="37">
-        <p>Des déménageurs professionnels partout en France, un conseiller qui suit votre dossier,
-           et les cartons, l'assurance et le changement d'adresse compris dans le devis.</p>
+        <img class="ftr__logo" src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="230" height="43">
+        <p>Plus de mille déménageurs partenaires partout en France, un devis en une heure, et le
+           transfert de vos contrats compris dans les trois formules.</p>
       </div>
       <div><h4>Le déménagement</h4><ul>
         <li><a href="#formules">Les trois formules</a></li>
@@ -1144,8 +1151,8 @@ details .a p + p{margin-top:11px}
       </ul></div>
       <div><h4>Nous contacter</h4><ul>
         <!-- ⚠ À VALIDER : coordonnées à remplacer. -->
-        <li><a href="tel:+33180000000">01 80 00 00 00</a></li>
-        <li>Lundi — samedi, 9h à 18h</li>
+        <li><a href="tel:+33451420447">04 51 42 04 47</a></li>
+        <li>Lundi — samedi, 8h à 18h</li>
         <li><a href="mailto:contact@mon-devis-demenagement.fr">contact@mon-devis-demenagement.fr</a></li>
       </ul></div>
       <div><h4>Informations</h4><ul>
@@ -1162,7 +1169,7 @@ details .a p + p{margin-top:11px}
 </footer>
 
 <div class="sticky" id="sticky">
-  <a class="sticky__tel" href="tel:+33180000000" aria-label="Appeler un conseiller"><svg class="ico"><use href="#i-phone"/></svg></a>
+  <a class="sticky__tel" href="tel:+33451420447" aria-label="Appeler un conseiller"><svg class="ico"><use href="#i-phone"/></svg></a>
   <a class="btn btn--cta" href="#devis" data-cta="sticky">Obtenir mon devis</a>
 </div>
 
