@@ -34,6 +34,30 @@ Les formules reprennent la nomenclature du marché — **Économique / Standard 
 Luxe** — avec le partage des tâches détaillé formule par formule, puisque c'est
 là que les devis deviennent incomparables.
 
+### Appels à l'action
+
+Motif repris de `lp-mon-bilan-solaire` : **un CTA ferme chaque section de
+contenu, toujours avec le même libellé** (« Obtenir mon devis »), suivi d'une
+courte mention de réassurance. Le visiteur n'a jamais à remonter chercher le
+formulaire.
+
+| Section                | CTA |
+| ---------------------- | --- |
+| Hero                   | — (il contient le formulaire) |
+| Bandeau des 4 piliers   | — (bloc de preuve) |
+| Kilomètres aller        | ✓ |
+| Comment ça se passe     | ✓ |
+| Les trois formules      | ✓ |
+| Les services offerts    | ✓ |
+| Les cas particuliers    | ✓ |
+| Le conseiller           | ✓ |
+| Les avis                | ✓ |
+| FAQ                     | — |
+| CTA final               | ✓ |
+
+Plus l'en-tête et la barre collante mobile, soit **dix entrées** vers le même
+formulaire. Changer le libellé se fait donc en dix endroits — ou nulle part.
+
 ### Règle de rédaction : rien d'inventé
 
 Chaque affirmation de la page doit être **étayée par la page de référence** ou
