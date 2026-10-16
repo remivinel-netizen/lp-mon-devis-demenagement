@@ -8,7 +8,8 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/jakarta-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/slab-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- GTM — même snippet que la page d'accueil. Cette page sert de signal de
      conversion : c'est sur /merci que se règle la conversion Google Ads.
@@ -23,20 +24,22 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   --vert-pale:#E3F0CC;--vert-brume:#F1F8E6;
   --gris:#F4F5F9;--gris-2:#EBECEF;--white:#fff;
   --ink:#333333;--ink-2:#4A5260;--ink-3:#5B6472;
-  --line:rgba(34,46,58,.11);--r-lg:30px;--r-md:20px;--r-sm:13px;
+  --line:rgba(34,46,58,.11);--r-lg:4px;--r-md:12px;--r-sm:8px;
   --ease:cubic-bezier(.32,.72,0,1);
   --shadow:0 1px 0 rgba(255,255,255,.7) inset,0 34px 70px -28px rgba(34,46,58,.42),0 0 0 1px rgba(34,46,58,.06);
-  --font:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  --serif:'Instrument Serif','Iowan Old Style',Georgia,serif}
-@font-face{font-family:'Plus Jakarta Sans';src:url(fonts/jakarta-latin.woff2) format('woff2');font-weight:400 800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Plus Jakarta Sans';src:url(fonts/jakarta-latin-ext.woff2) format('woff2');font-weight:400 800;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Instrument Serif';src:url(fonts/instrument-italic-latin.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  --magenta:#CE0054;--magenta-2:#A3003F;
+  --font:'Roboto',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --slab:'Roboto Slab','Roboto',Georgia,serif}
+@font-face{font-family:'Roboto';src:url(fonts/roboto-latin.woff2) format('woff2');font-weight:400 700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto';src:url(fonts/roboto-latin-ext.woff2) format('woff2');font-weight:400 700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Roboto Slab';src:url(fonts/slab-latin.woff2) format('woff2');font-weight:300 700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto Slab';src:url(fonts/slab-latin-ext.woff2) format('woff2');font-weight:300 700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--nuit);color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--vert)}
+.em{color:var(--vert)}
 .wrap{width:min(100% - 36px,720px);margin-inline:auto}
-h1{margin:0;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-.035em;font-weight:800}
-h2{margin:0;font-weight:800;letter-spacing:-.025em}
+h1{margin:0;font-family:var(--slab);font-size:clamp(29px,4.4vw,44px);line-height:1.2;letter-spacing:-.005em;font-weight:400}
+h2{margin:0;font-family:var(--slab);font-weight:400;letter-spacing:-.005em}
 p{margin:0}
 a{color:inherit}
 .hdr{padding:20px 0}
@@ -48,21 +51,22 @@ main{flex:1;display:flex;align-items:center;padding:clamp(24px,5vw,56px) 0 clamp
 .card{margin-top:30px;background:#fff;color:var(--ink);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:clamp(22px,3vw,30px)}
 .recap{display:none;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
 .recap.is-on{display:block}
-.recap h2{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--vert-fonce)}
-.recap__v{font-size:clamp(26px,3.6vw,34px);font-weight:800;letter-spacing:-.035em;margin-top:8px;font-variant-numeric:tabular-nums;line-height:1.05}
+.recap h2{font-size:12.5px;font-family:var(--font);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--magenta)}
+.recap__v{font-size:clamp(26px,3.6vw,34px);font-weight:700;letter-spacing:-.035em;margin-top:8px;font-variant-numeric:tabular-nums;line-height:1.05}
 .recap__d{font-size:14.5px;color:var(--ink-3);margin-top:7px}
 .card h2.t{font-size:20px;letter-spacing:-.028em}
 ol{list-style:none;counter-reset:n;padding:0;margin:18px 0 0;display:grid;gap:15px}
 ol li{counter-increment:n;display:flex;gap:14px;align-items:flex-start}
-ol li::before{content:counter(n);flex:none;width:29px;height:29px;border-radius:9px;background:var(--vert-pale);
-  color:var(--nuit);display:grid;place-items:center;font-size:13.5px;font-weight:800}
+ol li::before{content:counter(n);flex:none;width:29px;height:29px;border-radius:var(--r-sm);background:var(--vert-pale);
+  color:var(--nuit);display:grid;place-items:center;font-size:13.5px;font-weight:700}
 ol b{display:block;font-size:15.5px;letter-spacing:-.018em}
 ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-height:1.5}
 .tip{margin-top:24px;padding:16px 18px;border-radius:var(--r-sm);background:var(--gris);font-size:14.5px;color:var(--ink-2);line-height:1.5}
 .tip b{color:var(--ink)}
 .acts{margin-top:26px;display:flex;flex-wrap:wrap;gap:11px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;
-  font-weight:700;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;transition:.16s}
+  font-weight:500;font-size:16px;padding:16px 30px;border-radius:var(--r-md);text-decoration:none;transition:.16s}
+.btn--cta{background:var(--magenta);color:#fff}.btn--cta:hover{background:var(--magenta-2)}
 .btn--nuit{background:var(--nuit);color:#fff}.btn--nuit:hover{background:var(--nuit-2)}
 .btn--ghost{background:transparent;color:var(--nuit);box-shadow:inset 0 0 0 2px var(--line)}
 .btn--ghost:hover{box-shadow:inset 0 0 0 2px var(--nuit)}
@@ -74,7 +78,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 
 <header class="hdr"><div class="wrap">
   <a href="index.html" aria-label="Mon Devis Déménagement, accueil">
-    <img src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="212" height="38">
+    <img src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="212" height="37">
   </a>
 </div></header>
 
@@ -107,7 +111,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
       efficace à votre disposition, et le seul qui soit entièrement entre vos mains.</p>
 
     <div class="acts">
-      <a class="btn btn--nuit" href="index.html#formules">Revoir les trois formules</a>
+      <a class="btn btn--cta" href="index.html#formules">Revoir les trois formules</a>
       <a class="btn btn--ghost" href="index.html#faq">Lire les questions fréquentes</a>
     </div>
   </div>

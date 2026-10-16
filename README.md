@@ -104,41 +104,59 @@ doivent s'afficher sans requête bloquante.
 
 ## Charte graphique
 
-Palette relevée directement sur
-[officiel-demenagement.com](https://www.officiel-demenagement.com/) : un **navy
-ardoise** en ancre et leur **vert pomme** en signal.
+Relevée au pixel sur
+[officiel-demenagement.com](https://www.officiel-demenagement.com/) — couleurs,
+polices, rayons et graisses lus dans leurs styles calculés, pas approximés.
 
-| Jeton           | Valeur    | Emploi                                | Contraste               |
-| --------------- | --------- | ------------------------------------- | ----------------------- |
-| `--nuit`        | `#222E3A` | Ancre : titres, sections sombres      | 13,82 / blanc           |
-| `--nuit-3`      | `#19232C` | Pied de page                          | blanc à 15,93 dessus    |
-| `--vert`        | `#8DC63F` | **Fond de bouton, encre navy dessus** | 6,76 avec `--nuit`      |
-| `--vert-fonce`  | `#466C22` | Le vert dès qu'il est du texte        | 6,13 / blanc            |
-| `--vert-2`      | `#77AC47` | **Décor seulement** (filets, tracés)  | 2,70 — jamais du texte  |
-| `--vert-pale`   | `#E3F0CC` | Pastilles d'icônes                    | navy à 11,58 dessus     |
-| `--gris`        | `#F4F5F9` | Fond de page                          | —                       |
-| `--ink`         | `#333333` | Texte courant                         | 12,63 / blanc           |
-| `--ink-3`       | `#5B6472` | Texte atténué                         | 5,98 / blanc            |
+| Jeton          | Valeur    | Emploi                                   | Contraste            |
+| -------------- | --------- | ---------------------------------------- | -------------------- |
+| `--magenta`    | `#CE0054` | **Action principale**, blanc dessus      | 5,60 — AA            |
+| `--magenta-2`  | `#A3003F` | Survol, anneau de focus                  | 7,99 / blanc         |
+| `--nuit`       | `#222E3A` | Ancre : hero, sections sombres, titres   | 13,82 / blanc        |
+| `--nuit-3`     | `#19232C` | Pied de page                             | blanc à 15,93 dessus |
+| `--vert`       | `#8DC63F` | Accent secondaire, encre navy dessus     | 6,76 avec `--nuit`   |
+| `--vert-fonce` | `#466C22` | Le vert en petit texte                   | 6,13 / blanc         |
+| `--gris`       | `#F4F5F9` | Fond de page                             | —                    |
+| `--ink`        | `#333333` | Texte courant                            | 12,63 / blanc        |
 
-Tous ces ratios sont **mesurés**, pas estimés.
+**Typographie :** **Roboto Slab** en titres (graisse **400**, comme eux — pas
+du 700, qui donnait un ton « start-up ») et **Roboto** en texte. Auto-hébergées
+depuis `fonts/`, licence Apache 2.0.
 
-### Deux écarts volontaires avec leur site
+**Formes :** rayons de **12 px** sur les boutons, **8 px** sur les champs et
+pastilles, **4 px** sur les grandes cartes — relevés chez eux. La version
+précédente utilisait des pastilles à 999 px et des cartes à 30 px, ce qui
+lisait « application mobile » plutôt que « déménageur ».
 
-1. **Leur site pose du blanc sur le vert pomme**, ce qui donne **2,04** — en
-   dessous de tout seuil lisible. Ici le vert pomme ne porte que l'encre navy
-   (**6,76**). C'est la même couleur de marque, en lisible.
-2. **Leur gris de texte `#8F929B`** plafonne à **3,11** sur blanc : inutilisable
-   en texte courant. Remplacé par `#5B6472`, de la même famille ardoise.
+### Trois écarts volontaires, mesure à l'appui
 
-L'anneau de focus ne peut pas être unique : `--vert-fonce` ne ressort pas sur
-le navy (2,85) et `--vert` disparaît sur blanc (2,04). Le vert foncé sert donc
-sur fond clair, et une règle bascule sur le vert pomme dans les sections
-sombres.
+1. Leur site pose du **blanc sur le vert pomme** : 2,04, illisible. Ici le vert
+   pomme ne porte que l'encre navy (6,76), et l'action principale passe sur
+   leur magenta, qui tient le blanc à 5,60.
+2. Leur **gris de texte `#8F929B`** plafonne à 3,11. Remplacé par `#5B6472`,
+   même famille ardoise, 5,98.
+3. Aucun anneau de focus ne tient sur navy **et** sur blanc : le magenta foncé
+   sert sur fond clair, une règle bascule sur le vert pomme en section sombre.
 
-Typographie : **Plus Jakarta Sans** (variable 400–800) pour le texte,
-**Instrument Serif italique** pour les accents de titre. Les deux sont sous
-licence SIL OFL et servies depuis `fonts/` — ni CDN, ni Google Fonts, donc
-aucune requête tierce au chargement.
+### Le hero
+
+Photo générée pour le projet (`img/hero-1600.jpg`, 110 Ko ; `hero-900.jpg`,
+41 Ko sous 900 px) : un séjour vide avec des cartons, dans l'esprit de leur
+hero photographique.
+
+Le voile navy par-dessus est **calibré, pas estimé**. Le pixel le plus clair
+sous le titre est du blanc pur — la fenêtre du cliché. Mesuré par
+échantillonnage de l'image en canvas :
+
+| Opacité du voile | Contraste du titre blanc |
+| ---------------- | ------------------------ |
+| 0,96             | 9,13                     |
+| **0,90** (retenu) | **6,06**                |
+| 0,86             | 4,94                     |
+| 0,80             | 3,88 — sous le seuil     |
+
+Le voile s'éclaircit jusqu'à 0,60 à droite, sous la carte du formulaire, où
+aucun texte clair ne repose sur la photo : c'est là qu'on la laisse se voir.
 
 ## Le formulaire
 
