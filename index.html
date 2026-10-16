@@ -406,13 +406,38 @@ section{padding:clamp(54px,7vw,92px) 0}
 @media (max-width:900px){.forms{grid-template-columns:1fr}.frm{height:auto}}
 
 /* Inclus */
-.incl{background:var(--gris-2)}
+.incl{background:var(--gris)}
 .incl__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,20px)}
 .inc{background:var(--white);border-radius:var(--r-md);padding:24px;box-shadow:inset 0 0 0 1px rgba(34,46,58,.09)}
-.inc .ico{width:25px;height:25px;color:var(--nuit)}
-.inc h3{font-size:16px;margin-top:13px;letter-spacing:-.022em}
+.med{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;flex:none}
+.med .ico{width:22px;height:22px;stroke-width:2.1}
+.med--rose{background:var(--rose-pale);color:var(--magenta)}
+.med--nuit{background:var(--nuit);color:var(--rose)}
+.med--clair{background:rgba(255,255,255,.12);color:var(--rose)}
+.inc h3{font-size:16px;margin-top:15px;letter-spacing:-.022em}
 .inc p{font-size:14.2px;color:var(--ink-2);margin-top:7px;line-height:1.5}
 .incl__g--3{grid-template-columns:repeat(3,1fr)}
+/* Support : une photo plutôt qu'une quatrième grille de cartes. C'est la
+   section la plus humaine de la page, autant qu'elle le montre. */
+.sup__in{display:grid;grid-template-columns:minmax(0,480px) minmax(0,1fr);
+  gap:clamp(26px,4vw,56px);align-items:center}
+.sup__img{aspect-ratio:3/2;overflow:hidden;border-radius:var(--r-md);background:var(--gris-2)}
+.sup__img img{width:100%;height:100%;object-fit:cover;display:block}
+.sup__l{display:grid;gap:clamp(18px,2.4vw,26px)}
+.sup__i{display:flex;gap:15px;align-items:flex-start}
+.sup__i h3{font-size:17px;letter-spacing:-.022em}
+.sup__i p{font-size:14.6px;color:var(--ink-2);margin-top:5px;line-height:1.5}
+@media (max-width:950px){.sup__in{grid-template-columns:1fr}}
+/* Qualité : fond sombre. Après trois sections claires d'affilée, c'est le
+   changement de valeur qui redonne du rythme — et il va au propos. */
+.qlt{background:var(--nuit)}
+.qlt .sec-h h2{color:#fff}
+.qlt .sec-h h2 .em{color:var(--rose)}
+.qlt .sec-h p{color:rgba(255,255,255,.74)}
+.qlt .inc{background:rgba(255,255,255,.055);box-shadow:inset 0 0 0 1px rgba(255,255,255,.11)}
+.qlt .inc h3{color:#fff}
+.qlt .inc p{color:rgba(255,255,255,.7)}
+.qlt .sec-cta .hint{color:rgba(255,255,255,.62)}
 @media (max-width:900px){.incl__g,.incl__g--3{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.incl__g,.incl__g--3{grid-template-columns:1fr}}
 
@@ -485,7 +510,8 @@ details .a p + p{margin-top:11px}
 .cs{display:flex;gap:14px;background:var(--white);border-radius:var(--r-sm);padding:19px;
   box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .16s,transform .16s var(--ease)}
 
-.cs .ico{width:23px;height:23px;color:var(--nuit);flex:none;margin-top:2px}
+.cs .med{width:40px;height:40px;margin-top:1px}
+.cs .med .ico{width:19px;height:19px}
 .cs h3{font-size:15.5px;letter-spacing:-.022em}
 .cs p{font-size:13.8px;color:var(--ink-2);margin-top:5px;line-height:1.5}
 @media (max-width:900px){.cas__g{grid-template-columns:1fr 1fr}}
@@ -1263,19 +1289,19 @@ details .a p + p{margin-top:11px}
       <p>Quelle que soit la formule retenue, ces quatre postes figurent au devis.</p>
     </div>
     <div class="incl__g rvl-g">
-      <div class="inc"><svg class="ico"><use href="#i-mail"/></svg>
+      <div class="inc"><span class="med med--rose"><svg class="ico"><use href="#i-mail"/></svg></span>
         <h3>Le transfert de vos contrats</h3>
         <p>Eau, gaz, électricité, internet et assurance&nbsp;: les démarches sont faites pour vous,
            sur les trois formules. C'est la corvée dont personne ne veut.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-shield"/></svg>
+      <div class="inc"><span class="med med--rose"><svg class="ico"><use href="#i-shield"/></svg></span>
         <h3>La protection du mobilier</h3>
         <p>Housses et papier bulle sur les meubles, housses dédiées pour les matelas et la literie.
            Compris même en formule Éco.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-truck"/></svg>
+      <div class="inc"><span class="med med--rose"><svg class="ico"><use href="#i-truck"/></svg></span>
         <h3>Chargement et livraison</h3>
         <p>Le camion, l'équipe, l'acheminement et la livraison à l'arrivée. Et le trajet cherché
            au plus court pour vous.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-cal"/></svg>
+      <div class="inc"><span class="med med--rose"><svg class="ico"><use href="#i-cal"/></svg></span>
         <h3>Le droit de changer d'avis</h3>
         <p>Modification ou annulation gratuite jusqu'à deux semaines avant la date retenue. Un
            déménagement se décale souvent&nbsp;: autant que ce soit prévu.</p></div>
@@ -1284,7 +1310,7 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section id="cas" style="background:var(--gris)">
+<section id="cas" style="background:var(--white);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-h ctr rvl">
       <h2>Votre déménagement <span class="em">n'est pas standard&nbsp;?</span></h2>
@@ -1292,27 +1318,27 @@ details .a p + p{margin-top:11px}
          pour votre cas seront consultés.</p>
     </div>
     <div class="cas__g rvl-g">
-      <div class="cs"><svg class="ico"><use href="#i-piano"/></svg><div>
+      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-piano"/></svg></span><div>
         <h3>Piano et objets lourds</h3>
         <p>Piano droit ou à queue, coffre-fort, aquarium, œuvre d'art&nbsp;: matériel spécifique,
            parfois un monte-meuble, et une assurance adaptée.</p></div></div>
-      <div class="cs"><svg class="ico"><use href="#i-lock"/></svg><div>
+      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-lock"/></svg></span><div>
         <h3>Garde-meuble</h3>
         <p>Quand la sortie et l'entrée ne se touchent pas&nbsp;: stockage sur un réseau de plus de
            350 sites, chiffré avec le reste du devis.</p></div></div>
-      <div class="cs"><svg class="ico"><use href="#i-moto"/></svg><div>
+      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-moto"/></svg></span><div>
         <h3>Moto, scooter, véhicule</h3>
         <p>Arrimé et couvert, il part dans le camion avec le reste de votre mobilier — sans
            convoyeur séparé ni second déplacement.</p></div></div>
-      <div class="cs"><svg class="ico"><use href="#i-globe"/></svg><div>
+      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-globe"/></svg></span><div>
         <h3>Déménagement international</h3>
         <p>Europe ou grand export&nbsp;: formalités douanières, inventaire valorisé et choix entre
            groupage maritime et camion dédié.</p></div></div>
-      <div class="cs"><svg class="ico"><use href="#i-island"/></svg><div>
+      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-island"/></svg></span><div>
         <h3>Outre-mer</h3>
         <p>Antilles, Guyane, Réunion, Mayotte, Polynésie&nbsp;: transport maritime en conteneur,
            avec des délais à anticiper largement.</p></div></div>
-      <div class="cs"><svg class="ico"><use href="#i-users"/></svg><div>
+      <div class="cs"><span class="med med--nuit"><svg class="ico"><use href="#i-users"/></svg></span><div>
         <h3>Mutation professionnelle</h3>
         <p>Déménagement pris en charge par l'employeur&nbsp;: facturation directe à l'entreprise et
            justificatifs pour le Mobili-Pass.</p></div></div>
@@ -1321,26 +1347,44 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section id="support" style="background:var(--white);border-block:1px solid var(--line)">
+<section id="support" style="background:var(--gris-2)">
   <div class="wrap">
-    <div class="sec-h ctr rvl">
+    <div class="sec-h rvl" style="max-width:46ch">
       <h2>Un interlocuteur, <span class="em">du devis au Jour J</span></h2>
       <p>Vous n'expliquez pas deux fois votre déménagement. Un conseiller suit votre dossier de bout
          en bout, et vous avez de quoi le joindre directement.</p>
     </div>
-    <div class="incl__g incl__g--3 rvl-g">
-      <div class="inc"><svg class="ico"><use href="#i-headset"/></svg>
-        <h3>Un conseiller dédié</h3>
-        <p>La même personne du premier appel jusqu'au Jour J. C'est elle qui supervise toute
-           l'organisation de votre déménagement.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-phone"/></svg>
-        <h3>Sa ligne directe et son e-mail</h3>
-        <p>Dès que votre dossier passe au service Planning, vous avez sa ligne directe et son
-           adresse e-mail. Plus de standard à repasser.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-truck"/></svg>
-        <h3>L'équipe qui se déplace</h3>
-        <p>Une fois la date fixée, vous recevez aussi les coordonnées des déménageurs qui viendront
-           le Jour J.</p></div>
+    <div class="sup__in">
+      <div class="sup__img rvl">
+        <img src="img/support.jpg" alt="Un bureau clair avec un casque téléphonique, un carnet ouvert et un ordinateur portable"
+             width="960" height="640" loading="lazy" decoding="async">
+      </div>
+      <div class="sup__l rvl-g">
+        <div class="sup__i">
+          <span class="med med--rose"><svg class="ico"><use href="#i-headset"/></svg></span>
+          <div>
+            <h3>Un conseiller dédié</h3>
+            <p>La même personne du premier appel jusqu'au Jour J. C'est elle qui supervise toute
+               l'organisation de votre déménagement.</p>
+          </div>
+        </div>
+        <div class="sup__i">
+          <span class="med med--rose"><svg class="ico"><use href="#i-phone"/></svg></span>
+          <div>
+            <h3>Sa ligne directe et son e-mail</h3>
+            <p>Dès que votre dossier passe au service Planning, vous avez sa ligne directe et son
+               adresse e-mail. Plus de standard à repasser.</p>
+          </div>
+        </div>
+        <div class="sup__i">
+          <span class="med med--rose"><svg class="ico"><use href="#i-truck"/></svg></span>
+          <div>
+            <h3>L'équipe qui se déplace</h3>
+            <p>Une fois la date fixée, vous recevez aussi les coordonnées des déménageurs qui
+               viendront le Jour J.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1355,7 +1399,7 @@ details .a p + p{margin-top:11px}
      ⚠ Dès que ces trois éléments seront connus, c'est ici qu'ils viennent —
      et c'est là que se joue l'écart avec les concurrents, dont aucun ne
      publie d'engagement d'assurance. -->
-<section id="qualite" style="background:var(--gris)">
+<section id="qualite" class="qlt">
   <div class="wrap">
     <div class="sec-h ctr rvl">
       <h2>Un métier réglementé, <span class="em">des droits qui vous protègent</span></h2>
@@ -1364,22 +1408,22 @@ details .a p + p{margin-top:11px}
          déménageur retenu.</p>
     </div>
     <div class="incl__g rvl-g">
-      <div class="inc"><svg class="ico"><use href="#i-route"/></svg>
+      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-route"/></svg></span>
         <h3>Une licence de transport</h3>
         <p>Le déménagement relève du transport routier. L'entreprise doit être inscrite au
            registre national des entreprises et au registre des transporteurs et des loueurs,
            et détenir la licence qui en découle.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-shield"/></svg>
+      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-shield"/></svg></span>
         <h3>Une assurance obligatoire</h3>
         <p>Le professionnel doit avoir souscrit une responsabilité civile professionnelle. La
            déclaration de valeur, elle, sert à déclarer à l'assurance le montant de votre
            mobilier&nbsp;: remplissez-la sérieusement.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-euro"/></svg>
+      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-euro"/></svg></span>
         <h3>Un devis détaillé</h3>
         <p>Il doit faire apparaître le prix de la main-d'œuvre, celui de la traction par tranche
            de volume avec un terme fixe et un terme kilométrique, les montants hors taxes et
            toutes taxes comprises, et les conditions générales.</p></div>
-      <div class="inc"><svg class="ico"><use href="#i-cal"/></svg>
+      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-cal"/></svg></span>
         <h3>Dix jours pour réclamer</h3>
         <p>En cas de casse ou de perte, inscrivez des réserves précises sur le bulletin de
            livraison avant de le signer, puis confirmez sous dix jours par lettre recommandée

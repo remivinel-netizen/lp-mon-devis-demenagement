@@ -254,6 +254,34 @@ Dès que matchmove.fr fournit un assureur, un montant de couverture et des
 critères de sélection des partenaires, c'est dans cette section qu'ils
 viennent — et l'écart devient difficile à rattraper.
 
+### Rompre le mur de cartes
+
+Quatre sections se suivaient avec la même grille — « Inclus dans les trois
+formules », « Votre déménagement n'est pas standard », « Un interlocuteur » et
+« Un métier réglementé » — soit **dix-sept cartes consécutives** au même
+gabarit : icône nue de 25 px, titre, paragraphe. À l'échelle de la page cela
+formait un mur que l'œil cesse de lire.
+
+Trois leviers, aucun n'ajoutant de poids notable :
+
+1. **Des médaillons plutôt que des icônes nues.** Pastille de 46 px, et une
+   teinte par section : rose pâle sur « Inclus », bleu nuit sur les cas
+   particuliers, blanc translucide sur la section sombre. Les grilles cessent
+   de se ressembler à distance.
+2. **Une photo dans la section support**, qui passe en deux colonnes. C'est la
+   section la plus humaine de la page, autant qu'elle le montre.
+3. **Un fond sombre sur la section qualité.** Après trois sections claires,
+   c'est le changement de valeur qui redonne du rythme — et il va au propos.
+   L'accent du titre y passe du magenta au rose : le magenta ne tient que
+   **2,47:1** sur le bleu nuit, sous le seuil de 3:1 exigé même pour du grand
+   texte, là où le rose atteint 5,16:1. Contrastes mesurés sur le reste :
+   13,82:1 pour le titre, 8,28:1 pour le chapô, 11,68:1 et 6,65:1 dans les
+   cartes, 6,30:1 pour la mention sous le bouton.
+
+Les fonds de section alternent désormais blanc, gris, blanc, gris foncé, nuit,
+rose. « Inclus » et « Cas particuliers » se suivaient auparavant sur deux gris
+séparés d'un demi-pour-cent de luminance — la transition ne se voyait pas.
+
 ### La carte de France
 
 Un **SVG**, pas une image : net à toutes les tailles, aux couleurs de la charte,
@@ -304,9 +332,15 @@ Pour de vrais portraits, il faut l'accord écrit de chaque personne citée.
 
 ### Les images
 
-Quatre photos générées pour le projet (hero + trois étapes), dans un registre
-commun : intérieurs français clairs, lumière naturelle, aucun visage, aucun
-texte, aucune marque sur le camion.
+Huit photos générées pour le projet (hero, trois étapes, trois de galerie, une
+de support), dans un registre commun : intérieurs français clairs, lumière
+naturelle, **aucun visage**, aucun texte, aucune marque sur le camion.
+
+Pas de visage, c'est une règle et non une préférence : un visage généré invente
+une personne, et sur une page qui parle de conseillers réels cela reviendrait à
+mettre un faux employé en vitrine. La photo de la section support montre donc un
+poste de travail — casque, carnet, ordinateur — et pas quelqu'un qui le
+tiendrait.
 
 Les trois images d'étapes font **3:2 à ratio fixe**, ce qui aligne les cartes
 quelle que soit la longueur du texte, et sont en `loading="lazy"` —
