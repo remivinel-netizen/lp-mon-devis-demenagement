@@ -207,10 +207,24 @@ donc la forme que l'œil attend — puis simplifié par **Douglas-Peucker** à
 environ 1 px près : **18,8 Ko au lieu de 68**, soit −73 % sans différence
 visible à cette échelle.
 
-Les 30 pastilles sont aux **coordonnées réelles** des communes, relevées sur
-`geo.api.gouv.fr` et projetées avec la même transformation que le tracé. Leur
-rayon suit la population, et elles se posent en cascade à l'entrée dans l'écran
-(délai porté par `--d`, calculé à la génération).
+**Un point par département** — les 96 de métropole — placés au *centroïde
+d'aire* de l'anneau principal de chaque département, plus juste que la moyenne
+des sommets qui se laisse tirer par les côtes découpées. Ils se posent en
+cascade à l'entrée dans l'écran.
+
+Au survol, la région passe au magenta. Le groupe des points est en
+`pointer-events:none`, sans quoi il capterait le survol à la place de la région
+qui le porte.
+
+> **Piège rencontré, à ne pas refaire.** Les points portaient leur position en
+> attribut `transform="translate(…)"` et l'animation en CSS `transform:scale()`.
+> Or **le transform CSS écrase l'attribut** : les points se sont tous empilés à
+> l'origine du SVG, formant une tache rose en haut à gauche. La position vit
+> désormais sur un `<g>` extérieur et l'animation sur un `<g>` intérieur.
+>
+> Second piège : l'observateur visait le `<g>` des points, dont la boîte était
+> collabée à **6 × 6 px** — un groupe SVG n'a pas de boîte de mise en page
+> fiable. Il vise maintenant le conteneur HTML `.carte__wrap` (520 × 501).
 
 **Vérification géométrique** : les 30 pastilles ont été testées une à une avec
 `isPointInFill` contre les tracés de régions — toutes tombent à l'intérieur.
@@ -219,6 +233,15 @@ une erreur de projection aurait fait flotter les villes hors des terres.
 
 > Attribution ODbL : le jeu de données d'origine doit rester crédité. Un
 > commentaire le fait dans le SVG.
+
+### Les avatars d'avis
+
+**Des initiales, pas des portraits.** Les avis cités sont ceux de personnes
+réelles, nommées sur Trustpilot ; leur attribuer un visage généré inventerait
+leur apparence. C'est aussi le parti de Trustpilot lui-même. La teinte de
+l'avatar est dérivée du nom, donc stable d'un chargement à l'autre.
+
+Pour de vrais portraits, il faut l'accord écrit de chaque personne citée.
 
 ### Les images
 
