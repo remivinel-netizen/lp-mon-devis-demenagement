@@ -242,10 +242,16 @@ revenir partout&nbsp;: un commentaire dans `index.html` indique où.
 
 ### Ce que le bloc « Ce que Mon Devis Déménagement vous garantit » affirme
 
-Il vit dans la section « Du premier carton au dernier meuble », et non dans une
-section à part : c'est le même sujet — ce que recouvre vraiment une prestation —
-et la page y gagne une section de moins. L'ancre `#qualite` est portée par le
-panneau, les liens de pied de page continuent donc de fonctionner.
+Il occupe désormais **toute** sa section. La galerie « Du premier carton au
+dernier meuble » qui l'accueillait — un en-tête et trois vignettes — a été
+retirée, et avec elle `gal-camion.jpg`, `gal-piano.jpg` et `gal-arrivee.jpg`.
+La page garde six photos, réparties sur les étapes, « Inclus » et le support.
+
+Le panneau étant seul, son titre est passé de `h3` à `h2` et les quatre postes
+de `h4` à `h3`&nbsp;: une section dont le premier titre est un `h3` casse le
+plan du document pour les lecteurs d'écran. Plan vérifié sur toute la page,
+aucun saut de plus d'un niveau. L'ancre `#qualite` reste portée par le panneau,
+les liens de pied de page continuent donc de fonctionner.
 
 **La ligne à ne pas franchir.** Le bloc a d'abord été titré « Ce que la loi
 vous garantit », puis mis au nom de la marque. La nuance n'est pas cosmétique.
@@ -392,8 +398,8 @@ Pour de vrais portraits, il faut l'accord écrit de chaque personne citée.
 
 ### Les images
 
-Neuf photos générées pour le projet (hero, trois étapes, trois de galerie, une
-de support, un bandeau panoramique), dans un registre commun : intérieurs français clairs, lumière
+Six photos générées pour le projet (hero, trois étapes, une de support, un
+bandeau panoramique), dans un registre commun : intérieurs français clairs, lumière
 naturelle, **aucun visage**, aucun texte, aucune marque sur le camion.
 
 Pas de visage, c'est une règle et non une préférence : un visage généré invente
