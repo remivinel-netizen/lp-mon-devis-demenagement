@@ -302,6 +302,32 @@ donc vérifiable en un clic.
 > Note et nombre d'avis sont figés dans le HTML : ils ne se mettent pas à jour
 > tout seuls. À rafraîchir en même temps que les citations.
 
+## Mobile
+
+Audité par mesure à **320, 360, 375, 414 et 768 px**, sur les cinq pages.
+Critères vérifiés à chaque largeur : débordement horizontal, texte tronqué,
+champs sous 16 px (iOS zoome au focus en dessous), texte sous 12 px, et zones
+de frappe sous 30 px.
+
+Ce que l'audit a trouvé et corrigé :
+
+| Problème | Cause |
+| --- | --- |
+| Libellé du bouton collant **tronqué** à 320 px | 232 px de contenu pour 225 disponibles — capitales interlettrées |
+| CTA de section à 295 px dans un conteneur de 284 | 44 px de rembourrage de chaque côté |
+| **197 px de débordement** sur la page confidentialité | `<li>` en flex : `min-width:auto` empêche de se rétrécir sous un `<code>` insécable |
+| Liens du pied de page à 16 px de haut | Pas de rembourrage vertical |
+| Libellés du schéma à 11,5 px | Règle résiduelle de l'ancien schéma, `width:64px` comprise |
+
+Le formulaire reste **au-dessus de la ligne de flottaison** à toutes les
+largeurs testées (première option entre 591 et 693 px), ses champs font 55 px
+de haut et 16 px de corps — pas de zoom automatique sur iOS.
+
+> `page.css` est appelée avec `?v=2`. Sans build qui hache les noms de
+> fichiers, **il faut incrémenter ce numéro à chaque modification du CSS**,
+> sinon les visiteurs déjà venus gardent l'ancienne feuille. C'est exactement
+> ce qui a masqué un correctif pendant cet audit.
+
 ## Animations
 
 Deux propriétés seulement — `opacity` et `transform` — donc tout reste sur le

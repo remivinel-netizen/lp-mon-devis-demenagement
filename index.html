@@ -378,11 +378,15 @@ section{padding:clamp(54px,7vw,92px) 0}
   font-variant-numeric:tabular-nums;line-height:1}
 .tp__note small{font-size:14px;font-weight:400;color:var(--ink-3)}
 .tp__txt{font-size:14px;color:var(--ink-2);text-align:left;line-height:1.4}
+.tp__txt a{display:inline-block;padding:5px 0}
 .tp__txt strong{color:var(--nuit)}
 .sec-h.ctr .tp{margin-inline:auto}
 @media (max-width:520px){.tp{flex-direction:column;gap:6px;text-align:center}.tp__txt{text-align:center}}
 
-.avis__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+/* Quatre avis : 2 par 2 plutôt que 3 + 1 orphelin. Les cartes y gagnent de
+   la place pour les citations longues. */
+.avis__g{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,22px);
+  max-width:900px;margin-inline:auto}
 .avi{background:var(--white);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
 .stars{display:flex;gap:3px;color:var(--magenta)}
 .stars .ico{width:17px;height:17px;fill:currentColor;stroke:none}
@@ -433,20 +437,14 @@ details .a p + p{margin-top:11px}
 .trj--nous .trj__l,.trj--nous .trj__k{color:var(--rose)}
 .trj--nous .seg--aller{background:var(--rose);color:var(--nuit)}
 @media (max-width:620px){
-  .seg{font-size:11px;padding:0 8px}
-  .trj__k{font-size:12px}
+  .seg{font-size:12px;padding:0 8px}
+  .trj__k{font-size:12.5px}
+  .trj__l{font-size:12px;letter-spacing:.06em}
 }
 .km__fig p{font-size:13.8px;color:rgba(255,255,255,.76);margin-top:19px;padding-top:17px;
   border-top:1px solid rgba(255,255,255,.17);line-height:1.5}
 .km__fig p b{color:var(--rose)}
 @media (max-width:950px){.km__in{grid-template-columns:1fr}}
-/* Les libellés des trajets sont en nowrap pour rester lisibles d'un coup
-   d'œil sur large écran. Sous ~620 px la chaîne la plus longue dépasse la
-   colonne et élargissait tout le bloc : on la laisse passer à la ligne. */
-@media (max-width:620px){
-  .trj__b{white-space:normal;height:auto;min-height:34px;padding:7px 11px;line-height:1.25;font-size:12.5px}
-  .trj__l{width:64px;font-size:11.5px}
-}
 
 /* Cas particuliers */
 .cas__g{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
@@ -610,6 +608,27 @@ details .a p + p{margin-top:11px}
   .cs:hover,.cs:hover .ico,.opt:hover .opt__ico,.tel:hover .tel__ico,
   .hdr__logo:hover img,.sticky__tel:hover{transform:none}
   .ftr a:hover{background-size:0 1px;text-decoration:underline}
+}
+
+/* ── Ajustements petits écrans ───────────────────────────────────────────
+   Mesuré à 320 px : les capitales interlettrées rendent les boutons larges.
+   Avec 44 px de rembourrage ils atteignaient 295 px dans un conteneur de 284,
+   et celui de la barre collante tronquait son libellé (232 px de contenu pour
+   225 px disponibles). On resserre le rembourrage plutôt que de réduire la
+   hauteur de frappe. */
+@media (max-width:420px){
+  .btn{padding:17px 18px;font-size:13.5px;letter-spacing:.07em}
+  .btn--lg{padding:19px 20px;font-size:14px}
+  .sticky .btn{padding:16px 10px;font-size:12.5px;letter-spacing:.04em}
+}
+
+/* Les liens du pied de page faisaient 16 px de haut : trop petits pour le
+   pouce. On les passe en blocs avec du rembourrage vertical — la zone de
+   frappe grandit sans que la mise en page bouge. */
+@media (max-width:760px){
+  .ftr ul{gap:2px}
+  .ftr li a{display:inline-block;padding:9px 0}
+  .ftr li{line-height:1.3}
 }
 
 /* Barre collante mobile */
@@ -1312,7 +1331,9 @@ var AVIS = [
   { t:"Personnel très réactif et agréable, capable de répondre à l'urgence dans la demi-heure.",
     n:"Loïc Rousseau", d:"Trustpilot — 10 septembre 2026", s:5 },
   { t:"Le travail a eu lieu le matin de bonne heure. L'emplacement est resté propre. Le personnel a été très aimable.",
-    n:"KLUSIAK", d:"Trustpilot — 10 août 2026", s:5 }
+    n:"KLUSIAK", d:"Trustpilot — 10 août 2026", s:5 },
+  { t:"Efficaces commercialement et le jour J. Simple et pratique.",
+    n:"Agathe Karinthi-Martin", d:"Trustpilot — 23 septembre 2026", s:5 }
 ];
 $('#avis-g').innerHTML = AVIS.map(function(a){
   var st=''; for(var i=0;i<5;i++) st += i<a.s ? '<svg class="ico"><use href="#i-star"/></svg>' : '';
