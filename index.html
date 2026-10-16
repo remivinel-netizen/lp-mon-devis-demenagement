@@ -189,7 +189,7 @@ h1 .em{color:var(--rose)}
 .chips li{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:400}
 .chips .ico{width:16px;height:16px;color:var(--rose);stroke-width:3}
 .hero__proof{margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);
-  display:grid;grid-template-columns:repeat(3,auto);gap:26px;justify-content:start}
+  display:grid;grid-template-columns:repeat(4,auto);gap:clamp(18px,2.2vw,30px);justify-content:start}
 .hero__proof b{display:block;font-size:26px;letter-spacing:-.03em;line-height:1.1}
 .hero__proof span{display:block;font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.35;margin-top:3px}
 @media (max-width:1000px){
@@ -208,8 +208,8 @@ h1 .em{color:var(--rose)}
   .hero__sub{order:3;margin-inline:auto;margin-bottom:26px}
   .quiz{order:4;text-align:left}
   .chips{order:5;justify-content:center;margin-top:30px}
-  .hero__proof{order:6;justify-content:center;grid-template-columns:repeat(3,1fr);
-    max-width:480px;margin-inline:auto;text-align:center;gap:14px}
+  .hero__proof{order:6;justify-content:center;grid-template-columns:repeat(2,1fr);
+    max-width:420px;margin-inline:auto;text-align:center;gap:18px 14px}
 }
 @media (max-width:560px){
   .hero{padding-top:24px}
@@ -812,9 +812,10 @@ details .a p + p{margin-top:11px}
         <li><svg class="ico"><use href="#i-check"/></svg>Modification ou annulation gratuite</li>
       </ul>
       <div class="hero__proof">
+        <div><b>4,3/5</b><span>sur 202 avis<br>Trustpilot</span></div>
+        <div><b>1 000+</b><span>déménageurs<br>partenaires</span></div>
         <div><b>1 h</b><span>pour recevoir<br>votre devis</span></div>
         <div><b>97 %</b><span>de clients<br>satisfaits</span></div>
-        <div><b>1 000+</b><span>déménageurs<br>partenaires</span></div>
       </div>
     </div>
 
