@@ -195,6 +195,41 @@ colorait ce qui vous est facturé **dans les deux cas**, si bien que l'œil ne
 distinguait pas le problème de la solution — et rien ne montrait l'économie. Le
 trajet à vide est désormais hachuré&nbsp;: il se lit comme du poids mort.
 
+### La carte de France
+
+Un **SVG**, pas une image : net à toutes les tailles, aux couleurs de la charte,
+et animable.
+
+Le tracé vient du jeu de données ouvert
+[france-geojson](https://github.com/gregoiredavid/france-geojson) (ODbL,
+données IGN), projeté en **Mercator** — celle de toutes les cartes en ligne,
+donc la forme que l'œil attend — puis simplifié par **Douglas-Peucker** à
+environ 1 px près : **18,8 Ko au lieu de 68**, soit −73 % sans différence
+visible à cette échelle.
+
+Les 30 pastilles sont aux **coordonnées réelles** des communes, relevées sur
+`geo.api.gouv.fr` et projetées avec la même transformation que le tracé. Leur
+rayon suit la population, et elles se posent en cascade à l'entrée dans l'écran
+(délai porté par `--d`, calculé à la génération).
+
+**Vérification géométrique** : les 30 pastilles ont été testées une à une avec
+`isPointInFill` contre les tracés de régions — toutes tombent à l'intérieur.
+C'est la preuve que la projection du contour et celle des villes coïncident ;
+une erreur de projection aurait fait flotter les villes hors des terres.
+
+> Attribution ODbL : le jeu de données d'origine doit rester crédité. Un
+> commentaire le fait dans le SVG.
+
+### Les images
+
+Quatre photos générées pour le projet (hero + trois étapes), dans un registre
+commun : intérieurs français clairs, lumière naturelle, aucun visage, aucun
+texte, aucune marque sur le camion.
+
+Les trois images d'étapes font **3:2 à ratio fixe**, ce qui aligne les cartes
+quelle que soit la longueur du texte, et sont en `loading="lazy"` —
+elles sont loin sous la ligne de flottaison. Entre 43 et 69 Ko chacune.
+
 ### Le hero
 
 Photo générée pour le projet (`img/hero-1600.jpg`, 110 Ko ; `hero-900.jpg`,
