@@ -506,18 +506,31 @@ details .a p + p{margin-top:11px}
 .km__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(30px,4vw,64px);align-items:center}
 .km__fig{background:var(--nuit);border-radius:var(--r-md);padding:clamp(22px,3vw,30px);color:#fff}
 .km__fig h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--rose);margin-bottom:20px}
-.duo__t{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:9px;
-  font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-stretch:88%}
-.duo__a{color:var(--rose)}
-.duo__b{color:rgba(255,255,255,.55);text-align:right}
-/* La piste porte le fond « retour à vide » sur toute sa longueur : l'étiquette
-   de droite ne bouge donc jamais, même pendant que le rose se déploie. */
-.duo{position:relative;height:46px;border-radius:6px;overflow:hidden;
-  background:repeating-linear-gradient(135deg,rgba(255,255,255,.09) 0 6px,rgba(255,255,255,.03) 6px 12px)}
-.duo__s{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding:0 13px;
-  font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden}
-.duo__s--oui{left:0;width:50%;background:var(--rose);color:var(--nuit)}
-.duo__s--non{left:50%;right:0;color:rgba(255,255,255,.55)}
+/* Deux factures côte à côte. Une barre demandait encore de convertir une
+   longueur en kilomètres ; une ligne de facture, non — c'est l'objet que le
+   visiteur redoute, montré tel qu'il le recevra. Le poste « retour à vide »
+   est barré à droite, pas supprimé : c'est le même devis, moins une ligne. */
+.fact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(11px,1.5vw,15px)}
+.fac{background:rgba(0,0,0,.14);border-radius:var(--r-sm);
+  padding:clamp(15px,1.9vw,19px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09)}
+.fac--oui{box-shadow:inset 0 0 0 1.5px var(--rose)}
+.fac .fac__l{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.085em;
+  font-stretch:90%;color:rgba(255,255,255,.62);margin:0 0 12px;padding:0;border:0}
+.fac--oui .fac__l{color:var(--rose)}
+.fac__r{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-size:13.8px;padding:4px 0;color:rgba(255,255,255,.88)}
+.fac__r em{font-style:normal;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+/* Le poste annulé reste lisible : il porte l'argument autant que le total. */
+.fac__r--off{color:rgba(255,255,255,.52)}
+.fac__r--off span{text-decoration:line-through;text-decoration-thickness:1.2px}
+.fac__t{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  margin-top:10px;padding-top:11px;border-top:1px solid rgba(255,255,255,.16)}
+.fac__t span{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.085em;
+  font-stretch:90%;color:rgba(255,255,255,.62)}
+.fac__t b{font-size:clamp(23px,2.9vw,30px);letter-spacing:-.035em;line-height:1;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.fac--oui .fac__t b{color:var(--rose)}
+@media (max-width:560px){.fact{grid-template-columns:1fr}}
 .km__fig p{font-size:13.8px;color:rgba(255,255,255,.76);margin-top:19px;padding-top:17px;
   border-top:1px solid rgba(255,255,255,.17);line-height:1.5}
 .km__fig p b{color:var(--rose)}
@@ -585,16 +598,16 @@ details .a p + p{margin-top:11px}
   transition:opacity .4s var(--ease) var(--d),transform .5s var(--ease) var(--d)}
 .js-anim .carte__wrap.vu .pin{opacity:1;transform:none}
 
-/* La moitié facturée se déploie sur la piste : la longueur étant l'argument,
-   la voir se construire vaut mieux que la découvrir figée. C'est la largeur
-   qui bouge, pas une mise à l'échelle — le texte à l'intérieur resterait
-   déformé pendant toute la transition. */
-.js-anim .duo__s--oui{width:0;transition:width .85s var(--ease)}
-.js-anim .trajet.vu .duo__s--oui{width:50%}
+/* Les deux factures se posent l'une après l'autre : on lit d'abord ce qu'on
+   paie ailleurs, puis ce qu'on paie ici. */
+.js-anim .fac{opacity:0;transform:translateY(10px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.js-anim .trajet.vu .fac{opacity:1;transform:none}
+.js-anim .trajet.vu .fac--oui{transition-delay:.2s}
 
 @media (prefers-reduced-motion:reduce){
   .js-anim .rvl,.js-anim .rvl-g > *,.js-anim .pin{opacity:1;transform:none;transition:none}
-  .js-anim .duo__s--oui{width:50%;transition:none}
+  .js-anim .fac{opacity:1;transform:none;transition:none}
   .btn::after{display:none}
 }
 
@@ -1202,15 +1215,21 @@ details .a p + p{margin-top:11px}
       </div>
     </div>
     <div class="km__fig rvl">
-      <h3>Lyon → Lille · 1 380 km aller-retour</h3>
+      <h3>Ce qui apparaît sur votre facture</h3>
       <div class="trajet">
-        <div class="duo__t">
-          <span class="duo__a">Camion déjà sur la route&nbsp;: 690 km</span>
-          <span class="duo__b">Camion dédié&nbsp;: 1 380 km</span>
-        </div>
-        <div class="duo">
-          <span class="duo__s duo__s--oui">L'aller</span>
-          <span class="duo__s duo__s--non">Le retour à vide</span>
+        <div class="fact">
+          <div class="fac">
+            <p class="fac__l">Camion dédié</p>
+            <div class="fac__r"><span>Aller Lyon → Lille</span><em>690 km</em></div>
+            <div class="fac__r"><span>Retour à vide</span><em>690 km</em></div>
+            <div class="fac__t"><span>Total</span><b>1 380 km</b></div>
+          </div>
+          <div class="fac fac--oui">
+            <p class="fac__l">Camion déjà sur la route</p>
+            <div class="fac__r"><span>Aller Lyon → Lille</span><em>690 km</em></div>
+            <div class="fac__r fac__r--off"><span>Retour à vide</span><em>0 km</em></div>
+            <div class="fac__t"><span>Total</span><b>690 km</b></div>
+          </div>
         </div>
       </div>
       <p>Un camion qui monte seul doit redescendre à vide, et vous facture les deux trajets.

@@ -187,21 +187,30 @@ particulier.
 
 ### Le schéma du retour à vide
 
-**Une seule barre, coupée en deux.** La piste entière vaut l'aller-retour, soit
-1 380 km&nbsp;; l'incrustation rose vaut ce qui est facturé quand le camion
-passait déjà par là. Le rapport est **exactement 2 pour 1**, mesuré à 0,500.
+**Deux factures côte à côte.** À gauche le camion dédié — aller 690 km, retour
+à vide 690 km, total 1 380. À droite le camion déjà sur la route, même aller,
+poste « retour à vide » **barré à 0 km**, total 690 en rose.
 
-La version précédente empilait deux barres et faisait lire **huit zones de
-texte** avant que l'argument n'arrive&nbsp;: un titre, deux libellés de ligne,
-deux kilométrages, deux étiquettes dans les barres, un paragraphe. Elle
-demandait aussi de décoder « aller chargé » et « retour à vide » — deux notions
-de transport — pour comprendre qu'on paie la route deux fois. On en est à
-quatre zones, et le rapport se voit sans compter.
+Le bloc a connu trois états. Deux barres empilées d'abord, qui faisaient lire
+**huit zones de texte** et demandaient de décoder « aller chargé » et « retour
+à vide » avant de comprendre qu'on paie la route deux fois. Puis une seule
+barre coupée en deux, qui ramenait à quatre zones mais demandait encore de
+convertir une longueur en kilomètres. Une ligne de facture, elle, ne se
+convertit pas&nbsp;: c'est l'objet que le visiteur redoute, montré tel qu'il le
+recevra. Le poste annulé est **barré et non supprimé** — c'est le même devis,
+moins une ligne.
 
-Le fond hachuré porte désormais la piste entière, et non plus un segment&nbsp;:
-l'étiquette de droite ne bouge donc jamais pendant que le rose se déploie.
-C'est la **largeur** qui est animée, pas une mise à l'échelle — un `scaleX`
-déformait le texte à l'intérieur pendant toute la transition.
+Les cartes sont **enfoncées** dans le panneau (`rgba(0,0,0,.14)`) et non posées
+dessus. Sur un fond éclairci, le rose du libellé tombait à 4,36:1 et la ligne
+barrée à 4,44:1, sous les 4,5:1 exigés à ces tailles. En les assombrissant,
+tout remonte&nbsp;: 5,61:1 pour le libellé rose et le total rose, 5,14:1 pour
+la ligne barrée, 9,26:1 et 11,94:1 pour les libellés et lignes de gauche,
+15,04:1 pour le total de gauche.
+
+> Piège de spécificité rencontré ici&nbsp;: le libellé de carte est un `<p>`, et
+> `.km__fig p` (0,0,1,1) battait `.fac__l` (0,0,1,0). Le libellé héritait du
+> corps 13,8 px, du filet supérieur et de la marge de la légende de bas de
+> bloc. Scoper en `.fac .fac__l` suffit à reprendre la main.
 
 ### Pourquoi « le retour à vide » et non « vous ne payez que l'aller »
 
