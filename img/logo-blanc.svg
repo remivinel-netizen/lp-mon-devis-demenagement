@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 44" role="img" aria-label="Mon Devis Déménagement">
-  <!-- Variante sur fond sombre : le carton passe en kraft, le wordmark en blanc. -->
+  <!-- Variante sur fond sombre : le carton passe en vert pomme, le wordmark en blanc. -->
   <g>
-    <rect x="1.6" y="4.6" width="34.8" height="34.8" rx="10" fill="#EADBC4"/>
-    <rect x="16.2" y="4.6" width="5.6" height="34.8" fill="#0C3B2E" opacity=".22"/>
-    <path d="M11 26.5 19 18.5 27 26.5" fill="none" stroke="#0C3B2E" stroke-width="3.1"
+    <rect x="1.6" y="4.6" width="34.8" height="34.8" rx="10" fill="#8DC63F"/>
+    <rect x="16.2" y="4.6" width="5.6" height="34.8" fill="#222E3A" opacity=".22"/>
+    <path d="M11 26.5 19 18.5 27 26.5" fill="none" stroke="#222E3A" stroke-width="3.1"
           stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M19 18.9V30" fill="none" stroke="#0C3B2E" stroke-width="3.1" stroke-linecap="round"/>
+    <path d="M19 18.9V30" fill="none" stroke="#222E3A" stroke-width="3.1" stroke-linecap="round"/>
   </g>
   <text x="46" y="20.3" font-family="'Plus Jakarta Sans',system-ui,sans-serif"
         font-size="14.5" font-weight="800" fill="#ffffff" letter-spacing="-.45">Mon Devis</text>

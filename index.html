@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Déménagement : devis gratuit en 1 minute, cartons et assurance compris — Mon Devis Déménagement</title>
 <meta name="description" content="Estimez le budget de votre déménagement en 1 minute. Déménageurs professionnels partout en France, cartons livrés, assurance et changement d'adresse compris. Ne payez que les kilomètres aller.">
-<meta name="theme-color" content="#0C3B2E">
+<meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://mon-devis-demenagement.fr/">
 
@@ -30,35 +30,45 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 <style>
 /* ──────────────────────────────────────────────────────────────────────────
    CHARTE — Mon Devis Déménagement
-   Le secteur est entièrement bleu : officiel-demenagement, nextories et
-   demenagement24 utilisent tous les trois le même bleu corporate. On prend
-   donc le contre-pied avec un vert forêt profond + un kraft de carton, qui
-   dit le métier (le carton) au lieu de dire la catégorie (le bleu).
-   Les contrastes ci-dessous sont mesurés, pas estimés.
+   Reprise de la palette de l'Officiel du Déménagement, relevée sur leur site :
+   un navy ardoise #222E3A en ancre et leur vert pomme #8DC63F en signal.
+   Une correction d'accessibilité près : leur site pose du blanc sur le vert
+   pomme, qui ne donne que 2,04 — illisible. On y met l'encre navy (6,76).
+   Même logique pour leur gris de texte #8F929B (3,11) : inutilisable en
+   texte courant, remplacé par un gris ardoise de la même famille.
+   Tous les ratios ci-dessous sont mesurés.
    ────────────────────────────────────────────────────────────────────────── */
 :root{
-  /* Ancre de marque. 12,50 sur blanc et 11,70 sur sable : porte les titres
-     comme les grands aplats, et le blanc dessus tient à 12,50. */
-  --foret:#0C3B2E;  --foret-2:#14543F;
-  /* Teintes douces pour les blocs. Décoratives : aucun texte ne s'y mesure. */
-  --menthe:#D6EADF; --menthe-pale:#EBF5EF;
-  /* Le carton. --kraft sert de fond clair (l'encre y tient à 12,13),
-     --kraft-fonce reste décoratif : filets, bandes de scotch, séparateurs. */
-  --kraft:#EADBC4;  --kraft-fonce:#D9B98B;
-  --sable:#FBF7F0;  --white:#fff;
-  /* Signal d'action. --brique passe AA en texte normal (4,95 sur blanc,
-     4,64 sur sable) et porte le blanc à 4,95 : c'est la couleur des boutons.
-     --brique-fonce (7,10) prend le relais dès que la brique devient du petit
-     texte. --brique-vif tombe à 3,71 : décor et survol uniquement, jamais
-     de texte courant. */
-  --brique:#C4461E; --brique-fonce:#9E3415; --brique-vif:#E05A2B;
-  --ink:#1B201E; --ink-2:#4C5551; --ink-3:#6B746F;
-  --line:rgba(27,32,30,.10); --line-2:rgba(27,32,30,.17);
-  --err:#B3261E;
+  /* Ancre de marque, relevée telle quelle sur leur site. 13,82 sur blanc,
+     et le blanc dessus tient à 13,82 : titres et grands aplats sombres. */
+  --nuit:#222E3A;  --nuit-2:#2C3845;  --nuit-3:#19232C;
+  /* Leur vert pomme. Fond de bouton UNIQUEMENT, avec l'encre navy dessus
+     (6,76). Jamais de blanc dessus, jamais en texte sur fond clair : il
+     tombe à 2,04. Sert aussi d'accent sur le navy, où il donne 6,76. */
+  --vert:#8DC63F;
+  /* Le vert dès qu'il devient du texte sur fond clair : 6,13 sur blanc,
+     5,62 sur le gris, 5,13 sur la teinte vert pâle. Tient partout. */
+  --vert-fonce:#466C22;
+  /* Décoratif seulement : bandes de scotch, tracés, filets. */
+  --vert-2:#77AC47;
+  /* Teintes claires pour les pastilles et les fonds de bloc. */
+  --vert-pale:#E3F0CC; --vert-brume:#F1F8E6;
+  /* Leurs gris d'interface. */
+  --gris:#F4F5F9; --gris-2:#EBECEF; --white:#fff;
+  /* Encre. --ink-3 est le plus clair qui reste lisible en petit texte
+     (5,98 sur blanc, 5,49 sur le gris). */
+  --ink:#333333; --ink-2:#4A5260; --ink-3:#5B6472;
+  --line:rgba(34,46,58,.11); --line-2:rgba(34,46,58,.18);
+  --err:#A52539;
+  /* L'anneau de focus doit contraster avec le fond qu'il touche. Aucune
+     couleur ne tient à la fois sur blanc et sur navy : le vert foncé sert
+     sur fond clair, et une règle plus bas bascule sur le vert pomme dans
+     les sections sombres. */
+  --focus:#466C22;
   --r-lg:30px; --r-md:20px; --r-sm:13px;
   --ease:cubic-bezier(.32,.72,0,1);
-  --shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 34px 70px -28px rgba(12,59,46,.46), 0 0 0 1px rgba(27,32,30,.05);
-  --shadow-sm:0 10px 26px -14px rgba(12,59,46,.38), 0 0 0 1px rgba(27,32,30,.06);
+  --shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 34px 70px -28px rgba(34,46,58,.42), 0 0 0 1px rgba(34,46,58,.06);
+  --shadow-sm:0 10px 26px -14px rgba(34,46,58,.34), 0 0 0 1px rgba(34,46,58,.07);
   --font:'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --serif:'Instrument Serif', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --wrap:1200px;
@@ -72,7 +82,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-body{margin:0;background:var(--sable);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--gris);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,svg{max-width:100%}
 h1,h2,h3,h4{margin:0;line-height:1.1;letter-spacing:-.025em;font-weight:800}
 p{margin:0}
@@ -81,61 +91,66 @@ button{font:inherit;color:inherit}
 .em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.005em}
 .wrap{width:min(100% - 36px, var(--wrap));margin-inline:auto}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-:where(a,button,input,select,summary,label.opt):focus-visible{outline:3px solid var(--brique-vif);outline-offset:2px;border-radius:8px}
+:where(a,button,input,select,summary,label.opt):focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:8px}
+/* Sur le navy, le vert foncé ne ressort pas (2,85) : on bascule sur le vert
+   pomme, qui y donne 6,76. */
+.hero :focus-visible,.km :focus-visible,.final :focus-visible,.ftr :focus-visible,
+.sticky__tel:focus-visible{outline-color:var(--vert)}
 
 /* ── Boutons ─────────────────────────────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;
   font-weight:700;font-size:16.5px;letter-spacing:-.012em;padding:17px 28px;border-radius:999px;
   text-decoration:none;transition:transform .16s var(--ease),background .16s,box-shadow .16s;white-space:nowrap}
 .btn:active{transform:translateY(1px)}
-.btn--brique{background:var(--brique);color:#fff;box-shadow:0 12px 26px -12px rgba(196,70,30,.75)}
-.btn--brique:hover{background:var(--brique-fonce)}
-.btn--foret{background:var(--foret);color:#fff}
-.btn--foret:hover{background:var(--foret-2)}
-.btn--ghost{background:transparent;color:var(--foret);box-shadow:inset 0 0 0 2px var(--line-2)}
-.btn--ghost:hover{box-shadow:inset 0 0 0 2px var(--foret)}
+/* Le vert pomme ne porte que l'encre navy : avec du blanc il tombe à 2,04. */
+.btn--vert{background:var(--vert);color:var(--nuit);box-shadow:0 12px 26px -14px rgba(119,172,71,.6)}
+.btn--vert:hover{background:#7FB833}
+.btn--nuit{background:var(--nuit);color:#fff}
+.btn--nuit:hover{background:var(--nuit-2)}
+.btn--ghost{background:transparent;color:var(--nuit);box-shadow:inset 0 0 0 2px var(--line-2)}
+.btn--ghost:hover{box-shadow:inset 0 0 0 2px var(--nuit)}
 .btn--lg{padding:20px 34px;font-size:18px}
 .btn--full{width:100%}
 .ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
 /* ── En-tête ─────────────────────────────────────────────────────────────── */
-.hdr{position:relative;z-index:30;background:var(--sable);border-bottom:1px solid var(--line)}
+.hdr{position:relative;z-index:30;background:var(--gris);border-bottom:1px solid var(--line)}
 .hdr__in{display:flex;align-items:center;gap:20px;padding:13px 0;justify-content:space-between}
 .hdr__logo{display:flex;align-items:center;text-decoration:none}
 .hdr__logo img{width:188px;height:auto;display:block}
 .hdr__r{display:flex;align-items:center;gap:22px}
 .tel{display:flex;align-items:center;gap:10px;text-decoration:none}
-.tel__ico{width:40px;height:40px;border-radius:50%;background:var(--menthe);color:var(--foret);display:grid;place-items:center;flex:none}
+.tel__ico{width:40px;height:40px;border-radius:50%;background:var(--vert-pale);color:var(--nuit);display:grid;place-items:center;flex:none}
 .tel__ico .ico{width:19px;height:19px}
-.tel b{display:block;font-size:16px;letter-spacing:-.015em;color:var(--foret)}
+.tel b{display:block;font-size:16px;letter-spacing:-.015em;color:var(--nuit)}
 .tel small{display:block;font-size:12.5px;color:var(--ink-3);line-height:1.3}
 @media (max-width:900px){.hdr__logo img{width:150px}.tel small{display:none}.hdr .btn{display:none}}
 @media (max-width:560px){.tel b{display:none}.hdr__in{padding:11px 0}}
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
-.hero{position:relative;background:var(--foret);color:#fff;overflow:clip;padding:clamp(34px,5vw,62px) 0 clamp(46px,6vw,78px)}
+.hero{position:relative;background:var(--nuit);color:#fff;overflow:clip;padding:clamp(34px,5vw,62px) 0 clamp(46px,6vw,78px)}
 /* Fond : un dégradé profond, une bande de scotch kraft en diagonale et un
    tracé d'itinéraire pointillé. Tout est en CSS/SVG — aucune image à charger
    avant le premier rendu, le formulaire s'affiche donc immédiatement. */
 .hero::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(120% 90% at 8% 0%, #1A6B4F 0%, transparent 55%),
-             radial-gradient(90% 80% at 100% 100%, #0A3327 0%, transparent 60%)}
+  background:radial-gradient(120% 90% at 8% 0%, #33455A 0%, transparent 55%),
+             radial-gradient(90% 80% at 100% 100%, #141C24 0%, transparent 60%)}
 .hero__tape{position:absolute;top:-70px;right:-130px;width:420px;height:150px;transform:rotate(-24deg);
-  background:repeating-linear-gradient(90deg,var(--kraft-fonce) 0 26px,#CDAB7A 26px 30px);opacity:.13;border-radius:4px}
+  background:repeating-linear-gradient(90deg,var(--vert-2) 0 26px,#5E8F32 26px 30px);opacity:.15;border-radius:4px}
 .hero__route{position:absolute;left:0;right:0;bottom:-6px;height:190px;opacity:.16;pointer-events:none}
 .hero__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(28px,4vw,58px);align-items:start}
 .hero__copy{padding-top:clamp(4px,2vw,26px)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;letter-spacing:.04em;
-  text-transform:uppercase;color:var(--kraft);background:rgba(234,219,196,.12);
+  text-transform:uppercase;color:var(--vert);background:rgba(234,219,196,.12);
   padding:8px 15px;border-radius:999px;margin-bottom:20px}
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--kraft-fonce);flex:none}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--vert-2);flex:none}
 h1{font-size:clamp(35px,5.4vw,60px);letter-spacing:-.035em}
-h1 .em{color:var(--kraft);font-size:1.07em;line-height:.95;display:inline-block}
+h1 .em{color:var(--vert);font-size:1.07em;line-height:.95;display:inline-block}
 .hero__sub{margin-top:20px;font-size:clamp(16.5px,1.65vw,19.5px);line-height:1.55;color:rgba(255,255,255,.86);max-width:30em}
 .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;padding:0;list-style:none}
 .chips li{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.17);padding:9px 15px;border-radius:999px}
-.chips .ico{width:15px;height:15px;color:var(--kraft);stroke-width:2.6}
+.chips .ico{width:15px;height:15px;color:var(--vert);stroke-width:2.6}
 .hero__proof{margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);
   display:grid;grid-template-columns:repeat(3,auto);gap:26px;justify-content:start}
 .hero__proof b{display:block;font-size:26px;letter-spacing:-.03em;line-height:1.1}
@@ -171,9 +186,9 @@ h1 .em{color:var(--kraft);font-size:1.07em;line-height:.95;display:inline-block}
 .quiz__ttl{font-size:19px;letter-spacing:-.025em}
 .quiz__meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:5px}
 .quiz__meta p{font-size:13.5px;color:var(--ink-3)}
-.quiz__count{font-size:13px;font-weight:700;color:var(--foret);font-variant-numeric:tabular-nums;flex:none}
-.bar{height:5px;border-radius:999px;background:var(--menthe);overflow:hidden;margin-top:13px}
-.bar i{display:block;height:100%;width:0;background:var(--brique);border-radius:999px;transition:width .4s var(--ease)}
+.quiz__count{font-size:13px;font-weight:700;color:var(--nuit);font-variant-numeric:tabular-nums;flex:none}
+.bar{height:5px;border-radius:999px;background:var(--vert-pale);overflow:hidden;margin-top:13px}
+.bar i{display:block;height:100%;width:0;background:var(--vert-2);border-radius:999px;transition:width .4s var(--ease)}
 .quiz__view{padding:22px 26px 26px}
 @media (max-width:560px){.quiz__top{padding:18px 18px 0}.quiz__view{padding:18px}}
 
@@ -186,20 +201,20 @@ h1 .em{color:var(--kraft);font-size:1.07em;line-height:.95;display:inline-block}
 .opts--2{grid-template-columns:1fr 1fr}
 @media (max-width:420px){.opts--2{grid-template-columns:1fr}}
 .opt{position:relative;display:flex;align-items:center;gap:13px;padding:13px 15px;border-radius:var(--r-sm);
-  background:var(--sable);box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;
+  background:var(--gris);box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;
   transition:box-shadow .15s,background .15s,transform .15s var(--ease)}
-.opt:hover{background:var(--menthe-pale);box-shadow:inset 0 0 0 1.5px var(--foret)}
+.opt:hover{background:var(--vert-brume);box-shadow:inset 0 0 0 1.5px var(--nuit)}
 .opt input{position:absolute;opacity:0;width:0;height:0}
-.opt__ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:none;background:var(--menthe);color:var(--foret)}
+.opt__ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:none;background:var(--vert-pale);color:var(--nuit)}
 .opt__ico .ico{width:20px;height:20px}
 .opt__txt{flex:1;font-weight:700;font-size:15.5px;letter-spacing:-.015em;line-height:1.25;min-width:0}
 .opt__txt small{display:block;font-weight:500;font-size:13px;color:var(--ink-3);margin-top:2px;letter-spacing:0}
 .opt__tick{width:22px;height:22px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 2px var(--line-2);display:grid;place-items:center}
 .opt__tick svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .15s}
-.opt input:checked ~ .opt__tick{background:var(--foret);box-shadow:none}
+.opt input:checked ~ .opt__tick{background:var(--nuit);box-shadow:none}
 .opt input:checked ~ .opt__tick svg{opacity:1}
-.opt:has(input:checked){background:var(--menthe-pale);box-shadow:inset 0 0 0 2px var(--foret)}
-.opt input:focus-visible ~ .opt__tick{outline:3px solid var(--brique-vif);outline-offset:2px}
+.opt:has(input:checked){background:var(--vert-brume);box-shadow:inset 0 0 0 2px var(--nuit)}
+.opt input:focus-visible ~ .opt__tick{outline:3px solid var(--focus);outline-offset:2px}
 
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:17px}
 .grid2--cp{grid-template-columns:128px 1fr}
@@ -208,69 +223,69 @@ h1 .em{color:var(--kraft);font-size:1.07em;line-height:.95;display:inline-block}
 .field label{font-size:13px;font-weight:700;color:var(--ink-2);letter-spacing:-.005em}
 .field input,.field select{width:100%;padding:13px 14px;border-radius:var(--r-sm);border:1.5px solid var(--line-2);
   background:var(--white);font:inherit;font-size:16px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
-.field input:focus,.field select:focus{outline:0;border-color:var(--foret);box-shadow:0 0 0 3px var(--menthe)}
+.field input:focus,.field select:focus{outline:0;border-color:var(--nuit);box-shadow:0 0 0 3px var(--vert-pale)}
 .field input[aria-invalid="true"],.field select[aria-invalid="true"]{border-color:var(--err);box-shadow:0 0 0 3px rgba(179,38,30,.13)}
 .field select{appearance:none;cursor:pointer;padding-right:40px;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234C5551' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 13px center;background-size:17px}
 .tel-f{display:flex;align-items:stretch}
 .tel-f .cc{display:grid;place-items:center;padding:0 13px;border:1.5px solid var(--line-2);border-right:0;
-  border-radius:var(--r-sm) 0 0 var(--r-sm);background:var(--sable);font-weight:700;font-size:15px;color:var(--ink-2)}
+  border-radius:var(--r-sm) 0 0 var(--r-sm);background:var(--gris);font-weight:700;font-size:15px;color:var(--ink-2)}
 .tel-f input{border-radius:0 var(--r-sm) var(--r-sm) 0}
 .note{font-size:13px;margin-top:9px;color:var(--ink-3);line-height:1.45;min-height:1px}
 .note.bad{color:var(--err);font-weight:600}
-.note.ok{color:var(--foret);font-weight:600}
+.note.ok{color:var(--nuit);font-weight:600}
 .communes{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
 .communes:empty{margin:0}
 .cmn{border:1.5px solid var(--line-2);background:var(--white);border-radius:999px;padding:8px 14px;
   font-size:14px;font-weight:600;cursor:pointer;transition:.14s}
-.cmn:hover{border-color:var(--foret);background:var(--menthe-pale)}
-.cmn[aria-pressed="true"]{background:var(--foret);border-color:var(--foret);color:#fff}
+.cmn:hover{border-color:var(--nuit);background:var(--vert-brume)}
+.cmn[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
 .acts{display:flex;gap:10px;margin-top:19px}
 .acts .btn{flex:1}
 .consent{display:flex;gap:12px;align-items:flex-start;margin-top:17px;padding:14px;border-radius:var(--r-sm);
-  background:var(--sable);cursor:pointer}
+  background:var(--gris);cursor:pointer}
 .consent p{font-size:12.6px;color:var(--ink-2);line-height:1.45}
 .sw{position:relative;flex:none;width:44px;height:26px;border-radius:999px;background:var(--line-2);transition:background .18s}
 .sw input{position:absolute;opacity:0;width:0;height:0}
 .sw span{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;
   box-shadow:0 1px 3px rgba(0,0,0,.26);transition:transform .2s var(--ease)}
-.sw:has(input:checked){background:var(--foret)}
+.sw:has(input:checked){background:var(--nuit)}
 .sw:has(input:checked) span{transform:translateX(18px)}
-.sw:has(input:focus-visible){outline:3px solid var(--brique-vif);outline-offset:2px}
+.sw:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px}
 .back{background:0;border:0;padding:6px 2px;margin-top:14px;cursor:pointer;color:var(--ink-3);
   font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
-.back:hover{color:var(--foret)}
+.back:hover{color:var(--nuit)}
 .back .ico{width:15px;height:15px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .quiz__foot{padding:0 26px 22px;display:flex;align-items:center;gap:9px;font-size:12.4px;color:var(--ink-3)}
-.quiz__foot .ico{width:15px;height:15px;color:var(--foret);flex:none}
+.quiz__foot .ico{width:15px;height:15px;color:var(--nuit);flex:none}
 @media (max-width:560px){.quiz__foot{padding:0 18px 18px}}
 
 /* Panneau d'estimation — l'argument qui fait finir le formulaire : le
    visiteur voit son chiffre avant de donner ses coordonnées. */
-.est{margin-top:16px;border-radius:var(--r-md);background:var(--foret);color:#fff;padding:17px 19px;display:none}
+.est{margin-top:16px;border-radius:var(--r-md);background:var(--nuit);color:#fff;padding:17px 19px;display:none}
 .est.is-on{display:block;animation:in .36s var(--ease) both}
-.est__h{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--kraft);display:flex;align-items:center;gap:7px}
+.est__h{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--vert);display:flex;align-items:center;gap:7px}
 .est__h .ico{width:14px;height:14px;stroke-width:2.6}
 .est__row{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-top:9px}
 .est__v{font-size:28px;font-weight:800;letter-spacing:-.035em;font-variant-numeric:tabular-nums;line-height:1.05}
 .est__u{font-size:14px;color:rgba(255,255,255,.75);font-weight:600}
 .est__d{font-size:13px;color:rgba(255,255,255,.78);margin-top:8px;line-height:1.45;display:flex;align-items:flex-start;gap:7px}
-.est__d .ico{width:14px;height:14px;margin-top:3px;flex:none;color:var(--kraft)}
+.est__d .ico{width:14px;height:14px;margin-top:3px;flex:none;color:var(--vert)}
 
 /* ── Rubans et sections ──────────────────────────────────────────────────── */
 section{padding:clamp(54px,7vw,92px) 0}
 .sec-h{max-width:40ch;margin-bottom:clamp(30px,4vw,46px)}
 .sec-h.ctr{margin-inline:auto;text-align:center}
-.sec-h .kicker{display:block;font-size:13.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brique-fonce);margin-bottom:13px}
+.sec-h .kicker{display:block;font-size:13.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--vert-fonce);margin-bottom:13px}
 .sec-h h2{font-size:clamp(28px,3.9vw,45px)}
-.sec-h h2 .em{color:var(--brique-fonce);font-size:1.06em}
+.sec-h h2 .em{color:var(--vert-fonce);font-size:1.06em}
 .sec-h p{margin-top:16px;font-size:17.5px;color:var(--ink-2);line-height:1.55}
 
 .band{background:var(--white);border-block:1px solid var(--line);padding:clamp(34px,4vw,48px) 0}
 .band__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,34px)}
-.band__i .ico{width:26px;height:26px;color:var(--foret);stroke-width:1.9}
+.band__i .ico{width:26px;height:26px;color:var(--nuit);stroke-width:1.9}
 .band__i h3{font-size:16.5px;margin-top:12px;letter-spacing:-.022em}
 .band__i p{font-size:14.5px;color:var(--ink-2);margin-top:7px;line-height:1.5}
 @media (max-width:860px){.band__g{grid-template-columns:1fr 1fr;gap:26px}}
@@ -280,24 +295,24 @@ section{padding:clamp(54px,7vw,92px) 0}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);counter-reset:s}
 .stp{background:var(--white);border-radius:var(--r-md);padding:28px;box-shadow:var(--shadow-sm);position:relative;counter-increment:s}
 .stp::before{content:counter(s);position:absolute;top:-16px;left:28px;width:42px;height:42px;border-radius:50%;
-  background:var(--brique);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px;
-  box-shadow:0 10px 22px -10px rgba(196,70,30,.8)}
+  background:var(--vert);color:var(--nuit);display:grid;place-items:center;font-weight:800;font-size:18px;
+  box-shadow:0 10px 22px -10px rgba(119,172,71,.7)}
 .stp h3{font-size:19px;margin-top:17px;letter-spacing:-.025em}
 .stp p{font-size:15.5px;color:var(--ink-2);margin-top:9px;line-height:1.55}
-.stp .tag{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:700;color:var(--foret);
-  background:var(--menthe);padding:6px 12px;border-radius:999px}
+.stp .tag{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:700;color:var(--nuit);
+  background:var(--vert-pale);padding:6px 12px;border-radius:999px}
 @media (max-width:860px){.steps{grid-template-columns:1fr;gap:28px}}
 
 /* Tableau des prix */
-.prix{background:var(--foret);color:#fff}
-.prix .sec-h h2 .em{color:var(--kraft)}
+.prix{background:var(--nuit);color:#fff}
+.prix .sec-h h2 .em{color:var(--vert)}
 .prix .sec-h p{color:rgba(255,255,255,.8)}
-.prix .sec-h .kicker{color:var(--kraft)}
+.prix .sec-h .kicker{color:var(--vert)}
 .tbl-w{overflow-x:auto;border-radius:var(--r-md);background:rgba(255,255,255,.055);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.13);-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;min-width:620px;font-variant-numeric:tabular-nums}
 thead th{text-align:left;font-size:12.6px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
-  color:var(--kraft);padding:17px 18px;border-bottom:1px solid rgba(255,255,255,.17);white-space:nowrap}
+  color:var(--vert);padding:17px 18px;border-bottom:1px solid rgba(255,255,255,.17);white-space:nowrap}
 tbody td{padding:15px 18px;font-size:15.5px;border-bottom:1px solid rgba(255,255,255,.09)}
 tbody tr:last-child td{border-bottom:0}
 tbody tr:hover{background:rgba(255,255,255,.045)}
@@ -313,7 +328,7 @@ tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,2
 .fact{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:34px}
 .fct{background:rgba(255,255,255,.06);border-radius:var(--r-sm);padding:17px 19px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
 .fct h4{font-size:15px;display:flex;align-items:center;gap:9px;letter-spacing:-.02em}
-.fct h4 .ico{width:17px;height:17px;color:var(--kraft);flex:none}
+.fct h4 .ico{width:17px;height:17px;color:var(--vert);flex:none}
 .fct p{font-size:13.8px;color:rgba(255,255,255,.75);margin-top:7px;line-height:1.5}
 @media (max-width:860px){.fact{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.fact{grid-template-columns:1fr}}
@@ -321,24 +336,24 @@ tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,2
 /* Formules */
 .forms{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);align-items:start}
 .frm{background:var(--white);border-radius:var(--r-md);padding:28px 26px;box-shadow:var(--shadow-sm);position:relative;height:100%}
-.frm--hi{box-shadow:0 0 0 2.5px var(--foret),var(--shadow-sm)}
-.frm__flag{position:absolute;top:-13px;left:26px;background:var(--foret);color:#fff;font-size:12px;font-weight:800;
+.frm--hi{box-shadow:0 0 0 2.5px var(--nuit),var(--shadow-sm)}
+.frm__flag{position:absolute;top:-13px;left:26px;background:var(--nuit);color:#fff;font-size:12px;font-weight:800;
   letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
 .frm h3{font-size:21px;letter-spacing:-.028em}
 .frm__p{font-size:14px;color:var(--ink-3);margin-top:6px}
-.frm__p b{color:var(--brique-fonce);font-size:17px;font-weight:800;letter-spacing:-.02em}
+.frm__p b{color:var(--vert-fonce);font-size:17px;font-weight:800;letter-spacing:-.02em}
 .frm ul{list-style:none;padding:0;margin:19px 0 0;display:grid;gap:10px}
 .frm li{display:flex;gap:10px;font-size:14.8px;line-height:1.45;color:var(--ink-2)}
-.frm li .ico{width:17px;height:17px;flex:none;margin-top:3px;color:var(--foret);stroke-width:2.6}
+.frm li .ico{width:17px;height:17px;flex:none;margin-top:3px;color:var(--nuit);stroke-width:2.6}
 .frm li.no{color:var(--ink-3)}
 .frm li.no .ico{color:var(--ink-3);opacity:.6}
 @media (max-width:900px){.forms{grid-template-columns:1fr}.frm{height:auto}}
 
 /* Inclus */
-.incl{background:var(--kraft)}
+.incl{background:var(--vert-brume)}
 .incl__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,20px)}
-.inc{background:rgba(255,255,255,.62);border-radius:var(--r-md);padding:24px;box-shadow:inset 0 0 0 1px rgba(12,59,46,.09)}
-.inc .ico{width:25px;height:25px;color:var(--foret)}
+.inc{background:var(--white);border-radius:var(--r-md);padding:24px;box-shadow:inset 0 0 0 1px rgba(34,46,58,.09)}
+.inc .ico{width:25px;height:25px;color:var(--nuit)}
 .inc h3{font-size:16px;margin-top:13px;letter-spacing:-.022em}
 .inc p{font-size:14.2px;color:var(--ink-2);margin-top:7px;line-height:1.5}
 @media (max-width:900px){.incl__g{grid-template-columns:1fr 1fr}}
@@ -350,7 +365,7 @@ tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,2
 .vlist{list-style:none;padding:0;margin:0;display:grid;gap:3px}
 .vlist li{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
 .vlist li:last-child{border-bottom:0}
-.vlist .n{width:30px;height:30px;border-radius:9px;background:var(--menthe);color:var(--foret);display:grid;
+.vlist .n{width:30px;height:30px;border-radius:9px;background:var(--vert-pale);color:var(--nuit);display:grid;
   place-items:center;font-size:13.5px;font-weight:800;flex:none}
 .vlist h3{font-size:16.5px;letter-spacing:-.022em}
 .vlist p{font-size:14.5px;color:var(--ink-2);margin-top:5px;line-height:1.5}
@@ -359,7 +374,7 @@ tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,2
 /* Avis */
 .avis__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
 .avi{background:var(--white);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
-.stars{display:flex;gap:3px;color:var(--brique)}
+.stars{display:flex;gap:3px;color:var(--vert-fonce)}
 .stars .ico{width:17px;height:17px;fill:currentColor;stroke:none}
 .avi blockquote{margin:14px 0 0;font-size:15.5px;line-height:1.6;color:var(--ink);flex:1}
 .avi figcaption{margin-top:17px;padding-top:15px;border-top:1px solid var(--line);font-size:13.8px;color:var(--ink-3)}
@@ -369,12 +384,12 @@ tbody th small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,2
 /* FAQ */
 .faq{background:var(--white)}
 .faq__l{display:grid;gap:9px;max-width:860px;margin-inline:auto}
-details{background:var(--sable);border-radius:var(--r-sm);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
-details[open]{box-shadow:inset 0 0 0 1.5px var(--foret);background:var(--menthe-pale)}
+details{background:var(--gris);border-radius:var(--r-sm);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+details[open]{box-shadow:inset 0 0 0 1.5px var(--nuit);background:var(--vert-brume)}
 summary{cursor:pointer;list-style:none;padding:19px 22px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;
   display:flex;align-items:center;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
-summary .ico{width:20px;height:20px;flex:none;color:var(--foret);transition:transform .22s var(--ease)}
+summary .ico{width:20px;height:20px;flex:none;color:var(--nuit);transition:transform .22s var(--ease)}
 details[open] summary .ico{transform:rotate(45deg)}
 details .a{padding:0 22px 20px;font-size:15.5px;color:var(--ink-2);line-height:1.6;max-width:72ch}
 details .a p + p{margin-top:11px}
@@ -382,19 +397,19 @@ details .a p + p{margin-top:11px}
 /* « Kilomètres aller » — l'argument de prix, expliqué */
 .km{background:var(--white);border-block:1px solid var(--line)}
 .km__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(30px,4vw,64px);align-items:center}
-.km__fig{background:var(--foret);border-radius:var(--r-md);padding:clamp(22px,3vw,30px);color:#fff}
-.km__fig h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--kraft);margin-bottom:20px}
+.km__fig{background:var(--nuit);border-radius:var(--r-md);padding:clamp(22px,3vw,30px);color:#fff}
+.km__fig h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--vert);margin-bottom:20px}
 .trajet{display:grid;gap:15px}
 .trj{display:flex;align-items:center;gap:13px;font-size:14.5px}
 .trj__b{flex:1;height:34px;border-radius:8px;display:flex;align-items:center;padding:0 12px;
   font-weight:700;font-size:13px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden}
-.trj__b--plein{background:var(--kraft);color:var(--foret)}
+.trj__b--plein{background:var(--vert);color:var(--nuit)}
 .trj__b--vide{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);
   box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.22)}
 .trj__l{width:84px;flex:none;font-size:12.5px;color:rgba(255,255,255,.66);font-weight:600}
 .km__fig p{font-size:13.8px;color:rgba(255,255,255,.76);margin-top:19px;padding-top:17px;
   border-top:1px solid rgba(255,255,255,.17);line-height:1.5}
-.km__fig p b{color:var(--kraft)}
+.km__fig p b{color:var(--vert)}
 @media (max-width:950px){.km__in{grid-template-columns:1fr}}
 /* Les libellés des trajets sont en nowrap pour rester lisibles d'un coup
    d'œil sur large écran. Sous ~620 px la chaîne la plus longue dépasse la
@@ -408,27 +423,27 @@ details .a p + p{margin-top:11px}
 .cas__g{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
 .cs{display:flex;gap:14px;background:var(--white);border-radius:var(--r-sm);padding:19px;
   box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .16s,transform .16s var(--ease)}
-.cs:hover{box-shadow:inset 0 0 0 1.5px var(--foret);transform:translateY(-2px)}
-.cs .ico{width:23px;height:23px;color:var(--foret);flex:none;margin-top:2px}
+.cs:hover{box-shadow:inset 0 0 0 1.5px var(--nuit);transform:translateY(-2px)}
+.cs .ico{width:23px;height:23px;color:var(--nuit);flex:none;margin-top:2px}
 .cs h3{font-size:15.5px;letter-spacing:-.022em}
 .cs p{font-size:13.8px;color:var(--ink-2);margin-top:5px;line-height:1.5}
 @media (max-width:900px){.cas__g{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.cas__g{grid-template-columns:1fr}}
 
 /* Le conseiller */
-.cons{background:var(--menthe-pale)}
+.cons{background:var(--vert-brume)}
 .cons__in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(20px,3vw,38px);
   align-items:center;background:var(--white);border-radius:var(--r-lg);
   padding:clamp(24px,3.4vw,38px);box-shadow:var(--shadow-sm)}
-.cons__av{width:76px;height:76px;border-radius:50%;background:var(--foret);color:var(--kraft);
+.cons__av{width:76px;height:76px;border-radius:50%;background:var(--nuit);color:var(--vert);
   display:grid;place-items:center;flex:none}
 .cons__av .ico{width:34px;height:34px;stroke-width:1.7}
 .cons__t h2{font-size:clamp(21px,2.6vw,29px)}
 .cons__t p{font-size:16px;color:var(--ink-2);margin-top:9px;line-height:1.55}
 .cons__n{text-align:center;flex:none}
 .cons__n a{display:block;font-size:clamp(21px,2.4vw,27px);font-weight:800;letter-spacing:-.03em;
-  color:var(--foret);text-decoration:none;font-variant-numeric:tabular-nums}
-.cons__n a:hover{color:var(--brique-fonce)}
+  color:var(--nuit);text-decoration:none;font-variant-numeric:tabular-nums}
+.cons__n a:hover{color:var(--vert-fonce)}
 .cons__n span{display:block;font-size:13.2px;color:var(--ink-3);margin-top:4px}
 @media (max-width:880px){
   .cons__in{grid-template-columns:1fr;text-align:center;justify-items:center}
@@ -436,18 +451,18 @@ details .a p + p{margin-top:11px}
 }
 
 /* CTA final */
-.final{background:var(--foret);color:#fff;text-align:center;position:relative;overflow:clip}
+.final{background:var(--nuit);color:#fff;text-align:center;position:relative;overflow:clip}
 .final::after{content:"";position:absolute;inset:auto -10% -60% -10%;height:340px;
-  background:radial-gradient(60% 100% at 50% 100%, rgba(234,219,196,.17), transparent 70%)}
+  background:radial-gradient(60% 100% at 50% 100%, rgba(141,198,63,.18), transparent 70%)}
 .final__in{position:relative;max-width:720px;margin-inline:auto}
 .final h2{font-size:clamp(28px,4vw,46px)}
-.final h2 .em{color:var(--kraft);font-size:1.06em}
+.final h2 .em{color:var(--vert);font-size:1.06em}
 .final p{margin-top:17px;font-size:18px;color:rgba(255,255,255,.84);line-height:1.55}
 .final .btn{margin-top:30px}
 .final .mini{margin-top:17px;font-size:13.8px;color:rgba(255,255,255,.62)}
 
 /* Pied */
-.ftr{background:#07271E;color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14.3px}
+.ftr{background:var(--nuit-3);color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14.3px}
 .ftr__g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:30px}
 .ftr h4{color:#fff;font-size:14.5px;margin-bottom:14px;letter-spacing:-.015em}
 .ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
@@ -462,11 +477,11 @@ details .a p + p{margin-top:11px}
 
 /* Barre collante mobile */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
-  background:rgba(251,247,240,.93);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  background:rgba(244,245,249,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);
   display:none;gap:11px;align-items:center;transform:translateY(110%);transition:transform .3s var(--ease)}
 .sticky.is-on{transform:none}
 .sticky .btn{flex:1}
-.sticky__tel{width:52px;height:52px;border-radius:50%;background:var(--menthe);color:var(--foret);
+.sticky__tel{width:52px;height:52px;border-radius:50%;background:var(--vert-pale);color:var(--nuit);
   display:grid;place-items:center;flex:none;text-decoration:none}
 .sticky__tel .ico{width:21px;height:21px}
 @media (max-width:1000px){.sticky{display:flex}body{padding-bottom:84px}}
@@ -526,7 +541,7 @@ details .a p + p{margin-top:11px}
         <span class="tel__ico"><svg class="ico"><use href="#i-phone"/></svg></span>
         <span><b>01 80 00 00 00</b><small>Votre conseiller, lundi — samedi 9h-19h</small></span>
       </a>
-      <a class="btn btn--brique" href="#devis" data-cta="header">Mon devis gratuit</a>
+      <a class="btn btn--vert" href="#devis" data-cta="header">Mon devis gratuit</a>
     </div>
   </div>
 </header>
@@ -537,7 +552,7 @@ details .a p + p{margin-top:11px}
   <div class="hero__tape" aria-hidden="true"></div>
   <svg class="hero__route" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
     <path d="M-20 150 C 220 60, 420 170, 650 110 S 1080 30, 1460 120" fill="none"
-          stroke="#EADBC4" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
+          stroke="#8DC63F" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
   </svg>
   <div class="wrap hero__in">
 
@@ -545,9 +560,9 @@ details .a p + p{margin-top:11px}
       <p class="eyebrow"><span class="dot"></span>Déménageurs professionnels partout en France</p>
       <h1>Déménagez <span class="em">l'esprit léger</span></h1>
       <p class="hero__sub">
-        Dites-nous en une minute ce que vous déménagez&nbsp;: vous découvrez
-        aussitôt le volume et le budget à prévoir, et un conseiller vous rappelle
-        avec un devis ferme. Cartons, assurance et changement d'adresse compris.
+        Dites-nous en une minute ce que vous déménagez&nbsp;: un conseiller vous
+        rappelle sous 24&nbsp;h avec un devis ferme, établi sur votre volume réel.
+        Cartons, assurance et changement d'adresse compris.
       </p>
       <!-- ══════════════════════════════════════════════════════════════════
            ⚠ À VALIDER — PROMESSES COMMERCIALES
@@ -565,16 +580,16 @@ details .a p + p{margin-top:11px}
       </ul>
       <div class="hero__proof">
         <div><b>3</b><span>formules, de l'économique<br>au tout compris</span></div>
-        <div><b>1 min</b><span>pour connaître<br>votre budget</span></div>
+        <div><b>1 min</b><span>pour décrire<br>votre projet</span></div>
         <div><b>24&nbsp;h</b><span>pour être rappelé<br>par un conseiller</span></div>
       </div>
     </div>
 
     <div class="quiz" id="devis">
       <div class="quiz__top">
-        <h2 class="quiz__ttl">Combien coûte votre déménagement&nbsp;?</h2>
+        <h2 class="quiz__ttl">Votre devis gratuit en 1 minute</h2>
         <div class="quiz__meta">
-          <p>Estimation gratuite, sans engagement.</p>
+          <p>Sans engagement, et sans mauvaise surprise.</p>
           <span class="quiz__count" id="q-count">1 / 6</span>
         </div>
         <div class="bar"><i id="q-bar"></i></div>
@@ -587,7 +602,7 @@ details .a p + p{margin-top:11px}
 
         <fieldset class="step is-on" data-step="logement">
           <legend class="step__q">Quel logement déménagez-vous&nbsp;?</legend>
-          <p class="step__hint">C'est ce qui détermine le volume, donc le prix. Une estimation suffit.</p>
+          <p class="step__hint">C'est ce qui détermine le volume à déplacer. Une estimation suffit, votre conseiller l'affinera.</p>
           <div class="opts">
             <label class="opt"><input type="radio" name="logement" value="Studio ou T1" data-vol="12">
               <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
@@ -643,13 +658,13 @@ details .a p + p{margin-top:11px}
               <option value="Non">Non, uniquement les escaliers</option>
             </select>
           </div>
-          <div class="acts"><button type="button" class="btn btn--foret btn--full" data-next>Continuer</button></div>
+          <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
         <fieldset class="step" data-step="arrivee">
           <legend class="step__q">Et où allez-vous&nbsp;?</legend>
-          <p class="step__hint">On calcule la distance réelle entre les deux communes pour affiner le budget.</p>
+          <p class="step__hint">On calcule la distance réelle entre les deux communes, celle que le camion parcourra.</p>
           <div class="grid2 grid2--cp">
             <div class="field">
               <label for="f-cp2">Code postal</label>
@@ -680,7 +695,7 @@ details .a p + p{margin-top:11px}
               <option value="Je ne sais pas encore">Je ne sais pas encore</option>
             </select>
           </div>
-          <div class="acts"><button type="button" class="btn btn--foret btn--full" data-next>Continuer</button></div>
+          <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
@@ -714,7 +729,7 @@ details .a p + p{margin-top:11px}
 
         <fieldset class="step" data-step="formule">
           <legend class="step__q">Qui emballe les cartons&nbsp;?</legend>
-          <p class="step__hint">C'est le deuxième levier sur le prix, après le volume. Vous pourrez changer d'avis.</p>
+          <p class="step__hint">C'est le deuxième levier sur le devis, après le volume. Vous pourrez changer d'avis.</p>
           <div class="opts">
             <label class="opt"><input type="radio" name="formule" value="Économique" data-f="eco">
               <span class="opt__ico"><svg class="ico"><use href="#i-box"/></svg></span>
@@ -758,7 +773,7 @@ details .a p + p{margin-top:11px}
               partenaires sélectionnés pour établir mon devis. Mes données ne sont utilisées que pour cela.</p>
           </label>
           <p class="note" id="n-contact" aria-live="polite"></p>
-          <div class="acts"><button type="submit" class="btn btn--brique btn--full btn--lg" id="q-send">Recevoir mon devis gratuit</button></div>
+          <div class="acts"><button type="submit" class="btn btn--vert btn--full btn--lg" id="q-send">Recevoir mon devis gratuit</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
@@ -767,10 +782,10 @@ details .a p + p{margin-top:11px}
 
       <div class="quiz__view" style="padding-top:0">
         <div class="est" id="q-est" aria-live="polite">
-          <p class="est__h"><svg class="ico"><use href="#i-chart"/></svg>Votre estimation</p>
+          <p class="est__h"><svg class="ico"><use href="#i-box"/></svg>Votre projet</p>
           <div class="est__row">
-            <span class="est__v" id="est-prix">—</span>
-            <span class="est__u" id="est-vol"></span>
+            <span class="est__v" id="est-vol">—</span>
+            <span class="est__u">à déplacer</span>
           </div>
           <p class="est__d"><svg class="ico"><use href="#i-pin"/></svg><span id="est-det"></span></p>
         </div>
@@ -823,10 +838,8 @@ details .a p + p{margin-top:11px}
            tournées déjà planifiées, le retour est payé par un autre client. Pas par vous.</p>
       </div>
       <ul class="chips" style="margin-top:0">
-        <li style="background:var(--menthe);border-color:transparent;color:var(--foret)">
-          <svg class="ico" style="color:var(--foret)"><use href="#i-check"/></svg>Jusqu'à 38&nbsp;% d'écart sur un long trajet</li>
-        <li style="background:var(--menthe);border-color:transparent;color:var(--foret)">
-          <svg class="ico" style="color:var(--foret)"><use href="#i-check"/></svg>Sans partage de camion imposé</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>L'écart se creuse au-delà de 100 km</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Sans partage de camion imposé</li>
       </ul>
     </div>
     <div class="km__fig">
@@ -841,68 +854,9 @@ details .a p + p{margin-top:11px}
         <div class="trj"><span class="trj__l"></span>
           <span class="trj__b trj__b--vide">Retour chargé par un autre client</span></div>
       </div>
-      <p>Sur ce trajet, la différence représente <b>plusieurs centaines d'euros</b> —
-         pour exactement la même prestation et le même camion.</p>
-    </div>
-  </div>
-</section>
-
-<section id="prix" class="prix">
-  <div class="wrap">
-    <div class="sec-h">
-      <span class="kicker">Les ordres de grandeur</span>
-      <h2>Ce que coûte un déménagement, <span class="em">annoncé d'avance</span></h2>
-      <p>Personne n'aime demander un devis à l'aveugle. Voici donc les fourchettes réellement
-         pratiquées en France par un déménageur professionnel, en formule standard — avant même
-         que vous ayez laissé le moindre numéro de téléphone.</p>
-    </div>
-
-    <div class="tbl-w">
-      <table>
-        <caption class="sr">Fourchettes de prix d'un déménagement par volume et par distance</caption>
-        <thead>
-          <tr>
-            <th scope="col">Logement</th>
-            <th scope="col">Volume</th>
-            <th scope="col">Local <span style="font-weight:500;text-transform:none;letter-spacing:0">(&lt; 50 km)</span></th>
-            <th scope="col">Régional <span style="font-weight:500;text-transform:none;letter-spacing:0">(50–300 km)</span></th>
-            <th scope="col">Longue distance <span style="font-weight:500;text-transform:none;letter-spacing:0">(&gt; 300 km)</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Studio ou T1<small>une personne</small></th><td>≈ 12 m³</td><td>480 – 650 €</td><td>600 – 800 €</td><td>750 – 1 000 €</td></tr>
-          <tr><th scope="row">2 pièces<small>couple</small></th><td>≈ 20 m³</td><td>800 – 1 050 €</td><td>1 000 – 1 300 €</td><td>1 250 – 1 600 €</td></tr>
-          <tr><th scope="row">3 pièces<small>famille</small></th><td>≈ 30 m³</td><td>1 200 – 1 550 €</td><td>1 500 – 1 950 €</td><td>1 850 – 2 400 €</td></tr>
-          <tr><th scope="row">4 pièces<small>maison ou grand appartement</small></th><td>≈ 40 m³</td><td>1 600 – 2 100 €</td><td>2 000 – 2 550 €</td><td>2 500 – 3 200 €</td></tr>
-          <tr><th scope="row">5 pièces et plus<small>grande maison</small></th><td>≈ 55 m³</td><td>2 200 – 2 850 €</td><td>2 750 – 3 500 €</td><td>3 400 – 4 400 €</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="tbl-note">
-      Formule économique&nbsp;: comptez environ 20&nbsp;% de moins. Formule luxe&nbsp;: environ 25&nbsp;% de plus.
-      Cartons, assurance du mobilier et changement d'adresse sont compris dans les trois cas.
-      Fourchettes indicatives à jour de 2026, hors monte-meuble, garde-meuble et objets hors normes.
-    </p>
-
-    <div class="fact">
-      <div class="fct"><h4><svg class="ico"><use href="#i-box"/></svg>Le volume</h4>
-        <p>Le premier facteur, et de loin. Un tri sérieux avant le déménagement fait baisser la facture plus sûrement que n'importe quelle négociation.</p></div>
-      <div class="fct"><h4><svg class="ico"><use href="#i-pin"/></svg>La distance</h4>
-        <p>Au-delà de 300 km, un déménageur isolé facture aussi le retour de son camion. C'est précisément ce que le groupage des tournées vous évite.</p></div>
-      <div class="fct"><h4><svg class="ico"><use href="#i-stairs"/></svg>L'étage et l'accès</h4>
-        <p>Un 4e sans ascenseur ou une rue où le camion ne peut pas stationner ajoute des heures de main-d'œuvre, parfois un monte-meuble.</p></div>
-      <div class="fct"><h4><svg class="ico"><use href="#i-sun"/></svg>La saison</h4>
-        <p>Juin à septembre, plus les fins de mois et les samedis : c'est la haute saison. Un mardi de novembre coûte sensiblement moins cher.</p></div>
-      <div class="fct"><h4><svg class="ico"><use href="#i-piano"/></svg>Les objets lourds</h4>
-        <p>Piano, coffre-fort, aquarium, œuvres d'art : à signaler dès le devis, ils demandent du matériel et une assurance spécifiques.</p></div>
-      <div class="fct"><h4><svg class="ico"><use href="#i-clock"/></svg>Le délai</h4>
-        <p>Un déménagement calé six semaines à l'avance se négocie. À dix jours, vous prenez ce qui reste disponible.</p></div>
-    </div>
-
-    <div class="prix__cta">
-      <a class="btn btn--brique btn--lg" href="#devis" data-cta="prix">Estimer mon déménagement
-        <svg class="ico"><use href="#i-arrow"/></svg></a>
-      <span class="hint">Une minute, et vous avez votre fourchette.</span>
+      <p>Même camion, même équipe, même prestation&nbsp;: <b>seul le nombre de
+         trajets facturés change</b>. Votre conseiller vous le détaille ligne par
+         ligne sur le devis.</p>
     </div>
   </div>
 </section>
@@ -918,9 +872,9 @@ details .a p + p{margin-top:11px}
     <div class="steps">
       <div class="stp">
         <h3>Vous trouvez votre déménageur</h3>
-        <p>Une minute pour décrire le logement et le trajet, et vous voyez votre budget. Un conseiller
-           vous rappelle pour confirmer le volume, puis vous adresse un devis ferme. Vous le validez
-           par un acompte, ou vous n'y donnez pas suite.</p>
+        <p>Une minute pour décrire le logement et le trajet. Un conseiller vous rappelle pour confirmer
+           le volume et les accès, puis vous adresse un devis ferme et détaillé. Vous le validez par un
+           acompte, ou vous n'y donnez pas suite.</p>
         <span class="tag">Devis sous 24 h</span>
       </div>
       <div class="stp">
@@ -946,9 +900,9 @@ details .a p + p{margin-top:11px}
     <div class="sec-h ctr">
       <span class="kicker">Les trois formules</span>
       <h2>Vous payez le travail <span class="em">que vous ne faites pas</span></h2>
-      <p>D'une formule à l'autre, l'écart dépasse souvent 40&nbsp;% sur le même volume. Ce qui ne change
-         jamais&nbsp;: les cartons livrés chez vous, l'assurance du mobilier et le changement d'adresse,
-         compris dans les trois.</p>
+      <p>D'une formule à l'autre, c'est la part de travail que vous gardez qui change — et elle pèse
+         lourd sur le devis. Ce qui ne change jamais&nbsp;: les cartons livrés chez vous, l'assurance du
+         mobilier et le changement d'adresse, compris dans les trois.</p>
     </div>
     <div class="forms">
       <div class="frm">
@@ -1020,7 +974,7 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section id="cas" style="background:var(--sable)">
+<section id="cas" style="background:var(--gris)">
   <div class="wrap">
     <div class="sec-h ctr">
       <span class="kicker">Les cas particuliers</span>
@@ -1066,7 +1020,7 @@ details .a p + p{margin-top:11px}
         <p>Vous confiez à des inconnus tout ce que vous possédez. La moindre des choses est de
            s'assurer qu'ils existent vraiment, qu'ils sont assurés, et qu'ils savent faire.</p>
       </div>
-      <a class="btn btn--foret" href="#devis" data-cta="verif">Obtenir mon devis
+      <a class="btn btn--nuit" href="#devis" data-cta="verif">Obtenir mon devis
         <svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <ul class="vlist">
@@ -1107,7 +1061,7 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section id="avis" style="background:var(--menthe-pale)">
+<section id="avis" style="background:var(--vert-brume)">
   <div class="wrap">
     <div class="sec-h ctr">
       <span class="kicker">Ils ont déménagé</span>
@@ -1209,7 +1163,7 @@ details .a p + p{margin-top:11px}
     <h2>Il est temps de <span class="em">ne plus y penser</span></h2>
     <p>Une minute pour décrire votre projet, et vous savez à quoi vous attendre.
        Le reste — les cartons, l'assurance, les démarches — c'est notre affaire.</p>
-    <a class="btn btn--brique btn--lg" href="#devis" data-cta="final">Obtenir mon devis gratuit
+    <a class="btn btn--vert btn--lg" href="#devis" data-cta="final">Obtenir mon devis gratuit
       <svg class="ico"><use href="#i-arrow"/></svg></a>
     <p class="mini">Gratuit · Sans engagement · Cartons et assurance compris</p>
   </div>
@@ -1226,7 +1180,6 @@ details .a p + p{margin-top:11px}
            et les cartons, l'assurance et le changement d'adresse compris dans le devis.</p>
       </div>
       <div><h4>Le déménagement</h4><ul>
-        <li><a href="#prix">Prix d'un déménagement</a></li>
         <li><a href="#formules">Les trois formules</a></li>
         <li><a href="#kilometres">Ne payer que l'aller</a></li>
         <li><a href="#etapes">Comment ça se passe</a></li>
@@ -1260,7 +1213,7 @@ details .a p + p{margin-top:11px}
 
 <div class="sticky" id="sticky">
   <a class="sticky__tel" href="tel:+33180000000" aria-label="Appeler un conseiller"><svg class="ico"><use href="#i-phone"/></svg></a>
-  <a class="btn btn--brique" href="#devis" data-cta="sticky">Estimer mon déménagement</a>
+  <a class="btn btn--vert" href="#devis" data-cta="sticky">Estimer mon déménagement</a>
 </div>
 
 <script>
@@ -1309,36 +1262,13 @@ var pubs = {};
   });
 })();
 
-/* ── Moteur d'estimation ─────────────────────────────────────────────────── */
-// Tarifs au m³, bornes basse et haute, par bande de distance et par formule.
-// Calés sur les fourchettes du marché français 2026 (33 à 90 €/m³ selon
-// distance et formule). Toute révision se fait ici, nulle part ailleurs.
-var TARIF = {
-  local:    { eco:[26,34], std:[33,43], luxe:[41,54] },
-  regional: { eco:[33,43], std:[41,53], luxe:[51,66] },
-  national: { eco:[41,54], std:[51,66], luxe:[62,82] }
-};
-var PLANCHER = 390;   // en dessous, aucun professionnel ne se déplace
-
+/* ── Récapitulatif du projet ─────────────────────────────────────────────── */
+// Aucun montant n'est calculé ni affiché : c'est le conseiller qui chiffre,
+// sur le volume réel. La page se contente de restituer au visiteur ce qu'elle
+// a compris de son projet — volume et trajet — ce qui suffit à lui donner
+// envie d'aller au bout du formulaire.
 var S = { vol:0, f:'std', d1:null, d2:null, km:null };
 
-function bande(km){
-  if(km === null) return 'local';
-  if(km < 50) return 'local';
-  if(km < 300) return 'regional';
-  return 'national';
-}
-function etageMaj(){
-  // Un étage sans ascenseur, c'est du temps de main-d'œuvre en plus.
-  var m = 1, et, asc;
-  [['#f-et1','#f-asc1'],['#f-et2','#f-asc2']].forEach(function(p){
-    et = $(p[0]).value; asc = $(p[1]).value;
-    if(asc !== 'Non') return;
-    var n = et.indexOf('5e') === 0 ? 5 : parseInt(et,10);
-    if(n > 0) m += Math.min(n,5) * 0.035;
-  });
-  return m;
-}
 function km(a,b){
   if(!a || !b) return null;
   var R=6371, p=Math.PI/180;
@@ -1349,24 +1279,12 @@ function km(a,b){
   // réel d'environ 25 % en France.
   return Math.round(2*R*Math.asin(Math.sqrt(h)) * 1.25);
 }
-function arrondi(n){ return Math.round(n/10)*10 }
-function eur(n){ return arrondi(n).toLocaleString('fr-FR') + ' €' }
-
-function estime(){
-  if(!S.vol) return null;
-  S.km = km(S.d1, S.d2);
-  var t = TARIF[bande(S.km)][S.f], maj = etageMaj();
-  var lo = Math.max(S.vol * t[0] * maj, PLANCHER);
-  var hi = Math.max(S.vol * t[1] * maj, PLANCHER * 1.3);
-  return { lo:lo, hi:hi };
-}
 var estVu = false;
 function majEst(){
-  var e = estime();
-  if(!e) return;
+  if(!S.vol) return;
+  S.km = km(S.d1, S.d2);
   var box = $('#q-est');
-  $('#est-prix').textContent = eur(e.lo) + ' – ' + eur(e.hi);
-  $('#est-vol').textContent = '· environ ' + S.vol + ' m³';
+  $('#est-vol').textContent = 'Environ ' + S.vol + ' m³';
   var det = [];
   if(S.d1 && S.d2 && S.km !== null){
     // Un déménagement dans la même commune afficherait « environ 0 km », ce qui
@@ -1379,14 +1297,14 @@ function majEst(){
       det.push(S.d1.nom + ' → ' + S.d2.nom + ', environ ' + S.km + ' km');
     }
   } else if(S.d1){
-    det.push('Départ de ' + S.d1.nom + ' — indiquez l’arrivée pour affiner');
+    det.push('Départ de ' + S.d1.nom + ' — indiquez l’arrivée');
   } else {
-    det.push('Fourchette indicative, à affiner avec vos adresses');
+    det.push('Volume indicatif, confirmé par votre conseiller');
   }
   $('#est-det').textContent = det.join(' · ');
   if(!box.classList.contains('is-on')){
     box.classList.add('is-on');
-    if(!estVu){ estVu = true; push({event:'estimation_vue', volume_m3:S.vol}); }
+    if(!estVu){ estVu = true; push({event:'recap_projet_vu', volume_m3:S.vol}); }
   }
 }
 
@@ -1573,7 +1491,6 @@ form.addEventListener('submit', function(ev){
     return;
   }
 
-  var e = estime() || {lo:null,hi:null};
   var prio = (function(){
     var r = $('input[name=date_demenagement]:checked');
     return r ? r.dataset.prio : 'froid';
@@ -1597,8 +1514,6 @@ form.addEventListener('submit', function(ev){
     distance_km: S.km,
     date_demenagement: val('date_demenagement'),
     formule: val('formule'),
-    estimation_min: e.lo ? arrondi(e.lo) : null,
-    estimation_max: e.hi ? arrondi(e.hi) : null,
     priorite: prio,
     // Contact
     prenom: $('#f-prenom').value.trim(),
@@ -1629,7 +1544,6 @@ form.addEventListener('submit', function(ev){
     volume_m3: S.vol,
     distance_km: S.km,
     formule: data.formule,
-    valeur_estimee: data.estimation_min,
     user_data: {
       email: data.email,
       phone_number: data.telephone_e164,
@@ -1645,9 +1559,9 @@ form.addEventListener('submit', function(ev){
   envoye.catch(function(err){ console.warn('Envoi du lead en échec :', err) })
         .then(function(){
           try{ sessionStorage.setItem('mdd_lead', JSON.stringify({
-            prenom:data.prenom, min:data.estimation_min, max:data.estimation_max,
-            vol:data.volume_m3, km:data.distance_km,
-            de:data.commune_depart, vers:data.commune_arrivee
+            prenom:data.prenom, vol:data.volume_m3, km:data.distance_km,
+            de:data.commune_depart, vers:data.commune_arrivee,
+            formule:data.formule
           })); }catch(e){}
           location.href = 'merci.html';
         });

@@ -6,7 +6,7 @@
 <title>Votre demande est partie — Mon Devis Déménagement</title>
 <meta name="description" content="Votre demande de devis a bien été enregistrée.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0C3B2E">
+<meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/jakarta-latin.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -18,20 +18,22 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 -->
 
 <style>
-:root{--foret:#0C3B2E;--foret-2:#14543F;--menthe:#D6EADF;--menthe-pale:#EBF5EF;
-  --kraft:#EADBC4;--kraft-fonce:#D9B98B;--sable:#FBF7F0;--white:#fff;
-  --brique:#C4461E;--brique-fonce:#9E3415;--ink:#1B201E;--ink-2:#4C5551;--ink-3:#6B746F;
-  --line:rgba(27,32,30,.10);--r-lg:30px;--r-md:20px;--r-sm:13px;
+:root{--nuit:#222E3A;--nuit-2:#2C3845;--nuit-3:#19232C;
+  --vert:#8DC63F;--vert-fonce:#466C22;--vert-2:#77AC47;
+  --vert-pale:#E3F0CC;--vert-brume:#F1F8E6;
+  --gris:#F4F5F9;--gris-2:#EBECEF;--white:#fff;
+  --ink:#333333;--ink-2:#4A5260;--ink-3:#5B6472;
+  --line:rgba(34,46,58,.11);--r-lg:30px;--r-md:20px;--r-sm:13px;
   --ease:cubic-bezier(.32,.72,0,1);
-  --shadow:0 1px 0 rgba(255,255,255,.7) inset,0 34px 70px -28px rgba(12,59,46,.46),0 0 0 1px rgba(27,32,30,.05);
+  --shadow:0 1px 0 rgba(255,255,255,.7) inset,0 34px 70px -28px rgba(34,46,58,.42),0 0 0 1px rgba(34,46,58,.06);
   --font:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   --serif:'Instrument Serif','Iowan Old Style',Georgia,serif}
 @font-face{font-family:'Plus Jakarta Sans';src:url(fonts/jakarta-latin.woff2) format('woff2');font-weight:400 800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Plus Jakarta Sans';src:url(fonts/jakarta-latin-ext.woff2) format('woff2');font-weight:400 800;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Instrument Serif';src:url(fonts/instrument-italic-latin.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--foret);color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--kraft)}
+body{margin:0;background:var(--nuit);color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--vert)}
 .wrap{width:min(100% - 36px,720px);margin-inline:auto}
 h1{margin:0;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-.035em;font-weight:800}
 h2{margin:0;font-weight:800;letter-spacing:-.025em}
@@ -40,30 +42,30 @@ a{color:inherit}
 .hdr{padding:20px 0}
 .hdr img{width:180px;height:auto;display:block}
 main{flex:1;display:flex;align-items:center;padding:clamp(24px,5vw,56px) 0 clamp(44px,7vw,80px)}
-.tick{width:66px;height:66px;border-radius:50%;background:var(--kraft);display:grid;place-items:center;margin-bottom:26px}
-.tick svg{width:32px;height:32px;fill:none;stroke:var(--foret);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.tick{width:66px;height:66px;border-radius:50%;background:var(--vert);display:grid;place-items:center;margin-bottom:26px}
+.tick svg{width:32px;height:32px;fill:none;stroke:var(--nuit);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
 .lead{margin-top:18px;font-size:clamp(17px,2vw,19.5px);color:rgba(255,255,255,.86);line-height:1.55}
 .card{margin-top:30px;background:#fff;color:var(--ink);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:clamp(22px,3vw,30px)}
 .recap{display:none;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
 .recap.is-on{display:block}
-.recap h2{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--brique-fonce)}
+.recap h2{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--vert-fonce)}
 .recap__v{font-size:clamp(26px,3.6vw,34px);font-weight:800;letter-spacing:-.035em;margin-top:8px;font-variant-numeric:tabular-nums;line-height:1.05}
 .recap__d{font-size:14.5px;color:var(--ink-3);margin-top:7px}
 .card h2.t{font-size:20px;letter-spacing:-.028em}
 ol{list-style:none;counter-reset:n;padding:0;margin:18px 0 0;display:grid;gap:15px}
 ol li{counter-increment:n;display:flex;gap:14px;align-items:flex-start}
-ol li::before{content:counter(n);flex:none;width:29px;height:29px;border-radius:9px;background:var(--menthe);
-  color:var(--foret);display:grid;place-items:center;font-size:13.5px;font-weight:800}
+ol li::before{content:counter(n);flex:none;width:29px;height:29px;border-radius:9px;background:var(--vert-pale);
+  color:var(--nuit);display:grid;place-items:center;font-size:13.5px;font-weight:800}
 ol b{display:block;font-size:15.5px;letter-spacing:-.018em}
 ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-height:1.5}
-.tip{margin-top:24px;padding:16px 18px;border-radius:var(--r-sm);background:var(--sable);font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.tip{margin-top:24px;padding:16px 18px;border-radius:var(--r-sm);background:var(--gris);font-size:14.5px;color:var(--ink-2);line-height:1.5}
 .tip b{color:var(--ink)}
 .acts{margin-top:26px;display:flex;flex-wrap:wrap;gap:11px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;
   font-weight:700;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;transition:.16s}
-.btn--foret{background:var(--foret);color:#fff}.btn--foret:hover{background:var(--foret-2)}
-.btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
-.btn--ghost:hover{box-shadow:inset 0 0 0 2px var(--foret)}
+.btn--nuit{background:var(--nuit);color:#fff}.btn--nuit:hover{background:var(--nuit-2)}
+.btn--ghost{background:transparent;color:var(--nuit);box-shadow:inset 0 0 0 2px var(--line)}
+.btn--ghost:hover{box-shadow:inset 0 0 0 2px var(--nuit)}
 .ftr{padding:22px 0 30px;font-size:13px;color:rgba(255,255,255,.52);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 .ftr a{text-decoration:none}.ftr a:hover{text-decoration:underline;color:#fff}
 </style>
@@ -83,8 +85,8 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 
   <div class="card">
     <div class="recap" id="recap">
-      <h2>Votre estimation</h2>
-      <p class="recap__v" id="r-prix">—</p>
+      <h2>Votre projet</h2>
+      <p class="recap__v" id="r-vol">—</p>
       <p class="recap__d" id="r-det"></p>
     </div>
 
@@ -101,11 +103,11 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
     </ol>
 
     <p class="tip"><b>En attendant&nbsp;:</b> faites le tour des pièces et notez ce qui part à la benne, à la
-      recyclerie ou chez des proches. Chaque mètre cube en moins, ce sont 30 à 80&nbsp;€ économisés sur le devis
-      final — c'est le levier le plus efficace à votre disposition.</p>
+      recyclerie ou chez des proches. Chaque mètre cube en moins allège le devis&nbsp;— c'est le levier le plus
+      efficace à votre disposition, et le seul qui soit entièrement entre vos mains.</p>
 
     <div class="acts">
-      <a class="btn btn--foret" href="index.html#formules">Revoir les trois formules</a>
+      <a class="btn btn--nuit" href="index.html#formules">Revoir les trois formules</a>
       <a class="btn btn--ghost" href="index.html#faq">Lire les questions fréquentes</a>
     </div>
   </div>
@@ -128,13 +130,14 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
     document.getElementById('lead').textContent =
       'Merci ' + d.prenom + '. Un conseiller prend votre dossier en main et vous rappelle pour établir votre devis ferme.';
   }
-  if(d.min && d.max){
-    var f = function(n){ return Number(n).toLocaleString('fr-FR') + ' €' };
-    document.getElementById('r-prix').textContent = f(d.min) + ' – ' + f(d.max);
+  if(d.vol){
+    document.getElementById('r-vol').textContent = 'Environ ' + d.vol + ' m³ à déplacer';
     var det = [];
-    if(d.vol) det.push('environ ' + d.vol + ' m³');
-    if(d.de && d.vers) det.push(d.de + ' → ' + d.vers);
+    if(d.de && d.vers){
+      det.push(d.de === d.vers ? 'Au sein de ' + d.de : d.de + ' → ' + d.vers);
+    }
     if(d.km) det.push(d.km + ' km');
+    if(d.formule && d.formule !== 'Je ne sais pas encore') det.push('formule ' + d.formule.toLowerCase());
     document.getElementById('r-det').textContent = det.join(' · ');
     document.getElementById('recap').classList.add('is-on');
   }

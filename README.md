@@ -52,23 +52,36 @@ doivent s'afficher sans requête bloquante.
 
 ## Charte graphique
 
-Les trois concurrents étudiés (officiel-demenagement, nextories,
-demenagement24) utilisent **tous** le même bleu corporate. D'où le contre-pied :
-un **vert forêt** profond et un **kraft de carton**, qui disent le métier plutôt
-que la catégorie. La brique terracotta sert exclusivement à l'action.
+Palette relevée directement sur
+[officiel-demenagement.com](https://www.officiel-demenagement.com/) : un **navy
+ardoise** en ancre et leur **vert pomme** en signal.
 
-| Jeton             | Valeur    | Emploi                              | Contraste            |
-| ----------------- | --------- | ----------------------------------- | -------------------- |
-| `--foret`         | `#0C3B2E` | Titres, grands aplats               | 12,50 / blanc        |
-| `--brique`        | `#C4461E` | Boutons, accents                    | 4,95 / blanc (AA)    |
-| `--brique-fonce`  | `#9E3415` | La brique en petit texte            | 7,10 / blanc         |
-| `--brique-vif`    | `#E05A2B` | **Décor et survol uniquement**      | 3,71 — jamais texte  |
-| `--kraft`         | `#EADBC4` | Fonds clairs, accents sur fond vert | encre à 12,13 dessus |
-| `--sable`         | `#FBF7F0` | Fond de page                        | —                    |
-| `--ink-3`         | `#6B746F` | Texte atténué                       | 4,52 / sable (AA)    |
+| Jeton           | Valeur    | Emploi                                | Contraste               |
+| --------------- | --------- | ------------------------------------- | ----------------------- |
+| `--nuit`        | `#222E3A` | Ancre : titres, sections sombres      | 13,82 / blanc           |
+| `--nuit-3`      | `#19232C` | Pied de page                          | blanc à 15,93 dessus    |
+| `--vert`        | `#8DC63F` | **Fond de bouton, encre navy dessus** | 6,76 avec `--nuit`      |
+| `--vert-fonce`  | `#466C22` | Le vert dès qu'il est du texte        | 6,13 / blanc            |
+| `--vert-2`      | `#77AC47` | **Décor seulement** (filets, tracés)  | 2,70 — jamais du texte  |
+| `--vert-pale`   | `#E3F0CC` | Pastilles d'icônes                    | navy à 11,58 dessus     |
+| `--gris`        | `#F4F5F9` | Fond de page                          | —                       |
+| `--ink`         | `#333333` | Texte courant                         | 12,63 / blanc           |
+| `--ink-3`       | `#5B6472` | Texte atténué                         | 5,98 / blanc            |
 
-Tous ces ratios sont **mesurés**, pas estimés. Toute nouvelle couleur doit être
-vérifiée avant d'être posée.
+Tous ces ratios sont **mesurés**, pas estimés.
+
+### Deux écarts volontaires avec leur site
+
+1. **Leur site pose du blanc sur le vert pomme**, ce qui donne **2,04** — en
+   dessous de tout seuil lisible. Ici le vert pomme ne porte que l'encre navy
+   (**6,76**). C'est la même couleur de marque, en lisible.
+2. **Leur gris de texte `#8F929B`** plafonne à **3,11** sur blanc : inutilisable
+   en texte courant. Remplacé par `#5B6472`, de la même famille ardoise.
+
+L'anneau de focus ne peut pas être unique : `--vert-fonce` ne ressort pas sur
+le navy (2,85) et `--vert` disparaît sur blanc (2,04). Le vert foncé sert donc
+sur fond clair, et une règle bascule sur le vert pomme dans les sections
+sombres.
 
 Typographie : **Plus Jakarta Sans** (variable 400–800) pour le texte,
 **Instrument Serif italique** pour les accents de titre. Les deux sont sous
@@ -94,16 +107,23 @@ approcher le trajet routier) et non une approximation par département.
 Mesuré : Lyon → Bordeaux donne 544 km (réel ≈ 550), Paris → Lyon 491 km
 (réel ≈ 465).
 
-### Moteur de prix
+### Aucun montant affiché
 
-Tout se règle dans la constante `TARIF` d'`index.html` — tarif au m³, borne
-basse et borne haute, par bande de distance (local < 50 km, régional < 300 km,
-national au-delà) et par formule. Un plancher à 390 € évite les estimations
-absurdes sur les très petits volumes, et un étage sans ascenseur majore de
-3,5 % par niveau, plafonné à cinq.
+**La page ne communique aucun prix** — ni estimation personnalisée, ni grille
+de tarifs. C'est le conseiller qui chiffre, sur le volume réel.
 
-Les fourchettes sont calées sur le marché français 2026 (33 à 90 €/m³ selon
-distance et formule). **À réviser une fois par an.**
+Le formulaire conserve en revanche son panneau de retour : il affiche le
+**volume** et le **trajet** (« Environ 30 m³ — Lyon → Bordeaux, 544 km »). Il
+remplit la même fonction qu'une estimation chiffrée — donner au visiteur le
+sentiment d'être compris, et une raison d'aller au bout — sans engager un
+montant que personne ne pourra tenir.
+
+Le volume et la distance partent dans le lead&nbsp;: c'est ce dont le conseiller
+a besoin pour préparer son appel.
+
+> Si un prix devait revenir un jour, il faudrait le remettre à **cinq** endroits
+> cohérents entre eux : le panneau du formulaire, le récapitulatif de `/merci`,
+> le payload, et les mentions qualitatives du hero et des formules.
 
 ### Envoi du lead
 
@@ -117,10 +137,10 @@ Pour l'activer, remplacer par l'URL du webhook (Make, n8n, CRM…) :
 <form id="q-form" data-endpoint="https://hook.eu1.make.com/VOTRE_WEBHOOK">
 ```
 
-Le payload JSON contient le projet (logement, volume, communes, distance, étages,
-date, formule), l'estimation calculée, la priorité (`chaud` / `tiede` / `froid`
-selon l'échéance), le contact, la preuve de consentement horodatée, et tous les
-identifiants publicitaires captés.
+Le payload JSON (39 champs) contient le projet (logement, volume, communes,
+distance, étages, date, formule), la priorité (`chaud` / `tiede` / `froid` selon
+l'échéance), le contact, la preuve de consentement horodatée, et tous les
+identifiants publicitaires captés. **Aucun champ de prix.**
 
 > ⚠️ Un `data-endpoint` est **public** : n'y mettez qu'une URL de webhook sans
 > secret. Si l'endpoint doit être authentifié, passez par un petit proxy
@@ -128,7 +148,7 @@ identifiants publicitaires captés.
 
 ### Mesure
 
-Événements `dataLayer` : `quiz_start`, `quiz_step`, `estimation_vue`,
+Événements `dataLayer` : `quiz_start`, `quiz_step`, `recap_projet_vu`,
 `quiz_contact_vu`, `generate_lead` (avec `user_data` pour les conversions
 améliorées), `cta_click`.
 
@@ -153,8 +173,8 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
       signale dans `index.html`. **Soit on les confirme, soit on les retire
       partout à la fois** — une promesse à moitié tenue coûte plus cher qu'une
       promesse absente.
-- [ ] **Le chiffre de 38 %** et le plafond de la garantie dommage : repris des
-      ordres de grandeur du marché, à remplacer par vos propres chiffres.
+- [ ] **Le plafond de la garantie dommage** : la FAQ renvoie au conseiller plutôt
+      que d'annoncer un montant. À trancher si vous voulez le publier.
 - [ ] **Les avis clients.** Les trois témoignages du tableau `AVIS`
       (`index.html`) sont des **exemples de mise en forme**, explicitement
       marqués comme tels. Les remplacer par de vrais avis, avec l'accord écrit
