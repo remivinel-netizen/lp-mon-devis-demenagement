@@ -407,6 +407,16 @@ section{padding:clamp(54px,7vw,92px) 0}
 
 /* Inclus */
 .incl{background:var(--gris)}
+/* Bandeau panoramique : la section support occupe déjà le deux-colonnes et la
+   galerie les trois vignettes — une troisième disposition évite que les
+   sections imagées se mettent à se ressembler à leur tour. Le recadrage est
+   fait par la CSS, mais le fichier est déjà panoramique (1344×576) : à 1200 px
+   de large le bandeau n'étire rien. Sur écran étroit le cadre se resserre un
+   peu, jamais jusqu'au carré — le canapé est au centre et doit y rester. */
+.incl__f{aspect-ratio:2.33/1;overflow:hidden;border-radius:var(--r-md);
+  margin-bottom:clamp(20px,2.6vw,30px);background:var(--gris-2)}
+.incl__f img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+@media (max-width:700px){.incl__f{aspect-ratio:1.9/1}}
 .incl__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,20px)}
 .inc{background:var(--white);border-radius:var(--r-md);padding:24px;box-shadow:inset 0 0 0 1px rgba(34,46,58,.09)}
 .med{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;flex:none}
@@ -428,16 +438,24 @@ section{padding:clamp(54px,7vw,92px) 0}
 .sup__i h3{font-size:17px;letter-spacing:-.022em}
 .sup__i p{font-size:14.6px;color:var(--ink-2);margin-top:5px;line-height:1.5}
 @media (max-width:950px){.sup__in{grid-template-columns:1fr}}
-/* Qualité : fond sombre. Après trois sections claires d'affilée, c'est le
-   changement de valeur qui redonne du rythme — et il va au propos. */
-.qlt{background:var(--nuit)}
-.qlt .sec-h h2{color:#fff}
-.qlt .sec-h h2 .em{color:var(--rose)}
-.qlt .sec-h p{color:rgba(255,255,255,.74)}
-.qlt .inc{background:rgba(255,255,255,.055);box-shadow:inset 0 0 0 1px rgba(255,255,255,.11)}
-.qlt .inc h3{color:#fff}
-.qlt .inc p{color:rgba(255,255,255,.7)}
-.qlt .sec-cta .hint{color:rgba(255,255,255,.62)}
+/* Le cadre réglementaire tient dans un panneau sombre au sein de la galerie
+   plutôt que dans une section à part : c'est le même sujet — ce que recouvre
+   vraiment une prestation — et la page gagne une section de moins. Le fond
+   sombre reste, c'est lui qui donne le rythme après une suite de sections
+   claires. */
+.regl{margin-top:clamp(24px,3vw,34px);background:var(--nuit);color:#fff;
+  border-radius:var(--r-md);padding:clamp(24px,3.4vw,38px);scroll-margin-top:22px}
+.regl__h{max-width:54ch;margin-bottom:clamp(20px,2.6vw,28px)}
+.regl__h h3{font-size:clamp(21px,2.6vw,30px);letter-spacing:-.03em;line-height:1.15}
+/* Le magenta ne tient que 2,47:1 sur le bleu nuit, sous les 3:1 exigés même
+   en grand texte. L'accent passe au rose : 5,16:1. */
+.regl__h h3 .em{color:var(--rose)}
+.regl__h p{margin-top:11px;font-size:16.5px;color:rgba(255,255,255,.74);line-height:1.55}
+.regl__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,26px)}
+.regl__i h4{font-size:15.5px;margin-top:13px;letter-spacing:-.022em}
+.regl__i p{font-size:14px;color:rgba(255,255,255,.72);margin-top:6px;line-height:1.5}
+@media (max-width:900px){.regl__g{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.regl__g{grid-template-columns:1fr}}
 @media (max-width:900px){.incl__g,.incl__g--3{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.incl__g,.incl__g--3{grid-template-columns:1fr}}
 
@@ -1288,6 +1306,10 @@ details .a p + p{margin-top:11px}
       <h2>Inclus dans les trois formules, <span class="em">sans supplément</span></h2>
       <p>Quelle que soit la formule retenue, ces quatre postes figurent au devis.</p>
     </div>
+    <div class="incl__f rvl">
+      <img src="img/inclus.jpg" alt="Un canapé emballé dans une housse matelassée et sanglé, posé contre un mur, à côté d'un rouleau de papier bulle et de couvertures de déménagement pliées"
+           width="1344" height="576" loading="lazy" decoding="async">
+    </div>
     <div class="incl__g rvl-g">
       <div class="inc"><span class="med med--rose"><svg class="ico"><use href="#i-mail"/></svg></span>
         <h3>Le transfert de vos contrats</h3>
@@ -1386,50 +1408,6 @@ details .a p + p{margin-top:11px}
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Engagement qualité. Tout ce qui est affirmé ici relève du droit français
-     applicable à TOUTE entreprise de déménagement, vérifié sur
-     service-public.gouv.fr (particuliers, fiche F33997) et sur
-     ecologie.gouv.fr (accès à la profession de transporteur de marchandises).
-     Rien n'est présenté comme un engagement propre à MATCHMOVE, parce que
-     matchmove.fr ne publie ni assureur, ni montant de couverture, ni critère
-     de sélection de ses partenaires.
-     ⚠ Dès que ces trois éléments seront connus, c'est ici qu'ils viennent —
-     et c'est là que se joue l'écart avec les concurrents, dont aucun ne
-     publie d'engagement d'assurance. -->
-<section id="qualite" class="qlt">
-  <div class="wrap">
-    <div class="sec-h ctr rvl">
-      <h2>Un métier réglementé, <span class="em">des droits qui vous protègent</span></h2>
-      <p>Tout le monde peut se dire déménageur&nbsp;; la loi, elle, exige des titres précis et
-         vous donne des recours. Voici ce que vous êtes en droit d'attendre, quel que soit le
-         déménageur retenu.</p>
-    </div>
-    <div class="incl__g rvl-g">
-      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-route"/></svg></span>
-        <h3>Une licence de transport</h3>
-        <p>Le déménagement relève du transport routier. L'entreprise doit être inscrite au
-           registre national des entreprises et au registre des transporteurs et des loueurs,
-           et détenir la licence qui en découle.</p></div>
-      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-shield"/></svg></span>
-        <h3>Une assurance obligatoire</h3>
-        <p>Le professionnel doit avoir souscrit une responsabilité civile professionnelle. La
-           déclaration de valeur, elle, sert à déclarer à l'assurance le montant de votre
-           mobilier&nbsp;: remplissez-la sérieusement.</p></div>
-      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-euro"/></svg></span>
-        <h3>Un devis détaillé</h3>
-        <p>Il doit faire apparaître le prix de la main-d'œuvre, celui de la traction par tranche
-           de volume avec un terme fixe et un terme kilométrique, les montants hors taxes et
-           toutes taxes comprises, et les conditions générales.</p></div>
-      <div class="inc"><span class="med med--clair"><svg class="ico"><use href="#i-cal"/></svg></span>
-        <h3>Dix jours pour réclamer</h3>
-        <p>En cas de casse ou de perte, inscrivez des réserves précises sur le bulletin de
-           livraison avant de le signer, puis confirmez sous dix jours par lettre recommandée
-           avec accusé de réception.</p></div>
-    </div>
-    <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="qualite">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Votre conseiller répond à ces questions.</span></div>
   </div>
 </section>
 
@@ -1542,6 +1520,47 @@ details .a p + p{margin-top:11px}
         <figcaption><b>L'arrivée</b><span>Déballage et remontage selon la formule. En Luxe, les cartons repartent avec l'équipe.</span></figcaption>
       </figure>
     </div>
+
+    <!-- Tout ce qui est affirmé ici relève du droit français applicable à TOUTE
+         entreprise de déménagement, vérifié sur service-public.gouv.fr
+         (particuliers, fiche F33997) et sur ecologie.gouv.fr (accès à la
+         profession de transporteur de marchandises). Rien n'est présenté comme
+         un engagement propre à MATCHMOVE, parce que matchmove.fr ne publie ni
+         assureur, ni montant de couverture, ni critère de sélection.
+         ⚠ Dès que ces trois éléments seront connus, c'est ici qu'ils viennent —
+         et c'est là que se joue l'écart avec les concurrents, dont aucun ne
+         publie d'engagement d'assurance. -->
+    <div class="regl rvl" id="qualite">
+      <div class="regl__h">
+        <h3>Un métier réglementé, <span class="em">des droits qui vous protègent</span></h3>
+        <p>Tout le monde peut se dire déménageur&nbsp;; la loi, elle, exige des titres précis et
+           vous donne des recours. Voici ce que vous êtes en droit d'attendre, quel que soit le
+           déménageur retenu.</p>
+      </div>
+      <div class="regl__g">
+        <div class="regl__i"><span class="med med--clair"><svg class="ico"><use href="#i-route"/></svg></span>
+          <h4>Une licence de transport</h4>
+          <p>Le déménagement relève du transport routier. L'entreprise doit être inscrite au
+             registre national des entreprises et au registre des transporteurs et des loueurs,
+             et détenir la licence qui en découle.</p></div>
+        <div class="regl__i"><span class="med med--clair"><svg class="ico"><use href="#i-shield"/></svg></span>
+          <h4>Une assurance obligatoire</h4>
+          <p>Le professionnel doit avoir souscrit une responsabilité civile professionnelle. La
+             déclaration de valeur, elle, sert à déclarer à l'assurance le montant de votre
+             mobilier&nbsp;: remplissez-la sérieusement.</p></div>
+        <div class="regl__i"><span class="med med--clair"><svg class="ico"><use href="#i-euro"/></svg></span>
+          <h4>Un devis détaillé</h4>
+          <p>Il doit faire apparaître le prix de la main-d'œuvre, celui de la traction par tranche
+             de volume avec un terme fixe et un terme kilométrique, les montants hors taxes et
+             toutes taxes comprises, et les conditions générales.</p></div>
+        <div class="regl__i"><span class="med med--clair"><svg class="ico"><use href="#i-cal"/></svg></span>
+          <h4>Dix jours pour réclamer</h4>
+          <p>En cas de casse ou de perte, inscrivez des réserves précises sur le bulletin de
+             livraison avant de le signer, puis confirmez sous dix jours par lettre recommandée
+             avec accusé de réception.</p></div>
+      </div>
+    </div>
+
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="galerie">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Gratuit, et sans engagement.</span></div>
   </div>
 </section>

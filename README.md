@@ -231,9 +231,14 @@ mécanisme.
 Si MatchMove garantit contractuellement l'aller seul, la formulation ferme peut
 revenir partout&nbsp;: un commentaire dans `index.html` indique où.
 
-### Ce que la section « qualité » affirme, et d'où ça vient
+### Ce que le bloc « métier réglementé » affirme, et d'où ça vient
 
-Tout ce qu'affirme la section `#qualite` relève du **droit français applicable à
+Il vit dans la section « Du premier carton au dernier meuble », et non dans une
+section à part : c'est le même sujet — ce que recouvre vraiment une prestation —
+et la page y gagne une section de moins. L'ancre `#qualite` est portée par le
+panneau, les liens de pied de page continuent donc de fonctionner.
+
+Tout ce qu'il affirme relève du **droit français applicable à
 toute entreprise de déménagement**, et non d'un engagement propre à MatchMove —
 inscription au registre national des entreprises et au registre des
 transporteurs et des loueurs, licence de transport, responsabilité civile
@@ -270,13 +275,19 @@ Trois leviers, aucun n'ajoutant de poids notable :
    de se ressembler à distance.
 2. **Une photo dans la section support**, qui passe en deux colonnes. C'est la
    section la plus humaine de la page, autant qu'elle le montre.
-3. **Un fond sombre sur la section qualité.** Après trois sections claires,
-   c'est le changement de valeur qui redonne du rythme — et il va au propos.
-   L'accent du titre y passe du magenta au rose : le magenta ne tient que
-   **2,47:1** sur le bleu nuit, sous le seuil de 3:1 exigé même pour du grand
-   texte, là où le rose atteint 5,16:1. Contrastes mesurés sur le reste :
-   13,82:1 pour le titre, 8,28:1 pour le chapô, 11,68:1 et 6,65:1 dans les
-   cartes, 6,30:1 pour la mention sous le bouton.
+3. **Un bandeau panoramique** en tête de « Inclus dans les trois formules ».
+   Troisième disposition d'image de la page, après le deux-colonnes du support
+   et les trois vignettes de la galerie : les sections imagées ne se
+   ressemblent pas davantage que ne se ressemblaient les grilles de cartes. Le
+   fichier est nativement en 1344×576, donc affiché à 1200 px il est **réduit**
+   (0,89×) et non étiré.
+4. **Un panneau sombre pour le cadre réglementaire**, à l'intérieur de la
+   galerie. Après une suite de sections claires, c'est le changement de valeur
+   qui redonne du rythme — et il va au propos. L'accent du titre y passe du
+   magenta au rose : le magenta ne tient que **2,47:1** sur le bleu nuit, sous
+   le seuil de 3:1 exigé même pour du grand texte, là où le rose atteint
+   5,16:1. Contrastes mesurés sur le reste : 13,82:1 pour le titre, 8,28:1 pour
+   le chapô, 13,82:1 et 7,92:1 dans les items.
 
 Les fonds de section alternent désormais blanc, gris, blanc, gris foncé, nuit,
 rose. « Inclus » et « Cas particuliers » se suivaient auparavant sur deux gris
@@ -332,8 +343,8 @@ Pour de vrais portraits, il faut l'accord écrit de chaque personne citée.
 
 ### Les images
 
-Huit photos générées pour le projet (hero, trois étapes, trois de galerie, une
-de support), dans un registre commun : intérieurs français clairs, lumière
+Neuf photos générées pour le projet (hero, trois étapes, trois de galerie, une
+de support, un bandeau panoramique), dans un registre commun : intérieurs français clairs, lumière
 naturelle, **aucun visage**, aucun texte, aucune marque sur le camion.
 
 Pas de visage, c'est une règle et non une préférence : un visage généré invente
