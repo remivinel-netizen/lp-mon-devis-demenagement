@@ -269,20 +269,22 @@ publie aucun critère de sélection. C'est la différence entre « nos partenair
 sont des professionnels, donc la loi les oblige à X » et « nous vérifions X »,
 et seule la seconde formule demande une preuve que nous n'avons pas.
 
-Le bloc est volontairement **court** — 85 mots, quatre lignes — et formulé du
+Le bloc est volontairement **court** — 70 mots, trois lignes — et formulé du
 point de vue de ce que le client obtient, non de ce que la loi impose. « Un
-transporteur agréé », « Vos biens assurés », « Un devis transparent », « Dix
-jours de recours » : ce sont quatre acquis, pas quatre contraintes. La version
-précédente détaillait chaque obligation sur trois lignes et pesait 160 mots
-dans une page qui vend un service, pas un cours de droit des transports.
+transporteur agréé », « Vos biens assurés », « Un devis transparent » : ce sont
+trois acquis, pas trois contraintes. La version d'origine détaillait chaque
+obligation sur trois lignes et pesait 160 mots dans une page qui vend un
+service, pas un cours de droit des transports.
+
+Un quatrième poste, « Dix jours de recours », expliquait la procédure de
+réserves par lettre recommandée. Retiré&nbsp;: c'est la seule des quatre qui
+parle de ce qui se passe quand ça tourne mal.
 
 Tout ce qu'il affirme relève du **droit français applicable à
 toute entreprise de déménagement**, et non d'un engagement propre à MatchMove —
 inscription au registre national des entreprises et au registre des
 transporteurs et des loueurs, licence de transport, responsabilité civile
-professionnelle, mentions obligatoires du devis, déclaration de valeur, et le
-délai de **dix jours** pour confirmer des réserves par lettre recommandée avec
-accusé de réception.
+professionnelle, et les mentions obligatoires du devis, déclaration de valeur comprise.
 
 Vérifié sur [service-public.gouv.fr](https://www.service-public.gouv.fr/particuliers/vosdroits/F33997)
 et sur [ecologie.gouv.fr](https://www.ecologie.gouv.fr/politiques-publiques/acces-exercice-profession-transporteur-marchandises).
