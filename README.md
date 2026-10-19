@@ -200,6 +200,13 @@ convertit pas&nbsp;: c'est l'objet que le visiteur redoute, montré tel qu'il le
 recevra. Le poste annulé est **barré et non supprimé** — c'est le même devis,
 moins une ligne.
 
+Les chiffres sont **étiquetés comme un exemple**, à deux endroits&nbsp;: une
+pastille « Exemple » dans le titre du bloc, pour qui parcourt, et une note sous
+les cartes pour qui lit — « Exemple sur un Lyon → Lille. Votre devis dépend de
+votre volume, de votre trajet et de la formule retenue. » Deux nombres en gros
+corps sans étiquette se lisent comme un tarif&nbsp;; les mentions légales
+disent déjà la même chose des volumes.
+
 Les cartes sont **enfoncées** dans le panneau (`rgba(0,0,0,.14)`) et non posées
 dessus. Sur un fond éclairci, le rose du libellé tombait à 4,36:1 et la ligne
 barrée à 4,44:1, sous les 4,5:1 exigés à ces tailles. En les assombrissant,
