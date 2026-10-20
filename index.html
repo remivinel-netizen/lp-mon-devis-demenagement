@@ -53,12 +53,12 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   /* Accent sur fond sombre. Le magenta lui-même n'y tient pas (2,47 sur le
      navy) : c'est donc sa version claire qui prend le relais, à 6,04. Même
      famille chromatique, aucune troisième teinte dans la charte. */
-  --rose:#FF6F80;
+  --rose:#CE0054;
   /* Décoratif seulement : bande du logo, tracés, filets. */
-  --rose-2:#F0576E;
+  --rose-2:#ED1D71;
   /* Teintes claires pour les pastilles et les fonds de bloc : l'encre navy y
      tient à 10,90. */
-  --rose-pale:#FCDDE1; --rose-brume:#FDF3F4;
+  --rose-pale:#FFEDF4; --rose-brume:#FFF2F7;
   /* Leurs gris d'interface. */
   --gris:#F4F5F9;
   --creme:#F6F2EC; --gris-2:#EBECEF; --white:#fff;
@@ -351,7 +351,7 @@ section{padding:clamp(54px,7vw,92px) 0}
    ⚠ Contrastes mesurés du magenta #CE0054 : 1,99:1 contre le voile du hero
    et 2,47:1 sur le bleu nuit, là où 3:1 est attendu pour du grand texte.
    Choix assumé du client, consigné ici : si l'accessibilité devait primer,
-   c'est --rose (#FF6F80, respectivement 4,57 et 5,16) qu'il faudrait
+   c'est --rose (#CE0054, respectivement 4,57 et 5,16) qu'il faudrait
    reprendre sur les quatre titres à fond sombre — hero, carte de France,
    panneau des garanties, section finale. */
 .sec-h h2 .em{color:var(--magenta)}
@@ -701,7 +701,7 @@ details .a p + p{margin-top:11px}
 .hero__k4{width:56px;height:56px;border-radius:14px;background:var(--rose);right:330px;top:96px}
 
 /* Conseiller : un grand contour coupé par le bord droit. */
-.sup__k{width:420px;height:420px;border-radius:90px;border:44px solid #FFE4E7;
+.sup__k{width:420px;height:420px;border-radius:90px;border:44px solid #FFCCE1;
   right:-120px;top:-40px;box-sizing:border-box}
 
 /* Étapes : une pile de trois cartons dans le coin bas droit. */
@@ -721,20 +721,22 @@ details .a p + p{margin-top:11px}
   .krt--mini{display:none}
 }
 
-.final{background:var(--rose);color:var(--nuit);text-align:center;position:relative;overflow:clip}
+.final{background:var(--magenta);color:#fff;text-align:center;position:relative;overflow:clip}
 /* Le halo rose n'a plus d'objet sur un fond rose. */
 .final__k{background:rgba(255,255,255,.18)}
 .final__in{position:relative;z-index:1;max-width:720px;margin-inline:auto}
 .final h2{font-size:clamp(28px,4vw,46px)}
-/* Sur le corail, le magenta tombe à 2,09:1 et le blanc à 2,68 : l'accent ne
-   peut pas être une couleur ici. Le titre est donc d'un seul ton, l'encre à
-   5,16:1 — c'est le bandeau lui-même qui fait l'accent. */
+/* Sur le magenta, l'accent ne peut pas être une couleur : le blanc y tient
+   5,60:1 et c'est le plus clair disponible. Le titre est donc d'un seul ton,
+   c'est le bandeau lui-même qui fait l'accent. */
 .final h2 .em{color:inherit}
-.final p{margin-top:17px;font-size:18px;color:var(--nuit);line-height:1.55}
+.final p{margin-top:17px;font-size:18px;color:#fff;line-height:1.55}
 .final .btn{margin-top:30px}
-/* Bouton nuit sur corail : 5,16:1 de séparation, blanc à 13,82:1 dessus. */
-.final .btn--cta{background:var(--nuit);color:#fff}
-.final .mini{margin-top:17px;font-size:13.8px;color:var(--nuit)}
+/* Bouton inversé : blanc plein, texte magenta. Le fond se détache du bandeau
+   à 5,60:1 et porte son texte au même rapport. Un bouton nuit n'aurait eu que
+   2,47:1 de séparation, sous les 3:1 attendus d'un composant. */
+.final .btn--cta{background:#fff;color:var(--magenta)}
+.final .mini{margin-top:17px;font-size:13.8px;color:rgba(255,255,255,.9)}
 
 /* Pied */
 .ftr{background:#1C2631;color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14.3px;
@@ -763,7 +765,7 @@ details .a p + p{margin-top:11px}
   .btn:hover::after{transform:translateX(120%)}
   .btn--cta:hover,.btn--nuit:hover{transform:translateY(-2px)}
   .btn--cta:hover{box-shadow:0 10px 24px -10px rgba(206,0,84,.55)}
-  .final .btn--cta:hover{background:var(--nuit-3);box-shadow:0 10px 24px -10px rgba(25,35,44,.5)}
+  .final .btn--cta:hover{background:var(--rose-brume);box-shadow:0 10px 24px -10px rgba(25,35,44,.45)}
   .btn--nuit:hover{box-shadow:0 10px 24px -10px rgba(34,46,58,.5)}
   .btn:hover .ico{transform:translateX(4px)}
 
@@ -931,7 +933,7 @@ details .a p + p{margin-top:11px}
   <span class="krt hero__k4 krt--mini" aria-hidden="true"></span>
   <svg class="hero__route" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
     <path d="M-20 150 C 220 60, 420 170, 650 110 S 1080 30, 1460 120" fill="none"
-          stroke="#FF6F80" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
+          stroke="#CE0054" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
   </svg>
   <div class="wrap hero__in">
 

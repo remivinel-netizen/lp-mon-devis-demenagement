@@ -3,8 +3,8 @@
    doivent s'afficher sans aucune requête bloquante. */
 :root{
   --nuit:#222E3A; --nuit-2:#2C3845; --nuit-3:#19232C;
-  --rose:#FF6F80; --rose-2:#F0576E;
-  --rose-pale:#FCDDE1; --rose-brume:#FDF3F4;
+  --rose:#CE0054; --rose-2:#ED1D71;
+  --rose-pale:#FFEDF4; --rose-brume:#FFF2F7;
   --gris:#F4F5F9; --gris-2:#EBECEF; --white:#fff;
   --rouge:#A52539;
   --ink:#333333; --ink-2:#4A5260; --ink-3:#5B6472;
