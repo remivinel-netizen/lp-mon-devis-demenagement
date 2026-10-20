@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Déménagement : votre devis gratuit en 1 heure — Mon Devis Déménagement</title>
+<title>Déménagement : votre devis gratuit en 1 heure · Mon Devis Déménagement</title>
 <meta name="description" content="Décrivez votre déménagement en 1 minute, recevez votre devis en 1 heure. Plus de 1 000 déménageurs partenaires, démarches administratives incluses, annulation gratuite jusqu'à 2 semaines avant.">
 <meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -573,6 +573,9 @@ details .a p + p{margin-top:11px}
 .cs p{font-size:13.8px;color:var(--ink-2);margin-top:5px;line-height:1.5}
 @media (max-width:900px){.cas__g{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.cas__g{grid-template-columns:1fr}}
+#cas .sec-h{max-width:min(560px,100%)}
+/* Coupure de titre choisie, et seulement quand la largeur le permet. */
+@media (max-width:620px){.brk{display:none}}
 
 /* Le conseiller */
 .cons{background:var(--rose-brume)}
@@ -828,7 +831,7 @@ details .a p + p{margin-top:11px}
       <!-- ⚠ À VALIDER : numéro et horaires à remplacer par ceux du client. -->
       <a class="tel" href="tel:+33451420447">
         <span class="tel__ico"><svg class="ico"><use href="#i-phone"/></svg></span>
-        <span><b>04 51 42 04 47</b><small>Votre conseiller, lundi — samedi 8h-18h</small></span>
+        <span><b>04 51 42 04 47</b><small>Votre conseiller, du lundi au samedi, 8h-18h</small></span>
       </a>
       <a class="btn btn--cta" href="#devis" data-cta="header">Obtenir mon devis</a>
     </div>
@@ -1022,7 +1025,7 @@ details .a p + p{margin-top:11px}
         <div class="est" id="q-est" aria-live="polite">
           <p class="est__h"><svg class="ico"><use href="#i-box"/></svg>Votre projet</p>
           <div class="est__row">
-            <span class="est__v" id="est-vol">—</span>
+            <span class="est__v" id="est-vol">…</span>
             <span class="est__u" id="est-u">à déplacer</span>
           </div>
           <p class="est__d"><svg class="ico"><use href="#i-pin"/></svg><span id="est-det"></span></p>
@@ -1064,8 +1067,8 @@ details .a p + p{margin-top:11px}
     <div>
       <div class="sec-h rvl" style="margin-bottom:0">
         <h2>Un réseau <span class="em">sur toute la France</span></h2>
-        <p>Plus de mille déménageurs partenaires en France. Où que vous partiez,
-           où que vous arriviez, le trajet est couvert.</p>
+        <p>Plus de mille déménageurs partenaires en France. Quel que soit votre trajet,
+           nous en avons un pour vous.</p>
       </div>
       <div class="carte__st rvl">
         <div><b>1 000+</b><span>déménageurs<br>partenaires</span></div>
@@ -1275,7 +1278,7 @@ details .a p + p{margin-top:11px}
         <div class="stp__img"><img src="img/etape-2.jpg" alt="Une personne ferme un carton de déménagement avec un dévidoir d'adhésif" width="520" height="347" loading="lazy" decoding="async"></div>
         <div class="stp__c">
           <h3>Vous préparez sans y penser</h3>
-          <p>Nous transférons vos contrats — eau, gaz, électricité, internet, assurance — et demandons
+          <p>Nous transférons vos contrats (eau, gaz, électricité, internet, assurance) et demandons
              l'autorisation de stationnement si la rue l'exige.</p>
           <span class="tag">Démarches incluses</span>
         </div>
@@ -1299,13 +1302,13 @@ details .a p + p{margin-top:11px}
     <div class="sec-h ctr rvl">
       <h2>Vous déléguez <span class="em">autant que vous voulez</span></h2>
       <p>Ce qui change d'une formule à l'autre, c'est le travail que vous gardez. Ce qui ne change
-         pas&nbsp;: la protection du mobilier, le transport, et le transfert de vos contrats — compris
+         pas&nbsp;: la protection du mobilier, le transport, et le transfert de vos contrats, compris
          dans les trois.</p>
     </div>
     <div class="forms rvl-g">
       <div class="frm">
         <h3>Éco</h3>
-        <p class="frm__p">Le prix plancher — <b>vous emballez tout</b></p>
+        <p class="frm__p">Le prix plancher&nbsp;: <b>vous emballez tout</b></p>
         <ul>
           <li><svg class="ico"><use href="#i-check"/></svg>Protection du mobilier, housses matelas et literie</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Chargement, acheminement, livraison</li>
@@ -1317,7 +1320,7 @@ details .a p + p{margin-top:11px}
       <div class="frm frm--hi">
         <span class="frm__flag">La plus choisie</span>
         <h3>Standard</h3>
-        <p class="frm__p">Le bon compromis — <b>ils gèrent le fragile</b></p>
+        <p class="frm__p">Le bon compromis&nbsp;: <b>ils gèrent le fragile</b></p>
         <ul>
           <li><svg class="ico"><use href="#i-check"/></svg>Tout l'Éco, plus&nbsp;:</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Emballage des objets fragiles</li>
@@ -1328,10 +1331,10 @@ details .a p + p{margin-top:11px}
       </div>
       <div class="frm">
         <h3>Luxe</h3>
-        <p class="frm__p">Vous ne touchez rien — <b>ils font tout</b></p>
+        <p class="frm__p">Vous ne touchez rien&nbsp;: <b>ils font tout</b></p>
         <ul>
           <li><svg class="ico"><use href="#i-check"/></svg>Tout le Standard, plus&nbsp;:</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Emballage du non fragile — linge plié, livres</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Emballage du non fragile&nbsp;: linge plié, livres</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Déballage complet à l'arrivée</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Cartons et adhésif fournis</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Autorisation de stationnement demandée</li>
@@ -1377,7 +1380,7 @@ details .a p + p{margin-top:11px}
 <section id="cas" style="background:var(--white);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-h ctr rvl">
-      <h2>Votre déménagement <span class="em">n'est pas standard&nbsp;?</span></h2>
+      <h2>Votre déménagement<br class="brk"> <span class="em">n'est pas standard&nbsp;?</span></h2>
       <p>Dites-le à votre conseiller quand il vous rappelle&nbsp;: seuls les déménageurs
          réellement équipés pour votre cas seront consultés.</p>
     </div>
@@ -1459,7 +1462,7 @@ details .a p + p{margin-top:11px}
       <!-- ⚠ À VALIDER : numéro et horaires. -->
       <div class="cons__n">
         <a href="tel:+33451420447">04 51 42 04 47</a>
-        <span>Lundi — samedi, de 8h à 18h</span>
+        <span>Du lundi au samedi, de 8h à 18h</span>
         <a class="btn btn--cta cons__cta" href="#devis" data-cta="conseiller">Obtenir mon devis</a>
       </div>
     </div>
@@ -1471,8 +1474,8 @@ details .a p + p{margin-top:11px}
     <div class="sec-h ctr rvl">
       <h2>Ce qu'en disent <span class="em">les déménagés</span></h2>
       <p class="tp"><span class="tp__note">4,3<small>/5</small></span>
-        <span class="tp__txt">sur <strong>202 avis</strong> —
-          <a href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">voir tous les avis
+        <span class="tp__txt">sur <strong>202 avis</strong>.
+          <a href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">Voir tous les avis
           sur Trustpilot</a></span></p>
     </div>
     <div class="avis__g rvl-g" id="avis-g"></div>
@@ -1489,11 +1492,11 @@ details .a p + p{margin-top:11px}
 
       <details><summary>Le devis est-il gratuit, et sous quel délai&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Gratuit, sans engagement, et établi <strong>en une heure</strong>. L'estimation en ligne et l'appel du conseiller ne vous coûtent rien non plus.</p>
-          <p>Vous ne payez qu'au moment où vous validez un devis par un acompte — et vous pouvez encore modifier ou annuler gratuitement jusqu'à deux semaines avant la date retenue.</p></div></details>
+          <p>Vous ne payez qu'au moment où vous validez un devis par un acompte, et vous pouvez encore modifier ou annuler gratuitement jusqu'à deux semaines avant la date retenue.</p></div></details>
 
       <details><summary>Pourquoi parle-t-on de «&nbsp;retour à vide&nbsp;»&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Un déménageur qui fait Lyon-Lille doit ramener son camion. S'il revient à vide, ce trajet est dans votre facture&nbsp;: vous payez la route deux fois.</p>
-          <p>Un camion mobilisé pour vous seul doit rentrer à son point de départ, et ce retour vous est facturé même s'il roule à vide. Un camion qui passait déjà par votre trajet, lui, repart chargé par un autre client&nbsp;: seul l'aller vous est facturé. C'est ce que votre conseiller cherche à obtenir sur les mille déménageurs du réseau — sans pouvoir le garantir sur chaque trajet.</p></div></details>
+          <p>Un camion mobilisé pour vous seul doit rentrer à son point de départ, et ce retour vous est facturé même s'il roule à vide. Un camion qui passait déjà par votre trajet, lui, repart chargé par un autre client&nbsp;: seul l'aller vous est facturé. C'est ce que votre conseiller cherche à obtenir sur les mille déménageurs du réseau, sans pouvoir le garantir sur chaque trajet.</p></div></details>
 
       <details><summary>Les cartons sont-ils fournis&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>En formule <strong>Luxe</strong>, oui&nbsp;: cartons et adhésif fournis, et déballage complet à l'arrivée.</p>
@@ -1513,7 +1516,7 @@ details .a p + p{margin-top:11px}
 
       <details><summary>Qui s'occupe du transfert de mes contrats&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>Nous, et sur les trois formules&nbsp;: <strong>eau, gaz, électricité, internet et assurance</strong>. Ces démarches figurent au devis, elles ne sont pas une option.</p>
-          <p>Restent à votre main les organismes qui exigent une déclaration personnelle — impôts, Sécurité sociale, CAF — ainsi que la réexpédition du courrier, à souscrire auprès de La Poste.</p></div></details>
+          <p>Restent à votre main les organismes qui exigent une déclaration personnelle (impôts, Sécurité sociale, CAF), ainsi que la réexpédition du courrier, à souscrire auprès de La Poste.</p></div></details>
 
       <details><summary>Et si je dois entreposer mes meubles entre deux dates&nbsp;?<svg class="ico"><use href="#i-plus"/></svg></summary>
         <div class="a"><p>C'est fréquent quand la date de sortie et celle d'entrée ne se touchent pas. Le garde-meuble se chiffre avec le reste du devis, sur un réseau de plus de 350 sites en France.</p>
@@ -1615,7 +1618,7 @@ details .a p + p{margin-top:11px}
       <div><h4>Nous contacter</h4><ul>
         <!-- ⚠ À VALIDER : coordonnées à remplacer. -->
         <li><a href="tel:+33451420447">04 51 42 04 47</a></li>
-        <li>Lundi — samedi, 8h à 18h</li>
+        <li>Du lundi au samedi, 8h à 18h</li>
         <li><a href="mailto:contact@matchmove.fr">contact@matchmove.fr</a></li>
       </ul></div>
       <div><h4>Informations</h4><ul>
@@ -1625,7 +1628,7 @@ details .a p + p{margin-top:11px}
       </ul></div>
     </div>
     <div class="ftr__legal">
-      <span>© <span id="annee">2026</span> Mon Devis Déménagement — tous droits réservés.</span>
+      <span>© <span id="annee">2026</span> Mon Devis Déménagement, tous droits réservés.</span>
       <span>Service édité par MATCHMOVE (SAS). Les prestations sont réalisées par des entreprises de déménagement indépendantes.</span>
     </div>
   </div>
@@ -1652,13 +1655,13 @@ $('#annee').textContent = new Date().getFullYear();
    et le nombre d'avis affichés dans l'en-tête de section. */
 var AVIS = [
   { t:"Très bonne expérience avec MatchMove ! Un service professionnel et à l'écoute, qui facilite les démarches pour organiser son déménagement. Je suis satisfait et recommande sans hésitation. Merci à toute l'équipe !",
-    n:"Karim Karimovic", d:"Trustpilot — 8 octobre 2026", s:5 },
+    n:"Karim Karimovic", d:"Trustpilot · 8 octobre 2026", s:5 },
   { t:"Personnel très réactif et agréable, capable de répondre à l'urgence dans la demi-heure.",
-    n:"Loïc Rousseau", d:"Trustpilot — 10 septembre 2026", s:5 },
+    n:"Loïc Rousseau", d:"Trustpilot · 10 septembre 2026", s:5 },
   { t:"Le travail a eu lieu le matin de bonne heure. L'emplacement est resté propre. Le personnel a été très aimable.",
-    n:"KLUSIAK", d:"Trustpilot — 10 août 2026", s:5 },
+    n:"KLUSIAK", d:"Trustpilot · 10 août 2026", s:5 },
   { t:"Efficaces commercialement et le jour J. Simple et pratique.",
-    n:"Agathe Karinthi-Martin", d:"Trustpilot — 23 septembre 2026", s:5 }
+    n:"Agathe Karinthi-Martin", d:"Trustpilot · 23 septembre 2026", s:5 }
 ];
 // Initiales plutôt que portraits : ce sont de vraies personnes nommées, et
 // leur attribuer un visage généré inventerait leur apparence. C'est aussi ce
@@ -1807,7 +1810,7 @@ function chercheCP(cp, villeId, boxId, noteId, cb){
   function choisir(c){
     var co = (c.centre && c.centre.coordinates) || [null,null];
     note.className = 'note ok';
-    note.textContent = c.nom + ' — retenu.';
+    note.textContent = c.nom + ' retenu.';
     // Le nom officiel de la commune fait autorité sur ce qui a pu être tapé :
     // il vient du code postal lui-même et évite les fautes de frappe.
     var v = $(villeId); if(v) v.value = c.nom;
@@ -1885,7 +1888,7 @@ function brancheAdresse(inputId, listeId, cpId, villeId, boxId, noteId, slot){
     $(boxId).innerHTML = '';
     var note = $(noteId);
     note.className = 'note ok';
-    note.textContent = (p.city || '') + ' — retenu.';
+    note.textContent = (p.city || '') + ' retenu.';
     S[slot] = {
       nom: p.city || ('CP ' + (p.postcode || '')),
       cp: p.postcode || '',
@@ -2147,7 +2150,7 @@ form.addEventListener('submit', function(ev){
 
   var url = form.dataset.endpoint || '';
   var envoye = (!url || url.indexOf('REMPLACER') > -1)
-    ? Promise.resolve(console.info('[Mon Devis Déménagement] Endpoint non configuré — lead simulé :', data))
+    ? Promise.resolve(console.info('[Mon Devis Déménagement] Endpoint non configuré, lead simulé :', data))
     : fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
 
   envoye.catch(function(err){ console.warn('Envoi du lead en échec :', err) })
