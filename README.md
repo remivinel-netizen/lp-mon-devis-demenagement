@@ -488,6 +488,34 @@ l'avatar est dérivée du nom, donc stable d'un chargement à l'autre.
 
 Pour de vrais portraits, il faut l'accord écrit de chaque personne citée.
 
+### Le logo
+
+Fourni par le designer en trois formes — `logo.html` (HTML/CSS), `logo.svg`,
+`favicon.svg` — avec cette note&nbsp;: « le texte utilise la police Sora.
+Utilisé via `<img>`, le navigateur ne charge pas la police ». C'est exact, et
+c'est le même défaut que la livraison précédente&nbsp;: le SVG fourni n'avait
+ni `font-family`, ni `fill`, et portait 8 Ko de métadonnées C2PA.
+
+Plutôt que de charger Sora sur toute la page pour deux mots, la police est
+**sous-ensemblée aux treize glyphes du logo et embarquée en base64** dans le
+SVG&nbsp;: `lebn` + `DÉMÉNAGEUR`. 2,2 Ko de police, 3,7 Ko par fichier — contre
+9,7 Ko pour la version Archivo précédente. Le fichier marche en `<img>`, sans
+dépendance, sans requête supplémentaire. L'axe de graisse est conservé, les
+deux lignes utilisant 700 et 600.
+
+La géométrie a été **remesurée** plutôt que reprise&nbsp;: « leb » fait
+65,65 px à 44 px de corps avec -2,2 de chasse, le carré se pose à 68,73 et le
+« n » à 93,71. Les coordonnées du designer (68,6 et 93,6) tombent à 0,13 px
+près, ce qui confirme les deux.
+
+Le carré corail remplace le « o ». Tourné de 12°, il déborde sa boîte de
+2,14 px de chaque côté — sans conséquence, il est au milieu du mot.
+
+> Le logo passe d'un bandeau (rapport 5,06) à un bloc sur deux lignes (1,78).
+> C'est donc la **hauteur** qui est fixée en CSS, plus la largeur&nbsp;: 50 px
+> dans l'en-tête, 42 sous 900 px, 46 au pied et sur les pages secondaires.
+> L'en-tête garde ses 87 px.
+
 ### Les images
 
 Six photos générées pour le projet (hero, trois étapes, une de support, un
