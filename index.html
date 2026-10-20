@@ -185,7 +185,6 @@ button{font:inherit;color:inherit}
   margin-bottom:22px}
 .eyebrow .dot{width:9px;height:9px;border-radius:2px;background:var(--rose);flex:none}
 h1{font-size:clamp(35px,5.4vw,60px);letter-spacing:-.035em}
-h1 .em{color:var(--rose)}
 .hero__sub{margin-top:20px;font-size:clamp(16.5px,1.65vw,19.5px);line-height:1.55;color:rgba(255,255,255,.86);max-width:30em}
 /* Même remarque : les arguments étaient encadrés comme des boutons. Sans fond
    ni bordure, seule la coche d'accent les signale — et ils se lisent comme la
@@ -346,6 +345,14 @@ section{padding:clamp(54px,7vw,92px) 0}
 .incl .sec-h{max-width:min(760px,100%)}
 .sec-h.ctr{margin-inline:auto;text-align:center}
 .sec-h h2{font-size:clamp(28px,3.9vw,45px)}
+/* Un seul accent de titre sur toute la page, celui des boutons, y compris
+   sur fond sombre.
+   ⚠ Contrastes mesurés du magenta #CE0054 : 1,99:1 contre le voile du hero
+   et 2,47:1 sur le bleu nuit, là où 3:1 est attendu pour du grand texte.
+   Choix assumé du client, consigné ici : si l'accessibilité devait primer,
+   c'est --rose (#FF6F80, respectivement 4,57 et 5,16) qu'il faudrait
+   reprendre sur les quatre titres à fond sombre — hero, carte de France,
+   panneau des garanties, section finale. */
 .sec-h h2 .em{color:var(--magenta)}
 .sec-h p{margin-top:16px;font-size:17.5px;color:var(--ink-2);line-height:1.55}
 
@@ -374,7 +381,6 @@ section{padding:clamp(54px,7vw,92px) 0}
   margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.17)}
 .carte__st b{display:block;font-size:27px;letter-spacing:-.03em;line-height:1.05}
 .carte__st span{display:block;font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.35;margin-top:3px}
-.carte .sec-h h2 .em{color:var(--rose)}
 .carte .sec-h p{color:rgba(255,255,255,.8)}
 @media (max-width:950px){
   .carte__in{grid-template-columns:1fr}
@@ -468,7 +474,6 @@ section{padding:clamp(54px,7vw,92px) 0}
 .regl__h h2{font-size:clamp(21px,2.6vw,30px);letter-spacing:-.03em;line-height:1.15}
 /* Le magenta ne tient que 2,47:1 sur le bleu nuit, sous les 3:1 exigés même
    en grand texte. L'accent passe au rose : 5,16:1. */
-.regl__h h2 .em{color:var(--rose)}
 .regl__h p{margin-top:11px;font-size:16.5px;color:rgba(255,255,255,.74);line-height:1.55}
 .regl__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px)}
 .regl__i h3{font-size:15.5px;margin-top:13px;letter-spacing:-.022em}
@@ -682,7 +687,6 @@ details .a p + p{margin-top:11px}
   background:radial-gradient(60% 100% at 50% 100%, rgba(255,111,128,.20), transparent 70%)}
 .final__in{position:relative;max-width:720px;margin-inline:auto}
 .final h2{font-size:clamp(28px,4vw,46px)}
-.final h2 .em{color:var(--rose)}
 .final p{margin-top:17px;font-size:18px;color:rgba(255,255,255,.84);line-height:1.55}
 .final .btn{margin-top:30px}
 .final .mini{margin-top:17px;font-size:13.8px;color:rgba(255,255,255,.62)}
