@@ -551,10 +551,7 @@ details .a p + p{margin-top:11px}
   .km__fig h3{justify-content:flex-start;column-gap:8px;font-size:12.5px;letter-spacing:.045em}
   .km__ex{font-size:10px;padding:2px 7px}
 }
-/* Scopé en deux classes : .km__fig p (0,0,1,1) lui imposerait sinon le filet
-   supérieur et la marge de la légende de bas de bloc. */
-.km__fig .fact__note{font-size:12.4px;color:rgba(255,255,255,.66);line-height:1.45;
-  margin:12px 0 0;padding:0;border:0}
+.fact__note{font-size:12.4px;color:rgba(255,255,255,.66);line-height:1.45;margin-top:12px}
 /* Deux factures côte à côte. Une barre demandait encore de convertir une
    longueur en kilomètres ; une ligne de facture, non — c'est l'objet que le
    visiteur redoute, montré tel qu'il le recevra. Le poste « retour à vide »
@@ -580,9 +577,6 @@ details .a p + p{margin-top:11px}
   font-variant-numeric:tabular-nums;white-space:nowrap}
 .fac--oui .fac__t b{color:var(--rose)}
 @media (max-width:560px){.fact{grid-template-columns:1fr}}
-.km__fig p{font-size:13.8px;color:rgba(255,255,255,.76);margin-top:19px;padding-top:17px;
-  border-top:1px solid rgba(255,255,255,.17);line-height:1.5}
-.km__fig p b{color:var(--rose)}
 @media (max-width:950px){.km__in{grid-template-columns:1fr}}
 
 /* Cas particuliers */
@@ -1277,8 +1271,6 @@ details .a p + p{margin-top:11px}
         <p class="fact__note">Exemple sur un Lyon&nbsp;→&nbsp;Lille. Votre devis dépend de votre
            volume, de votre trajet et de la formule retenue.</p>
       </div>
-      <p>Un camion qui monte seul doit redescendre à vide, et vous facture les deux trajets.
-         <b>Votre conseiller cherche celui dont le retour est déjà chargé.</b></p>
     </div>
   </div>
 </section>
