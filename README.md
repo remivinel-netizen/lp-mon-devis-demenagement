@@ -440,6 +440,36 @@ maquillage.
 > `role="img"` étiqueté « 4,3 étoiles sur 5 ». La tuile renforce, elle
 > n'informe pas seule.
 
+### L'audit de contraste
+
+Chaque élément porteur de texte de la page est passé au crible, fond effectif
+calculé en remontant les ancêtres et en composant les couches translucides, le
+hero étant évalué sur son pire cas — le voile à 96 % sur un pixel blanc de la
+photo. Seuil retenu&nbsp;: 3:1 au-delà de 24 px, ou de 18,66 px en gras, 4,5:1
+partout ailleurs.
+
+**252 éléments testés, 3 écarts.** Tous les trois sont des accents de titre en
+magenta sur fond sombre, à 2,47:1 pour un seuil de 3&nbsp;: « l'esprit léger »
+(60 px), « sur toute la France » (45 px), « vous garantit » (30 px). C'est un
+choix explicite du client, consigné dans le fichier.
+
+> Piège rencontré en écrivant l'auditeur&nbsp;: substituer le voile du hero à
+> tout ce qui s'y trouve donnait huit faux positifs, car la carte du formulaire
+> est **blanche et opaque** — ce qu'elle contient ne repose pas sur la photo.
+> Le fond n'est remplacé que si aucun ancêtre opaque n'a été rencontré avant.
+
+Trois éléments ont été repris après cet audit, tous du magenta devenu illisible
+sur fond sombre lors de la bascule générale&nbsp;:
+
+| Élément | Avant | Après |
+|---|---|---|
+| Surtitre du hero, 12 px | 2,47:1 | **12,25:1** (texte blanc, carré laissé magenta) |
+| « Camion déjà sur la route », 12 px | 2,10:1 | **11,74:1** |
+| Total « 690 km », 30 px | 2,10:1 | **11,74:1** |
+
+Le panneau de facture est donc monochrome&nbsp;: c'est le **contour magenta**
+de la carte qui désigne la colonne gagnante, et plus la couleur du texte.
+
 ### La carte de France
 
 Un **SVG**, pas une image : net à toutes les tailles, aux couleurs de la charte,
