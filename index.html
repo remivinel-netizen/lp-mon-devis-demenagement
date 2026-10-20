@@ -260,7 +260,19 @@ h1 .em{color:var(--rose)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:17px}
 .grid2--cp{grid-template-columns:128px 1fr}
 @media (max-width:460px){.grid2,.grid2--cp{grid-template-columns:1fr}}
-.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0;position:relative}
+/* Suggestions d'adresse. La liste se superpose aux champs suivants et au
+   panneau de projet : elle doit passer au-dessus, et ne jamais pousser le
+   formulaire vers le bas pendant la frappe. */
+.ac{position:absolute;top:100%;left:0;right:0;z-index:30;margin-top:5px;list-style:none;
+  background:var(--white);border-radius:var(--r-sm);overflow:hidden auto;max-height:264px;
+  overscroll-behavior:contain;box-shadow:0 0 0 1px var(--line-2),0 16px 34px -16px rgba(34,46,58,.55)}
+.ac li{padding:10px 13px;font-size:14.5px;line-height:1.3;cursor:pointer;
+  border-top:1px solid var(--line)}
+.ac li:first-child{border-top:0}
+.ac li small{display:block;font-size:12.6px;color:var(--ink-3);margin-top:2px}
+.ac li[aria-selected="true"]{background:var(--rose-brume);box-shadow:inset 2.5px 0 0 var(--magenta)}
+@media (hover:hover) and (pointer:fine){.ac li:hover{background:var(--rose-brume)}}
 .field label{font-size:13px;font-weight:700;color:var(--ink-2);letter-spacing:-.005em}
 .field input,.field select{width:100%;padding:13px 14px;border-radius:var(--r-sm);border:1.5px solid var(--line-2);
   background:var(--white);font:inherit;font-size:16px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
@@ -848,7 +860,6 @@ details .a p + p{margin-top:11px}
            Standard, fournis en Luxe seulement. Ne pas les remonter en
            promesse générale. -->
       <ul class="chips">
-        <li><svg class="ico"><use href="#i-check"/></svg>Devis gratuit en 1 heure</li>
         <li><svg class="ico"><use href="#i-check"/></svg>Démarches administratives incluses</li>
         <li><svg class="ico"><use href="#i-check"/></svg>Modification ou annulation gratuite</li>
       </ul>
@@ -879,8 +890,12 @@ details .a p + p{margin-top:11px}
           <p class="step__hint">Le code postal suffit à reconnaître votre commune et à calculer le trajet.</p>
           <div class="field">
             <label for="f-ad1">Adresse</label>
-            <input id="f-ad1" name="adresse_depart" type="text" autocomplete="address-line1"
-                   autocapitalize="words" placeholder="12 rue de la République">
+            <input id="f-ad1" name="adresse_depart" type="text" autocomplete="off"
+                   autocapitalize="words" placeholder="12 rue de la République"
+                   role="combobox" aria-expanded="false" aria-autocomplete="list"
+                   aria-controls="ac1" aria-describedby="ac1-aide">
+            <p class="sr" id="ac1-aide">Saisissez votre adresse, puis choisissez-la dans la liste de suggestions.</p>
+            <ul class="ac" id="ac1" role="listbox" aria-label="Suggestions d'adresse de départ" hidden></ul>
           </div>
           <div class="grid2 grid2--cp" style="margin-top:11px">
             <div class="field">
@@ -905,7 +920,11 @@ details .a p + p{margin-top:11px}
           <div class="field">
             <label for="f-ad2">Adresse</label>
             <input id="f-ad2" name="adresse_arrivee" type="text" autocomplete="off"
-                   autocapitalize="words" placeholder="8 cours de l'Intendance">
+                   autocapitalize="words" placeholder="8 cours de l'Intendance"
+                   role="combobox" aria-expanded="false" aria-autocomplete="list"
+                   aria-controls="ac2" aria-describedby="ac2-aide">
+            <p class="sr" id="ac2-aide">Saisissez votre adresse, puis choisissez-la dans la liste de suggestions.</p>
+            <ul class="ac" id="ac2" role="listbox" aria-label="Suggestions d'adresse d'arrivée" hidden></ul>
           </div>
           <div class="grid2 grid2--cp" style="margin-top:11px">
             <div class="field">
@@ -987,8 +1006,9 @@ details .a p + p{margin-top:11px}
                    autocapitalize="off" spellcheck="false" placeholder="camille.martin@email.fr"></div>
           <label class="consent">
             <span class="sw"><input type="checkbox" id="f-consent" name="consentement"><span></span></span>
-            <p id="consent-txt">J'accepte d'être recontacté par Mon Devis Déménagement et par les déménageurs
-              partenaires sélectionnés pour établir mon devis. Mes données ne sont utilisées que pour cela.</p>
+            <p id="consent-txt">J'accepte d'être recontacté par la société MATCHMOVE, éditrice de
+              Mon Devis Déménagement, et par les déménageurs partenaires sélectionnés pour établir mon
+              devis. Mes données ne sont utilisées que pour cela.</p>
           </label>
           <p class="note" id="n-contact" aria-live="polite"></p>
           <div class="acts"><button type="submit" class="btn btn--cta btn--full btn--lg" id="q-send">Recevoir mon devis gratuit</button></div>
@@ -1809,6 +1829,109 @@ function brancheCP(inputId, villeId, boxId, noteId, slot){
 }
 brancheCP('#f-cp1','#f-vl1','#q-cmn1','#n-cp1','d1');
 brancheCP('#f-cp2','#f-vl2','#q-cmn2','#n-cp2','d2');
+
+/* ── Complétion d'adresse ───────────────────────────────────────────────── */
+// La Base Adresse Nationale plutôt que Google Places : même confort de saisie,
+// aucune clé d'API à exposer dans la page, aucun transfert de frappe vers un
+// tiers hors Union européenne, et une couverture française de référence. C'est
+// le même fournisseur que la recherche de commune déjà en place.
+// Choisir une suggestion remplit l'adresse, le code postal ET la ville, et
+// fournit les coordonnées exactes du point : la distance n'est plus calculée
+// depuis le centre de la commune mais depuis l'adresse elle-même.
+function echappe(t){
+  return String(t == null ? '' : t).replace(/[&<>"]/g, function(c){
+    return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c];
+  });
+}
+function brancheAdresse(inputId, listeId, cpId, villeId, boxId, noteId, slot){
+  var inp = $(inputId), liste = $(listeId), t, items = [], idx = -1, dernier = '';
+  var nom = listeId.slice(1);
+
+  function ferme(){
+    liste.hidden = true; liste.innerHTML = ''; items = []; idx = -1;
+    inp.setAttribute('aria-expanded', 'false');
+    inp.removeAttribute('aria-activedescendant');
+  }
+  function marque(i){
+    $$('li', liste).forEach(function(li, k){ li.setAttribute('aria-selected', k === i ? 'true' : 'false') });
+    idx = i;
+    if(i < 0){ inp.removeAttribute('aria-activedescendant'); return; }
+    inp.setAttribute('aria-activedescendant', nom + '-' + i);
+    var li = $$('li', liste)[i];
+    if(li) li.scrollIntoView({ block:'nearest' });
+  }
+  function rend(list){
+    items = list;
+    if(!list.length) return ferme();
+    // Les libellés viennent d'une API : ils sont échappés avant d'entrer dans le HTML.
+    liste.innerHTML = list.map(function(f, i){
+      var p = f.properties;
+      return '<li role="option" id="' + nom + '-' + i + '" aria-selected="false" data-i="' + i + '">'
+           + echappe(p.name) + '<small>' + echappe((p.postcode || '') + ' ' + (p.city || '')) + '</small></li>';
+    }).join('');
+    liste.hidden = false;
+    inp.setAttribute('aria-expanded', 'true');
+    marque(-1);
+  }
+  function choisit(i){
+    var f = items[i];
+    if(!f) return;
+    var p = f.properties, c = (f.geometry && f.geometry.coordinates) || [null, null];
+    inp.value = p.name || inp.value;
+    if(p.postcode) $(cpId).value = p.postcode;
+    if(p.city) $(villeId).value = p.city;
+    $(cpId).removeAttribute('aria-invalid');
+    // L'adresse est levée : la liste de communes homonymes n'a plus d'objet.
+    $(boxId).innerHTML = '';
+    var note = $(noteId);
+    note.className = 'note ok';
+    note.textContent = (p.city || '') + ' — retenu.';
+    S[slot] = {
+      nom: p.city || ('CP ' + (p.postcode || '')),
+      cp: p.postcode || '',
+      dep: (p.context || '').split(',')[0].trim() || (p.postcode || '').slice(0, 2),
+      lat: c[1], lon: c[0]
+    };
+    ferme();
+    majEst();
+  }
+
+  inp.addEventListener('input', function(){
+    var q = inp.value.trim();
+    clearTimeout(t);
+    if(q.length < 4) return ferme();
+    if(q === dernier) return;
+    t = setTimeout(function(){
+      dernier = q;
+      fetch('https://api-adresse.data.gouv.fr/search/?limit=5&autocomplete=1&q=' + encodeURIComponent(q))
+        .then(function(r){ return r.ok ? r.json() : { features: [] } })
+        .then(function(d){ if(inp.value.trim() === q) rend((d && d.features) || []) })
+        // L'API peut être indisponible : la saisie manuelle reste entière.
+        .catch(function(){ ferme() });
+    }, 240);
+  });
+
+  inp.addEventListener('keydown', function(e){
+    if(liste.hidden) return;
+    if(e.key === 'ArrowDown'){ e.preventDefault(); marque(idx + 1 >= items.length ? 0 : idx + 1); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); marque(idx - 1 < 0 ? items.length - 1 : idx - 1); }
+    else if(e.key === 'Enter' && idx > -1){ e.preventDefault(); choisit(idx); }
+    else if(e.key === 'Escape'){ ferme(); }
+    else if(e.key === 'Tab' && idx > -1){ choisit(idx); }
+  });
+
+  // 'mousedown' et non 'click' : le clic ferait d'abord perdre le focus au
+  // champ, et la liste serait retirée avant que le clic n'aboutisse.
+  liste.addEventListener('mousedown', function(e){
+    var li = e.target.closest('li');
+    if(!li) return;
+    e.preventDefault();
+    choisit(+li.dataset.i);
+  });
+  inp.addEventListener('blur', function(){ setTimeout(ferme, 120) });
+}
+brancheAdresse('#f-ad1','#ac1','#f-cp1','#f-vl1','#q-cmn1','#n-cp1','d1');
+brancheAdresse('#f-ad2','#ac2','#f-cp2','#f-vl2','#q-cmn2','#n-cp2','d2');
 
 /* ── Date du déménagement ────────────────────────────────────────────────── */
 // La date remplace les tranches d'urgence : la priorité commerciale se déduit

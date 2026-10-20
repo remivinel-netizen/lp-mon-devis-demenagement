@@ -483,6 +483,43 @@ visiteur mais du nombre de jours qui séparent de la date saisie :
 `chaud` à 45 jours ou moins, `tiede` jusqu'à 120, `froid` au-delà. Une date
 déjà passée est refusée à l'étape — c'est presque toujours une faute d'année.
 
+### La complétion d'adresse
+
+Les deux champs adresse proposent l'adresse pendant la frappe, à partir du
+quatrième caractère. Choisir une suggestion remplit **l'adresse, le code postal
+et la ville** d'un coup, et fournit les **coordonnées exactes du point** — la
+distance n'est donc plus calculée depuis le centre de la commune mais depuis
+l'adresse elle-même.
+
+**Base Adresse Nationale, pas Google Places.** La référence fournie par le
+client (`lp.habitat-invest.org`) charge
+`maps.googleapis.com/maps/api/js?key=…&libraries=places`. Même confort de
+saisie, mais&nbsp;: une clé d'API à exposer en clair dans la page et à
+restreindre par référent, une facturation au-delà du quota, un script externe à
+charger, et la frappe de l'utilisateur transmise à un tiers hors Union
+européenne — donc une mention supplémentaire dans la politique de
+confidentialité et, selon l'analyse, un consentement préalable.
+
+`api-adresse.data.gouv.fr` n'a aucun de ces inconvénients&nbsp;: pas de clé,
+pas de quota, pas de script externe, hébergement en France, et c'est déjà le
+même fournisseur que la recherche de commune en place. Sa couverture des
+adresses françaises est celle du référentiel officiel.
+
+> Si Google Places est tout de même souhaité, il faut une **clé du client** —
+> jamais celle d'un autre site — restreinte au domaine, plus une mise à jour de
+> `confidentialite.html`. La clé visible sur la page de référence appartient à
+> son propriétaire&nbsp;; la réutiliser lui serait facturé.
+
+Au clavier&nbsp;: flèches pour parcourir, Entrée ou Tab pour choisir, Échap
+pour fermer. `role="combobox"` sur le champ, `aria-activedescendant` sur
+l'option courante, et un libellé d'aide masqué visuellement. Le clic est pris
+sur `mousedown` et non `click`&nbsp;: le champ perdrait le focus d'abord, et la
+liste serait retirée avant que le clic n'aboutisse.
+
+Les libellés renvoyés par l'API sont **échappés** avant d'entrer dans le HTML.
+
+Mesuré&nbsp;: Paris 19ᵉ → place Bellecour à Lyon donne 492 km (réel ≈ 465).
+
 Les étapes à boutons radio avancent toutes seules. Les codes postaux sont
 résolus via [geo.api.gouv.fr](https://geo.api.gouv.fr) : on récupère le **centre
 de la commune**, donc une vraie distance haversine (majorée de 25 % pour

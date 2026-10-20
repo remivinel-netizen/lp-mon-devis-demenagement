@@ -39,7 +39,7 @@
   <h2>Quelles données nous collectons</h2>
   <p>Lorsque vous remplissez le formulaire d'estimation, nous collectons&nbsp;:</p>
   <ul>
-    <li><strong>Votre projet</strong> — adresses, codes postaux et communes de départ et d'arrivée,
+    <li><strong>Votre projet</strong> — adresses, codes postaux, villes et communes de départ et d'arrivée,
         date de déménagement envisagée, surface de votre logement actuel et volume qui en est estimé.</li>
     <li><strong>Vos coordonnées</strong> — prénom, nom, adresse email, numéro de téléphone.</li>
     <li><strong>La preuve de votre consentement</strong> — le texte accepté et son horodatage.</li>
@@ -107,9 +107,18 @@
      connaître.</p>
 
   <h2>Services tiers appelés par la page</h2>
-  <p>Pour reconnaître votre commune à partir du code postal, la page interroge
-     <a href="https://geo.api.gouv.fr" rel="noopener">geo.api.gouv.fr</a>, l'API publique de
-     l'État. Seul le code postal saisi est transmis — aucune donnée personnelle.</p>
+  <p>La page interroge deux API publiques de l'État, toutes deux hébergées en France&nbsp;:</p>
+  <ul>
+    <li><a href="https://geo.api.gouv.fr" rel="noopener">geo.api.gouv.fr</a>, pour reconnaître
+        votre commune à partir du code postal. Seul le code postal saisi est transmis.</li>
+    <li><a href="https://adresse.data.gouv.fr" rel="noopener">api-adresse.data.gouv.fr</a>, la
+        Base Adresse Nationale, pour vous proposer votre adresse pendant la saisie. Le texte que
+        vous tapez dans le champ adresse lui est transmis au fil de la frappe, à partir du
+        quatrième caractère, afin de renvoyer les suggestions.</li>
+  </ul>
+  <p>Ces appels ne transportent ni identifiant, ni cookie, ni aucune autre donnée du formulaire.
+     <strong>Aucun service de cartographie ou de complétion d'adresse d'un éditeur tiers n'est
+     appelé</strong>&nbsp;: la page ne charge aucun script externe.</p>
 
   <p class="maj">Dernière mise à jour : <span id="maj">—</span></p>
 </div>
