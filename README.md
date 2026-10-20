@@ -842,6 +842,13 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
       le nombre d'avis sont figés dans le HTML, ils ne se mettent pas à jour
       seuls. Ils vivent dans le tableau `AVIS` d'`index.html` et de
       `merci.html`, plus l'en-tête de la section avis.
+- [ ] **L'adhésion au médiateur.** La rubrique nomme SAS Médiation Solution,
+      coordonnées relevées sur son propre site et référencement CECMC affirmé
+      par lui. Ce qui ne se vérifie pas de l'extérieur, c'est l'**adhésion de
+      MATCHMOVE** à ce dispositif&nbsp;: elle se contracte et se paie. Obtenir
+      le numéro ou l'attestation avant publication — un consommateur qui
+      saisirait un médiateur sans adhésion s'entendrait répondre que la société
+      n'en est pas membre.
 - [ ] **Les mentions légales** — tous les champs entre crochets, plus le
       médiateur de la consommation (obligatoire, art. L.616-1).
 - [ ] **La politique de confidentialité** — responsable de traitement, durées de
