@@ -214,6 +214,22 @@ tout remonte&nbsp;: 5,61:1 pour le libellé rose et le total rose, 5,14:1 pour
 la ligne barrée, 9,26:1 et 11,94:1 pour les libellés et lignes de gauche,
 15,04:1 pour le total de gauche.
 
+### Le survol et l'ouverture de la FAQ
+
+Deux corrections successives au même endroit, pour la même raison&nbsp;: une
+couleur empruntée à un autre état.
+
+Le **survol** reprenait d'abord le rose de l'état ouvert, si bien qu'une
+question simplement survolée se lisait comme dépliée, et qu'une question déjà
+ouverte ne réagissait plus du tout. Chaque état fonce désormais dans sa propre
+teinte&nbsp;: gris fermé (10,7:1), rose soutenu ouvert (10,0:1).
+
+L'**ouverture**, elle, cerclait l'entrée d'un anneau bleu nuit de 1,5 px. Sur
+le rose pâle du fond, il se lisait comme un trait noir épais autour du bloc.
+Il est passé au magenta, qui appartient à la même famille que le fond et que
+la croix de fermeture, et qui marque l'état ouvert sans l'encadrer de deuil.
+L'icône suit.
+
 > Piège de spécificité rencontré ici&nbsp;: le libellé de carte est un `<p>`, et
 > `.km__fig p` (0,0,1,1) battait `.fac__l` (0,0,1,0). Le libellé héritait du
 > corps 13,8 px, du filet supérieur et de la marge de la légende de bas de
