@@ -489,8 +489,23 @@ section{padding:clamp(54px,7vw,92px) 0}
 .avis__g{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,22px);
   max-width:900px;margin-inline:auto}
 .avi{background:var(--white);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
-.stars{display:flex;gap:3px;color:var(--magenta)}
-.stars .ico{width:17px;height:17px;fill:currentColor;stroke:none}
+/* Vert Trustpilot. Les avis viennent de là, autant que ça se voie : c'est la
+   seule preuve de la page qu'un tiers peut vérifier, et le repère visuel
+   compte autant que le chiffre. Chaque carte renvoie au profil public. */
+.stars{display:flex;gap:3px;color:#00B67A}
+.stars .ico{width:19px;height:19px;color:inherit}
+/* Note globale de 4,3 : la cinquième tuile n'est remplie qu'aux deux tiers.
+   Afficher cinq tuiles pleines pour 4,3 serait un maquillage. */
+.stars--part > span:last-child{position:relative;display:block;width:19px;height:19px;
+  background:var(--line-2)}
+.stars--part > span:last-child .ico{position:absolute;inset:0;clip-path:inset(0 35% 0 0)}
+.tp__logo{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--nuit);
+  font-size:15px;letter-spacing:-.02em;white-space:nowrap}
+.tp__logo .ico{width:18px;height:18px;color:#00B67A}
+.avi__src{display:inline-flex;align-items:center;gap:5px;font-size:12.6px;color:var(--ink-3);
+  text-decoration:none}
+.avi__src .ico{width:13px;height:13px;color:#00B67A;flex:none}
+.avi__src:hover{color:var(--magenta);text-decoration:underline}
 .avi blockquote{margin:14px 0 0;font-size:15.5px;line-height:1.6;color:var(--ink);flex:1}
 .avi figcaption{margin-top:17px;padding-top:15px;border-top:1px solid var(--line);
   font-size:13.5px;color:var(--ink-3);display:flex;align-items:center;gap:12px}
@@ -811,6 +826,9 @@ details .a p + p{margin-top:11px}
 <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.6" y="10.3" width="14.8" height="10.2" rx="2.4"/><path d="M8.2 10.3V7.6a3.8 3.8 0 0 1 7.6 0v2.7"/></symbol>
 <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.3" cy="8.2" r="3.5"/><path d="M3 20a6.3 6.3 0 0 1 12.6 0M16.4 5.1a3.5 3.5 0 0 1 0 6.3M18 20a6.3 6.3 0 0 0-2-4.6"/></symbol>
 <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9Z"/></symbol>
+<!-- Tuile Trustpilot : carré plein, étoile évidée. C'est cette forme, et sa
+     couleur, qui identifient la source au premier coup d'œil. -->
+<symbol id="i-tp" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="currentColor" stroke="none"/><path d="m12 4.3 2.14 4.52 4.86.69-3.5 3.5.82 4.9L12 15.6l-4.32 2.31.82-4.9-3.5-3.5 4.86-.69Z" fill="#fff" stroke="none"/></symbol>
 <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.8 6.4h10.6v10.2H2.8zM13.4 9.8h3.9l2.9 3v3.8h-6.8z"/><circle cx="7" cy="18.6" r="1.9"/><circle cx="16.6" cy="18.6" r="1.9"/></symbol>
 <symbol id="i-piano" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7.5 5v8M12 5v8M16.5 5v8M3 13h18"/></symbol>
 <symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.3" cy="16.8" r="3.3"/><circle cx="18.7" cy="16.8" r="3.3"/><path d="M5.3 16.8h5l4-7h-2.6M14.3 9.8h3.1l1.3 7M9.4 9.8h4.9"/></symbol>
@@ -1469,9 +1487,11 @@ details .a p + p{margin-top:11px}
     <div class="sec-h ctr rvl">
       <h2>Ce qu'en disent <span class="em">les déménagés</span></h2>
       <p class="tp"><span class="tp__note">4,3<small>/5</small></span>
-        <span class="tp__txt">sur <strong>202 avis</strong>.
-          <a href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">Voir tous les avis
-          sur Trustpilot</a></span></p>
+        <span class="tp__txt">
+          <span class="stars stars--part" role="img" aria-label="4,3 étoiles sur 5"><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><span><svg class="ico"><use href="#i-tp"/></svg></span></span>
+          <br>sur <strong>202 avis</strong> ·
+          <a href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">voir le profil
+          <span class="tp__logo"><svg class="ico"><use href="#i-tp"/></svg>Trustpilot</span></a></span></p>
     </div>
     <div class="avis__g rvl-g" id="avis-g"></div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="avis">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Gratuit, et sans engagement.</span></div>
@@ -1672,12 +1692,15 @@ function teinteDe(nom){
   for(var i=0;i<nom.length;i++) h = (h*31 + nom.charCodeAt(i)) % 9973;
   return TEINTES[h % TEINTES.length];
 }
+var TP = 'https://fr.trustpilot.com/review/matchmove.fr';
 $('#avis-g').innerHTML = AVIS.map(function(a){
-  var st=''; for(var i=0;i<5;i++) st += i<a.s ? '<svg class="ico"><use href="#i-star"/></svg>' : '';
+  var st=''; for(var i=0;i<5;i++) st += i<a.s ? '<svg class="ico"><use href="#i-tp"/></svg>' : '';
   return '<figure class="avi"><div class="stars" role="img" aria-label="'+a.s+' étoiles sur 5">'+st+'</div>'
        + '<blockquote>« '+a.t+' »</blockquote>'
        + '<figcaption><span class="avi__av" aria-hidden="true" style="background:'+teinteDe(a.n)+'">'
-       + initiales(a.n)+'</span><span><b>'+a.n+'</b>'+a.d+'</span></figcaption></figure>';
+       + initiales(a.n)+'</span><span><b>'+a.n+'</b>'
+       + '<a class="avi__src" href="'+TP+'" rel="noopener"><svg class="ico"><use href="#i-tp"/></svg>'
+       + a.d+'</a></span></figcaption></figure>';
 }).join('');
 
 /* ── Paramètres publicitaires ────────────────────────────────────────────── */

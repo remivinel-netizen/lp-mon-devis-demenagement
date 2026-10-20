@@ -357,6 +357,32 @@ contour. C'est désormais **la pastille** qui réagit, d'un agrandissement de 7 
 La règle est bien déclarée avant le bloc `prefers-reduced-motion`, qui la
 neutralise — l'ordre de cascade a déjà coûté un bug sur cette page.
 
+### Les avis : l'apparence Trustpilot, sans son script
+
+Les avis sont recopiés du profil public de MatchMove. Ils en portent désormais
+les **signes visuels**&nbsp;: tuile carrée à étoile évidée, vert `#00B67A`,
+logo dans le bloc de note, et chaque carte renvoie au profil.
+
+**Pas le widget officiel.** Il demande un `businessunitId` fourni par le compte
+Trustpilot, auquel nous n'avons pas accès&nbsp;; il charge un script tiers, donc
+une mention de plus dans la politique de confidentialité, un point de panne
+externe et un cadre dont nous ne maîtrisons ni le style ni la hauteur. Le jour
+où le compte est disponible, le remplacement se fait dans la section `#avis`
+seule.
+
+La note globale de 4,3 affiche **quatre tuiles pleines et une aux deux tiers**
+(`clip-path: inset(0 35% 0 0)`). Cinq tuiles pleines pour 4,3 seraient un
+maquillage.
+
+> Le vert authentique donne **2,42:1** sur le rose pâle de la section et
+> **2,63:1** sur blanc, sous les 3:1 attendus d'un élément graphique porteur
+> d'information. Il est conservé tel quel&nbsp;: c'est lui qui rend la source
+> reconnaissable, c'est exactement celui des widgets Trustpilot sur fond blanc,
+> et l'information qu'il porte est **intégralement disponible en texte** à côté
+> — « 4,3/5 sur 202 avis » — chaque rangée étant par ailleurs un
+> `role="img"` étiqueté « 4,3 étoiles sur 5 ». La tuile renforce, elle
+> n'informe pas seule.
+
 ### La carte de France
 
 Un **SVG**, pas une image : net à toutes les tailles, aux couleurs de la charte,
