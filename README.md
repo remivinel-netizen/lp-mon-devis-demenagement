@@ -370,6 +370,13 @@ externe et un cadre dont nous ne maîtrisons ni le style ni la hauteur. Le jour
 où le compte est disponible, le remplacement se fait dans la section `#avis`
 seule.
 
+Le badge est **empilé**, pas aligné. Il tenait sur deux lignes serrées, avec
+un retour forcé au milieu d'une phrase (« sur 202 avis · voir le profil »).
+Trois registres se suivent maintenant de haut en bas, séparés de 14 px, dans
+32 px de rembourrage latéral&nbsp;: ce qu'on **voit** (les tuiles, à 27 px),
+ce qu'on **lit** (4,3 sur 5 · 202 avis), et où l'on va **vérifier** (le lien,
+détaché par un filet). La zone de tap du lien fait 43 px.
+
 La note globale de 4,3 affiche **quatre tuiles pleines et une aux deux tiers**
 (`clip-path: inset(0 35% 0 0)`). Cinq tuiles pleines pour 4,3 seraient un
 maquillage.

@@ -473,14 +473,27 @@ section{padding:clamp(54px,7vw,92px) 0}
 /* Avis */
 /* La note du profil est affichée telle quelle. Montrer des avis choisis sans
    donner la note réelle reviendrait à maquiller le résultat. */
-.tp{display:inline-flex;align-items:center;gap:13px;margin-top:18px;padding:11px 18px;
-  background:var(--white);border-radius:var(--r-sm);box-shadow:0 0 0 1px var(--line)}
-.tp__note{font-size:26px;font-weight:700;letter-spacing:-.03em;color:var(--nuit);
-  font-variant-numeric:tabular-nums;line-height:1}
-.tp__note small{font-size:14px;font-weight:400;color:var(--ink-3)}
-.tp__txt{font-size:14px;color:var(--ink-2);text-align:left;line-height:1.4}
-.tp__txt a{display:inline-block;padding:5px 0}
-.tp__txt strong{color:var(--nuit)}
+/* Le badge empilait la note, les tuiles et le lien sur deux lignes serrées,
+   avec un retour forcé au milieu d'une phrase. Trois registres se suivent
+   maintenant de haut en bas, chacun avec sa respiration : ce qu'on voit,
+   ce qu'on lit, où l'on va vérifier. */
+.tp{display:inline-flex;flex-direction:column;align-items:center;gap:14px;
+  margin-top:22px;padding:22px 32px;background:var(--white);
+  border-radius:var(--r-md);box-shadow:0 0 0 1px var(--line)}
+.tp .stars{gap:4px}
+.tp .stars .ico{width:27px;height:27px}
+.tp .stars--part > span:last-child{width:27px;height:27px}
+.tp__note{font-size:16.5px;color:var(--ink-2);line-height:1.2;
+  font-variant-numeric:tabular-nums}
+.tp__note b{font-size:25px;font-weight:700;letter-spacing:-.03em;color:var(--nuit)}
+.tp__note span{color:var(--line-2);margin:0 10px}
+.tp__lien{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;
+  color:var(--ink-2);text-decoration:none;padding:16px 8px 4px;
+  border-top:1px solid var(--line);width:100%;justify-content:center}
+.tp__lien .ico{width:17px;height:17px;color:#00B67A;flex:none}
+.tp__lien b{color:var(--nuit);font-weight:700;letter-spacing:-.02em}
+.tp__lien:hover{color:var(--magenta)}
+.tp__lien:hover b{color:var(--magenta)}
 .sec-h.ctr .tp{margin-inline:auto}
 @media (max-width:520px){.tp{flex-direction:column;gap:6px;text-align:center}.tp__txt{text-align:center}}
 
@@ -499,9 +512,6 @@ section{padding:clamp(54px,7vw,92px) 0}
 .stars--part > span:last-child{position:relative;display:block;width:19px;height:19px;
   background:var(--line-2)}
 .stars--part > span:last-child .ico{position:absolute;inset:0;clip-path:inset(0 35% 0 0)}
-.tp__logo{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--nuit);
-  font-size:15px;letter-spacing:-.02em;white-space:nowrap}
-.tp__logo .ico{width:18px;height:18px;color:#00B67A}
 .avi__src{display:inline-flex;align-items:center;gap:5px;font-size:12.6px;color:var(--ink-3);
   text-decoration:none}
 .avi__src .ico{width:13px;height:13px;color:#00B67A;flex:none}
@@ -1486,12 +1496,12 @@ details .a p + p{margin-top:11px}
   <div class="wrap">
     <div class="sec-h ctr rvl">
       <h2>Ce qu'en disent <span class="em">les déménagés</span></h2>
-      <p class="tp"><span class="tp__note">4,3<small>/5</small></span>
-        <span class="tp__txt">
-          <span class="stars stars--part" role="img" aria-label="4,3 étoiles sur 5"><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><span><svg class="ico"><use href="#i-tp"/></svg></span></span>
-          <br>sur <strong>202 avis</strong> ·
-          <a href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">voir le profil
-          <span class="tp__logo"><svg class="ico"><use href="#i-tp"/></svg>Trustpilot</span></a></span></p>
+      <p class="tp">
+        <span class="stars stars--part" role="img" aria-label="4,3 étoiles sur 5"><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><svg class="ico"><use href="#i-tp"/></svg><span><svg class="ico"><use href="#i-tp"/></svg></span></span>
+        <span class="tp__note"><b>4,3</b> sur 5<span aria-hidden="true">·</span><b>202</b> avis</span>
+        <a class="tp__lien" href="https://fr.trustpilot.com/review/matchmove.fr" rel="noopener">
+          <svg class="ico"><use href="#i-tp"/></svg>Voir le profil <b>Trustpilot</b></a>
+      </p>
     </div>
     <div class="avis__g rvl-g" id="avis-g"></div>
     <div class="sec-cta"><a class="btn btn--cta btn--lg" href="#devis" data-cta="avis">Obtenir mon devis<svg class="ico"><use href="#i-arrow"/></svg></a><span class="hint">Gratuit, et sans engagement.</span></div>
