@@ -1,4 +1,4 @@
-# Le Bureau du Déménagement — landing page
+# Le Bon Déménageur — landing page
 
 Landing page de génération de leads pour le déménagement, pensée pour le trafic
 Google Ads. Site statique sans build, déployé sur GitHub Pages.
@@ -8,7 +8,9 @@ Google Ads. Site statique sans build, déployé sur GitHub Pages.
 ## Le nom
 
 La marque s'appelait **Mon Devis Déménagement**, un nom transactionnel qui dit
-ce qu'on obtient. Elle s'appelle désormais **Le Bureau du Déménagement**.
+ce qu'on obtient. Elle est passée par **Le Bureau du Déménagement**, puis s'est
+arrêtée sur **Le Bon Déménageur**. Domaine retenu&nbsp;: `lebondemenageur.com`
+— le `.fr` est parqué chez un tiers, sans service dessus.
 
 Le déclencheur est un retour de relecture&nbsp;: « L'Officiel du Déménagement
 avait un avantage, c'est que tu as l'impression de passer par un courtier, et
@@ -30,7 +32,12 @@ et non plus « service de mise en relation ».
 > casserait le lien en ligne. À traiter au moment de brancher le domaine
 > définitif.
 >
-> Une recherche d'antériorité INPI reste à faire avant tout dépôt de marque.
+> Une recherche d'antériorité INPI reste à faire avant tout dépôt de marque,
+> et elle est **plus nécessaire ici qu'avec les noms précédents**&nbsp;:
+> « Le Bon Déménageur » reprend la construction « Le Bon + nom » de
+> leboncoin.fr, marque notoire en France. L'adjectif est banal et le secteur
+> différent, mais l'association est immédiate pour un public français&nbsp;: à
+> faire vérifier par un conseil avant dépôt.
 
 ## L'idée
 
@@ -290,7 +297,7 @@ mécanisme.
 Si MatchMove garantit contractuellement l'aller seul, la formulation ferme peut
 revenir partout&nbsp;: un commentaire dans `index.html` indique où.
 
-### Ce que le bloc « Ce que Le Bureau du Déménagement vous garantit » affirme
+### Ce que le bloc « Ce que Le Bon Déménageur vous garantit » affirme
 
 Il occupe désormais **toute** sa section. La galerie « Du premier carton au
 dernier meuble » qui l'accueillait — un en-tête et trois vignettes — a été
@@ -787,7 +794,7 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [ ] **GTM** — décommenter et renseigner l'identifiant.
 - [ ] **Les fourchettes de prix** du tableau et de `TARIF` — à faire valider par
       les déménageurs du réseau.
-- [ ] **Le domaine** — `bureau-demenagement.fr` est posé dans le `canonical`
+- [ ] **Le domaine** — `lebondemenageur.com` est posé dans le `canonical`
       et les Open Graph. À confirmer ou à changer (3 occurrences).
 - [ ] **Une image Open Graph** (`og:image`, 1200 × 630) : absente aujourd'hui,
       les partages sociaux sortent donc sans visuel.
