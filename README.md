@@ -782,10 +782,53 @@ pas être surchargé par une requête média : l'appel à l'action de la section
 colonne. Il est désormais porté par `.sec-cta--g`, qui n'aligne à gauche
 qu'au-dessus de 951 px — le seuil de la section elle-même.
 
-> `page.css` est appelée avec `?v=2`. Sans build qui hache les noms de
+> `page.css` est appelée avec `?v=5`. Sans build qui hache les noms de
 > fichiers, **il faut incrémenter ce numéro à chaque modification du CSS**,
 > sinon les visiteurs déjà venus gardent l'ancienne feuille. C'est exactement
 > ce qui a masqué un correctif pendant cet audit.
+
+### Seconde passe, après le changement de marque
+
+Reprise à **320, 360, 390, 414, 768 et 1024 px** sur les cinq pages, avec deux
+critères de plus : le **chevauchement réel de fragments de texte** (les boîtes
+de lignes de chaque bloc comparées deux à deux) et le **pas des zones de
+frappe**, c'est-à-dire la hauteur de la cible plus l'écart qui la sépare de sa
+voisine alignée. Juger la hauteur seule classe en défaut des liens de phrase
+que personne ne rate.
+
+| Problème | Mesure | Cause |
+| --- | --- | --- |
+| Texte superposé dans « Services tiers appelés par la page » | 2 fragments recouverts sur 4 `<li>` | `.doc ul li{display:flex}` : un `<li>` en flex **découpe son contenu en autant d'éléments flex qu'il contient de suites contiguës**. Chaque `<a>` devenait une colonne, le texte suivant une autre. |
+| Bandeau Trustpilot large de 292 px dans une colonne de 284 | +8 px à 320 px | 46 px de rembourrage latéral de chaque côté |
+| Liens du pied de page à 16 px de haut sur tablette | pas de 32 px | La règle de confort était conditionnée à `max-width:760px` : une tablette en portrait fait 768 px et se touche quand même |
+| Bouton « Retour » du formulaire à 34 px | pas de 34 px | `padding:6px 2px` |
+| Numéro de téléphone de la section conseiller à 34 px | lien de bloc de 194 × 34 | Aucun rembourrage vertical sur un lien de 21 px de corps |
+| Lien de provenance des avis à 20 px | sous le plancher de 24 px | Même cause |
+
+La puce des listes de documents est repassée en `position:absolute`, ce qui
+rend au `<li>` son statut de bloc de texte. **Un `<li>` ne devrait jamais être
+en flex s'il contient une phrase** : la mise en page par colonnes n'a de sens
+que pour « une icône, puis un bloc », comme dans `.frm li`, où l'icône est le
+seul élément et le texte le seul autre.
+
+Le confort tactile ne se décide plus sur la largeur seule&nbsp;:
+
+```css
+@media (max-width:760px), (pointer:coarse){ … }
+```
+
+Résultat sur `index.html` après correction, à 320, 360, 390 et 414 px&nbsp;:
+débordement 0, aucun fragment de texte recouvert, aucune cible au pas
+inférieur à 44 px, aucun champ sous 16 px, aucun carton décoratif au-dessus du
+contenu. Le menu d'adresses s'ouvre bien dans le cadre, ses options font 57 px
+et répondent au doigt (vérifié par `elementFromPoint` au centre de la première
+suggestion, pas seulement par la présence du `<li>`).
+
+> Les captures d'écran ne valent rien quand le volet du navigateur est replié&nbsp;:
+> la page n'est plus peinte, `innerWidth` tombe à 0 et toute mesure de boîte
+> devient absurde (un faux « débordement de 210 px » relevé ainsi). Forcer une
+> taille de vue avec `resize_window` redonne une fenêtre de mise en page même
+> volet fermé — c'est la seule façon fiable de mesurer ici.
 
 ## Animations
 
@@ -836,7 +879,13 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
       a été retirée (inventée). Si le réseau vérifie réellement SIRET, licence de
       transport et assurance, c'est un argument fort à réécrire sur pièces.
 - [x] ~~Téléphone et horaires~~ — renseignés depuis matchmove.fr
-      (04 51 42 04 47, lundi-samedi 8h-18h).
+      (04 51 42 04 40, lundi-samedi 8h-18h). **La page a affiché pendant
+      plusieurs jours un 04 51 42 04 47**, erreur de transcription sur le dernier
+      chiffre, présente sur les quatre appels de `index.html` alors que ce README
+      et les deux pages légales portaient le bon numéro. Relevé en comparant les
+      fichiers entre eux, puis tranché à la source&nbsp;: les mentions légales de
+      matchmove.fr publient 04 51 42 04 40. Sur une page dont tout l'objet est
+      l'appel, un chiffre faux vaut une page morte.
 - [x] ~~Avis clients~~ — avis réels relevés sur Trustpilot, avec la note du
       profil (4,3/5 sur 202 avis). **À rafraîchir périodiquement** : la note et
       le nombre d'avis sont figés dans le HTML, ils ne se mettent pas à jour
@@ -849,10 +898,22 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
       le numéro ou l'attestation avant publication — un consommateur qui
       saisirait un médiateur sans adhésion s'entendrait répondre que la société
       n'en est pas membre.
-- [ ] **Les mentions légales** — tous les champs entre crochets, plus le
-      médiateur de la consommation (obligatoire, art. L.616-1).
-- [ ] **La politique de confidentialité** — responsable de traitement, durées de
-      conservation réellement appliquées, liste des sous-traitants.
+- [x] ~~**Les mentions légales**~~ — complètes&nbsp;: identité et immatriculation
+      relevées au registre national des entreprises, hébergeur réel (Cloudflare
+      Pages), nature du service, propriété intellectuelle avec les bonnes polices
+      (Archivo et Sora, pas celles d'une version précédente), conditions
+      d'utilisation, liens hypertextes, accessibilité, médiation. Les notes de
+      rédaction sont passées en commentaires HTML&nbsp;: un document légal publié
+      ne porte pas ses propres réserves.
+- [x] ~~**La politique de confidentialité**~~ — complète&nbsp;: durées de
+      conservation chiffrées et fondées (3 ans de prospection selon la
+      recommandation CNIL, 5 ans pour la preuve du consentement selon
+      l'article 2224 du code civil, 13 mois de traceurs), sous-traitant nommé,
+      transferts hors UE traités, champs obligatoires distingués des facultatifs,
+      profilage décrit pour ce qu'il est (un indicateur d'urgence tiré de la date,
+      qui ordonne les rappels et rien d'autre), et l'état réel des traceurs&nbsp;:
+      aucun, GTM étant encore en commentaire. **À faire relire par un conseil**,
+      et à corriger si les durées ne correspondent pas à la pratique.
 - [ ] **Un bandeau de consentement** conforme, avant d'activer le moindre
       traceur publicitaire.
 - [ ] **Le webhook** du formulaire (voir ci-dessus).
