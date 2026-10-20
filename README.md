@@ -518,6 +518,15 @@ liste serait retirée avant que le clic n'aboutisse.
 
 Les libellés renvoyés par l'API sont **échappés** avant d'entrer dans le HTML.
 
+> La liste a d'abord semblé ne pas fonctionner. Elle fonctionnait&nbsp;: elle
+> était **rognée**. `.quiz` portait un `overflow:hidden` qui coupait tout ce
+> qui dépassait de la carte, suggestions comprises. Il ne servait qu'à faire
+> respecter les 4 px d'arrondi, alors qu'aucun enfant ne touche les bords —
+> la barre de progression a son propre `overflow` et vit dans du rembourrage.
+> Retiré. Vérifié depuis par `elementFromPoint` sur le haut et le bas de la
+> liste&nbsp;: ce sont bien les `<li>` qui répondent, donc elle est peinte au
+> premier plan et cliquable.
+
 Mesuré&nbsp;: Paris 19ᵉ → place Bellecour à Lyon donne 492 km (réel ≈ 465).
 
 Les étapes à boutons radio avancent toutes seules. Les codes postaux sont
