@@ -60,7 +60,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
      tient à 10,90. */
   --rose-pale:#FCDDE1; --rose-brume:#FDF3F4;
   /* Leurs gris d'interface. */
-  --gris:#F4F5F9; --gris-2:#EBECEF; --white:#fff;
+  --gris:#F4F5F9;
+  --creme:#F6F2EC; --gris-2:#EBECEF; --white:#fff;
   /* Encre. --ink-3 est le plus clair qui reste lisible en petit texte
      (5,98 sur blanc, 5,49 sur le gris). */
   --ink:#333333; --ink-2:#4A5260; --ink-3:#5B6472;
@@ -175,7 +176,7 @@ button{font:inherit;color:inherit}
   .hero::before{background:linear-gradient(180deg, rgba(34,46,58,.96), rgba(34,46,58,.94))}
 }
 .hero__route{position:absolute;left:0;right:0;bottom:-6px;height:190px;opacity:.16;pointer-events:none}
-.hero__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(28px,4vw,58px);align-items:start}
+.hero__in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(28px,4vw,58px);align-items:start}
 .hero__copy{padding-top:clamp(4px,2vw,26px)}
 /* Sur-titre : un fond et un rayon en faisaient un bouton alors que rien n'y
    est cliquable. Il redevient ce qu'il est — une ligne de texte, tenue par
@@ -682,17 +683,62 @@ details .a p + p{margin-top:11px}
 .gar{background:var(--gris-2)}
 
 /* CTA final */
-.final{background:var(--nuit);color:#fff;text-align:center;position:relative;overflow:clip}
-.final::after{content:"";position:absolute;inset:auto -10% -60% -10%;height:340px;
-  background:radial-gradient(60% 100% at 50% 100%, rgba(255,111,128,.20), transparent 70%)}
-.final__in{position:relative;max-width:720px;margin-inline:auto}
+/* ── Cartons décoratifs ───────────────────────────────────────────────────
+   Le carré arrondi incliné à 12° du logo, décliné en fonds. Tous les cartons
+   sont des <span aria-hidden> en position absolue, posés AVANT le contenu
+   dans le flux et sans z-index : le contenu, lui, porte position:relative et
+   z-index:1, donc rien ne peut passer dessus. Les sections concernées portent
+   overflow:clip, qui découpe sans créer de conteneur de défilement — un
+   overflow:hidden sur le hero avait déjà coûté un bug de scroll latéral.
+   Sous 768 px les cartons sont réduits de 40 % et les plus petits masqués :
+   à cette largeur ils n'ont plus de bord où se loger. */
+.krt{position:absolute;display:block;pointer-events:none;transform:rotate(12deg)}
+
+/* Hero : cartons épars sur le bord droit, derrière la carte du formulaire. */
+.hero__k1{width:180px;height:180px;border-radius:40px;background:#2C3B4A;right:60px;top:-40px}
+.hero__k2{width:260px;height:260px;border-radius:56px;background:#2C3B4A;right:-50px;bottom:-60px}
+.hero__k3{width:90px;height:90px;border-radius:22px;background:#33445A;right:220px;bottom:40px}
+.hero__k4{width:56px;height:56px;border-radius:14px;background:var(--rose);right:330px;top:96px}
+
+/* Conseiller : un grand contour coupé par le bord droit. */
+.sup__k{width:420px;height:420px;border-radius:90px;border:44px solid #FFE4E7;
+  right:-120px;top:-40px;box-sizing:border-box}
+
+/* Étapes : une pile de trois cartons dans le coin bas droit. */
+.etp__k1{width:150px;height:150px;border-radius:32px;background:#E9E1D5;right:40px;bottom:-30px;
+  transform:rotate(-6deg)}
+.etp__k2{width:130px;height:130px;border-radius:28px;background:#DDD3C4;right:190px;bottom:-40px;
+  transform:rotate(8deg)}
+.etp__k3{width:110px;height:110px;border-radius:24px;background:var(--rose);right:110px;bottom:100px}
+
+/* Bandeau final : deux cartons coupés par les coins, deux petits sur les bords. */
+.fin__k1{width:200px;height:200px;border-radius:46px;left:-60px;top:-50px}
+.fin__k2{width:170px;height:170px;border-radius:40px;right:-50px;bottom:-60px}
+.fin__k3{width:70px;height:70px;border-radius:18px;left:90px;bottom:34px}
+.fin__k4{width:44px;height:44px;border-radius:12px;right:120px;top:52px}
+@media (max-width:767px){
+  .krt{scale:.6}
+  .krt--mini{display:none}
+}
+
+.final{background:var(--rose);color:var(--nuit);text-align:center;position:relative;overflow:clip}
+/* Le halo rose n'a plus d'objet sur un fond rose. */
+.final__k{background:rgba(255,255,255,.18)}
+.final__in{position:relative;z-index:1;max-width:720px;margin-inline:auto}
 .final h2{font-size:clamp(28px,4vw,46px)}
-.final p{margin-top:17px;font-size:18px;color:rgba(255,255,255,.84);line-height:1.55}
+/* Sur le corail, le magenta tombe à 2,09:1 et le blanc à 2,68 : l'accent ne
+   peut pas être une couleur ici. Le titre est donc d'un seul ton, l'encre à
+   5,16:1 — c'est le bandeau lui-même qui fait l'accent. */
+.final h2 .em{color:inherit}
+.final p{margin-top:17px;font-size:18px;color:var(--nuit);line-height:1.55}
 .final .btn{margin-top:30px}
-.final .mini{margin-top:17px;font-size:13.8px;color:rgba(255,255,255,.62)}
+/* Bouton nuit sur corail : 5,16:1 de séparation, blanc à 13,82:1 dessus. */
+.final .btn--cta{background:var(--nuit);color:#fff}
+.final .mini{margin-top:17px;font-size:13.8px;color:var(--nuit)}
 
 /* Pied */
-.ftr{background:var(--nuit-3);color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14.3px}
+.ftr{background:#1C2631;color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14.3px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Crect x='21' y='21' width='14' height='14' rx='3.5' fill='%23243140' transform='rotate(12 28 28)'/%3E%3C/svg%3E")}
 .ftr__g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:30px}
 .ftr h4{color:#fff;font-size:14.5px;margin-bottom:14px;letter-spacing:-.015em}
 .ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
@@ -717,6 +763,7 @@ details .a p + p{margin-top:11px}
   .btn:hover::after{transform:translateX(120%)}
   .btn--cta:hover,.btn--nuit:hover{transform:translateY(-2px)}
   .btn--cta:hover{box-shadow:0 10px 24px -10px rgba(206,0,84,.55)}
+  .final .btn--cta:hover{background:var(--nuit-3);box-shadow:0 10px 24px -10px rgba(25,35,44,.5)}
   .btn--nuit:hover{box-shadow:0 10px 24px -10px rgba(34,46,58,.5)}
   .btn:hover .ico{transform:translateX(4px)}
 
@@ -878,6 +925,10 @@ details .a p + p{margin-top:11px}
 <main id="top">
 
 <section class="hero">
+  <span class="krt hero__k1" aria-hidden="true"></span>
+  <span class="krt hero__k2" aria-hidden="true"></span>
+  <span class="krt hero__k3 krt--mini" aria-hidden="true"></span>
+  <span class="krt hero__k4 krt--mini" aria-hidden="true"></span>
   <svg class="hero__route" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
     <path d="M-20 150 C 220 60, 420 170, 650 110 S 1080 30, 1460 120" fill="none"
           stroke="#FF6F80" stroke-width="2.5" stroke-dasharray="11 13" stroke-linecap="round"/>
@@ -1285,8 +1336,11 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section id="etapes">
-  <div class="wrap">
+<section id="etapes" style="background:var(--creme);position:relative;overflow:clip">
+  <span class="krt etp__k1" aria-hidden="true"></span>
+  <span class="krt etp__k2 krt--mini" aria-hidden="true"></span>
+  <span class="krt etp__k3 krt--mini" aria-hidden="true"></span>
+  <div class="wrap" style="position:relative;z-index:1">
     <div class="sec-h ctr rvl">
       <h2>Trouver, préparer, <span class="em">ne plus y penser</span></h2>
       <p>Trois étapes. Entre les deux, vous n'avez rien à gérer.</p>
@@ -1324,7 +1378,7 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section id="formules" style="background:var(--white);border-block:1px solid var(--line)">
+<section id="formules" style="background:var(--creme);border-block:1px solid var(--line);background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Crect x='18' y='18' width='12' height='12' rx='3' fill='%23ECE5DB' transform='rotate(12 24 24)'/%3E%3C/svg%3E&quot;)">
   <div class="wrap">
     <div class="sec-h ctr rvl">
       <h2>Vous déléguez <span class="em">autant que vous voulez</span></h2>
@@ -1434,8 +1488,9 @@ details .a p + p{margin-top:11px}
   </div>
 </section>
 
-<section id="support" style="background:var(--gris-2)">
-  <div class="wrap">
+<section id="support" style="background:var(--white);position:relative;overflow:clip">
+  <span class="krt sup__k" aria-hidden="true"></span>
+  <div class="wrap" style="position:relative;z-index:1">
     <div class="sec-h ctr rvl">
       <h2>Un interlocuteur, <span class="em">du devis au Jour J</span></h2>
       <p>Vous n'expliquez pas deux fois votre déménagement. Un conseiller suit votre dossier de bout
@@ -1608,6 +1663,10 @@ details .a p + p{margin-top:11px}
 </section>
 
 <section class="final">
+  <span class="krt final__k fin__k1" aria-hidden="true"></span>
+  <span class="krt final__k fin__k2" aria-hidden="true"></span>
+  <span class="krt final__k fin__k3 krt--mini" aria-hidden="true"></span>
+  <span class="krt final__k fin__k4 krt--mini" aria-hidden="true"></span>
   <div class="wrap final__in">
     <h2>Il est temps de <span class="em">ne plus y penser</span></h2>
     <p>Décrivez votre projet en une minute, recevez votre devis en une heure.
