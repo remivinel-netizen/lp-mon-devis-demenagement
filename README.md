@@ -512,9 +512,9 @@ Le carré corail remplace le « o ». Tourné de 12°, il déborde sa boîte de
 2,14 px de chaque côté — sans conséquence, il est au milieu du mot.
 
 > Le logo passe d'un bandeau (rapport 5,06) à un bloc sur deux lignes (1,78).
-> C'est donc la **hauteur** qui est fixée en CSS, plus la largeur&nbsp;: 50 px
-> dans l'en-tête, 42 sous 900 px, 46 au pied et sur les pages secondaires.
-> L'en-tête garde ses 87 px.
+> C'est donc la **hauteur** qui est fixée en CSS, plus la largeur&nbsp;: 68 px
+> dans l'en-tête, 56 sous 900 px, 62 au pied, 60 sur les pages secondaires.
+> L'en-tête passe de 87 à 95 px au large, 79 sur mobile.
 
 ### Les images
 
