@@ -100,7 +100,10 @@ h3,h4{letter-spacing:-.025em;font-stretch:106%}
 p{margin:0}
 a{color:inherit}
 button{font:inherit;color:inherit}
-.em{color:var(--rose)}
+/* Un seul accent sur fond clair : celui des boutons. Sur fond sombre il
+   reste le rose clair, car le magenta n'y tient que 1,99:1 contre le
+   voile du hero, soit sous le seuil même pour du grand texte. */
+.em{color:var(--magenta)}
 .wrap{width:min(100% - 36px, var(--wrap));margin-inline:auto}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 :where(a,button,input,select,summary,label.opt):focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:8px}
@@ -155,19 +158,21 @@ button{font:inherit;color:inherit}
 @media (min-width:901px){.hero{background-image:url(img/hero-1600.jpg)}}
 /* Le voile qui rend le blanc lisible par-dessus la photo. Densité calibrée,
    pas estimée : le pixel le plus clair sous le titre est du blanc pur (la
-   fenêtre du cliché). À 90 % d'opacité, le blanc du titre y garde un
-   contraste de 6,06 — au-dessus des 4,5 exigés, avec de la marge. En
-   descendant à 80 % on tomberait à 3,88, donc sous le seuil.
+   fenêtre du cliché), et tout se mesure sur ce pire cas.
+   Relevé de 93 à 96 % : la photo s'efface davantage, et surtout le rose du
+   surtitre y passe de 4,16 à 4,57, au-dessus des 4,5 exigés pour du texte de
+   moins de 18,66 px — ce qu'il n'atteignait pas avant. Le blanc du titre y
+   monte à 12,25.
    Le voile s'éclaircit à droite, sous la carte du formulaire, où aucun texte
    clair ne repose sur la photo : c'est là qu'on la laisse se voir. */
 .hero::before{content:"";position:absolute;inset:0;
   background:linear-gradient(100deg,
-    rgba(34,46,58,.93) 0%, rgba(34,46,58,.90) 52%,
-    rgba(34,46,58,.78) 74%, rgba(34,46,58,.60) 100%)}
+    rgba(34,46,58,.96) 0%, rgba(34,46,58,.94) 52%,
+    rgba(34,46,58,.84) 74%, rgba(34,46,58,.68) 100%)}
 @media (max-width:1000px){
   /* En une seule colonne, le texte traverse toute la largeur : le voile
      redevient uniforme, à la densité mesurée. */
-  .hero::before{background:linear-gradient(180deg, rgba(34,46,58,.92), rgba(34,46,58,.90))}
+  .hero::before{background:linear-gradient(180deg, rgba(34,46,58,.96), rgba(34,46,58,.94))}
 }
 .hero__route{position:absolute;left:0;right:0;bottom:-6px;height:190px;opacity:.16;pointer-events:none}
 .hero__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(28px,4vw,58px);align-items:start}
@@ -337,7 +342,8 @@ h1 .em{color:var(--rose)}
 
 /* ── Rubans et sections ──────────────────────────────────────────────────── */
 section{padding:clamp(54px,7vw,92px) 0}
-.sec-h{max-width:40ch;margin-bottom:clamp(30px,4vw,46px)}
+.sec-h{max-width:min(600px,100%);margin-bottom:clamp(30px,4vw,46px)}
+.incl .sec-h{max-width:min(760px,100%)}
 .sec-h.ctr{margin-inline:auto;text-align:center}
 .sec-h h2{font-size:clamp(28px,3.9vw,45px)}
 .sec-h h2 .em{color:var(--magenta)}
@@ -345,7 +351,7 @@ section{padding:clamp(54px,7vw,92px) 0}
 
 .band{background:var(--white);border-block:1px solid var(--line);padding:clamp(34px,4vw,48px) 0}
 .band__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px)}
-.band__i .ico{width:26px;height:26px;color:var(--nuit);stroke-width:1.9}
+.band__i .ico{width:26px;height:26px;color:var(--magenta);stroke-width:1.9}
 .band__i h3{font-size:16.5px;margin-top:12px;letter-spacing:-.022em}
 .band__i p{font-size:14.5px;color:var(--ink-2);margin-top:7px;line-height:1.5}
 @media (max-width:860px){.band__g{grid-template-columns:1fr 1fr;gap:26px}}
@@ -406,6 +412,7 @@ section{padding:clamp(54px,7vw,92px) 0}
 .frm{background:var(--white);border-radius:var(--r-md);padding:28px 26px;box-shadow:var(--shadow-sm);position:relative;height:100%}
 .frm--hi{box-shadow:0 0 0 2.5px var(--nuit),var(--shadow-sm)}
 .frm__flag{position:absolute;top:-13px;left:26px;background:var(--nuit);color:#fff;font-size:12px;font-weight:700;
+  transition:background .22s;
   letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;border-radius:var(--r-sm)}
 .frm h3{font-size:21px;letter-spacing:-.028em}
 .frm__p{font-size:14px;color:var(--ink-3);margin-top:6px}
@@ -457,7 +464,7 @@ section{padding:clamp(54px,7vw,92px) 0}
    claires. */
 .regl{margin-top:clamp(24px,3vw,34px);background:var(--nuit);color:#fff;
   border-radius:var(--r-md);padding:clamp(24px,3.4vw,38px);scroll-margin-top:22px}
-.regl__h{max-width:54ch;margin-bottom:clamp(20px,2.6vw,28px)}
+.regl__h{max-width:54ch;margin-inline:auto;text-align:center;margin-bottom:clamp(20px,2.6vw,28px)}
 .regl__h h2{font-size:clamp(21px,2.6vw,30px);letter-spacing:-.03em;line-height:1.15}
 /* Le magenta ne tient que 2,47:1 sur le bleu nuit, sous les 3:1 exigés même
    en grand texte. L'accent passe au rose : 5,16:1. */
@@ -499,8 +506,7 @@ section{padding:clamp(54px,7vw,92px) 0}
 
 /* Quatre avis : 2 par 2 plutôt que 3 + 1 orphelin. Les cartes y gagnent de
    la place pour les citations longues. */
-.avis__g{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,22px);
-  max-width:900px;margin-inline:auto}
+.avis__g{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2vw,24px)}
 .avi{background:var(--white);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
 /* Vert Trustpilot. Les avis viennent de là, autant que ça se voie : c'est la
    seule preuve de la page qu'un tiers peut vérifier, et le repère visuel
@@ -593,7 +599,6 @@ details .a p + p{margin-top:11px}
 .cs p{font-size:13.8px;color:var(--ink-2);margin-top:5px;line-height:1.5}
 @media (max-width:900px){.cas__g{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.cas__g{grid-template-columns:1fr}}
-#cas .sec-h{max-width:min(560px,100%)}
 /* Coupure de titre choisie, et seulement quand la largeur le permet. */
 @media (max-width:620px){.brk{display:none}}
 
@@ -722,14 +727,18 @@ details .a p + p{margin-top:11px}
   .frm:hover,.stp:hover,.avi:hover,.inc:hover{transform:translateY(-3px)}
   .frm:hover{box-shadow:0 0 0 1.5px var(--magenta),0 16px 32px -18px rgba(34,46,58,.45)}
   .frm--hi:hover{box-shadow:0 0 0 2.5px var(--magenta),0 16px 32px -18px rgba(34,46,58,.45)}
+  /* Le fanion passe au rose avec le cadre de sa carte. */
+  .frm--hi:hover .frm__flag{background:var(--magenta)}
   .stp:hover,.avi:hover{box-shadow:0 16px 32px -18px rgba(34,46,58,.45),0 0 0 1px rgba(34,46,58,.09)}
   .inc:hover{box-shadow:inset 0 0 0 1.5px var(--magenta)}
   /* Le badge d'étape prend un cran d'avance sur sa carte. */
   .stp::before{transition:transform .22s var(--ease)}
   .stp:hover::before{transform:scale(1.09)}
-  /* Les icônes des cartes avancent et prennent l'accent. */
+  /* Les icônes des cartes grossissent légèrement et prennent l'accent. Le
+     glissement latéral suggérait un déplacement, donc un lien à suivre, que
+     ces cartes n'ont pas. */
   .inc .ico{transition:transform .22s var(--ease),color .18s}
-  .inc:hover .ico{transform:translateX(3px);color:var(--magenta)}
+  .inc:hover .ico{transform:scale(1.12);color:var(--magenta)}
 
   /* Options du formulaire : la pastille pivote légèrement. C'est le seul
      endroit où le visiteur doit cliquer, autant que ça réagisse. */
@@ -770,6 +779,7 @@ details .a p + p{margin-top:11px}
 @media (prefers-reduced-motion:reduce){
   .btn:hover,.btn:hover .ico,.btn:hover::after,
   .frm:hover,.stp:hover,.stp:hover::before,.avi:hover,.inc:hover,.inc:hover .ico,
+  .frm--hi:hover .frm__flag,
   .cs:hover .med,.opt:hover .opt__ico,.tel:hover .tel__ico,
   .hdr__logo:hover img,.sticky__tel:hover{transform:none}
   .ftr a:hover{background-size:0 1px;text-decoration:underline}
