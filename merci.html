@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Votre demande est partie · Mon Devis Déménagement</title>
+<title>Votre demande est partie · Le Bureau du Déménagement</title>
 <meta name="description" content="Votre demande de devis a bien été enregistrée.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#222E3A">
@@ -91,8 +91,8 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 <body>
 
 <header class="hdr"><div class="wrap">
-  <a href="index.html" aria-label="Mon Devis Déménagement, accueil">
-    <img src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="250" height="42">
+  <a href="index.html" aria-label="Le Bureau du Déménagement, accueil">
+    <img src="img/logo-blanc.svg?v=2" alt="Le Bureau du Déménagement" width="250" height="42">
   </a>
 </div></header>
 
@@ -144,7 +144,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
 </div></main>
 
 <footer class="ftr"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;width:min(100% - 36px,720px)">
-  <span>© <span id="annee">2026</span> Mon Devis Déménagement</span>
+  <span>© <span id="annee">2026</span> Le Bureau du Déménagement</span>
   <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span>
 </div></footer>
 
@@ -168,7 +168,7 @@ ol span{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px;line-he
   // Le récapitulatif vient du formulaire, via sessionStorage : il n'y a ni
   // paramètre d'URL ni donnée personnelle en clair dans la barre d'adresse.
   var d = null;
-  try{ d = JSON.parse(sessionStorage.getItem('mdd_lead') || 'null'); }catch(e){}
+  try{ d = JSON.parse(sessionStorage.getItem('lbd_lead') || 'null'); }catch(e){}
   if(!d) return;
   if(d.prenom){
     document.getElementById('lead').textContent =

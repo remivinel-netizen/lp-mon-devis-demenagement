@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Déménagement : votre devis gratuit en 1 heure · Mon Devis Déménagement</title>
+<title>Déménagement : votre devis gratuit en 1 heure · Le Bureau du Déménagement</title>
 <meta name="description" content="Décrivez votre déménagement en 1 minute, recevez votre devis en 1 heure. Plus de 1 000 déménageurs partenaires, démarches administratives incluses, annulation gratuite jusqu'à 2 semaines avant.">
 <meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://mon-devis-demenagement.fr/">
+<link rel="canonical" href="https://bureau-demenagement.fr/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="Mon Devis Déménagement">
+<meta property="og:site_name" content="Le Bureau du Déménagement">
 <meta property="og:title" content="Déménagez l'esprit léger">
 <meta property="og:description" content="Votre devis en 1 heure. Plus de 1 000 déménageurs partenaires, démarches administratives incluses, annulation gratuite jusqu'à 2 semaines avant le jour J.">
 
@@ -28,7 +28,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
 <style>
 /* ──────────────────────────────────────────────────────────────────────────
-   CHARTE — Mon Devis Déménagement
+   CHARTE — Le Bureau du Déménagement
    Structure relevée sur l'Officiel du Déménagement : un navy ardoise #222E3A
    en ancre et leur magenta #CE0054 en action. La typo s'en écarte :
    Archivo, une seule famille dont l'axe de largeur fait la hiérarchie.
@@ -847,8 +847,8 @@ details .a p + p{margin-top:11px}
 
 <header class="hdr">
   <div class="wrap hdr__in">
-    <a class="hdr__logo" href="#top" aria-label="Mon Devis Déménagement, accueil">
-      <img src="img/logo.svg" alt="Mon Devis Déménagement" width="265" height="44">
+    <a class="hdr__logo" href="#top" aria-label="Le Bureau du Déménagement, accueil">
+      <img src="img/logo.svg?v=2" alt="Le Bureau du Déménagement" width="265" height="44">
     </a>
     <div class="hdr__r">
       <!-- ⚠ À VALIDER : numéro et horaires à remplacer par ceux du client. -->
@@ -1032,8 +1032,8 @@ details .a p + p{margin-top:11px}
                    autocapitalize="off" spellcheck="false" placeholder="camille.martin@email.fr"></div>
           <label class="consent">
             <span class="sw"><input type="checkbox" id="f-consent" name="consentement"><span></span></span>
-            <p id="consent-txt">J'accepte d'être recontacté par la société MATCHMOVE, éditrice de
-              Mon Devis Déménagement, et par les déménageurs partenaires sélectionnés pour établir mon
+            <p id="consent-txt">J'accepte d'être recontacté par la société MATCHMOVE, éditrice du
+              Bureau du Déménagement, et par les déménageurs partenaires sélectionnés pour établir mon
               devis. Mes données ne sont utilisées que pour cela.</p>
           </label>
           <p class="note" id="n-contact" aria-live="polite"></p>
@@ -1576,7 +1576,7 @@ details .a p + p{margin-top:11px}
          publie d'engagement d'assurance. -->
     <div class="regl rvl" id="qualite">
       <div class="regl__h">
-        <h2>Ce que Mon Devis Déménagement <span class="em">vous garantit</span></h2>
+        <h2>Ce que le Bureau du Déménagement <span class="em">vous garantit</span></h2>
         <p>Nous ne vous mettons en relation qu'avec des entreprises de déménagement
            professionnelles. C'est une activité réglementée&nbsp;: voilà ce que cela vous assure.</p>
       </div>
@@ -1614,7 +1614,7 @@ details .a p + p{margin-top:11px}
   <div class="wrap">
     <div class="ftr__g">
       <div>
-        <img class="ftr__logo" src="img/logo-blanc.svg" alt="Mon Devis Déménagement" width="250" height="42">
+        <img class="ftr__logo" src="img/logo-blanc.svg?v=2" alt="Le Bureau du Déménagement" width="250" height="42">
         <p>Plus de mille déménageurs partenaires partout en France, un devis en une heure, et le
            transfert de vos contrats compris dans les trois formules.</p>
       </div>
@@ -1646,7 +1646,7 @@ details .a p + p{margin-top:11px}
       </ul></div>
     </div>
     <div class="ftr__legal">
-      <span>© <span id="annee">2026</span> Mon Devis Déménagement, tous droits réservés.</span>
+      <span>© <span id="annee">2026</span> Le Bureau du Déménagement, tous droits réservés.</span>
       <span>Service édité par MATCHMOVE (SAS). Les prestations sont réalisées par des entreprises de déménagement indépendantes.</span>
     </div>
   </div>
@@ -1716,8 +1716,8 @@ var pubs = {};
     var v = q.get(k);
     // Les identifiants de clic survivent à la navigation interne : une fois
     // captés, ils restent en session pour être joints au lead.
-    if(v){ try{ sessionStorage.setItem('mdd_'+k, v); }catch(e){} }
-    else { try{ v = sessionStorage.getItem('mdd_'+k); }catch(e){} }
+    if(v){ try{ sessionStorage.setItem('lbd_'+k, v); }catch(e){} }
+    else { try{ v = sessionStorage.getItem('lbd_'+k); }catch(e){} }
     if(v) pubs[k] = v;
   });
 })();
@@ -2171,12 +2171,12 @@ form.addEventListener('submit', function(ev){
 
   var url = form.dataset.endpoint || '';
   var envoye = (!url || url.indexOf('REMPLACER') > -1)
-    ? Promise.resolve(console.info('[Mon Devis Déménagement] Endpoint non configuré, lead simulé :', data))
+    ? Promise.resolve(console.info('[Le Bureau du Déménagement] Endpoint non configuré, lead simulé :', data))
     : fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
 
   envoye.catch(function(err){ console.warn('Envoi du lead en échec :', err) })
         .then(function(){
-          try{ sessionStorage.setItem('mdd_lead', JSON.stringify({
+          try{ sessionStorage.setItem('lbd_lead', JSON.stringify({
             prenom:data.prenom, vol:data.volume_m3, km:data.distance_km,
             de:data.commune_depart || data.ville_depart,
             vers:data.commune_arrivee || data.ville_arrivee,

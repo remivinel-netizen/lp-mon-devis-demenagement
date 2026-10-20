@@ -1,9 +1,36 @@
-# Mon Devis Déménagement — landing page
+# Le Bureau du Déménagement — landing page
 
 Landing page de génération de leads pour le déménagement, pensée pour le trafic
 Google Ads. Site statique sans build, déployé sur GitHub Pages.
 
 **En ligne :** https://remivinel-netizen.github.io/lp-mon-devis-demenagement/
+
+## Le nom
+
+La marque s'appelait **Mon Devis Déménagement**, un nom transactionnel qui dit
+ce qu'on obtient. Elle s'appelle désormais **Le Bureau du Déménagement**.
+
+Le déclencheur est un retour de relecture&nbsp;: « L'Officiel du Déménagement
+avait un avantage, c'est que tu as l'impression de passer par un courtier, et
+ça donne un côté très référence de la place — tu as l'impression que tu connais
+l'entreprise alors que pas du tout ». Leur nom emprunte la grammaire d'un
+registre d'État et promet un arbitre&nbsp;; le nôtre promettait une
+transaction.
+
+« Bureau » dit la maison professionnelle sans se prétendre officiel — la
+nuance compte, puisque l'effet constaté chez eux est de l'autorité
+**empruntée**, exactement ce que le reste du projet s'emploie à retirer.
+
+Le positionnement qui va avec n'est pas inventé non plus&nbsp;: l'activité
+principale déclarée de MATCHMOVE au registre national des entreprises est
+**« le courtage en déménagement »**. La page dit donc « service de courtage »
+et non plus « service de mise en relation ».
+
+> Le dépôt et l'URL GitHub Pages gardent l'ancien nom&nbsp;: les renommer
+> casserait le lien en ligne. À traiter au moment de brancher le domaine
+> définitif.
+>
+> Une recherche d'antériorité INPI reste à faire avant tout dépôt de marque.
 
 ## L'idée
 
@@ -263,7 +290,7 @@ mécanisme.
 Si MatchMove garantit contractuellement l'aller seul, la formulation ferme peut
 revenir partout&nbsp;: un commentaire dans `index.html` indique où.
 
-### Ce que le bloc « Ce que Mon Devis Déménagement vous garantit » affirme
+### Ce que le bloc « Ce que Le Bureau du Déménagement vous garantit » affirme
 
 Il occupe désormais **toute** sa section. La galerie « Du premier carton au
 dernier meuble » qui l'accueillait — un en-tête et trois vignettes — a été
@@ -760,7 +787,7 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [ ] **GTM** — décommenter et renseigner l'identifiant.
 - [ ] **Les fourchettes de prix** du tableau et de `TARIF` — à faire valider par
       les déménageurs du réseau.
-- [ ] **Le domaine** — `mon-devis-demenagement.fr` est posé dans le `canonical`
+- [ ] **Le domaine** — `bureau-demenagement.fr` est posé dans le `canonical`
       et les Open Graph. À confirmer ou à changer (3 occurrences).
 - [ ] **Une image Open Graph** (`og:image`, 1200 × 630) : absente aujourd'hui,
       les partages sociaux sortent donc sans visuel.
