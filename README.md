@@ -878,14 +878,16 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [ ] **La procédure de sélection des déménageurs** : la section qui la décrivait
       a été retirée (inventée). Si le réseau vérifie réellement SIRET, licence de
       transport et assurance, c'est un argument fort à réécrire sur pièces.
-- [x] ~~Téléphone et horaires~~ — renseignés depuis matchmove.fr
-      (04 51 42 04 40, lundi-samedi 8h-18h). **La page a affiché pendant
-      plusieurs jours un 04 51 42 04 47**, erreur de transcription sur le dernier
-      chiffre, présente sur les quatre appels de `index.html` alors que ce README
-      et les deux pages légales portaient le bon numéro. Relevé en comparant les
-      fichiers entre eux, puis tranché à la source&nbsp;: les mentions légales de
-      matchmove.fr publient 04 51 42 04 40. Sur une page dont tout l'objet est
-      l'appel, un chiffre faux vaut une page morte.
+- [ ] **Téléphone** — deux numéros coexistent chez MATCHMOVE, et il faut faire
+      trancher le client. **04 51 42 04 40** est celui des mentions légales de
+      matchmove.fr. **04 51 42 04 47** est celui qu'affichent les trois sites
+      satellites, `retourdemenageurs.fr`, `retourexpress.fr` et
+      `toutdoitpartir.fr`, y compris dans leurs propres mentions légales. Tout
+      indique une ligne dédiée à l'acquisition d'un côté et la ligne corporate
+      de l'autre. Cette page relevant de la première famille, elle porte le 47.
+      J'avais d'abord pris le 47 pour une faute de frappe et aligné la page sur
+      le 40 : c'était faux, les trois sites frères le démentent. Horaires
+      lundi-samedi 8h-18h, relevés sur matchmove.fr.
 - [x] ~~Avis clients~~ — avis réels relevés sur Trustpilot, avec la note du
       profil (4,3/5 sur 202 avis). **À rafraîchir périodiquement** : la note et
       le nombre d'avis sont figés dans le HTML, ils ne se mettent pas à jour
