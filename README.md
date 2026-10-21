@@ -359,7 +359,7 @@ viennent — et l'écart devient difficile à rattraper.
 ### Rompre le mur de cartes
 
 Quatre sections se suivaient avec la même grille — « Inclus dans les trois
-formules », « Votre déménagement n'est pas standard », « Un interlocuteur » et
+formules », « Votre déménagement n'est pas standard », « Un seul interlocuteur » et
 « Ce que la loi vous garantit » — soit **dix-sept cartes consécutives** au même
 gabarit : icône nue de 25 px, titre, paragraphe. À l'échelle de la page cela
 formait un mur que l'œil cesse de lire.
