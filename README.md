@@ -978,4 +978,39 @@ Le domaine est enregistré chez **GoDaddy** et ses serveurs de noms pointent ver
 contient quatre enregistrements : l'apex et le `www` en CNAME vers
 `lebondemenageur.pages.dev`, le `_dmarc` hérité de GoDaddy, et un
 `_domainconnect` sans effet. **Aucun MX** : le domaine ne porte pas de messagerie,
-c'est pourquoi la bascule des serveurs de noms n'a rien cassé.
+c'est pourquoi la bascule des serveurs de noms n'a rien cassé. C'est la
+vérification à faire avant toute bascule de serveurs de noms, et elle prend
+dix secondes : `dig +short MX ledomaine`. Une réponse non vide veut dire qu'on
+s'apprête à couper la messagerie de quelqu'un.
+
+Une **règle de redirection** envoie `www` vers l'apex en 301, avec
+**conservation de la chaîne de requête**. Cette case n'est pas cochée par
+défaut dans le modèle Cloudflare, et la décocher coûterait cher ici : un
+visiteur qui arrive sur `www.lebondéménageur.com/?gclid=…` perdrait son
+identifiant de clic en route, donc la conversion ne serait rattachée à aucune
+annonce. Vérifié : `?gclid=TEST123&utm_source=google` ressort intact après la
+redirection.
+
+### Le webhook Git ne part pas
+
+Le dépôt est bien lié au projet et les déploiements automatiques sont activés,
+mais **un `push` sur `main` ne déclenche rien** : le tableau de bord affiche
+« Ce projet est déconnecté de votre compte Git ». Cloudflare sait encore cloner
+le dépôt, c'est la notification de GitHub qui ne lui parvient plus.
+
+En attendant, un **hook de déploiement** nommé `deploy-main` fait le travail.
+C'est une URL à appeler en POST, sans authentification, qui lance une
+construction de `main` :
+
+```bash
+curl -X POST "<URL du hook>"
+```
+
+L'URL se lit dans Cloudflare, projet `lebondemenageur`, Paramètres, « Hooks de
+déploiement ». **Elle ne doit pas entrer dans ce dépôt**, qui est public :
+quiconque l'obtient peut déclencher des constructions à volonté.
+
+Pour rétablir le vrai automatisme, il faut rouvrir l'installation GitHub de
+l'application Cloudflare Pages et la réautoriser. GitHub demande une
+double authentification pour y toucher, c'est donc une manipulation à faire à
+la main.
