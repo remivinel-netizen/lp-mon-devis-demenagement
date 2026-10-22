@@ -197,19 +197,25 @@ gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
      qui vous a amené, et à rien d'autre. <strong>Ils ne sont transmis à aucun outil tant que vous
      n'avez pas accepté l'usage publicitaire de vos données</strong>&nbsp;; si vous refusez, ils
      restent dans votre navigateur et disparaissent avec l'onglet.</p>
-  <!-- ⚠ DEUX CHOSES À FINIR, dans cet ordre.
+  <!-- ⚠ DEUX CHOSES À FINIR.
 
-       1. Le bandeau ne s'affiche pas : l'identifiant de site du CMP renvoie une
-          404 (GET cmp.iwantlead.fr/api/v1/config/qzzmdasx). Tant que c'est le
-          cas, le consentement reste bloqué sur « tout refusé » et aucune balise
-          publicitaire ne partira jamais. Créer le site côté back-office et y
-          déclarer les origines autorisées.
+       1. Le lien « Politique de confidentialité » du bandeau pointe vers
+          https://exemple-client.fr/politique-cookies, une valeur d'exemple
+          restée dans la configuration du CMP. À corriger dans le back-office,
+          vers https://lebondéménageur.com/confidentialite.html. Visible par
+          n'importe quel visiteur qui clique.
 
        2. Cette rubrique décrit le gestionnaire de balises, pas les balises
           elles-mêmes : le contenu du conteneur GTM-TWQ8JV44 n'est pas visible
           depuis la page. Lister ici ce qu'il contient réellement (Google
           Analytics, Google Ads, Meta…), avec la finalité et la durée de chaque
           traceur. Le RGPD demande la liste, pas la catégorie.
+
+       Le dispositif lui-même fonctionne, vérifié en ligne : clic sur « Tout
+       accepter » -> consent/update avec ad_storage, ad_user_data,
+       ad_personalization et analytics_storage accordés, cookie iwl_consent
+       écrit, événement iwl_cmp_consent poussé dans le dataLayer. C'est cet
+       événement qu'il faut utiliser comme déclencheur dans GTM.
 
        Note sur l'événement generate_lead : il pousse prénom, nom, email,
        téléphone et code postal dans le dataLayer, pour les conversions

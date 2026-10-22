@@ -895,30 +895,62 @@ Deux conséquences, et aucune n'est facultative :
 Le mode consentement protège le reste : `ad_user_data` est refusé par défaut,
 donc rien ne part tant que le visiteur n'a pas accepté.
 
-### L'identifiant de site renvoie une 404
+### La 404 n'en était pas une
+
+En vérifiant l'identifiant de site en ligne de commande, l'API répondait :
 
 ```
 GET https://cmp.iwantlead.fr/api/v1/config/qzzmdasx  ->  404 {"error":"not_found"}
 ```
 
-Le script se charge, lit son `data-site-id`, demande sa configuration, et
-n'obtient rien. **Donc aucun bandeau ne s'affiche.** Le site reste bloqué sur
-les valeurs par défaut, c'est-à-dire tout refusé.
+J'en ai conclu que le site n'était pas déclaré. **C'était faux.** La même
+requête, émise depuis la page elle-même, renvoie 200 avec la configuration
+complète. L'API filtre sur l'en-tête `Origin` : sans origine connue, elle
+répond 404 plutôt que 403, ce qui ressemble à s'y méprendre à un identifiant
+inexistant.
 
-**Depuis que GTM est actif, ce n'est plus théorique.** Le visiteur n'a aucun
-moyen d'accepter quoi que ce soit, donc `ad_storage`, `analytics_storage` et
-`ad_user_data` resteront refusés indéfiniment : pas de mesure d'audience, pas
-de conversion remontée à Google Ads, pas de conversion améliorée. Le symptôme
-sera « les conversions ne remontent pas » et personne ne pensera à cette 404.
-C'est le premier point à régler avant d'envoyer du trafic payant.
+La leçon vaut pour la prochaine fois : **un CMP se teste depuis son origine
+déclarée**, pas au `curl`. Et en local non plus, où la requête est rejetée
+pour CORS, ce qui est le comportement attendu.
 
-À faire côté back-office du CMP : créer le site `qzzmdasx`, ou corriger
-l'identifiant, et y déclarer les origines autorisées. Au minimum
-`https://xn--lebondmnageur-ghbb.com` et son `www`. La configuration est
-réclamée en `fetch`, donc elle a aussi besoin des en-têtes CORS pour ces
-origines : en local, sur `http://localhost:4319`, la requête est rejetée faute
-d'`Access-Control-Allow-Origin`, ce qui est normal mais empêche de tester le
-bandeau autrement qu'en ligne.
+### Ce que fait le bandeau, vérifié en ligne
+
+Parcours complet mesuré sur `lebondéménageur.com` :
+
+```
+consent/default -> set/url_passthrough -> set/ads_data_redaction
+  -> gtm.js -> gtm.dom -> gtm.load
+  -> [clic « Tout accepter »]
+  -> consent/update -> iwl_cmp_consent
+```
+
+Le `consent/update` passe `ad_storage`, `ad_user_data`, `ad_personalization`
+et `analytics_storage` à `granted`, et le cookie `iwl_consent` est écrit.
+`functionality_storage` et `personalization_storage` restent refusés même sur
+« Tout accepter » : le bandeau n'expose que deux finalités, mesure d'audience
+et publicité, et rien sur la page ne dépend des deux autres.
+
+L'événement `iwl_cmp_consent` est poussé dans le `dataLayer` après la mise à
+jour : c'est le déclencheur à utiliser dans GTM pour les balises qui doivent
+attendre une réponse explicite.
+
+Le bandeau est rendu dans un **shadow DOM**, ce qui explique qu'il échappe aux
+sélecteurs habituels. Pour l'inspecter, il faut passer par
+`[...document.querySelectorAll('*')].find(e => e.shadowRoot)`.
+
+### Le lien du bandeau pointe vers un domaine d'exemple
+
+La configuration servie par le CMP contient :
+
+```json
+"privacyPolicyUrl": "https://exemple-client.fr/politique-cookies"
+```
+
+Le lien « Politique de confidentialité » du bandeau mène donc à un domaine qui
+n'existe pas. Cela se corrige **dans le back-office du CMP**, pas dans ce
+dépôt : la valeur attendue est `https://lebondéménageur.com/confidentialite.html`.
+C'est le dernier point bloquant du dispositif de consentement, et il est
+visible par n'importe quel visiteur qui clique.
 
 ### Ce que le bandeau dépose
 
@@ -1016,8 +1048,9 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [x] ~~**Un bandeau de consentement**~~ — le CMP maison d'I Want Lead est posé
       sur les cinq pages, avec les consentements par défaut tous refusés sauf
       `security_storage`. Voir la section « Le bandeau de consentement ».
-- [ ] **Déclarer le site dans le CMP** — l'identifiant `qzzmdasx` renvoie
-      aujourd'hui une 404, donc le bandeau ne s'affiche pas. Voir la même section.
+- [ ] **Le lien du bandeau** — la configuration du CMP pointe vers
+      `https://exemple-client.fr/politique-cookies`. À corriger dans le
+      back-office, vers `https://lebondéménageur.com/confidentialite.html`.
 - [ ] **Le webhook** du formulaire (voir ci-dessus).
 - [x] ~~**GTM**~~ — conteneur `GTM-TWQ8JV44` actif sur `index.html` et
       `merci.html`, après le bloc de consentement. Reste à vérifier dans le
