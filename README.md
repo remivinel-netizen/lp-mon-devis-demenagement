@@ -712,25 +712,51 @@ a besoin pour préparer son appel.
 
 ### Envoi du lead
 
-L'endpoint vit dans l'attribut `data-endpoint` du `<form id="q-form">`.
-Tant qu'il contient `REMPLACER`, **l'envoi est simulé** et le payload s'affiche
-dans la console : la page est testable telle quelle, sans fuiter de lead.
+L'endpoint vit dans l'attribut `data-endpoint` du `<form id="q-form">`. Il
+pointe sur un **webhook Make, région `eu2`**. S'il contenait `REMPLACER`,
+l'envoi serait simulé et le payload s'afficherait dans la console : c'est le
+mode à remettre sur une copie de la page qu'on veut tester sans écrire dans le
+scénario réel.
 
-Pour l'activer, remplacer par l'URL du webhook (Make, n8n, CRM…) :
+Le payload JSON compte **40 champs** : le projet (adresses, codes postaux,
+villes saisies et communes reconnues, distance, date, surface, volume), la
+priorité (`chaud` / `tiede` / `froid` selon l'échéance), le contact, la preuve
+de consentement horodatée, le contexte (page, référent, navigateur) et les dix
+identifiants publicitaires captés. **Aucun champ de prix.**
 
-```html
-<form id="q-form" data-endpoint="https://hook.eu1.make.com/VOTRE_WEBHOOK">
-```
+Vérifié de bout en bout en interceptant `fetch`, donc sans rien écrire dans le
+scénario : Marseille vers Bordeaux, 635 km, 28 m³, priorité `chaud` à vingt
+jours, `POST` en `application/json` à la bonne URL, puis redirection vers
+`/merci` avec le récapitulatif en `sessionStorage`.
 
-Le payload JSON contient le projet (adresses, codes postaux, villes saisies et
-communes reconnues, distance, date, surface, volume), la priorité
-(`chaud` / `tiede` / `froid` selon l'échéance), le contact, la preuve de
-consentement horodatée, et tous les identifiants publicitaires captés.
-**Aucun champ de prix.**
+> ⚠️ Un `data-endpoint` est **public par nature** : il est dans le HTML que
+> chaque visiteur télécharge, dépôt public ou non. Le secret n'est donc pas une
+> protection possible. **C'est le scénario Make qui doit valider ce qu'il
+> reçoit** avant d'en faire un lead : champs attendus, format du téléphone, et
+> un garde-fou sur le volume d'appels. Le piège à robots `site_web` du
+> formulaire ne protège que du remplissage automatique de la page, pas d'un
+> `POST` direct.
 
-> ⚠️ Un `data-endpoint` est **public** : n'y mettez qu'une URL de webhook sans
-> secret. Si l'endpoint doit être authentifié, passez par un petit proxy
-> serveur — GitHub Pages ne sait pas en héberger un.
+#### Un échec d'envoi ne doit pas ressembler à un succès
+
+`fetch` ne rejette que sur panne réseau&nbsp;: un 400 ou un 500 arrive comme une
+réussite. Le code se contentait d'un `.catch()` qui journalisait l'erreur, puis
+redirigeait vers `/merci` dans tous les cas. Autrement dit, **un scénario Make
+en erreur affichait « Votre demande est partie » et le lead disparaissait sans
+bruit** : le pire mode de panne possible pour cette page, parce que personne ne
+s'en serait aperçu.
+
+Le statut est désormais contrôlé, et en cas d'échec la page rend la main au lieu
+de mentir :
+
+| | Avant | Maintenant |
+| --- | --- | --- |
+| Réponse 200 | redirection vers `/merci` | redirection vers `/merci` |
+| Réponse 500 | redirection vers `/merci` | message d'erreur, bouton réactivé, numéro cliquable |
+| Panne réseau | redirection vers `/merci` | idem |
+
+Vérifié en simulant un 500 : la page ne bouge pas, le message s'affiche en
+`note bad` avec le numéro en lien `tel:`, et le bouton retrouve son libellé.
 
 ### Mesure
 
@@ -1095,7 +1121,12 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
       pointe désormais vers `confidentialite.html` (révision 5 de la config).
 - [x] ~~**Le domaine autorisé du CMP**~~ — `xn--lebondmnageur-ghbb.com` ajouté,
       les preuves de consentement sont de nouveau enregistrées.
-- [ ] **Le webhook** du formulaire (voir ci-dessus).
+- [x] ~~**Le webhook** du formulaire~~ — branché sur Make, région `eu2`. Reste
+      à faire valider le scénario côté Make : validation des champs reçus, et un
+      garde-fou contre les envois automatisés, puisque l'URL est publique.
+- [ ] **L'accord de sous-traitance de Make** — confirmer l'entité juridique du
+      contrat et signer son DPA. Le point de réception est européen, le groupe
+      est américain.
 - [x] ~~**GTM**~~ — conteneur `GTM-TWQ8JV44` actif sur `index.html` et
       `merci.html`, après le bloc de consentement. Reste à vérifier dans le
       conteneur que les conversions améliorées hachent bien les champs du bloc

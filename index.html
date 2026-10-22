@@ -1002,10 +1002,14 @@ details .a p + p{margin-top:11px}
         <div class="bar"><i id="q-bar"></i></div>
       </div>
 
-      <!-- L'endpoint vit dans data-endpoint. Tant qu'il contient REMPLACER,
-           l'envoi est simulé et le payload s'affiche dans la console : la page
-           est donc testable telle quelle, sans fuiter de lead nulle part. -->
-      <form id="q-form" class="quiz__view" novalidate data-endpoint="REMPLACER_PAR_VOTRE_WEBHOOK">
+      <!-- L'endpoint vit dans data-endpoint. S'il contient REMPLACER, l'envoi
+           est simulé et le payload s'affiche dans la console : utile pour
+           tester une copie de la page sans écrire dans le scénario réel.
+           Une adresse de webhook est publique par nature, elle est dans le HTML
+           que tout visiteur télécharge. La protection ne peut donc pas être le
+           secret : elle est côté Make, où le scénario doit valider ce qu'il
+           reçoit avant d'en faire un lead. -->
+      <form id="q-form" class="quiz__view" novalidate data-endpoint="https://hook.eu2.make.com/84dnux99zaudwhwg6zlwrq9t7i8mc0wa">
 
         <fieldset class="step is-on" data-step="depart">
           <legend class="step__q">Votre adresse de départ</legend>
@@ -2253,6 +2257,7 @@ form.addEventListener('submit', function(ev){
 
   envoi = true;
   var btn = $('#q-send');
+  var libelle = btn.textContent;
   btn.disabled = true;
   btn.textContent = 'Envoi en cours…';
 
@@ -2272,18 +2277,36 @@ form.addEventListener('submit', function(ev){
   var url = form.dataset.endpoint || '';
   var envoye = (!url || url.indexOf('REMPLACER') > -1)
     ? Promise.resolve(console.info('[Le Bon Déménageur] Endpoint non configuré, lead simulé :', data))
-    : fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
-
-  envoye.catch(function(err){ console.warn('Envoi du lead en échec :', err) })
-        .then(function(){
-          try{ sessionStorage.setItem('lbd_lead', JSON.stringify({
-            prenom:data.prenom, vol:data.volume_m3, km:data.distance_km,
-            de:data.commune_depart || data.ville_depart,
-            vers:data.commune_arrivee || data.ville_arrivee,
-            date:data.date_demenagement_texte
-          })); }catch(e){}
-          location.href = 'merci.html';
+    : fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) })
+        .then(function(r){
+          // fetch ne rejette que sur panne réseau : un 400 ou un 500 arriverait
+          // ici comme un succès. Sans ce contrôle, un scénario en erreur
+          // renverrait quand même le visiteur sur /merci, et le lead serait
+          // perdu sans que personne ne s'en aperçoive. C'est le pire mode de
+          // panne possible pour cette page.
+          if(!r.ok) throw new Error('HTTP ' + r.status);
+          return r;
         });
+
+  envoye.then(function(){
+    try{ sessionStorage.setItem('lbd_lead', JSON.stringify({
+      prenom:data.prenom, vol:data.volume_m3, km:data.distance_km,
+      de:data.commune_depart || data.ville_depart,
+      vers:data.commune_arrivee || data.ville_arrivee,
+      date:data.date_demenagement_texte
+    })); }catch(e){}
+    location.href = 'merci.html';
+  }).catch(function(err){
+    // On rend la main plutôt que de prétendre que c'est parti : le visiteur
+    // peut réessayer, et le numéro lui donne une porte de sortie immédiate.
+    console.warn('Envoi du lead en échec :', err);
+    envoi = false;
+    btn.disabled = false;
+    btn.textContent = libelle;
+    n.className = 'note bad';
+    n.innerHTML = 'Votre demande n\'a pas pu être envoyée. Réessayez, ou appelez directement le '
+      + '<a href="tel:+33451420447">04 51 42 04 47</a>.';
+  });
 });
 
 /* ── Apparitions au défilement ───────────────────────────────────────────── */
