@@ -857,14 +857,43 @@ compte vraiment** :
    `ads_data_redaction` complètent le dispositif côté Google.
 2. Il charge le script du bandeau.
 
-**Le snippet GTM doit venir après.** S'il passait avant, les balises
-partiraient avec l'état par défaut de Google, c'est-à-dire tout accordé, et le
-bandeau arriverait trop tard pour servir à quelque chose. Les commentaires dans
-`index.html` et `merci.html` le rappellent à l'endroit exact où ça se joue.
+**Le snippet GTM vient après**, conteneur `GTM-TWQ8JV44`, sur `index.html` et
+`merci.html`. S'il passait avant, les balises partiraient avec l'état par
+défaut de Google, c'est-à-dire tout accordé, et le bandeau arriverait trop tard
+pour servir à quelque chose. Les commentaires dans les deux fichiers le
+rappellent à l'endroit exact où ça se joue.
 
-Vérifié après installation : la balise est présente, `gtag` est bien une
-fonction, et les trois instructions de consentement sont les trois premières
-entrées du `dataLayer`.
+Vérifié par la séquence réelle du `dataLayer` :
+
+```
+consent/default -> set/url_passthrough -> set/ads_data_redaction -> gtm.js -> gtm.dom -> gtm.load
+```
+
+> Attention au faux négatif si vous vérifiez l'ordre dans le DOM : le snippet
+> GTM s'insère lui-même **avant le premier `<script>` de la page**, donc la
+> balise `gtm.js` se retrouve au-dessus de celle du CMP dans l'inspecteur. Ça
+> ne change rien à l'ordre d'exécution. Le seul contrôle qui vaut est celui du
+> `dataLayer` ci-dessus, ou celui de l'ordre dans le fichier source.
+
+### L'événement generate_lead porte des données personnelles
+
+À l'envoi du formulaire, la page pousse dans le `dataLayer` un événement
+`generate_lead` contenant un bloc `user_data` : **email, téléphone au format
+E.164, prénom, nom et code postal de départ**. C'est le format attendu par les
+conversions améliorées de Google Ads, celles qui rattachent un lead à l'annonce
+qui l'a amené.
+
+Deux conséquences, et aucune n'est facultative :
+
+1. **Le conteneur doit être configuré pour hacher ces champs avant envoi.** La
+   page les fournit en clair dans le `dataLayer`, c'est au tag Google de les
+   transformer. Ça se vérifie dans GTM, pas ici.
+2. **La politique de confidentialité doit le dire**, et elle le dit, champ par
+   champ. Une mesure de conversion qui transporte un email sans que le visiteur
+   puisse le lire quelque part n'est pas défendable.
+
+Le mode consentement protège le reste : `ad_user_data` est refusé par défaut,
+donc rien ne part tant que le visiteur n'a pas accepté.
 
 ### L'identifiant de site renvoie une 404
 
@@ -873,11 +902,15 @@ GET https://cmp.iwantlead.fr/api/v1/config/qzzmdasx  ->  404 {"error":"not_found
 ```
 
 Le script se charge, lit son `data-site-id`, demande sa configuration, et
-n'obtient rien. **Donc rien ne s'affiche.** Tant que ce n'est pas réglé, le
-site reste bloqué sur les valeurs par défaut, c'est-à-dire tout refusé. C'est
-sans conséquence aujourd'hui puisque GTM est encore en commentaire, mais cela
-en aurait le jour où il sera activé : aucune balise ne partirait jamais, et le
-symptôme serait incompréhensible sans connaître cette 404.
+n'obtient rien. **Donc aucun bandeau ne s'affiche.** Le site reste bloqué sur
+les valeurs par défaut, c'est-à-dire tout refusé.
+
+**Depuis que GTM est actif, ce n'est plus théorique.** Le visiteur n'a aucun
+moyen d'accepter quoi que ce soit, donc `ad_storage`, `analytics_storage` et
+`ad_user_data` resteront refusés indéfiniment : pas de mesure d'audience, pas
+de conversion remontée à Google Ads, pas de conversion améliorée. Le symptôme
+sera « les conversions ne remontent pas » et personne ne pensera à cette 404.
+C'est le premier point à régler avant d'envoyer du trafic payant.
 
 À faire côté back-office du CMP : créer le site `qzzmdasx`, ou corriger
 l'identifiant, et y déclarer les origines autorisées. Au minimum
@@ -986,7 +1019,11 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [ ] **Déclarer le site dans le CMP** — l'identifiant `qzzmdasx` renvoie
       aujourd'hui une 404, donc le bandeau ne s'affiche pas. Voir la même section.
 - [ ] **Le webhook** du formulaire (voir ci-dessus).
-- [ ] **GTM** — décommenter et renseigner l'identifiant.
+- [x] ~~**GTM**~~ — conteneur `GTM-TWQ8JV44` actif sur `index.html` et
+      `merci.html`, après le bloc de consentement. Reste à vérifier dans le
+      conteneur que les conversions améliorées hachent bien les champs du bloc
+      `user_data`, et à lister les balises qu'il contient dans la politique de
+      confidentialité.
 - [ ] **Les fourchettes de prix** du tableau et de `TARIF` — à faire valider par
       les déménageurs du réseau.
 - [x] ~~**Le domaine**~~ — `lebondéménageur.com` est branché sur Cloudflare,

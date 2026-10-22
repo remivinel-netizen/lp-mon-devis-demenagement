@@ -21,12 +21,15 @@ gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
 <script src="https://cmp.iwantlead.fr/cmp/v1/cmp.js" data-site-id="qzzmdasx"></script>
 <!-- Snippet GTM du client APRES ce bloc -->
 
-<!-- GTM — même snippet que la page d'accueil. Cette page sert de signal de
-     conversion : c'est sur /merci que se règle la conversion Google Ads.
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
-j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
--->
+<!-- Google Tag Manager — conteneur GTM-TWQ8JV44.
+     Même conteneur que la page d'accueil. C'est sur /merci que se règle la
+     conversion Google Ads. Il DOIT rester après le bloc IwlCMP ci-dessus. -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TWQ8JV44');</script>
+<!-- End Google Tag Manager -->
 
 <style>
 :root{--nuit:#222E3A;--nuit-2:#2C3845;--nuit-3:#19232C;

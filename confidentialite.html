@@ -97,6 +97,8 @@ gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
     <li><strong>I Want Lead</strong>, éditeur du bandeau de consentement
         (<code>cmp.iwantlead.fr</code>), pour recueillir et conserver la preuve de votre choix en
         matière de traceurs.</li>
+    <li><strong>Google Ireland Limited</strong>, pour le gestionnaire de balises et les outils de
+        mesure qu'il déclenche, dans les limites du consentement que vous donnez.</li>
   </ul>
   <p>Cette liste est tenue à jour. Tout nouvel outil, qu'il serve à l'envoi d'emails, au suivi des
      demandes ou à la mesure d'audience, y figurera avant d'être mis en service.</p>
@@ -109,8 +111,13 @@ gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
      données techniques de connexion en dehors de l'Union européenne. Cloudflare est certifiée au
      titre de l'<em>EU-US Data Privacy Framework</em> et propose les clauses contractuelles types de
      la Commission européenne.</p>
-  <p>Les deux API publiques interrogées par la page sont hébergées en France. À ce jour, aucun autre
-     destinataire situé hors de l'Union européenne n'intervient dans le traitement.</p>
+  <p>Les outils de mesure et de publicité sont fournis par <strong>Google Ireland Limited</strong>,
+     établie dans l'Union européenne, mais leur traitement peut impliquer Google LLC aux États-Unis.
+     Google est certifiée au titre de l'<em>EU-US Data Privacy Framework</em> et met en œuvre les
+     clauses contractuelles types. Ces transferts n'ont lieu <strong>qu'après votre
+     consentement</strong>&nbsp;: tant que vous n'avez pas accepté, aucune donnée ne part vers ces
+     outils.</p>
+  <p>Les deux API publiques interrogées par la page sont hébergées en France.</p>
 
   <h2>Combien de temps nous les conservons</h2>
   <ul>
@@ -145,7 +152,7 @@ gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
      <a href="https://www.cnil.fr/fr/plaintes" rel="noopener">CNIL</a>.</p>
 
   <h2>Cookies et traceurs</h2>
-  <p>La page d'accueil fonctionne sans aucun cookie publicitaire tant que vous n'y avez pas consenti.</p>
+  <p>Le site fonctionne sans aucun cookie publicitaire tant que vous n'y avez pas consenti.</p>
   <h3>Votre choix, et comment il est conservé</h3>
   <p>Un bandeau vous demande votre accord dès votre arrivée. <strong>Tant que vous n'avez pas
      répondu, aucun traceur de mesure d'audience ni de publicité n'est déposé</strong>&nbsp;: le site
@@ -171,21 +178,43 @@ gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
      l'onglet.</p>
 
   <h3>Mesure d'audience et publicité</h3>
-  <p>À ce jour, <strong>aucun traceur de mesure d'audience ni de publicité n'est effectivement
-     déposé</strong>&nbsp;: le gestionnaire de balises qui les porterait n'est pas encore activé.
-     Même si vous acceptez tout, rien ne se dépose aujourd'hui au-delà du cookie de consentement
-     décrit plus haut.</p>
-  <p>Les étapes de votre parcours (ouverture du formulaire, passage d'une étape à la suivante, envoi
-     de la demande) sont inscrites dans une variable de votre navigateur, prévue pour ce gestionnaire
-     de balises. Tant qu'il n'est pas activé, ces informations ne quittent pas votre appareil.</p>
-  <p>Le jour où il le sera, cette rubrique listera les traceurs concernés, leur finalité et leur
-     durée. Le bandeau, lui, est déjà en place&nbsp;: aucun traceur non strictement nécessaire ne
-     pourra se déposer avant votre accord.</p>
-  <!-- ⚠ Le conteneur GTM est toujours en commentaire dans index.html et merci.html
-       (GTM-XXXXXXX). Le bandeau de consentement, lui, est en place et bloque par
-       défaut. En décommentant GTM, une seule chose reste à faire le même jour :
-       compléter la liste des traceurs juste au-dessus, avec leur finalité et leur
-       durée réelles. -->
+  <p>La page charge <strong>Google Tag Manager</strong> (conteneur <code>GTM-TWQ8JV44</code>), édité
+     par Google Ireland Limited. Ce gestionnaire ne mesure rien par lui-même&nbsp;: il déclenche, en
+     fonction de votre choix, les outils de mesure d'audience et de publicité retenus par l'éditeur.</p>
+  <p>Ces outils sont soumis au <strong>mode consentement</strong> de Google. Tant que vous n'avez pas
+     accepté, le stockage publicitaire, le stockage analytique et l'usage de vos données à des fins
+     publicitaires restent refusés, et les identifiants de clic publicitaire présents dans l'URL sont
+     occultés. Les balises concernées ne déposent alors rien et ne transmettent rien.</p>
+
+  <h3>Ce que la page transmet au gestionnaire de balises</h3>
+  <p>Les étapes de votre parcours sont signalées sous forme d'événements&nbsp;: ouverture du
+     formulaire, passage d'une étape à la suivante, affichage du récapitulatif, envoi de la demande.
+     Ces événements portent les caractéristiques de votre projet, c'est-à-dire le volume estimé, la
+     distance et la surface.</p>
+  <p><strong>À l'envoi du formulaire</strong>, l'événement de conversion porte en plus vos
+     <strong>prénom, nom, adresse email, numéro de téléphone et code postal de départ</strong>. Ils
+     servent à la mesure des conversions publicitaires, celle qui rattache votre demande à l'annonce
+     qui vous a amené, et à rien d'autre. <strong>Ils ne sont transmis à aucun outil tant que vous
+     n'avez pas accepté l'usage publicitaire de vos données</strong>&nbsp;; si vous refusez, ils
+     restent dans votre navigateur et disparaissent avec l'onglet.</p>
+  <!-- ⚠ DEUX CHOSES À FINIR, dans cet ordre.
+
+       1. Le bandeau ne s'affiche pas : l'identifiant de site du CMP renvoie une
+          404 (GET cmp.iwantlead.fr/api/v1/config/qzzmdasx). Tant que c'est le
+          cas, le consentement reste bloqué sur « tout refusé » et aucune balise
+          publicitaire ne partira jamais. Créer le site côté back-office et y
+          déclarer les origines autorisées.
+
+       2. Cette rubrique décrit le gestionnaire de balises, pas les balises
+          elles-mêmes : le contenu du conteneur GTM-TWQ8JV44 n'est pas visible
+          depuis la page. Lister ici ce qu'il contient réellement (Google
+          Analytics, Google Ads, Meta…), avec la finalité et la durée de chaque
+          traceur. Le RGPD demande la liste, pas la catégorie.
+
+       Note sur l'événement generate_lead : il pousse prénom, nom, email,
+       téléphone et code postal dans le dataLayer, pour les conversions
+       améliorées. Le conteneur DOIT être configuré pour les hacher avant envoi.
+       C'est écrit tel quel au-dessus, et c'est à vérifier dans GTM. -->
 
   <h2>Sécurité</h2>
   <p>Le site est servi exclusivement en HTTPS. Les données transmises par le formulaire le sont par
@@ -205,9 +234,14 @@ gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
   <p>Ces appels ne transportent ni identifiant, ni cookie, ni aucune autre donnée du formulaire.
      <strong>Aucun service de cartographie ou de complétion d'adresse d'un éditeur tiers n'est
      appelé.</strong></p>
-  <p>La page charge <strong>un seul script extérieur</strong>, celui du bandeau de consentement
-     (<code>cmp.iwantlead.fr</code>). Il sert uniquement à recueillir et conserver votre choix, et
-     c'est lui qui empêche les autres traceurs de se déposer avant votre accord.</p>
+  <p>La page charge <strong>deux scripts extérieurs</strong>, et deux seulement&nbsp;:</p>
+  <ul>
+    <li>celui du <strong>bandeau de consentement</strong> (<code>cmp.iwantlead.fr</code>), qui
+        recueille et conserve votre choix&nbsp;;</li>
+    <li>celui du <strong>gestionnaire de balises</strong>
+        (<code>googletagmanager.com</code>), décrit plus haut, dont les balises restent bloquées
+        tant que vous n'avez pas accepté.</li>
+  </ul>
 
   <p class="maj">Dernière mise à jour : <span id="maj">…</span></p>
 </div>
