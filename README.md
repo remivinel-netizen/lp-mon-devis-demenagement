@@ -991,26 +991,34 @@ identifiant de clic en route, donc la conversion ne serait rattachée à aucune
 annonce. Vérifié : `?gclid=TEST123&utm_source=google` ressort intact après la
 redirection.
 
-### Le webhook Git ne part pas
+### Le webhook Git, et comment il s'est remis en route
 
-Le dépôt est bien lié au projet et les déploiements automatiques sont activés,
-mais **un `push` sur `main` ne déclenche rien** : le tableau de bord affiche
-« Ce projet est déconnecté de votre compte Git ». Cloudflare sait encore cloner
-le dépôt, c'est la notification de GitHub qui ne lui parvient plus.
+Pendant les premières heures, **un `push` sur `main` ne déclenchait rien** et le
+tableau de bord affichait « Ce projet est déconnecté de votre compte Git ».
+Cloudflare savait encore cloner le dépôt, c'est la notification de GitHub qui
+ne lui parvenait plus.
 
-En attendant, un **hook de déploiement** nommé `deploy-main` fait le travail.
-C'est une URL à appeler en POST, sans authentification, qui lance une
-construction de `main` :
+Le correctif tient en un bouton. Sur
+`github.com/settings/installations/<id>`, l'installation de l'application
+Cloudflare Pages avait déjà les bonnes permissions et l'accès « All
+repositories » : rien à changer, mais **resauvegarder la page a suffi** à
+resynchroniser l'installation. Le `push` suivant, un commit vide fait exprès, a
+déclenché un déploiement en quelques secondes, et le bandeau d'avertissement a
+disparu.
+
+Cela vaut la peine d'être noté parce que le symptôme oriente mal : on cherche
+une permission manquante, un dépôt hors périmètre, un jeton expiré, alors que
+rien de tout cela n'est en cause.
+
+Un **hook de déploiement** nommé `deploy-main` reste en place, utilisé le temps
+du diagnostic. C'est une URL à appeler en POST, sans authentification, qui lance
+une construction de `main` :
 
 ```bash
 curl -X POST "<URL du hook>"
 ```
 
-L'URL se lit dans Cloudflare, projet `lebondemenageur`, Paramètres, « Hooks de
+Elle se lit dans Cloudflare, projet `lebondemenageur`, Paramètres, « Hooks de
 déploiement ». **Elle ne doit pas entrer dans ce dépôt**, qui est public :
-quiconque l'obtient peut déclencher des constructions à volonté.
-
-Pour rétablir le vrai automatisme, il faut rouvrir l'installation GitHub de
-l'application Cloudflare Pages et la réautoriser. GitHub demande une
-double authentification pour y toucher, c'est donc une manipulation à faire à
-la main.
+quiconque l'obtient peut déclencher des constructions à volonté. Elle sert de
+roue de secours si le webhook se redétache.
