@@ -8,6 +8,16 @@
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#222E3A">
 <link rel="icon" href="img/favicon.svg?v=2" type="image/svg+xml">
+<!-- IwlCMP : consent defaults (NE PAS deplacer, doit preceder GTM) -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',
+ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'denied',
+personalization_storage:'denied',security_storage:'granted',wait_for_update:500});
+gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
+</script>
+<script src="https://cmp.iwantlead.fr/cmp/v1/cmp.js" data-site-id="qzzmdasx"></script>
+
 <link rel="stylesheet" href="page.css?v=5">
 </head>
 <body>
@@ -84,6 +94,9 @@
      instructions et ne peuvent pas utiliser vos données à leurs propres fins&nbsp;:</p>
   <ul>
     <li><strong>Cloudflare, Inc.</strong>, pour l'hébergement et la diffusion de cette page.</li>
+    <li><strong>I Want Lead</strong>, éditeur du bandeau de consentement
+        (<code>cmp.iwantlead.fr</code>), pour recueillir et conserver la preuve de votre choix en
+        matière de traceurs.</li>
   </ul>
   <p>Cette liste est tenue à jour. Tout nouvel outil, qu'il serve à l'envoi d'emails, au suivi des
      demandes ou à la mesure d'audience, y figurera avant d'être mis en service.</p>
@@ -133,25 +146,46 @@
 
   <h2>Cookies et traceurs</h2>
   <p>La page d'accueil fonctionne sans aucun cookie publicitaire tant que vous n'y avez pas consenti.</p>
-  <h3>Strictement nécessaires</h3>
+  <h3>Votre choix, et comment il est conservé</h3>
+  <p>Un bandeau vous demande votre accord dès votre arrivée. <strong>Tant que vous n'avez pas
+     répondu, aucun traceur de mesure d'audience ni de publicité n'est déposé</strong>&nbsp;: le site
+     démarre avec toutes ces catégories refusées, et elles ne s'activent qu'au moment où vous
+     acceptez.</p>
+  <dl>
+    <dt>Cookie <code>iwl_consent</code></dt>
+    <dd>Mémorise vos choix pour ne pas vous reposer la question à chaque page. Déposé à la première
+        réponse, conservé <strong>180 jours</strong>, restreint à ce site (<em>SameSite=Lax</em>,
+        <em>Secure</em>). Strictement nécessaire, donc exempt de consentement au sens de
+        l'article 82 de la loi Informatique et Libertés.</dd>
+    <dt>Mémoire locale du bandeau</dt>
+    <dd>Le bandeau garde dans votre navigateur sa configuration et la trace de vos vingt derniers
+        choix, pour pouvoir prouver votre consentement. Ces données ne quittent pas votre appareil.</dd>
+  </dl>
+  <p>Vous pouvez revenir sur votre décision à tout moment en rouvrant le bandeau depuis le lien prévu
+     à cet effet, ou en supprimant les cookies de ce site dans votre navigateur.</p>
+
+  <h3>Autres cookies strictement nécessaires</h3>
   <p>Le site conserve dans le <code>sessionStorage</code> de votre navigateur les identifiants de
      campagne présents dans l'URL, ainsi qu'un récapitulatif de votre estimation destiné à la page de
      confirmation. Ces informations ne quittent pas votre appareil et disparaissent à la fermeture de
      l'onglet.</p>
+
   <h3>Mesure d'audience et publicité</h3>
-  <p>À ce jour, <strong>aucun traceur de mesure d'audience ni de publicité n'est déposé</strong> par
-     cette page. Elle ne charge aucun script de régie publicitaire, de réseau social ou d'outil
-     statistique.</p>
+  <p>À ce jour, <strong>aucun traceur de mesure d'audience ni de publicité n'est effectivement
+     déposé</strong>&nbsp;: le gestionnaire de balises qui les porterait n'est pas encore activé.
+     Même si vous acceptez tout, rien ne se dépose aujourd'hui au-delà du cookie de consentement
+     décrit plus haut.</p>
   <p>Les étapes de votre parcours (ouverture du formulaire, passage d'une étape à la suivante, envoi
-     de la demande) sont inscrites dans une variable de votre navigateur, prévue pour un gestionnaire
-     de balises qui n'est pas activé. Tant qu'il ne l'est pas, ces informations ne quittent pas votre
-     appareil.</p>
-  <p>Le jour où un gestionnaire de balises sera activé, un bandeau de consentement sera installé au
-     préalable et cette rubrique listera les traceurs concernés, leur finalité et leur durée. Aucun
-     traceur non strictement nécessaire ne sera déposé avant votre accord.</p>
-  <!-- ⚠ Le conteneur GTM est présent en commentaire dans index.html (GTM-XXXXXXX).
-       En le décommentant, deux choses deviennent obligatoires le même jour : le
-       bandeau de consentement, et la liste des traceurs juste au-dessus. -->
+     de la demande) sont inscrites dans une variable de votre navigateur, prévue pour ce gestionnaire
+     de balises. Tant qu'il n'est pas activé, ces informations ne quittent pas votre appareil.</p>
+  <p>Le jour où il le sera, cette rubrique listera les traceurs concernés, leur finalité et leur
+     durée. Le bandeau, lui, est déjà en place&nbsp;: aucun traceur non strictement nécessaire ne
+     pourra se déposer avant votre accord.</p>
+  <!-- ⚠ Le conteneur GTM est toujours en commentaire dans index.html et merci.html
+       (GTM-XXXXXXX). Le bandeau de consentement, lui, est en place et bloque par
+       défaut. En décommentant GTM, une seule chose reste à faire le même jour :
+       compléter la liste des traceurs juste au-dessus, avec leur finalité et leur
+       durée réelles. -->
 
   <h2>Sécurité</h2>
   <p>Le site est servi exclusivement en HTTPS. Les données transmises par le formulaire le sont par
@@ -170,7 +204,10 @@
   </ul>
   <p>Ces appels ne transportent ni identifiant, ni cookie, ni aucune autre donnée du formulaire.
      <strong>Aucun service de cartographie ou de complétion d'adresse d'un éditeur tiers n'est
-     appelé</strong>&nbsp;: la page ne charge aucun script externe.</p>
+     appelé.</strong></p>
+  <p>La page charge <strong>un seul script extérieur</strong>, celui du bandeau de consentement
+     (<code>cmp.iwantlead.fr</code>). Il sert uniquement à recueillir et conserver votre choix, et
+     c'est lui qui empêche les autres traceurs de se déposer avant votre accord.</p>
 
   <p class="maj">Dernière mise à jour : <span id="maj">…</span></p>
 </div>

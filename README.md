@@ -841,6 +841,59 @@ suggestion, pas seulement par la présence du `<li>`).
 > taille de vue avec `resize_window` redonne une fenêtre de mise en page même
 > volet fermé — c'est la seule façon fiable de mesurer ici.
 
+## Le bandeau de consentement
+
+Le CMP d'I Want Lead est posé sur les **cinq pages**, pas seulement sur celles
+qui porteront GTM : un bandeau qui n'apparaît pas sur les mentions légales ou
+la politique de confidentialité laisse un trou, puisque ce sont justement les
+pages où l'on va lire ce qu'on accepte.
+
+Le bloc fait deux choses, dans cet ordre, et **l'ordre est la seule chose qui
+compte vraiment** :
+
+1. Il déclare les consentements par défaut avant tout le reste. Tout est
+   `denied` sauf `security_storage`, avec `wait_for_update:500` qui laisse une
+   demi-seconde au bandeau pour répondre. `url_passthrough` et
+   `ads_data_redaction` complètent le dispositif côté Google.
+2. Il charge le script du bandeau.
+
+**Le snippet GTM doit venir après.** S'il passait avant, les balises
+partiraient avec l'état par défaut de Google, c'est-à-dire tout accordé, et le
+bandeau arriverait trop tard pour servir à quelque chose. Les commentaires dans
+`index.html` et `merci.html` le rappellent à l'endroit exact où ça se joue.
+
+Vérifié après installation : la balise est présente, `gtag` est bien une
+fonction, et les trois instructions de consentement sont les trois premières
+entrées du `dataLayer`.
+
+### L'identifiant de site renvoie une 404
+
+```
+GET https://cmp.iwantlead.fr/api/v1/config/qzzmdasx  ->  404 {"error":"not_found"}
+```
+
+Le script se charge, lit son `data-site-id`, demande sa configuration, et
+n'obtient rien. **Donc rien ne s'affiche.** Tant que ce n'est pas réglé, le
+site reste bloqué sur les valeurs par défaut, c'est-à-dire tout refusé. C'est
+sans conséquence aujourd'hui puisque GTM est encore en commentaire, mais cela
+en aurait le jour où il sera activé : aucune balise ne partirait jamais, et le
+symptôme serait incompréhensible sans connaître cette 404.
+
+À faire côté back-office du CMP : créer le site `qzzmdasx`, ou corriger
+l'identifiant, et y déclarer les origines autorisées. Au minimum
+`https://xn--lebondmnageur-ghbb.com` et son `www`. La configuration est
+réclamée en `fetch`, donc elle a aussi besoin des en-têtes CORS pour ces
+origines : en local, sur `http://localhost:4319`, la requête est rejetée faute
+d'`Access-Control-Allow-Origin`, ce qui est normal mais empêche de tester le
+bandeau autrement qu'en ligne.
+
+### Ce que le bandeau dépose
+
+Un cookie `iwl_consent`, **180 jours**, `Path=/`, `SameSite=Lax`, `Secure`,
+plus la configuration et les vingt derniers choix dans la mémoire locale du
+navigateur. Ces valeurs sont lues dans le script du CMP, pas supposées, et
+c'est ce qui est écrit dans la politique de confidentialité.
+
 ## Animations
 
 Deux propriétés seulement — `opacity` et `transform` — donc tout reste sur le
@@ -927,8 +980,11 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
       qui ordonne les rappels et rien d'autre), et l'état réel des traceurs&nbsp;:
       aucun, GTM étant encore en commentaire. **À faire relire par un conseil**,
       et à corriger si les durées ne correspondent pas à la pratique.
-- [ ] **Un bandeau de consentement** conforme, avant d'activer le moindre
-      traceur publicitaire.
+- [x] ~~**Un bandeau de consentement**~~ — le CMP maison d'I Want Lead est posé
+      sur les cinq pages, avec les consentements par défaut tous refusés sauf
+      `security_storage`. Voir la section « Le bandeau de consentement ».
+- [ ] **Déclarer le site dans le CMP** — l'identifiant `qzzmdasx` renvoie
+      aujourd'hui une 404, donc le bandeau ne s'affiche pas. Voir la même section.
 - [ ] **Le webhook** du formulaire (voir ci-dessus).
 - [ ] **GTM** — décommenter et renseigner l'identifiant.
 - [ ] **Les fourchettes de prix** du tableau et de `TARIF` — à faire valider par
