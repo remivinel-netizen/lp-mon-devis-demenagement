@@ -9,8 +9,19 @@ Google Ads. Site statique sans build, déployé sur GitHub Pages.
 
 La marque s'appelait **Mon Devis Déménagement**, un nom transactionnel qui dit
 ce qu'on obtient. Elle est passée par **Le Bureau du Déménagement**, puis s'est
-arrêtée sur **Le Bon Déménageur**. Domaine retenu&nbsp;: `lebondemenageur.com`
-— le `.fr` est parqué chez un tiers, sans service dessus.
+arrêtée sur **Le Bon Déménageur**. Le domaine déposé est
+**`lebondéménageur.com`**, accentué, soit `xn--lebondmnageur-ghbb.com` en
+punycode. Il est enregistré chez GoDaddy dans le compte de MATCHMOVE, le
+22 octobre 2026, pour trois ans.
+
+> **`lebondemenageur.com`, sans accents, était encore libre le 22 octobre 2026.**
+> Vérifié au whois : « No match ». C'est pourtant la forme que tape n'importe
+> qui de mémoire, celle qui s'écrit dans un email sans y penser, et celle que
+> les régies publicitaires affichent sans la convertir en `xn--`. Le déposer
+> coûte une douzaine d'euros par an et évite trois ennuis : un visiteur qui
+> tombe dans le vide, une URL de campagne qui ressemble à du spam, et un tiers
+> qui s'en empare maintenant que la marque est annoncée. L'accentué resterait
+> en redirection permanente vers lui. Décision du client.
 
 Le déclencheur est un retour de relecture&nbsp;: « L'Officiel du Déménagement
 avait un avantage, c'est que tu as l'impression de passer par un courtier, et
@@ -922,8 +933,12 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [ ] **GTM** — décommenter et renseigner l'identifiant.
 - [ ] **Les fourchettes de prix** du tableau et de `TARIF` — à faire valider par
       les déménageurs du réseau.
-- [ ] **Le domaine** — `lebondemenageur.com` est posé dans le `canonical`
-      et les Open Graph. À confirmer ou à changer (3 occurrences).
+- [x] ~~**Le domaine**~~ — `lebondéménageur.com` est branché sur Cloudflare,
+      et le `canonical` comme l'`og:url` portent sa forme punycode
+      `xn--lebondmnageur-ghbb.com`, la seule que tous les robots traitent.
+- [ ] **Le jumeau sans accents** — `lebondemenageur.com` est libre. Le déposer
+      et en faire le domaine principal, l'accentué passant en redirection. Voir
+      l'encadré de la section « Le nom ».
 - [ ] **Une image Open Graph** (`og:image`, 1200 × 630) : absente aujourd'hui,
       les partages sociaux sortent donc sans visuel.
 
@@ -939,8 +954,28 @@ Puis http://localhost:4319.
 
 ## Déploiement
 
-GitHub Pages sert la branche `main` à la racine. Un `push` suffit ; le `.nojekyll`
-évite que Jekyll ne filtre les fichiers.
+**Cloudflare Pages** sert la branche `main`, projet `lebondemenageur`, dans le
+compte Cloudflare « Matchmove - Déménagement ». Un `push` sur `main` déclenche
+le déploiement. L'adresse de repli est `lebondemenageur.pages.dev`, le domaine
+public `lebondéménageur.com` et son `www`.
 
-Pour brancher un domaine : ajouter un fichier `CNAME` contenant le domaine, et
-faire pointer le DNS vers GitHub Pages.
+La commande de build est `rm -f README.md`. Elle ne construit rien : elle
+retire ce fichier du dossier publié. Sans elle, ces notes de travail, qui
+nomment les promesses à confirmer et les points juridiques en suspens, seraient
+servies en clair sur le domaine de la marque. Le dépôt étant public, elles sont
+déjà lisibles sur GitHub, mais une page accessible depuis l'adresse commerciale
+est d'une autre nature.
+
+**GitHub Pages reste actif** sur `remivinel-netizen.github.io/lp-mon-devis-demenagement`.
+C'est l'URL partagée au client et au relecteur, donc elle ne doit pas mourir
+tant qu'ils s'en servent. Les deux hébergements servent le même commit : il n'y
+a pas de divergence possible, seulement deux portes.
+
+### DNS
+
+Le domaine est enregistré chez **GoDaddy** et ses serveurs de noms pointent vers
+**Cloudflare** (`elijah.ns.cloudflare.com`, `elly.ns.cloudflare.com`). La zone
+contient quatre enregistrements : l'apex et le `www` en CNAME vers
+`lebondemenageur.pages.dev`, le `_dmarc` hérité de GoDaddy, et un
+`_domainconnect` sans effet. **Aucun MX** : le domaine ne porte pas de messagerie,
+c'est pourquoi la bascule des serveurs de noms n'a rien cassé.
