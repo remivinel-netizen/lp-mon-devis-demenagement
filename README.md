@@ -895,7 +895,7 @@ Deux conséquences, et aucune n'est facultative :
 Le mode consentement protège le reste : `ad_user_data` est refusé par défaut,
 donc rien ne part tant que le visiteur n'a pas accepté.
 
-### La 404 n'en était pas une
+### La 404, et ce qu'elle voulait vraiment dire
 
 En vérifiant l'identifiant de site en ligne de commande, l'API répondait :
 
@@ -903,15 +903,58 @@ En vérifiant l'identifiant de site en ligne de commande, l'API répondait :
 GET https://cmp.iwantlead.fr/api/v1/config/qzzmdasx  ->  404 {"error":"not_found"}
 ```
 
-J'en ai conclu que le site n'était pas déclaré. **C'était faux.** La même
-requête, émise depuis la page elle-même, renvoie 200 avec la configuration
-complète. L'API filtre sur l'en-tête `Origin` : sans origine connue, elle
-répond 404 plutôt que 403, ce qui ressemble à s'y méprendre à un identifiant
-inexistant.
+J'en ai conclu que le site n'était pas déclaré, puis, en voyant la même requête
+réussir depuis la page, que l'API filtrait sur l'en-tête `Origin`. **Les deux
+explications étaient fausses.** Dans le script du CMP, une 404 ou une 410 lève
+une erreur dont le message est explicite :
 
-La leçon vaut pour la prochaine fois : **un CMP se teste depuis son origine
-déclarée**, pas au `curl`. Et en local non plus, où la requête est rejetée
-pour CORS, ce qui est le comportement attendu.
+```js
+super("site inconnu ou en pause")
+```
+
+« ou en pause ». Le site existait, il n'était pas encore publié. Depuis qu'il
+l'est, l'API répond 200 à tout le monde, avec ou sans `Origin`.
+
+Et le refus signalé par le back-office, « le domaine du site n'est pas dans la
+liste des domaines autorisés », portait sur un troisième point encore : pas la
+lecture de la configuration, mais **l'enregistrement de la preuve de
+consentement**, qui passe par `/api/v1/consent`. Deux endpoints, deux
+contrôles, un seul symptôme apparent.
+
+### Les changements du back-office arrivent avec un chargement de retard
+
+Symptôme : on modifie quelque chose dans le CMP, on recharge la landing, rien
+ne bouge. Ce n'est pas la landing, c'est la mise en cache HTTP de l'API :
+
+```
+/api/v1/config/<id>   cache-control: public, max-age=300, stale-while-revalidate=86400
+/cmp/v1/cmp.js        cache-control: public, max-age=3600, stale-while-revalidate=86400
+```
+
+`stale-while-revalidate` demande au navigateur de servir **immédiatement la
+copie périmée** et d'aller chercher la nouvelle en arrière-plan. Le
+chargement en cours voit donc l'ancienne configuration, et c'est le chargement
+**suivant** qui montre la nouvelle. Mesuré sur le domaine de production :
+
+| | Ce que sert l'API | Ce que retient la page |
+| --- | --- | --- |
+| Chargement 1 | révision 5 | révision 3 |
+| Chargement 2 | révision 5 | révision 5 |
+
+Pour voir un changement tout de suite : fenêtre de navigation privée, ou
+rechargement forcé, ou simplement recharger deux fois. Un `fetch` avec
+`{cache:'reload'}` depuis la console donne la vraie valeur courante.
+
+Le `localStorage` n'est pas en cause, contrairement à ce qu'on pourrait croire
+en y voyant une clé `iwl_cmp_cfg_<id>`. Le script privilégie toujours le
+réseau&nbsp;: cette entrée ne sert que si la requête échoue, elle expire au bout
+de sept jours, et elle est effacée si l'API répond 404.
+
+> Si le CMP est votre produit, le réglage juste pour un fichier de
+> configuration est `no-cache` avec un `ETag`&nbsp;: chaque chargement
+> revalide, la réponse est un 304 de quelques octets, et une modification est
+> visible au premier rechargement. Gardez `stale-while-revalidate` pour le
+> script, dont la fraîcheur n'a pas le même enjeu.
 
 ### Ce que fait le bandeau, vérifié en ligne
 
@@ -938,19 +981,19 @@ Le bandeau est rendu dans un **shadow DOM**, ce qui explique qu'il échappe aux
 sélecteurs habituels. Pour l'inspecter, il faut passer par
 `[...document.querySelectorAll('*')].find(e => e.shadowRoot)`.
 
-### Le lien du bandeau pointe vers un domaine d'exemple
+### Le lien du bandeau pointait vers un domaine d'exemple
 
-La configuration servie par le CMP contient :
+La configuration servie par le CMP contenait :
 
 ```json
 "privacyPolicyUrl": "https://exemple-client.fr/politique-cookies"
 ```
 
-Le lien « Politique de confidentialité » du bandeau mène donc à un domaine qui
-n'existe pas. Cela se corrige **dans le back-office du CMP**, pas dans ce
-dépôt : la valeur attendue est `https://lebondéménageur.com/confidentialite.html`.
-C'est le dernier point bloquant du dispositif de consentement, et il est
-visible par n'importe quel visiteur qui clique.
+Le lien « Politique de confidentialité » du bandeau menait donc à un domaine
+qui n'existe pas, visible par n'importe quel visiteur qui clique. **Corrigé**
+dans le back-office, la révision 5 de la configuration pointe vers
+`confidentialite.html`. À retenir&nbsp;: ce genre de valeur ne vit pas dans ce
+dépôt, et aucune relecture du code ne l'aurait attrapée.
 
 ### Ce que le bandeau dépose
 
@@ -1048,9 +1091,10 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [x] ~~**Un bandeau de consentement**~~ — le CMP maison d'I Want Lead est posé
       sur les cinq pages, avec les consentements par défaut tous refusés sauf
       `security_storage`. Voir la section « Le bandeau de consentement ».
-- [ ] **Le lien du bandeau** — la configuration du CMP pointe vers
-      `https://exemple-client.fr/politique-cookies`. À corriger dans le
-      back-office, vers `https://lebondéménageur.com/confidentialite.html`.
+- [x] ~~**Le lien du bandeau**~~ — corrigé dans le back-office, le bandeau
+      pointe désormais vers `confidentialite.html` (révision 5 de la config).
+- [x] ~~**Le domaine autorisé du CMP**~~ — `xn--lebondmnageur-ghbb.com` ajouté,
+      les preuves de consentement sont de nouveau enregistrées.
 - [ ] **Le webhook** du formulaire (voir ci-dessus).
 - [x] ~~**GTM**~~ — conteneur `GTM-TWQ8JV44` actif sur `index.html` et
       `merci.html`, après le bloc de consentement. Reste à vérifier dans le
