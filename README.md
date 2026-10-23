@@ -1124,6 +1124,10 @@ Rien de tout ceci n'est bloquant pour une démo, tout l'est pour une mise en lig
 - [x] ~~**Le webhook** du formulaire~~ — branché sur Make, région `eu2`. Reste
       à faire valider le scénario côté Make : validation des champs reçus, et un
       garde-fou contre les envois automatisés, puisque l'URL est publique.
+- [ ] **Un email de confirmation** — la page `/merci` annonçait « vous recevez
+      un email de confirmation ». Rien ne l'envoie, l'étape est retirée. À
+      remettre le jour où le scénario Make en enverra vraiment un&nbsp;: c'est
+      un rassurant gratuit, et l'adresse est déjà dans le payload.
 - [ ] **L'accord de sous-traitance de Make** — confirmer l'entité juridique du
       contrat et signer son DPA. Le point de réception est européen, le groupe
       est américain.
