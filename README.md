@@ -635,6 +635,22 @@ couvre son coût d'acquisition, et le proposer en premier choix attirait
 précisément cette demande. Le visiteur qui déménage moins n'est pas bloqué pour
 autant, la surface n'est pas un champ obligatoire.
 
+La date est bornée&nbsp;: **aujourd'hui au plus tôt, trois mois au plus tard**.
+Au-delà, le projet n'est pas assez mûr pour qu'un déménageur s'en saisisse, le
+conseiller rappellerait dans le vide et le lead vieillirait dans le CRM. Le
+sélecteur natif ferme les dates suivantes, et la validation refait le contrôle
+puisqu'un `max` en HTML ne protège de rien quand la date est tapée au clavier.
+
+> **`toISOString()` est un piège pour une borne de date.** Il convertit en UTC,
+> donc à l'est de Greenwich minuit local devient la veille à 23 h et la borne
+> recule d'un jour. Le `min` laissait ainsi choisir **hier**. Les deux bornes
+> passent maintenant par un formatage en heure locale.
+
+Conséquence sur le tri&nbsp;: **`froid` n'est plus atteignable**. Il demandait
+plus de 120 jours, et la date est obligatoire. Les seuils n'ont pas été touchés
+pour autant, parce qu'un traitement en aval route peut-être déjà dessus&nbsp;:
+`chaud` couvre les six premières semaines, `tiede` le reste des trois mois.
+
 La **priorité commerciale** ne vient plus d'une tranche d'urgence choisie par le
 visiteur mais du nombre de jours qui séparent de la date saisie :
 `chaud` à 45 jours ou moins, `tiede` jusqu'à 120, `froid` au-delà. Une date

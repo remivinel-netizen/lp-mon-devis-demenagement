@@ -2065,8 +2065,23 @@ brancheAdresse('#f-ad2','#ac2','#f-cp2','#f-vl2','#q-cmn2','#n-cp2','d2');
 /* ── Date du déménagement ────────────────────────────────────────────────── */
 // La date remplace les tranches d'urgence : la priorité commerciale se déduit
 // désormais du nombre de jours qui nous en sépare.
+// toISOString() convertit en UTC : à l'est de Greenwich, minuit local devient
+// la veille à 23 h, et la borne reculait donc d'un jour. Le min laissait passer
+// hier. On formate en heure locale.
+function isoLocal(d){
+  var m = d.getMonth() + 1, j = d.getDate();
+  return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (j < 10 ? '0' : '') + j;
+}
 var dateMin = new Date(); dateMin.setHours(0,0,0,0);
-$('#f-date').min = dateMin.toISOString().slice(0,10);
+$('#f-date').min = isoLocal(dateMin);
+// Trois mois de visibilité, pas plus. Au-delà, le projet n'est pas assez mûr
+// pour qu'un déménageur s'en saisisse : le conseiller rappellerait dans le
+// vide, et le lead vieillirait dans le CRM. Le sélecteur natif ferme les dates
+// suivantes tout seul, mais un max en HTML ne protège de rien si la date est
+// tapée au clavier : la vérification est refaite plus bas.
+var dateMax = new Date(dateMin); dateMax.setMonth(dateMax.getMonth() + 3);
+var JOURS_MAX = Math.round((dateMax - dateMin) / 86400000);
+$('#f-date').max = isoLocal(dateMax);
 function litDate(){
   var v = $('#f-date').value;
   if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){ S.date = null; S.dateTxt = null; return null; }
@@ -2077,6 +2092,11 @@ function litDate(){
   return Math.round((d - dateMin) / 86400000);
 }
 function priorite(){
+  // Seuils inchangés. Avec le plafond de trois mois, « chaud » couvre les six
+  // premières semaines et « tiede » le reste : le découpage tient toujours.
+  // En revanche « froid » n'est plus atteignable, puisqu'il demandait plus de
+  // 120 jours et que la date est obligatoire. Si un traitement en aval route
+  // sur cette valeur, cette branche est désormais morte.
   var j = litDate();
   if(j === null) return 'froid';
   if(j <= 45) return 'chaud';
@@ -2167,6 +2187,10 @@ function valideEtSuivant(){
     // l'année : la signaler vaut mieux que de transmettre un lead inexploitable.
     if(litDate() < 0)
       return mauvais('#f-date','Cette date est déjà passée. Vérifiez l’année.','#n-date');
+    if(litDate() > JOURS_MAX)
+      return mauvais('#f-date','Nous établissons les devis jusqu’à trois mois à l’avance. Indiquez une date d’ici le '
+        + dateMax.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})
+        + ', ou rappelez-nous quand la vôtre approchera.','#n-date');
   }
   suivant();
 }
