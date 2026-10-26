@@ -600,7 +600,7 @@ Cinq étapes, dans cet ordre :
 1. **Adresse de départ** — adresse, code postal, ville
 2. **Adresse d'arrivée** — idem
 3. **Date de déménagement** — jour précis
-4. **Surface du logement actuel** — six tranches, de « moins de 30 m² » à
+4. **Surface du logement actuel** — cinq tranches, de « 30 à 50 m² » à
    « plus de 180 m² », avec le volume indicatif affiché
 5. **Coordonnées** — prénom, nom, téléphone, e-mail, consentement
 
@@ -623,12 +623,17 @@ le conseiller qui confirme.
 
 | Surface | Volume affiché |
 |---|---|
-| Moins de 30 m² | 10 m³ |
 | 30 à 50 m² | 18 m³ |
 | 50 à 80 m² | 28 m³ |
 | 80 à 120 m² | 40 m³ |
 | 120 à 180 m² | 58 m³ |
 | Plus de 180 m² | 80 m³ |
+
+La tranche **« moins de 30 m² »** a été retirée. Un studio tient dans un
+utilitaire loué pour la journée&nbsp;: la marge est trop faible pour que le lead
+couvre son coût d'acquisition, et le proposer en premier choix attirait
+précisément cette demande. Le visiteur qui déménage moins n'est pas bloqué pour
+autant, la surface n'est pas un champ obligatoire.
 
 La **priorité commerciale** ne vient plus d'une tranche d'urgence choisie par le
 visiteur mais du nombre de jours qui séparent de la date saisie :
