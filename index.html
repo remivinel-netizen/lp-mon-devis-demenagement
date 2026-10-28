@@ -2074,9 +2074,12 @@ function isoLocal(d){
 }
 // dateMin reste AUJOURD'HUI : c'est l'origine qui sert à compter les jours
 // restants, donc la priorité commerciale et le champ jours_avant_demenagement.
-// La première date SÉLECTIONNABLE, elle, est demain.
+// La première date SÉLECTIONNABLE, elle, est à sept jours : en deçà, aucun
+// déménageur du réseau ne peut caler un camion et une équipe, et le devis
+// n'arriverait que pour décevoir.
+var JOURS_MIN = 7;
 var dateMin = new Date(); dateMin.setHours(0,0,0,0);
-var datePlancher = new Date(dateMin); datePlancher.setDate(datePlancher.getDate() + 1);
+var datePlancher = new Date(dateMin); datePlancher.setDate(datePlancher.getDate() + JOURS_MIN);
 $('#f-date').min = isoLocal(datePlancher);
 // Trois mois de visibilité, pas plus. Au-delà, le projet n'est pas assez mûr
 // pour qu'un déménageur s'en saisisse : le conseiller rappellerait dans le
@@ -2191,9 +2194,10 @@ function valideEtSuivant(){
     // l'année : la signaler vaut mieux que de transmettre un lead inexploitable.
     if(litDate() < 0)
       return mauvais('#f-date','Cette date est déjà passée. Vérifiez l’année.','#n-date');
-    if(litDate() === 0)
-      return mauvais('#f-date','Un déménagement ne s’organise pas le jour même. Choisissez une date à partir de demain, le '
-        + datePlancher.toLocaleDateString('fr-FR',{day:'numeric',month:'long'}) + '.','#n-date');
+    if(litDate() < JOURS_MIN)
+      return mauvais('#f-date','Il faut compter une semaine pour organiser un déménagement. Choisissez une date à partir du '
+        + datePlancher.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})
+        + '. Pour un départ plus urgent, appelez-nous au 04 51 42 04 47.','#n-date');
     if(litDate() > JOURS_MAX)
       return mauvais('#f-date','Nous établissons les devis jusqu’à trois mois à l’avance. Indiquez une date d’ici le '
         + dateMax.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})

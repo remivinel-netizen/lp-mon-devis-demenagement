@@ -635,18 +635,26 @@ couvre son coût d'acquisition, et le proposer en premier choix attirait
 précisément cette demande. Le visiteur qui déménage moins n'est pas bloqué pour
 autant, la surface n'est pas un champ obligatoire.
 
-La date est bornée&nbsp;: **demain au plus tôt, trois mois au plus tard**. Le
-jour même est refusé, un déménagement ne s'organise pas dans la journée. Au-delà
-de trois mois, le projet n'est pas assez mûr pour qu'un déménageur s'en
-saisisse, le conseiller rappellerait dans le vide et le lead vieillirait dans le
-CRM. Le sélecteur natif ferme les dates hors bornes, et la validation refait les
+La date est bornée&nbsp;: **sept jours au plus tôt, trois mois au plus tard**.
+
+En deçà d'une semaine, aucun déménageur du réseau ne cale un camion et une
+équipe&nbsp;: le devis n'arriverait que pour décevoir, et le lead coûterait son
+prix d'acquisition pour rien. Le message de refus ne se contente pas de fermer
+la porte, il donne le numéro&nbsp;: un départ urgent reste une demande qui vaut
+quelque chose, simplement pas par ce formulaire. Au-delà de trois mois, le
+projet n'est pas assez mûr pour qu'un déménageur s'en saisisse, le conseiller
+rappellerait dans le vide et le lead vieillirait dans le CRM.
+
+Le sélecteur natif ferme les dates hors bornes, et la validation refait les
 trois contrôles puisqu'un `min` ou un `max` en HTML ne protège de rien quand la
 date est tapée au clavier.
 
-L'origine du décompte reste **aujourd'hui**, pas demain&nbsp;: c'est elle qui
-alimente `jours_avant_demenagement` et la priorité. Un déménagement demain vaut
-donc 1 jour, et non 0. Décaler l'origine aurait décalé tous les seuils d'un
-jour sans que rien ne le signale.
+L'origine du décompte reste **aujourd'hui**, pas le plancher&nbsp;: c'est elle
+qui alimente `jours_avant_demenagement` et la priorité. Le premier jour
+sélectionnable vaut donc 7, et non 0. Décaler l'origine en même temps que le
+plancher aurait décalé tous les seuils d'une semaine sans que rien ne le
+signale, et le champ envoyé dans le lead aurait cessé de vouloir dire ce qu'il
+annonce.
 
 > **`toISOString()` est un piège pour une borne de date.** Il convertit en UTC,
 > donc à l'est de Greenwich minuit local devient la veille à 23 h et la borne
