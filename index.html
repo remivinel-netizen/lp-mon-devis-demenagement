@@ -1133,9 +1133,14 @@ details .a p + p{margin-top:11px}
                    autocapitalize="off" spellcheck="false" placeholder="camille.martin@email.fr"></div>
           <label class="consent">
             <span class="sw"><input type="checkbox" id="f-consent" name="consentement"><span></span></span>
+            <!-- Ce texte est la preuve de ce que le visiteur a accepté : il part
+                 tel quel dans le lead, champ consentement_texte, avec son
+                 horodatage. Le modifier change donc le périmètre du
+                 consentement, et la politique de confidentialité doit dire la
+                 même chose. -->
             <p id="consent-txt">J'accepte d'être recontacté par la société MATCHMOVE, éditrice du
-              Bon Déménageur, et par les déménageurs partenaires sélectionnés pour établir mon
-              devis. Mes données ne sont utilisées que pour cela.</p>
+              Bon Déménageur, pour établir mon devis. Mes données ne sont utilisées que pour
+              cela.</p>
           </label>
           <p class="note" id="n-contact" aria-live="polite"></p>
           <div class="acts"><button type="submit" class="btn btn--cta btn--full btn--lg" id="q-send">Recevoir mon devis gratuit</button></div>
