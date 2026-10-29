@@ -2079,10 +2079,10 @@ function isoLocal(d){
 }
 // dateMin reste AUJOURD'HUI : c'est l'origine qui sert à compter les jours
 // restants, donc la priorité commerciale et le champ jours_avant_demenagement.
-// La première date SÉLECTIONNABLE, elle, est à sept jours : en deçà, aucun
+// La première date SÉLECTIONNABLE, elle, est à cinq jours : en deçà, aucun
 // déménageur du réseau ne peut caler un camion et une équipe, et le devis
 // n'arriverait que pour décevoir.
-var JOURS_MIN = 7;
+var JOURS_MIN = 5;
 var dateMin = new Date(); dateMin.setHours(0,0,0,0);
 var datePlancher = new Date(dateMin); datePlancher.setDate(datePlancher.getDate() + JOURS_MIN);
 $('#f-date').min = isoLocal(datePlancher);
@@ -2200,7 +2200,7 @@ function valideEtSuivant(){
     if(litDate() < 0)
       return mauvais('#f-date','Cette date est déjà passée. Vérifiez l’année.','#n-date');
     if(litDate() < JOURS_MIN)
-      return mauvais('#f-date','Il faut compter une semaine pour organiser un déménagement. Choisissez une date à partir du '
+      return mauvais('#f-date','Il faut compter quelques jours pour organiser un déménagement. Choisissez une date à partir du '
         + datePlancher.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})
         + '. Pour un départ plus urgent, appelez-nous au 04 51 42 04 47.','#n-date');
     if(litDate() > JOURS_MAX)

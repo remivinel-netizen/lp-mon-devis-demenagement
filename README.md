@@ -635,9 +635,9 @@ couvre son coût d'acquisition, et le proposer en premier choix attirait
 précisément cette demande. Le visiteur qui déménage moins n'est pas bloqué pour
 autant, la surface n'est pas un champ obligatoire.
 
-La date est bornée&nbsp;: **sept jours au plus tôt, trois mois au plus tard**.
+La date est bornée&nbsp;: **cinq jours au plus tôt, trois mois au plus tard**.
 
-En deçà d'une semaine, aucun déménageur du réseau ne cale un camion et une
+En deçà de cinq jours, aucun déménageur du réseau ne cale un camion et une
 équipe&nbsp;: le devis n'arriverait que pour décevoir, et le lead coûterait son
 prix d'acquisition pour rien. Le message de refus ne se contente pas de fermer
 la porte, il donne le numéro&nbsp;: un départ urgent reste une demande qui vaut
