@@ -604,6 +604,34 @@ Cinq étapes, dans cet ordre :
 4. **Date de déménagement** — jour précis
 5. **Coordonnées** — prénom, nom, téléphone, e-mail, consentement
 
+### Les intitulés sont des questions
+
+La classe des légendes s'appelle `step__q` depuis le premier jour&nbsp;: le
+balisage attendait des questions, c'est la rédaction qui n'avait pas suivi. Les
+cinq écrans portaient des groupes nominaux, « La surface de votre logement
+actuel », « Vos coordonnées ».
+
+| Étape | Avant | Maintenant |
+| --- | --- | --- |
+| 1 | La surface de votre logement actuel | Quel logement déménagez-vous&nbsp;? |
+| 2 | Votre adresse de départ | D'où partez-vous&nbsp;? |
+| 3 | Votre adresse d'arrivée | Où arrivez-vous&nbsp;? |
+| 4 | Votre date de déménagement idéale | Quand déménagez-vous&nbsp;? |
+| 5 | Vos coordonnées | Comment vous joindre&nbsp;? |
+
+Une question appelle une réponse, un groupe nominal désigne une case à remplir.
+C'est le registre du Typeform que ce formulaire imite depuis le début, et il
+rend l'enchaînement d'écrans naturel au lieu de le faire ressembler à un
+questionnaire découpé.
+
+Changer un seul intitulé aurait été pire que de n'en changer aucun&nbsp;: le
+premier écran aurait parlé d'une voix, les quatre suivants d'une autre.
+
+> L'amorce du sous-titre de la première étape disait « C'est ce qui détermine le
+> volume ». Le pronom renvoyait à « la surface » de l'ancien intitulé et ne se
+> rattachait plus à rien sous une question portant sur le logement. Il est
+> devenu « La surface détermine le volume à déplacer ».
+
 ### Pourquoi la surface ouvre le formulaire
 
 C'est la seule question du lot qui **se répond d'un seul appui, sans clavier**,
