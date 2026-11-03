@@ -597,15 +597,48 @@ aucun texte clair ne repose sur la photo : c'est là qu'on la laisse se voir.
 
 Cinq étapes, dans cet ordre :
 
-1. **Adresse de départ** — adresse, code postal, ville
-2. **Adresse d'arrivée** — idem
-3. **Date de déménagement** — jour précis
-4. **Surface du logement actuel** — cinq tranches, de « 30 à 50 m² » à
+1. **Surface du logement actuel** — cinq tranches, de « 30 à 50 m² » à
    « plus de 180 m² », avec le volume indicatif affiché
+2. **Adresse de départ** — adresse, code postal, ville
+3. **Adresse d'arrivée** — idem
+4. **Date de déménagement** — jour précis
 5. **Coordonnées** — prénom, nom, téléphone, e-mail, consentement
 
-Ce découpage **reprend celui d'officiel-demenagement.com**, dont le formulaire
-est un Typeform à cinq écrans : mêmes questions, même ordre, mêmes intitulés.
+### Pourquoi la surface ouvre le formulaire
+
+C'est la seule question du lot qui **se répond d'un seul appui, sans clavier**,
+et la sélection enchaîne toute seule sur l'étape suivante. Ouvrir sur l'adresse
+faisait surgir le clavier avant même que le visiteur ait compris ce qu'il
+remplissait, et imposait un code postal à cinq chiffres pour franchir le
+premier écran.
+
+Trois effets mesurés après le changement, sur un seul appui :
+
+- le formulaire passe à l'étape 2 sans rien avoir tapé ;
+- le panneau « Votre projet » affiche **« Environ 18 m³ »**, là où il restait
+  vide jusqu'à la reconnaissance du code postal ;
+- `quiz_start` part enfin **à la première interaction**. Il était poussé par le
+  gestionnaire de changement des boutons radio, donc il n'arrivait qu'à la
+  quatrième étape : tous les abandons avant elle étaient invisibles.
+
+Ce dernier point vaut d'être souligné, parce qu'il fausse toute lecture
+antérieure de l'entonnoir. Le `quiz_start` d'avant ne mesurait pas le démarrage
+du formulaire, il mesurait le fait d'avoir déjà franchi trois écrans.
+
+> **La surface est obligatoire**, et elle l'a toujours été&nbsp;: cette étape
+> n'a pas de bouton « Continuer », la sélection d'une tranche est le seul
+> chemin. Le `volume_m3` du lead n'est donc jamais nul, contrairement à ce que
+> laissait croire le fait que le code accepte `null`.
+
+La contrepartie de ce réordonnancement&nbsp;: **la parité avec le Typeform de
+l'Officiel du Déménagement est rompue**, et les numéros d'étape de l'événement
+`quiz_step` se décalent. Le champ `etape_nom` (`surface`, `depart`, `arrivee`,
+`date_demenagement`, `contact`) ne bouge pas, lui&nbsp;: un entonnoir construit
+dessus survit au changement, un entonnoir construit sur `etape` non.
+
+Ce découpage **reprend les questions d'officiel-demenagement.com**, dont le
+formulaire est un Typeform à cinq écrans : mêmes questions, mêmes intitulés.
+L'ordre, lui, s'en écarte depuis que la surface est passée en tête.
 Trois qualifications que nous posions auparavant ont disparu avec lui —
 **étage**, **ascenseur** et **formule souhaitée**. C'est le parti pris de leur
 modèle : un formulaire court, et un conseiller qui complète au téléphone. La FAQ

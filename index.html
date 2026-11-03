@@ -1011,7 +1011,45 @@ details .a p + p{margin-top:11px}
            reçoit avant d'en faire un lead. -->
       <form id="q-form" class="quiz__view" novalidate data-endpoint="https://hook.eu2.make.com/84dnux99zaudwhwg6zlwrq9t7i8mc0wa">
 
-        <fieldset class="step is-on" data-step="depart">
+        <!-- La surface ouvre le formulaire : c'est la seule question qui se
+             répond d'un seul appui, sans clavier, et la sélection enchaîne
+             toute seule sur l'étape suivante. Ouvrir sur l'adresse faisait
+             surgir le clavier avant même qu'on ait compris ce qu'on remplissait.
+             Conséquence utile au passage : quiz_start part désormais à la
+             première interaction, alors qu'il attendait la quatrième étape. -->
+        <fieldset class="step is-on" data-step="surface">
+          <legend class="step__q">La surface de votre logement actuel</legend>
+          <p class="step__hint">C'est ce qui détermine le volume à déplacer. Une estimation suffit, votre conseiller l'affinera.</p>
+          <!-- La tranche « moins de 30 m² » a été retirée : un studio tient dans
+               un utilitaire loué, la marge est trop faible pour que le lead
+               vaille son coût d'acquisition. La plus petite tranche part donc
+               de 30 m², et le visiteur qui déménage moins n'est pas pour autant
+               bloqué, la surface n'est pas un champ obligatoire. -->
+          <div class="opts">
+            <label class="opt"><input type="radio" name="surface" value="30 à 50 m²" data-vol="18">
+              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
+              <span class="opt__txt">30 à 50 m²<small>environ 18 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="surface" value="50 à 80 m²" data-vol="28">
+              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
+              <span class="opt__txt">50 à 80 m²<small>environ 28 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="surface" value="80 à 120 m²" data-vol="40">
+              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
+              <span class="opt__txt">80 à 120 m²<small>environ 40 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="surface" value="120 à 180 m²" data-vol="58">
+              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
+              <span class="opt__txt">120 à 180 m²<small>environ 58 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+            <label class="opt"><input type="radio" name="surface" value="Plus de 180 m²" data-vol="80">
+              <span class="opt__ico"><svg class="ico"><use href="#i-truck"/></svg></span>
+              <span class="opt__txt">Plus de 180 m²<small>environ 80 m³</small></span>
+              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="depart">
           <legend class="step__q">Votre adresse de départ</legend>
           <p class="step__hint">Le code postal suffit à reconnaître votre commune et à calculer le trajet.</p>
           <div class="field">
@@ -1038,6 +1076,7 @@ details .a p + p{margin-top:11px}
           <div class="communes" id="q-cmn1" role="group" aria-label="Choisissez votre commune de départ"></div>
           <p class="note" id="n-cp1" aria-live="polite"></p>
           <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
+          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
         <fieldset class="step" data-step="arrivee">
@@ -1079,39 +1118,6 @@ details .a p + p{margin-top:11px}
           </div>
           <p class="note" id="n-date" aria-live="polite"></p>
           <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
-          <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
-        </fieldset>
-
-        <fieldset class="step" data-step="surface">
-          <legend class="step__q">La surface de votre logement actuel</legend>
-          <p class="step__hint">C'est ce qui détermine le volume à déplacer. Une estimation suffit, votre conseiller l'affinera.</p>
-          <!-- La tranche « moins de 30 m² » a été retirée : un studio tient dans
-               un utilitaire loué, la marge est trop faible pour que le lead
-               vaille son coût d'acquisition. La plus petite tranche part donc
-               de 30 m², et le visiteur qui déménage moins n'est pas pour autant
-               bloqué, la surface n'est pas un champ obligatoire. -->
-          <div class="opts">
-            <label class="opt"><input type="radio" name="surface" value="30 à 50 m²" data-vol="18">
-              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
-              <span class="opt__txt">30 à 50 m²<small>environ 18 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="surface" value="50 à 80 m²" data-vol="28">
-              <span class="opt__ico"><svg class="ico"><use href="#i-build"/></svg></span>
-              <span class="opt__txt">50 à 80 m²<small>environ 28 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="surface" value="80 à 120 m²" data-vol="40">
-              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
-              <span class="opt__txt">80 à 120 m²<small>environ 40 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="surface" value="120 à 180 m²" data-vol="58">
-              <span class="opt__ico"><svg class="ico"><use href="#i-home"/></svg></span>
-              <span class="opt__txt">120 à 180 m²<small>environ 58 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-            <label class="opt"><input type="radio" name="surface" value="Plus de 180 m²" data-vol="80">
-              <span class="opt__ico"><svg class="ico"><use href="#i-truck"/></svg></span>
-              <span class="opt__txt">Plus de 180 m²<small>environ 80 m³</small></span>
-              <span class="opt__tick"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span></label>
-          </div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
         </fieldset>
 
