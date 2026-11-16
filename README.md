@@ -613,7 +613,7 @@ actuel », « Vos coordonnées ».
 
 | Étape | Avant | Maintenant |
 | --- | --- | --- |
-| 1 | La surface de votre logement actuel | Quel logement déménagez-vous&nbsp;? |
+| 1 | La surface de votre logement actuel | Quelle est la surface de votre logement&nbsp;? |
 | 2 | Votre adresse de départ | D'où partez-vous&nbsp;? |
 | 3 | Votre adresse d'arrivée | Où arrivez-vous&nbsp;? |
 | 4 | Votre date de déménagement idéale | Quand déménagez-vous&nbsp;? |
