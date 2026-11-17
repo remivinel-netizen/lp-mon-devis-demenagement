@@ -786,6 +786,33 @@ approcher le trajet routier) et non une approximation par département.
 Mesuré : Lyon → Bordeaux donne 544 km (réel ≈ 550), Paris → Lyon 491 km
 (réel ≈ 465).
 
+#### Le code postal seul suffit
+
+Un code postal sur cinq dessert plusieurs communes. La page affichait alors la
+liste et attendait un clic. Rien ne l'imposait — la validation n'a jamais
+contrôlé que les cinq chiffres — mais tant que personne ne cliquait, rien
+n'était retenu : ni commune, ni coordonnées, donc ni distance, ni estimation
+dans le panneau de retour. Le lead partait avec `commune_depart: null` et
+`distance_km: null`.
+
+La commune **la plus peuplée est désormais retenue d'office** (la liste est
+déjà triée sur la population), son nom remplit le champ Ville, ses coordonnées
+alimentent le calcul de distance. Les autres communes restent affichées
+dessous, le bouton retenu en surbrillance : un clic suffit à corriger. Le
+message passe de « Plusieurs communes partagent ce code postal : » à
+« Aix-en-Provence retenu. Une autre commune ? Choisissez ci-dessus. »
+
+C'est un arbitrage assumé : mieux vaut une commune approchante que pas de
+commune du tout. Le conseiller tranche au téléphone, et le champ Ville reste
+libre — ce que le visiteur y tape part dans `ville_depart`, à côté de
+`commune_depart` qui porte le nom officiel.
+
+Vérifié : 13100 retient Aix-en-Provence parmi cinq communes et le panneau de
+retour affiche « Départ de Aix-en-Provence » sans aucun clic ; cliquer « Le
+Tholonet » bascule le nom, le champ Ville et le récapitulatif ; 33000, commune
+unique, ne change pas de comportement ; Le Tholonet → Bordeaux calcule bien
+635 km.
+
 ### Aucun montant affiché
 
 **La page ne communique aucun prix** — ni estimation personnalisée, ni grille

@@ -1073,7 +1073,7 @@ details .a p + p{margin-top:11px}
                      autocapitalize="words" placeholder="Lyon">
             </div>
           </div>
-          <div class="communes" id="q-cmn1" role="group" aria-label="Choisissez votre commune de départ"></div>
+          <div class="communes" id="q-cmn1" role="group" aria-label="Communes partageant ce code postal au départ"></div>
           <p class="note" id="n-cp1" aria-live="polite"></p>
           <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
@@ -1103,7 +1103,7 @@ details .a p + p{margin-top:11px}
                      autocapitalize="words" placeholder="Bordeaux">
             </div>
           </div>
-          <div class="communes" id="q-cmn2" role="group" aria-label="Choisissez votre commune d'arrivée"></div>
+          <div class="communes" id="q-cmn2" role="group" aria-label="Communes partageant ce code postal à l'arrivée"></div>
           <p class="note" id="n-cp2" aria-live="polite"></p>
           <div class="acts"><button type="button" class="btn btn--nuit btn--full" data-next>Continuer</button></div>
           <button type="button" class="back" data-back><svg class="ico"><use href="#i-back"/></svg>Retour</button>
@@ -1922,20 +1922,26 @@ function chercheCP(cp, villeId, boxId, noteId, cb){
         note.textContent = 'Code postal inconnu. Vérifiez les cinq chiffres.';
         return;
       }
+      // La plus peuplée en tête : c'est celle qu'on retient d'office.
       list.sort(function(a,b){ return (b.population||0) - (a.population||0); });
       note.textContent = '';
       if(list.length === 1){ choisir(list[0]); return; }
-      note.textContent = 'Plusieurs communes partagent ce code postal :';
+      // Plusieurs communes partagent le code postal. Attendre un clic laissait
+      // sans commune, sans coordonnées, donc sans distance ni estimation, tout
+      // visiteur qui passait à l'étape suivante sans rien choisir. On retient
+      // la principale ; la liste reste affichée pour corriger, et le conseiller
+      // tranche au téléphone de toute façon.
       box.innerHTML = list.slice(0,9).map(function(c,i){
-        return '<button type="button" class="cmn" data-i="'+i+'" aria-pressed="false">'+c.nom+'</button>';
+        return '<button type="button" class="cmn" data-i="'+i+'" aria-pressed="'+(i ? 'false' : 'true')+'">'+c.nom+'</button>';
       }).join('');
       $$('.cmn', box).forEach(function(b){
         b.addEventListener('click', function(){
           $$('.cmn', box).forEach(function(x){ x.setAttribute('aria-pressed','false') });
           b.setAttribute('aria-pressed','true');
-          choisir(list[+b.dataset.i]);
+          choisir(list[+b.dataset.i], true);
         });
       });
+      choisir(list[0], true);
     })
     .catch(function(){
       // L'API peut être indisponible : on ne bloque pas le lead pour autant.
@@ -1944,10 +1950,12 @@ function chercheCP(cp, villeId, boxId, noteId, cb){
       cb({ nom:'CP ' + cp, cp:cp, dep:cp.slice(0,2), lat:null, lon:null });
     });
 
-  function choisir(c){
+  function choisir(c, plusieurs){
     var co = (c.centre && c.centre.coordinates) || [null,null];
     note.className = 'note ok';
-    note.textContent = c.nom + ' retenu.';
+    note.textContent = plusieurs
+      ? c.nom + ' retenu. Une autre commune ? Choisissez ci-dessus.'
+      : c.nom + ' retenu.';
     // Le nom officiel de la commune fait autorité sur ce qui a pu être tapé :
     // il vient du code postal lui-même et évite les fautes de frappe.
     var v = $(villeId); if(v) v.value = c.nom;
